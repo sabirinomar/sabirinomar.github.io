@@ -1,0 +1,133 @@
+{
+  "n_nodes": 303,
+  "n_edges_directed": 1784,
+  "n_edges_undirected": 1434,
+  "n_isolates": 17,
+  "largest_component_size": 277,
+  "top_in_degree": [
+    {
+      "node": "Spider-Man",
+      "degree": 106
+    },
+    {
+      "node": "Hulk",
+      "degree": 64
+    },
+    {
+      "node": "Wolverine_(character)",
+      "degree": 60
+    },
+    {
+      "node": "Doctor_Strange",
+      "degree": 50
+    },
+    {
+      "node": "Deadpool",
+      "degree": 33
+    }
+  ],
+  "top_out_degree": [
+    {
+      "node": "Betsy_Braddock",
+      "degree": 28
+    },
+    {
+      "node": "Cloak_and_Dagger_(characters)",
+      "degree": 24
+    },
+    {
+      "node": "Adam_Warlock",
+      "degree": 22
+    },
+    {
+      "node": "Venom_(character)",
+      "degree": 21
+    },
+    {
+      "node": "She-Hulk",
+      "degree": 20
+    }
+  ],
+  "isolated_nodes": [
+    "Baymax",
+    "Bird-Brain_(Marvel_Comics)",
+    "Black_Fox_(Robert_Paine)",
+    "Brain_Drain_(character)",
+    "Breeze_Barton",
+    "Captain_Midlands",
+    "Charcoal_(comics)",
+    "Father_Time_(Marvel_Comics)",
+    "Happy_Sam_Sawyer",
+    "Hellfire_(J._T._Slade)",
+    "Illuminator_(Marvel_Comics)",
+    "Miracleman_(character)",
+    "Ogre_(Marvel_Comics)",
+    "Sean_and_Chris",
+    "Solarman",
+    "Super_Rabbit",
+    "Yo-Yo_Rodriguez"
+  ],
+  "in_degree_distribution": {
+    "0": 58,
+    "1": 41,
+    "2": 43,
+    "3": 28,
+    "4": 21,
+    "5": 22,
+    "6": 13,
+    "7": 10,
+    "8": 7,
+    "9": 7,
+    "10": 7,
+    "11": 4,
+    "12": 3,
+    "13": 6,
+    "14": 2,
+    "15": 2,
+    "16": 3,
+    "17": 4,
+    "19": 1,
+    "20": 1,
+    "21": 4,
+    "22": 2,
+    "23": 1,
+    "24": 3,
+    "25": 1,
+    "26": 1,
+    "27": 1,
+    "28": 1,
+    "29": 1,
+    "33": 1,
+    "50": 1,
+    "60": 1,
+    "64": 1,
+    "106": 1
+  },
+  "out_degree_distribution": {
+    "0": 20,
+    "1": 31,
+    "2": 37,
+    "3": 40,
+    "4": 31,
+    "5": 21,
+    "6": 16,
+    "7": 14,
+    "8": 17,
+    "9": 14,
+    "10": 6,
+    "11": 12,
+    "12": 11,
+    "13": 3,
+    "14": 9,
+    "15": 3,
+    "16": 4,
+    "17": 5,
+    "18": 1,
+    "19": 2,
+    "20": 2,
+    "21": 1,
+    "22": 1,
+    "24": 1,
+    "28": 1
+  }
+}

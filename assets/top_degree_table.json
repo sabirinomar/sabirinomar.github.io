@@ -1,0 +1,46 @@
+{
+  "top_in_degree": [
+    {
+      "node": "Spider-Man",
+      "in_degree": 106
+    },
+    {
+      "node": "Hulk",
+      "in_degree": 64
+    },
+    {
+      "node": "Wolverine_(character)",
+      "in_degree": 60
+    },
+    {
+      "node": "Doctor_Strange",
+      "in_degree": 50
+    },
+    {
+      "node": "Deadpool",
+      "in_degree": 33
+    }
+  ],
+  "top_out_degree": [
+    {
+      "node": "Betsy_Braddock",
+      "out_degree": 28
+    },
+    {
+      "node": "Cloak_and_Dagger_(characters)",
+      "out_degree": 24
+    },
+    {
+      "node": "Adam_Warlock",
+      "out_degree": 22
+    },
+    {
+      "node": "Venom_(character)",
+      "out_degree": 21
+    },
+    {
+      "node": "She-Hulk",
+      "out_degree": 20
+    }
+  ]
+}
