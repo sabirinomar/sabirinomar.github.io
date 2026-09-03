@@ -25,9 +25,9 @@
 
     <main class="container main-content">
       <article class="article">
-        <p class="tag">Week 1 · Exercise 1.8</p>
+        <span class="eyebrow">Week 1 · Exercise 1.8</span>
         <h1>Marvel Comics hyperlink network</h1>
-        <p>
+        <p class="lead">
           For this first exercise, we asked a simple question: how do Wikipedia
           article-to-article hyperlinks connect characters in the Marvel Comics
           universe? We used the frozen Week-1 network released for the course,
@@ -51,6 +51,23 @@
           <div class="metric">
             <span class="label">Isolates</span>
             <span class="value">17</span>
+          </div>
+        </div>
+
+        <div class="callout-grid" aria-label="Data notes">
+          <div class="callout">
+            <strong>What data we used</strong>
+            <p>
+              The node file includes character identifiers, names, and metadata, while
+              each edge records a directed link from one page to another.
+            </p>
+          </div>
+          <div class="callout">
+            <strong>Why it matters</strong>
+            <p>
+              The course page warns that 17 characters have no links in either direction,
+              so we preserved all 303 nodes before adding edges.
+            </p>
           </div>
         </div>
 
@@ -119,6 +136,94 @@
               <tr><td>Largest out-degree</td><td>Betsy Braddock (28)</td></tr>
             </tbody>
           </table>
+        </div>
+
+        <h2>Marvel's Social Graph Awards</h2>
+        <p class="lead">
+          This is a playful, network-based awards ceremony. The winners are the characters
+          that stand out on different structural measures of the graph, not necessarily the
+          most famous in the broader Marvel universe. In other words: this is a graph contest,
+          not a literal popularity contest.
+        </p>
+
+        <div class="award-grid" aria-label="Marvel network awards">
+          <article class="award-card">
+            <div class="award-badge">Most Popular</div>
+            <h3>Spider-Man</h3>
+            <div class="award-metric">106 incoming links</div>
+            <p>The character who receives the most links from other character pages.</p>
+            <p class="award-definition"><strong>Metric:</strong> in-degree</p>
+          </article>
+
+          <article class="award-card">
+            <div class="award-badge">Biggest Name-Dropper</div>
+            <h3>Betsy Braddock</h3>
+            <div class="award-metric">28 outgoing links</div>
+            <p>The page that points to the most other character pages in the graph.</p>
+            <p class="award-definition"><strong>Metric:</strong> out-degree</p>
+          </article>
+
+          <article class="award-card">
+            <div class="award-badge">Main Character Energy</div>
+            <h3>Spider-Man</h3>
+            <div class="award-metric">PageRank = 0.0501</div>
+            <p>PageRank rewards being linked to by other structurally central nodes, not simply by having many links.</p>
+            <p class="award-definition"><strong>Metric:</strong> PageRank</p>
+          </article>
+
+          <article class="award-card">
+            <div class="award-badge">Social Butterfly</div>
+            <h3>Spider-Man</h3>
+            <div class="award-metric">115 total links</div>
+            <p>This is the highest combined in-degree and out-degree in the directed network.</p>
+            <p class="award-definition"><strong>Metric:</strong> total degree</p>
+          </article>
+
+          <article class="award-card">
+            <div class="award-badge">The Real Connector</div>
+            <h3>Wolverine</h3>
+            <div class="award-metric">Betweenness = 0.0655</div>
+            <p>Wolverine sits on the largest number of shortest paths between other characters in this graph.</p>
+            <p class="award-definition"><strong>Metric:</strong> betweenness centrality</p>
+          </article>
+
+          <article class="award-card award-card--wide">
+            <div class="award-badge">Mysterious Loners</div>
+            <h3>17 isolated nodes</h3>
+            <div class="isolated-list">
+              <span>Baymax</span>
+              <span>Bird-Brain</span>
+              <span>Black Fox</span>
+              <span>Brain Drain</span>
+              <span>Breeze Barton</span>
+              <span>Captain Midlands</span>
+              <span>Charcoal</span>
+              <span>Father Time</span>
+              <span>Happy Sam Sawyer</span>
+              <span>Hellfire</span>
+              <span>Illuminator</span>
+              <span>Miracleman</span>
+              <span>Ogre</span>
+              <span>Sean and Chris</span>
+              <span>Solarman</span>
+              <span>Super Rabbit</span>
+              <span>Yo-Yo Rodriguez</span>
+            </div>
+            <p>Each of these characters has zero in-degree and zero out-degree in the provided graph. The dataset does not show any further special pattern beyond this structural isolation.</p>
+            <p class="award-definition"><strong>Metric:</strong> isolate detection</p>
+          </article>
+        </div>
+
+        <div class="figure-block">
+          <iframe
+            src="../../assets/figures/week1/marvel_awards_leaderboard.html"
+            title="Leaderboard of the PageRank-based Main Character Energy award"
+            loading="lazy"
+          ></iframe>
+          <p class="figure-caption">
+            Figure 3. PageRank leaderboard for the “Main Character Energy” award. This shows the
+            top-ranked characters by structural centrality in the directed hyperlink network.
+          </p>
         </div>
 
         <h3>Top in-degree characters</h3>

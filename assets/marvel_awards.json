@@ -1,0 +1,220 @@
+{
+  "most_popular": {
+    "title": "Most Popular",
+    "winner": {
+      "node_id": "Spider-Man",
+      "name": "Spider-Man",
+      "metric": "in_degree",
+      "value": 106
+    },
+    "what_it_measures": "In-degree counts how many other character pages link to a character.",
+    "playful_note": "The star of the network is the one everyone keeps citing."
+  },
+  "biggest_name_dropper": {
+    "title": "Biggest Name-Dropper",
+    "winner": {
+      "node_id": "Betsy_Braddock",
+      "name": "Betsy Braddock",
+      "metric": "out_degree",
+      "value": 28
+    },
+    "what_it_measures": "Out-degree counts how many other character pages a character links to.",
+    "playful_note": "This is the character whose page keeps sending readers to the next name on the list."
+  },
+  "main_character_energy": {
+    "title": "Main Character Energy",
+    "winner": {
+      "node_id": "Spider-Man",
+      "name": "Spider-Man",
+      "metric": "pagerank",
+      "value": 0.05014098886965177
+    },
+    "top_5": [
+      {
+        "node_id": "Spider-Man",
+        "name": "Spider-Man",
+        "pagerank": 0.05014098886965177
+      },
+      {
+        "node_id": "Hulk",
+        "name": "Hulk",
+        "pagerank": 0.027998476210234952
+      },
+      {
+        "node_id": "Wolverine_(character)",
+        "name": "Wolverine (character)",
+        "pagerank": 0.025926158491162945
+      },
+      {
+        "node_id": "Doctor_Strange",
+        "name": "Doctor Strange",
+        "pagerank": 0.02072355595361328
+      },
+      {
+        "node_id": "Black_Cat_(Marvel_Comics)",
+        "name": "Black Cat (Marvel Comics)",
+        "pagerank": 0.017605551735771423
+      }
+    ],
+    "what_it_measures": "PageRank rewards being linked to by other important nodes, not just by raw count alone.",
+    "playful_note": "The page is not literally 'more important' in the real world \u2014 it is simply structurally central in the hyperlink graph."
+  },
+  "social_butterfly": {
+    "title": "Social Butterfly",
+    "winner": {
+      "node_id": "Spider-Man",
+      "name": "Spider-Man",
+      "metric": "total_degree",
+      "value": 115
+    },
+    "what_it_measures": "Total degree is the sum of a character's in-degree and out-degree.",
+    "playful_note": "This is the character with the largest total footprint in the network, counting both incoming and outgoing links."
+  },
+  "real_connector": {
+    "title": "The Real Connector",
+    "winner": {
+      "node_id": "Wolverine_(character)",
+      "name": "Wolverine (character)",
+      "metric": "betweenness_centrality",
+      "value": 0.06548268915013161
+    },
+    "top_5": [
+      {
+        "node_id": "Wolverine_(character)",
+        "name": "Wolverine (character)",
+        "betweenness": 0.06548268915013161
+      },
+      {
+        "node_id": "Hercules_(Marvel_Comics)",
+        "name": "Hercules (Marvel Comics)",
+        "betweenness": 0.06103140484969542
+      },
+      {
+        "node_id": "Spider-Man",
+        "name": "Spider-Man",
+        "betweenness": 0.05721239204080617
+      },
+      {
+        "node_id": "Deadpool",
+        "name": "Deadpool",
+        "betweenness": 0.057019672952522235
+      },
+      {
+        "node_id": "Doctor_Strange",
+        "name": "Doctor Strange",
+        "betweenness": 0.056364551700424065
+      }
+    ],
+    "what_it_measures": "Betweenness centrality counts how often a node lies on shortest paths between other nodes.",
+    "playful_note": "A high betweenness value suggests the node can bridge parts of the network, rather than simply being highly connected."
+  },
+  "mysterious_loners": {
+    "title": "Mysterious Loners",
+    "isolates": [
+      {
+        "node_id": "Baymax",
+        "name": "Baymax",
+        "in_degree": 0,
+        "out_degree": 0
+      },
+      {
+        "node_id": "Bird-Brain_(Marvel_Comics)",
+        "name": "Bird-Brain (Marvel Comics)",
+        "in_degree": 0,
+        "out_degree": 0
+      },
+      {
+        "node_id": "Black_Fox_(Robert_Paine)",
+        "name": "Black Fox (Robert Paine)",
+        "in_degree": 0,
+        "out_degree": 0
+      },
+      {
+        "node_id": "Brain_Drain_(character)",
+        "name": "Brain Drain (character)",
+        "in_degree": 0,
+        "out_degree": 0
+      },
+      {
+        "node_id": "Breeze_Barton",
+        "name": "Breeze Barton",
+        "in_degree": 0,
+        "out_degree": 0
+      },
+      {
+        "node_id": "Captain_Midlands",
+        "name": "Captain Midlands",
+        "in_degree": 0,
+        "out_degree": 0
+      },
+      {
+        "node_id": "Charcoal_(comics)",
+        "name": "Charcoal (comics)",
+        "in_degree": 0,
+        "out_degree": 0
+      },
+      {
+        "node_id": "Father_Time_(Marvel_Comics)",
+        "name": "Father Time (Marvel Comics)",
+        "in_degree": 0,
+        "out_degree": 0
+      },
+      {
+        "node_id": "Happy_Sam_Sawyer",
+        "name": "Happy Sam Sawyer",
+        "in_degree": 0,
+        "out_degree": 0
+      },
+      {
+        "node_id": "Hellfire_(J._T._Slade)",
+        "name": "Hellfire (J. T. Slade)",
+        "in_degree": 0,
+        "out_degree": 0
+      },
+      {
+        "node_id": "Illuminator_(Marvel_Comics)",
+        "name": "Illuminator (Marvel Comics)",
+        "in_degree": 0,
+        "out_degree": 0
+      },
+      {
+        "node_id": "Miracleman_(character)",
+        "name": "Miracleman (character)",
+        "in_degree": 0,
+        "out_degree": 0
+      },
+      {
+        "node_id": "Ogre_(Marvel_Comics)",
+        "name": "Ogre (Marvel Comics)",
+        "in_degree": 0,
+        "out_degree": 0
+      },
+      {
+        "node_id": "Sean_and_Chris",
+        "name": "Sean and Chris",
+        "in_degree": 0,
+        "out_degree": 0
+      },
+      {
+        "node_id": "Solarman",
+        "name": "Solarman",
+        "in_degree": 0,
+        "out_degree": 0
+      },
+      {
+        "node_id": "Super_Rabbit",
+        "name": "Super Rabbit",
+        "in_degree": 0,
+        "out_degree": 0
+      },
+      {
+        "node_id": "Yo-Yo_Rodriguez",
+        "name": "Yo-Yo Rodriguez",
+        "in_degree": 0,
+        "out_degree": 0
+      }
+    ],
+    "what_it_measures": "These 17 nodes have zero in-degree and zero out-degree in the provided graph.",
+    "playful_note": "The dataset tells us they are structurally disconnected; there is no additional story signal in the provided data beyond that fact."
+  }
+}

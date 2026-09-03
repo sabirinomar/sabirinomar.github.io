@@ -119,6 +119,117 @@ def save_top_degree_table(top_in, top_out, path: Path) -> None:
     path.write_text(json.dumps(table, indent=2), encoding="utf-8")
 
 
+def _display_name(node_id: str, node_names: dict[str, str]) -> str:
+    """Return a friendlier display name for a node_id."""
+    return node_names.get(node_id, node_id)
+
+
+def compute_awards(G: nx.DiGraph, nodes: pd.DataFrame) -> dict:
+    """Compute the playful but data-grounded Marvel network awards."""
+    node_names = nodes.set_index("node_id")["name"].to_dict()
+    in_deg = dict(G.in_degree())
+    out_deg = dict(G.out_degree())
+    total_deg = {node: in_deg[node] + out_deg[node] for node in G.nodes()}
+    pagerank = nx.pagerank(G)
+    betweenness = nx.betweenness_centrality(G)
+    isolates = sorted(nx.isolates(G.to_undirected()))
+
+    def winner(metric: dict[str, int], metric_name: str) -> dict:
+        node_id, value = max(metric.items(), key=lambda item: (item[1], item[0]))
+        return {
+            "node_id": node_id,
+            "name": _display_name(node_id, node_names),
+            "metric": metric_name,
+            "value": value,
+        }
+
+    top_pagerank = [
+        {"node_id": node_id, "name": _display_name(node_id, node_names), "pagerank": value}
+        for node_id, value in sorted(pagerank.items(), key=lambda item: (-item[1], item[0]))[:5]
+    ]
+
+    top_betweenness = [
+        {"node_id": node_id, "name": _display_name(node_id, node_names), "betweenness": value}
+        for node_id, value in sorted(betweenness.items(), key=lambda item: (-item[1], item[0]))[:5]
+    ]
+
+    awards = {
+        "most_popular": {
+            "title": "Most Popular",
+            "winner": winner(in_deg, "in_degree"),
+            "what_it_measures": "In-degree counts how many other character pages link to a character.",
+            "playful_note": "The star of the network is the one everyone keeps citing.",
+        },
+        "biggest_name_dropper": {
+            "title": "Biggest Name-Dropper",
+            "winner": winner(out_deg, "out_degree"),
+            "what_it_measures": "Out-degree counts how many other character pages a character links to.",
+            "playful_note": "This is the character whose page keeps sending readers to the next name on the list.",
+        },
+        "main_character_energy": {
+            "title": "Main Character Energy",
+            "winner": winner(pagerank, "pagerank"),
+            "top_5": top_pagerank,
+            "what_it_measures": "PageRank rewards being linked to by other important nodes, not just by raw count alone.",
+            "playful_note": "The page is not literally 'more important' in the real world — it is simply structurally central in the hyperlink graph.",
+        },
+        "social_butterfly": {
+            "title": "Social Butterfly",
+            "winner": winner(total_deg, "total_degree"),
+            "what_it_measures": "Total degree is the sum of a character's in-degree and out-degree.",
+            "playful_note": "This is the character with the largest total footprint in the network, counting both incoming and outgoing links.",
+        },
+        "real_connector": {
+            "title": "The Real Connector",
+            "winner": winner(betweenness, "betweenness_centrality"),
+            "top_5": top_betweenness,
+            "what_it_measures": "Betweenness centrality counts how often a node lies on shortest paths between other nodes.",
+            "playful_note": "A high betweenness value suggests the node can bridge parts of the network, rather than simply being highly connected.",
+        },
+        "mysterious_loners": {
+            "title": "Mysterious Loners",
+            "isolates": [
+                {"node_id": node_id, "name": _display_name(node_id, node_names), "in_degree": in_deg[node_id], "out_degree": out_deg[node_id]}
+                for node_id in isolates
+            ],
+            "what_it_measures": "These 17 nodes have zero in-degree and zero out-degree in the provided graph.",
+            "playful_note": "The dataset tells us they are structurally disconnected; there is no additional story signal in the provided data beyond that fact.",
+        },
+    }
+
+    return awards
+
+
+def save_awards_visualization(awards: dict, path: Path) -> None:
+    """Save a top-5 PageRank leaderboard as an interactive HTML figure."""
+    top_5 = awards["main_character_energy"]["top_5"]
+    names = [entry["name"] for entry in top_5]
+    values = [entry["pagerank"] for entry in top_5]
+
+    fig = go.Figure(
+        go.Bar(
+            x=values,
+            y=names,
+            orientation="h",
+            marker=dict(color=["#ff7bb4", "#f9d778", "#b9abff", "#ffb38a", "#f4bfd7"], line=dict(color="#2f2640", width=1.1)),
+            hovertemplate="<b>%{y}</b><br>PageRank: %{x:.4f}<extra></extra>",
+        )
+    )
+    fig.update_layout(
+        title="Main Character Energy leaderboard",
+        xaxis_title="PageRank",
+        yaxis_title="Character",
+        template="plotly_white",
+        paper_bgcolor="rgba(0,0,0,0)",
+        plot_bgcolor="rgba(0,0,0,0)",
+        margin=dict(l=20, r=20, t=50, b=20),
+        height=500,
+        width=1000,
+        font=dict(family="Arial, sans-serif", color="#2f2640"),
+    )
+    fig.write_html(path, include_plotlyjs="cdn", full_html=True)
+
+
 def save_interactive_network(G: nx.DiGraph, path: Path) -> None:
     """Save an interactive directed network visualization as HTML."""
     pos = nx.spring_layout(G, seed=42, k=0.35)
@@ -244,8 +355,11 @@ def main() -> None:
         "out_degree_distribution": dict(sorted(Counter(d for _, d in G.out_degree()).items())),
     }
 
+    awards = compute_awards(G, nodes)
     summary_path = REPO_ROOT / "assets" / "week1_summary.json"
     summary_path.write_text(json.dumps(results, indent=2), encoding="utf-8")
+    awards_path = REPO_ROOT / "assets" / "marvel_awards.json"
+    awards_path.write_text(json.dumps(awards, indent=2, default=str), encoding="utf-8")
 
     save_network_figure(G, FIGURE_DIR / "marvel_network.png")
     save_interactive_network(G, FIGURE_DIR / "marvel_network_interactive.html")
@@ -261,6 +375,7 @@ def main() -> None:
     fig.savefig(FIGURE_DIR / "degree_distributions.png", dpi=200, bbox_inches="tight")
     plt.close(fig)
     save_interactive_degree_distribution(G, FIGURE_DIR / "degree_distributions_interactive.html")
+    save_awards_visualization(awards, FIGURE_DIR / "marvel_awards_leaderboard.html")
 
     save_top_degree_table(in_deg[:5], out_deg[:5], REPO_ROOT / "assets" / "top_degree_table.json")
 
@@ -275,6 +390,8 @@ def main() -> None:
     print("Top out-degree:")
     for node, degree in out_deg[:5]:
         print(f"  {node}: {degree}")
+    print("Award winners:")
+    print(json.dumps(awards, indent=2, default=str))
 
 
 if __name__ == "__main__":
