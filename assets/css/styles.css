@@ -132,6 +132,67 @@ a:hover {
   padding: 2.2rem 0 5rem;
 }
 
+.week1-layout {
+  display: grid;
+  grid-template-columns: minmax(160px, 190px) minmax(0, 1fr);
+  align-items: start;
+  gap: 1.4rem;
+}
+
+.week1-sidebar {
+  position: sticky;
+  top: 106px;
+  padding: 1rem;
+  background: linear-gradient(180deg, rgba(255,255,255,0.68), rgba(246,238,255,0.82));
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  box-shadow: var(--shadow-soft);
+}
+
+.week1-sidebar-title {
+  display: block;
+  margin-bottom: 0.65rem;
+  color: var(--navy);
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.week1-sidebar nav {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.week1-sidebar a {
+  display: block;
+  padding: 0.42rem 0.55rem;
+  border-radius: 12px;
+  color: var(--muted);
+  font-size: 0.76rem;
+  font-weight: 700;
+  line-height: 1.35;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.week1-sidebar a:hover,
+.week1-sidebar a:focus-visible {
+  background: linear-gradient(90deg, rgba(255, 123, 180, 0.16), rgba(185, 171, 255, 0.2));
+  color: var(--navy);
+  transform: translateX(2px);
+}
+
+.article h1,
+.article h2,
+.article h3 {
+  scroll-margin-top: 110px;
+}
+
+.article h1:target,
+.article h2:target,
+.article h3:target {
+  color: var(--pink-strong);
+}
+
 .hero {
   padding: 2.5rem 0 1.5rem;
 }
@@ -627,6 +688,29 @@ li + li {
 }
 
 @media (max-width: 700px) {
+  .week1-layout {
+    display: block;
+  }
+
+  .week1-sidebar {
+    position: static;
+    margin-bottom: 1rem;
+  }
+
+  .week1-sidebar nav {
+    display: flex;
+    gap: 0.4rem;
+    overflow-x: auto;
+    padding-bottom: 0.15rem;
+    scrollbar-width: thin;
+  }
+
+  .week1-sidebar a {
+    flex: 0 0 auto;
+    background: rgba(255,255,255,0.5);
+    white-space: nowrap;
+  }
+
   .nav {
     min-height: auto;
     padding: 0.9rem 0;

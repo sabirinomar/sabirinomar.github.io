@@ -24,9 +24,26 @@
     </header>
 
     <main class="container main-content">
-      <article class="article">
+      <div class="week1-layout">
+        <aside class="week1-sidebar" aria-label="Week 1 sections">
+          <span class="week1-sidebar-title">On this page</span>
+          <nav>
+            <a href="#overview">Overview</a>
+            <a href="#data">What data we used</a>
+            <a href="#method">What we did</a>
+            <a href="#results">Key results</a>
+            <a href="#awards">Social Graph Awards</a>
+            <a href="#in-degree">Top in-degree</a>
+            <a href="#out-degree">Top out-degree</a>
+            <a href="#surprises">What surprised us</a>
+            <a href="#degree-difference">In-degree vs out-degree</a>
+            <a href="#code">Analysis code</a>
+          </nav>
+        </aside>
+
+        <article class="article">
         <span class="eyebrow">Week 1 · Exercise 1.8</span>
-        <h1>Marvel Comics hyperlink network</h1>
+        <h1 id="overview">Marvel Comics hyperlink network</h1>
         <p class="lead">
           For this first exercise, we asked a simple question: how do Wikipedia
           article-to-article hyperlinks connect characters in the Marvel Comics
@@ -71,7 +88,7 @@
           </div>
         </div>
 
-        <h2>What data we used</h2>
+        <h2 id="data">What data we used</h2>
         <p>
           The dataset was downloaded from the course data page and loaded with
           pandas and NetworkX. The node file includes the character identifiers,
@@ -83,7 +100,7 @@
           the edge list would silently drop isolates.
         </p>
 
-        <h2>What we did</h2>
+        <h2 id="method">What we did</h2>
         <p>
           We built a directed NetworkX graph from the node list and the edge list,
           then computed the in-degree and out-degree of each character. We also
@@ -117,7 +134,7 @@
           </p>
         </div>
 
-        <h2>Key results</h2>
+        <h2 id="results">Key results</h2>
         <div class="table-wrap">
           <table>
             <thead>
@@ -138,7 +155,7 @@
           </table>
         </div>
 
-        <h2>Marvel's Social Graph Awards</h2>
+        <h2 id="awards">Marvel's Social Graph Awards</h2>
         <p class="lead">
           This is a playful, network-based awards ceremony. The winners are the characters
           that stand out on different structural measures of the graph, not necessarily the
@@ -226,7 +243,7 @@
           </p>
         </div>
 
-        <h3>Top in-degree characters</h3>
+        <h3 id="in-degree">Top in-degree characters</h3>
         <ol>
           <li>Spider-Man — 106</li>
           <li>Hulk — 64</li>
@@ -235,7 +252,7 @@
           <li>Deadpool — 33</li>
         </ol>
 
-        <h3>Top out-degree characters</h3>
+        <h3 id="out-degree">Top out-degree characters</h3>
         <ol>
           <li>Betsy Braddock — 28</li>
           <li>Cloak and Dagger — 24</li>
@@ -244,7 +261,7 @@
           <li>She-Hulk — 20</li>
         </ol>
 
-        <h2>What surprised us</h2>
+        <h2 id="surprises">What surprised us</h2>
         <p>
           One surprising feature is that the graph contains 17 isolated characters,
           even though the edge list has 1,784 links. This means network structure is
@@ -256,7 +273,7 @@
           uniformly connected.
         </p>
 
-        <h2>Why in-degree and out-degree can differ</h2>
+        <h2 id="degree-difference">Why in-degree and out-degree can differ</h2>
         <p>
           In this Wikipedia network, a directed edge means “page A contains a link to
           page B.” That makes in-degree a count of how often a character is referenced
@@ -267,14 +284,15 @@
           names but not be cited as often in return.
         </p>
 
-        <h2>Analysis code</h2>
+        <h2 id="code">Analysis code</h2>
         <p>
           The scripts and generated figures used in this post are stored in the repository,
           and the analysis is run directly from the project folder to keep the workflow
           reproducible. The code adds every node before adding edge data so that isolated
           nodes are preserved, which is essential here because 17 characters are disconnected.
         </p>
-      </article>
+        </article>
+      </div>
     </main>
 
     <footer class="site-footer">
