@@ -365,7 +365,16 @@ a:hover {
 }
 
 .star-card {
+  isolation: isolate;
   min-height: 190px;
+  border: 2px solid transparent;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.76), rgba(255,245,250,0.9)) padding-box,
+    conic-gradient(from 135deg, var(--pink), var(--sun), var(--rose), var(--pink)) border-box;
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  background-size: 100% 100%, 220% 220%;
+  animation: star-border-glow 8s linear infinite;
 }
 
 .star-card::before {
@@ -380,15 +389,70 @@ a:hover {
 }
 
 .star-card:nth-child(2) {
-  background: linear-gradient(180deg, rgba(255,255,255,0.76), rgba(246,241,255,0.9));
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.76), rgba(246,241,255,0.9)) padding-box,
+    conic-gradient(from 220deg, var(--lilac), var(--pink), var(--lavender), var(--lilac)) border-box;
 }
 
 .star-card:nth-child(3) {
-  background: linear-gradient(180deg, rgba(255,255,255,0.76), rgba(255,241,247,0.9));
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.76), rgba(255,241,247,0.9)) padding-box,
+    conic-gradient(from 40deg, var(--sun), var(--gold), var(--lilac), var(--pink), var(--sun)) border-box;
+}
+
+.star-card:nth-child(1) {
+  box-shadow: 0 12px 30px rgba(230, 108, 150, 0.16);
+}
+
+.star-card:nth-child(2) {
+  box-shadow: 0 12px 30px rgba(185, 171, 255, 0.2);
+}
+
+.star-card:nth-child(3) {
+  box-shadow: 0 12px 30px rgba(249, 215, 120, 0.2);
+}
+
+.star-card::after {
+  position: absolute;
+  right: 1rem;
+  bottom: 0.8rem;
+  z-index: 0;
+  width: 2.8rem;
+  height: 2.8rem;
+  clip-path: polygon(
+    50% 0%, 61% 35%, 98% 35%, 68% 57%,
+    79% 93%, 50% 71%, 21% 93%, 32% 57%,
+    2% 35%, 39% 35%
+  );
+  background: linear-gradient(135deg, rgba(255,255,255,0.94), var(--pink));
+  filter: drop-shadow(0 0 10px rgba(255,255,255,0.85));
+}
+
+.star-card:nth-child(2)::after {
+  background: linear-gradient(135deg, rgba(255,255,255,0.94), var(--lilac));
+  filter: drop-shadow(0 0 10px rgba(185,171,255,0.7));
+}
+
+.star-card:nth-child(3)::after {
+  background: linear-gradient(135deg, rgba(255,255,255,0.94), var(--sun));
+  filter: drop-shadow(0 0 10px rgba(249,215,120,0.8));
+}
+
+@keyframes star-border-glow {
+  0% {
+    background-position: 0 0, 0% 50%;
+  }
+  50% {
+    background-position: 0 0, 100% 50%;
+  }
+  100% {
+    background-position: 0 0, 0% 50%;
+  }
 }
 
 .star-card-body {
   position: relative;
+  z-index: 1;
   min-height: 190px;
   display: flex;
   flex-direction: column;
