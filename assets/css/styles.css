@@ -293,6 +293,67 @@ a:hover {
   color: var(--pink-strong);
 }
 
+.stars-section .section-head {
+  margin-bottom: 1.5rem;
+}
+
+.stars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.2rem;
+}
+
+.star-card {
+  min-height: 190px;
+}
+
+.star-card::before {
+  content: "";
+  position: absolute;
+  top: -42px;
+  right: -28px;
+  width: 128px;
+  height: 128px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(249, 215, 120, 0.52), transparent 68%);
+}
+
+.star-card:nth-child(2) {
+  background: linear-gradient(180deg, rgba(255,255,255,0.76), rgba(246,241,255,0.9));
+}
+
+.star-card:nth-child(3) {
+  background: linear-gradient(180deg, rgba(255,255,255,0.76), rgba(255,241,247,0.9));
+}
+
+.star-card-body {
+  position: relative;
+  min-height: 190px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+
+.star-card h3 {
+  position: relative;
+  margin: 0;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(1.45rem, 2vw, 1.9rem);
+  line-height: 1.12;
+  letter-spacing: -0.04em;
+  color: var(--navy);
+}
+
+.star-id {
+  margin: 0.55rem 0 0;
+  color: var(--pink-strong);
+  font-size: 0.84rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
 .article {
   background: linear-gradient(180deg, rgba(255,255,255,0.74), rgba(255,247,250,0.9));
   border: 1px solid var(--border);
@@ -592,6 +653,10 @@ li + li {
 
   .article {
     padding: 1.2rem;
+  }
+
+  .stars-grid {
+    grid-template-columns: 1fr;
   }
 }
 
