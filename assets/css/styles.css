@@ -1,25 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap');
 
 :root {
-  --cream: #fffaf5;
-  --peach: #f9d5c2;
-  --blush: #f7dfe9;
-  --pink: #ff7bb4;
-  --pink-strong: #f0579f;
-  --rose: #e66c96;
-  --lavender: #d9d1ff;
-  --lilac: #b9abff;
-  --sun: #f9d778;
-  --gold: #ffdca6;
-  --navy: #1d264b;
-  --navy-soft: #2d385f;
-  --text: #2f2640;
-  --muted: #625473;
-  --panel: rgba(255, 255, 255, 0.58);
-  --panel-strong: rgba(255, 255, 255, 0.8);
-  --border: rgba(96, 74, 120, 0.18);
-  --shadow: 0 22px 48px rgba(71, 47, 95, 0.15);
-  --shadow-soft: 0 12px 30px rgba(122, 94, 160, 0.12);
+ 
+  
+
+
+  
+  
 }
 
 * {
@@ -306,20 +293,19 @@ a:hover {
 .module-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.85rem;
+  gap: 1.2rem;
 }
 
 .module-card {
   position: relative;
   display: flex;
-  min-height: 190px;
+  min-height: 265px;
   flex-direction: column;
   align-items: stretch;
-  padding: 1rem;
+  padding: 1.35rem;
   overflow: hidden;
   color: var(--text);
   text-align: left;
-  text-decoration: none;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(255, 245, 250, 0.92)) padding-box,
     linear-gradient(135deg, rgba(240, 87, 159, 0.62), rgba(185, 171, 255, 0.62)) border-box;
@@ -343,7 +329,7 @@ a:hover {
 }
 
 .module-card:hover {
-  transform: translateY(-3px);
+  transform: translateY(-4px);
   box-shadow: var(--shadow);
 }
 
@@ -444,10 +430,10 @@ a:hover {
   position: relative;
   z-index: 1;
   display: block;
-  margin: 0.9rem 0 0.5rem;
+  margin: 1.4rem 0 0.7rem;
   color: var(--navy);
   font-family: "Playfair Display", Georgia, serif;
-  font-size: clamp(1.15rem, 1.6vw, 1.45rem);
+  font-size: clamp(1.35rem, 2vw, 1.75rem);
   font-weight: 700;
   letter-spacing: -0.04em;
   line-height: 1.08;
@@ -458,24 +444,29 @@ a:hover {
   z-index: 1;
   display: block;
   color: var(--muted);
-  font-size: 0.82rem;
-  line-height: 1.45;
+  font-size: 0.9rem;
+  line-height: 1.55;
 }
 
-.module-card__action {
+.module-card__footer {
   position: relative;
   z-index: 1;
   margin-top: auto;
+  padding-top: 1.3rem;
+  color: var(--muted);
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
+.module-card__arrow {
   display: inline-grid;
-  width: 1.7rem;
-  height: 1.7rem;
+  width: 2rem;
+  height: 2rem;
   place-items: center;
-  align-self: flex-end;
-  margin-top: 0.7rem;
   border-radius: 50%;
   color: var(--pink-strong);
   background: rgba(255, 255, 255, 0.72);
-  font-size: 1rem;
+  font-size: 1.15rem;
 }
 
 .module-workspace {
@@ -1212,7 +1203,7 @@ li + li {
   }
 
   .module-card {
-    min-height: 175px;
+    min-height: 235px;
   }
 
   .module-workspace {
