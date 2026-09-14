@@ -158,6 +158,114 @@
     attachTooltip(chart, ".ccdf-point", (item) => `<strong>${escapeHtml(item.dataset.series)}</strong><br>Degree k: ${item.dataset.degree}<br>P(K ≥ k): ${format(Number(item.dataset.probability))}`);
   }
 
+  function renderShuffle(data) {
+    const container = byId("shuffle-figure");
+    if (!container || !data) {
+      return;
+    }
+    const overlay = container.querySelector(".interactive-png-overlay");
+    const tooltip = container.querySelector(".interactive-png-tooltip");
+    const panels = {
+      reciprocity: { label: "Reciprocity", x: 92, y: 175, width: 674, height: 531, scale: [0.05, 130, 0.4, 749], line: 736 },
+      triangles: { label: "Triangles", x: 884, y: 175, width: 675, height: 531, scale: [1650, 962, 1950, 1491], line: 1285 },
+      clustering: { label: "Clustering", x: 1678, y: 175, width: 674, height: 531, scale: [0.15, 1732, 0.3, 2293], line: 2321 },
+      components: { label: "Components", x: 92, y: 827, width: 674, height: 531, scale: [18, 123, 19, 736], line: 736 },
+      hub_share: { label: "Largest Hub Share", x: 884, y: 827, width: 675, height: 531, scale: [0.031, 937, 0.037, 1528], line: 1528 },
+    };
+    const targets = [];
+    const formatMetric = (metric, value) => ["reciprocity", "clustering", "hub_share"].includes(metric)
+      ? Number(value).toFixed(3)
+      : Number(value).toFixed(0);
+
+    Object.entries(panels).forEach(([metric, panel]) => {
+      const values = data[metric];
+      if (!values || !Array.isArray(values.shuffled)) {
+        return;
+      }
+      const minimum = Math.min(...values.shuffled);
+      const maximum = Math.max(...values.shuffled);
+      const binWidth = (maximum - minimum || 1) / 16;
+      const counts = Array.from({ length: 16 }, () => 0);
+      values.shuffled.forEach((value) => {
+        counts[Math.min(15, Math.floor((value - minimum) / binWidth))] += 1;
+      });
+      const [valueA, pixelA, valueB, pixelB] = panel.scale;
+      const xScale = (value) => pixelA + ((value - valueA) / (valueB - valueA)) * (pixelB - pixelA);
+      const yMax = Math.max(...counts, 1) * 1.05;
+      counts.forEach((count, index) => {
+        if (!count) {
+          return;
+        }
+        const lower = minimum + index * binWidth;
+        const upper = lower + binWidth;
+        const left = Math.max(panel.x, xScale(lower));
+        const right = Math.min(panel.x + panel.width, xScale(upper));
+        targets.push({
+          kind: "bar",
+          label: panel.label,
+          x: left,
+          y: panel.y + panel.height - (count / yMax) * panel.height,
+          width: Math.max(1, right - left),
+          height: (count / yMax) * panel.height,
+          content: `<strong>${escapeHtml(panel.label)}</strong><br>Bin: ${formatMetric(metric, lower)}–${formatMetric(metric, upper)}<br>Shuffled networks: ${count}`,
+        });
+      });
+      targets.push({
+        kind: "line",
+        label: panel.label,
+        x: panel.line - 7,
+        y: panel.y,
+        width: 14,
+        height: panel.height,
+        content: `<strong>${escapeHtml(panel.label)}</strong><br>Observed Marvel value: ${formatMetric(metric, values.real)}<br>Observed Marvel network`,
+      });
+    });
+
+    overlay.setAttribute("viewBox", "0 0 2371 1424");
+    overlay.innerHTML = targets.map((target, index) => `<rect class="interaction-target" data-target="${index}" x="${target.x}" y="${target.y}" width="${target.width}" height="${target.height}" tabindex="0" role="button" aria-label="${escapeHtml(target.label)} ${target.kind === "bar" ? "histogram bin" : "observed Marvel reference line"}"></rect>`).join("");
+    let active;
+    const hide = () => {
+      tooltip.hidden = true;
+      active?.classList.remove("is-active");
+      active = null;
+    };
+    const show = (item) => {
+      active?.classList.remove("is-active");
+      active = item;
+      active.classList.add("is-active");
+      tooltip.innerHTML = targets[Number(item.dataset.target)].content;
+      tooltip.hidden = false;
+      const stageRect = container.getBoundingClientRect();
+      const itemRect = item.getBoundingClientRect();
+      const maxLeft = Math.max(8, stageRect.width - tooltip.offsetWidth - 8);
+      const left = Math.min(Math.max(itemRect.left - stageRect.left + itemRect.width / 2, 8), maxLeft);
+      const above = itemRect.top - stageRect.top - tooltip.offsetHeight - 10;
+      tooltip.style.left = `${left}px`;
+      tooltip.style.top = `${Math.max(8, above < 8 ? itemRect.bottom - stageRect.top + 10 : above)}px`;
+    };
+    overlay.querySelectorAll(".interaction-target").forEach((item) => {
+      item.addEventListener("mouseenter", () => show(item));
+      item.addEventListener("focus", () => show(item));
+      item.addEventListener("click", () => show(item));
+      item.addEventListener("pointerdown", (event) => {
+        event.stopPropagation();
+        show(item);
+      });
+      item.addEventListener("mouseleave", hide);
+      item.addEventListener("blur", hide);
+    });
+    document.addEventListener("pointerdown", (event) => {
+      if (!container.contains(event.target)) {
+        hide();
+      }
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        hide();
+      }
+    });
+  }
+
   function renderPreferential(data) {
     const width = 860;
     const height = 520;
@@ -282,6 +390,7 @@
       return response.json();
     })
     .then((data) => {
+      renderShuffle(data.shuffle_test);
       renderCcdf(data.ccdf);
       renderFriendship(data.friendship_paradox);
       renderPreferential(data.preferential_attachment);

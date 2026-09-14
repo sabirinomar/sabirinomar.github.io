@@ -135,8 +135,12 @@
               deviation, and a two-sided empirical p-value.
             </p>
             <p class="analysis-label">Visualization</p>
-            <div class="figure-block week2-figure week2-figure--wide">
-              <img src="../../assets/figures/week2/shuffle_test.png" alt="Static histograms comparing Marvel network properties with degree-preserving shuffles" loading="lazy" />
+            <div class="figure-block week2-figure week2-figure--wide shuffle-interactive-figure">
+              <div id="shuffle-figure" class="interactive-png-stage">
+                <img class="interactive-png-image" src="../../assets/figures/week2/shuffle_test.png" alt="Static histograms comparing Marvel network properties with degree-preserving shuffles" loading="lazy" />
+                <svg class="interactive-png-overlay" aria-label="Interactive shuffle-test data"></svg>
+                <div class="interactive-png-tooltip" role="tooltip" hidden></div>
+              </div>
               <p class="figure-caption">Figure 3. Static histograms compare Marvel network properties with 100 degree-preserving shuffles; the pink line marks the observed Marvel value.</p>
             </div>
             <p class="analysis-label">What we found</p>
@@ -220,5 +224,6 @@
     </main>
 
     <footer class="site-footer"><div class="container">Social Graphs Group · Week 2</div></footer>
+    <script src="../../assets/js/week2-friendship-figure.js"></script>
   </body>
 </html>
