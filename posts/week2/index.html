@@ -31,6 +31,7 @@
             <a href="#overview">Overview</a>
             <a href="#real-vs-models">Real vs random / BA</a>
             <a href="#friendship-paradox">Friendship paradox</a>
+            <a href="#look-closer">Look closer</a>
             <a href="#shuffle-test">Shuffle test</a>
             <a href="#grow-your-own">Grow your own Marvel</a>
           </nav>
@@ -84,11 +85,15 @@
             a more similar hub-heavy shape.
           </p>
           <div class="figure-block">
-            <img
-              src="../../assets/figures/week2/degree_ccdf_models.png"
-              alt="Log-log CCDF comparison of the Marvel, random, and Barabási-Albert networks"
-              loading="lazy"
-            />
+            <div id="ccdf-figure">
+              <noscript>
+                <img
+                  src="../../assets/figures/week2/degree_ccdf_models.png"
+                  alt="Log-log CCDF comparison of the Marvel, random, and Barabási-Albert networks"
+                  loading="lazy"
+                />
+              </noscript>
+            </div>
             <p class="figure-caption">
               Figure 1. Degree CCDFs for the real Marvel network, a random graph with
               the same number of nodes and undirected edges, and a Barabási–Albert
@@ -113,11 +118,15 @@
             character.
           </p>
           <div class="figure-block">
-            <img
-              src="../../assets/figures/week2/friendship_paradox.png"
-              alt="Scatter plot comparing character degree with average neighbour degree"
-              loading="lazy"
-            />
+            <div id="friendship-figure">
+              <noscript>
+                <img
+                  src="../../assets/figures/week2/friendship_paradox.png"
+                  alt="Scatter plot comparing character degree with average neighbour degree"
+                  loading="lazy"
+                />
+              </noscript>
+            </div>
             <p class="figure-caption">
               Figure 2. Each point compares a character’s degree with the average degree
               of their neighbours. Points above the diagonal have more connected
@@ -152,6 +161,20 @@
             </div>
           </div>
 
+          <section class="look-closer" id="look-closer" aria-labelledby="look-closer-title">
+            <span class="eyebrow">05 · LOOK CLOSER</span>
+            <h2 id="look-closer-title">Does the friendship paradox hold for an individual character?</h2>
+            <p>
+              Choose a character to compare their popularity with the average popularity
+              of their connected characters.
+            </p>
+            <div id="look-closer-visualization"></div>
+            <p class="look-closer-note">
+              Here, popularity is measured by the number of connected characters in the
+              undirected hyperlink network used throughout this module.
+            </p>
+          </section>
+
           <h2 id="shuffle-test">03 — Shuffle test</h2>
           <p>
             We shuffled the endpoints of directed edges while preserving every
@@ -160,11 +183,15 @@
             or hub share cannot be blamed on characters simply gaining or losing links.
           </p>
           <div class="figure-block">
-            <img
-              src="../../assets/figures/week2/shuffle_test.png"
-              alt="Histograms comparing Marvel network properties with degree-preserving shuffles"
-              loading="lazy"
-            />
+            <div id="shuffle-figure">
+              <noscript>
+                <img
+                  src="../../assets/figures/week2/shuffle_test.png"
+                  alt="Histograms comparing Marvel network properties with degree-preserving shuffles"
+                  loading="lazy"
+                />
+              </noscript>
+            </div>
             <p class="figure-caption">
               Figure 3. Null distributions from 100 degree-preserving shuffles. The
               pink line marks the observed Marvel value.
@@ -187,11 +214,15 @@
             more than a difference in scale.
           </p>
           <div class="figure-block">
-            <img
-              src="../../assets/figures/week2/preferential_attachment.png"
-              alt="Ranked degree bars for the real Marvel and preferential-attachment networks"
-              loading="lazy"
-            />
+            <div id="preferential-figure">
+              <noscript>
+                <img
+                  src="../../assets/figures/week2/preferential_attachment.png"
+                  alt="Ranked degree bars for the real Marvel and preferential-attachment networks"
+                  loading="lazy"
+                />
+              </noscript>
+            </div>
             <p class="figure-caption">
               Figure 4. Ranked degree profiles for the real network and a model grown by
               preferential attachment.
@@ -213,5 +244,9 @@
     <footer class="site-footer">
       <div class="container">Social Graphs Group · Week 2</div>
     </footer>
+    <script
+      src="../../assets/js/week2-friendship-figure.js"
+      defer
+    ></script>
   </body>
 </html>

@@ -183,6 +183,27 @@ def friendship_paradox(graph: nx.Graph, nodes: pd.DataFrame, path: Path) -> dict
             for node in sorted(local_maxima, key=lambda item: (-degrees[item], item))
         ],
         "top_popular_friends": top_popular_friends,
+        "points": [
+            {
+                "node": node,
+                "name": names.get(node, node),
+                "degree": degrees[node],
+                "average_neighbor_degree": neighbor_averages[node],
+                "above_diagonal": excess[node] > 0,
+                "neighbors": [
+                    {
+                        "node": neighbor,
+                        "name": names.get(neighbor, neighbor),
+                        "degree": degrees[neighbor],
+                    }
+                    for neighbor in sorted(
+                        graph.neighbors(node),
+                        key=lambda item: (-degrees[item], names.get(item, item)),
+                    )[:5]
+                ],
+            }
+            for node in graph.nodes()
+        ],
     }
 
 
@@ -285,7 +306,18 @@ def save_preferential_attachment_plot(graph: nx.Graph, ba_graph: nx.Graph, path:
     fig.tight_layout()
     fig.savefig(path, dpi=200, bbox_inches="tight")
     plt.close(fig)
-    return {"real": real, "preferential_attachment": model}
+    return {
+        "real": real,
+        "preferential_attachment": model,
+        "degree_ranks": {
+            "Real Marvel network": sorted(
+                (degree for _, degree in graph.degree()), reverse=True
+            ),
+            "Preferential attachment (m=5)": sorted(
+                (degree for _, degree in ba_graph.degree()), reverse=True
+            ),
+        },
+    }
 
 
 def main() -> None:
@@ -324,6 +356,12 @@ def main() -> None:
         "preferential_attachment": model_results,
     }
     SUMMARY_PATH.write_text(json.dumps(results, indent=2), encoding="utf-8")
+    (FIGURE_DIR / "friendship_paradox_data.js").write_text(
+        "window.week2FriendshipData = "
+        + json.dumps(paradox_results, separators=(",", ":"), ensure_ascii=False)
+        + ";\n",
+        encoding="utf-8",
+    )
     print(f"Saved Week 2 figures to {FIGURE_DIR}")
     print(f"Saved Week 2 summary to {SUMMARY_PATH}")
     print(f"BA parameter m: {ba_m}")
