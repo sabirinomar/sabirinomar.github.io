@@ -3,11 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Week 2 · Models &amp; Null Models</title>
-    <meta
-      name="description"
-      content="Week 2 Social Graphs post comparing the Marvel network with random, shuffled, and preferential-attachment models."
-    />
+    <title>Week 2 — Models &amp; Null Models</title>
+    <meta name="description" content="Week 2 models and null models for the shared Marvel network." />
     <link rel="stylesheet" href="../../assets/css/styles.css" />
   </head>
   <body>
@@ -17,7 +14,8 @@
         <nav aria-label="Main navigation">
           <ul class="nav-links">
             <li><a href="../../index.html">Home</a></li>
-            <li><a href="index.html">Week 2</a></li>
+            <li><a href="../week1/index.html">Week 1</a></li>
+            <li><a href="index.html" aria-current="page">Week 2</a></li>
           </ul>
         </nav>
       </div>
@@ -29,11 +27,11 @@
           <span class="week1-sidebar-title">On this page</span>
           <nav>
             <a href="#overview">Overview</a>
-            <a href="#real-vs-models">Real vs random / BA</a>
-            <a href="#friendship-paradox">Friendship paradox</a>
-            <a href="#look-closer">Look closer</a>
-            <a href="#shuffle-test">Shuffle test</a>
-            <a href="#grow-your-own">Grow your own Marvel</a>
+            <a href="#degree">Degree distribution</a>
+            <a href="#friendship">Friendship paradox</a>
+            <a href="#shuffle">Shuffle tests</a>
+            <a href="#ba">Grow your own Marvel</a>
+            <a href="#summary">What models taught us</a>
           </nav>
         </aside>
 
@@ -44,209 +42,183 @@
           <div class="callout research-question">
             <strong>From “what is there?” to “what could be there?”</strong>
             <p>
-              Last week we mapped the Marvel hyperlink network. This week we compare
-              that observed structure with networks made by simple rules and with
-              carefully randomised versions of the same graph.
-            </p>
-            <p>
-              Randomisation gives us a baseline: if a pattern appears in the real
-              network but not in a suitable null model, it becomes much more
-              interesting. The goal is not to crown one model as “the truth”, but to
-              learn which network properties carry meaningful evidence.
+              This week we explore models and null models. Instead of only describing
+              the Marvel network, we compare it with mathematical models and randomized
+              versions of the network to understand which properties are meaningful and
+              which could arise simply from the network's structure.
             </p>
           </div>
 
           <div class="summary-grid" aria-label="Week 2 network summary metrics">
-            <div class="metric">
-              <span class="label">Characters</span>
-              <span class="value">303</span>
-            </div>
-            <div class="metric">
-              <span class="label">Directed links</span>
-              <span class="value">1,784</span>
-            </div>
-            <div class="metric">
-              <span class="label">Undirected links</span>
-              <span class="value">1,434</span>
-            </div>
-            <div class="metric">
-              <span class="label">BA parameter</span>
-              <span class="value">m = 5</span>
-            </div>
+            <div class="metric"><span class="label">Characters</span><span class="value">303</span></div>
+            <div class="metric"><span class="label">Directed links</span><span class="value">1,784</span></div>
+            <div class="metric"><span class="label">Undirected links</span><span class="value">1,434</span></div>
+            <div class="metric"><span class="label">Degree shuffles</span><span class="value">100</span></div>
           </div>
 
-          <h2 id="real-vs-models">01 — Real network vs random / BA</h2>
-          <p>
-            A degree distribution tells us how many links characters have; its
-            complementary cumulative distribution function (CCDF) asks how often a
-            character has at least <em>k</em> links. On the log-log plot below, the
-            Marvel curve has a much longer high-degree tail than the fixed-edge random
-            graph. A Barabási–Albert network, built by preferential attachment, produces
-            a more similar hub-heavy shape.
-          </p>
-          <div class="figure-block">
-            <div id="ccdf-figure">
-              <noscript>
-                <img
-                  src="../../assets/figures/week2/degree_ccdf_models.png"
-                  alt="Log-log CCDF comparison of the Marvel, random, and Barabási-Albert networks"
-                  loading="lazy"
-                />
-              </noscript>
-            </div>
-            <p class="figure-caption">
-              Figure 1. Degree CCDFs for the real Marvel network, a random graph with
-              the same number of nodes and undirected edges, and a Barabási–Albert
-              network with <em>m = 5</em>.
-            </p>
-          </div>
-          <p>
-            This is evidence about degree shape, not a complete diagnosis of how the
-            Marvel network was formed. A CCDF comparison cannot establish that Marvel
-            grew by preferential attachment, explain the direction of Wikipedia links,
-            identify causality, or rule out other generative mechanisms. The BA model
-            is useful because it isolates one idea — “popular nodes attract more links”
-            — while leaving many real-world details out.
-          </p>
-
-          <h2 id="friendship-paradox">02 — The friendship paradox</h2>
-          <p>
-            The friendship paradox says that, on average, your friends have more
-            friends than you do. It is a consequence of unequal degree: highly
-            connected characters appear in many more neighbourhoods, so a randomly
-            encountered friend is more likely to be a hub than a randomly encountered
-            character.
-          </p>
-          <div class="figure-block">
-            <div id="friendship-figure">
-              <noscript>
-                <img
-                  src="../../assets/figures/week2/friendship_paradox.png"
-                  alt="Scatter plot comparing character degree with average neighbour degree"
-                  loading="lazy"
-                />
-              </noscript>
-            </div>
-            <p class="figure-caption">
-              Figure 2. Each point compares a character’s degree with the average degree
-              of their neighbours. Points above the diagonal have more connected
-              neighbours on average; pink points are local degree maxima whose
-              neighbours cannot out-popular them.
-            </p>
-          </div>
-          <p>
-            The effect is driven by the hubs that keep appearing as someone else’s
-            neighbour — Spider-Man appears in 85 of the contributing neighbourhoods,
-            followed by Hulk and Wolverine. In total, 250 of 286 connected characters
-            (87.4%) have neighbours with a higher average degree: 24.2 compared with
-            10.0 for the character sample. There are also local maxima: Spider-Man and
-            Radian (Morituri) are characters for whom no neighbour has a higher degree.
-            That does not make both globally most popular; it means only that each
-            immediate neighbourhood contains no larger hub.
-          </p>
-          <div class="callout-grid" aria-label="Friendship paradox interpretation">
-            <div class="callout">
-              <strong>What the result means</strong>
-              <p>
-                The network’s connected characters are sampled through edges, and edge
-                sampling over-represents high-degree characters.
-              </p>
-            </div>
-            <div class="callout">
-              <strong>What to be careful about</strong>
-              <p>
-                “Friend” here means an undirected hyperlink relationship, not a
-                canonical Marvel friendship or a survey response.
-              </p>
-            </div>
-          </div>
-
-          <section class="look-closer" id="look-closer" aria-labelledby="look-closer-title">
-            <span class="eyebrow">05 · LOOK CLOSER</span>
-            <h2 id="look-closer-title">Does the friendship paradox hold for an individual character?</h2>
+          <section id="degree" class="analysis-card">
+            <h2>Does Marvel Look Random, BA, or Neither?</h2>
+            <p class="analysis-label">Research question</p>
+            <p>Does the real network's degree distribution look more random, more Barabási–Albert (BA), or neither?</p>
+            <p class="analysis-label">Method</p>
             <p>
-              Choose a character to compare their popularity with the average popularity
-              of their connected characters.
+              We converted the directed hyperlink graph to an undirected graph for
+              neighbourhood comparisons, then compared it with an Erdős–Rényi graph
+              with the same number of nodes and edges and a BA graph with the same
+              number of nodes and a comparable average degree.
             </p>
-            <div id="look-closer-visualization"></div>
-            <p class="look-closer-note">
-              Here, popularity is measured by the number of connected characters in the
-              undirected hyperlink network used throughout this module.
+            <p class="analysis-label">Visualization</p>
+            <div class="figure-block week2-figure">
+              <iframe src="../../assets/figures/week2/degree_ccdf_models.html" title="Interactive degree CCDF comparison" loading="lazy"></iframe>
+              <p class="figure-caption">Figure 1. Toggle Marvel, random, and BA traces; hover for degree and CCDF values, then zoom or pan.</p>
+            </div>
+            <p class="analysis-label">What we found</p>
+            <p>
+              The random graph has a narrow, thin tail. Marvel has isolates and a
+              much longer tail, while BA reproduces the broad hub-heavy shape more
+              closely. The complementary cumulative distribution function (CCDF)
+              shows the fraction of characters with degree at least <em>k</em>.
+            </p>
+            <p class="analysis-label">What it means</p>
+            <p>
+              Marvel is more BA-like than random in its degree shape, but “looks like
+              BA” is not evidence that Wikipedia pages actually grew by preferential
+              attachment. A fit alone cannot establish a generative mechanism,
+              causality, directionality, or rule out other heavy-tailed models.
             </p>
           </section>
 
-          <h2 id="shuffle-test">03 — Shuffle test</h2>
-          <p>
-            We shuffled the endpoints of directed edges while preserving every
-            character’s in-degree and out-degree. This keeps the degree sequence fixed,
-            so any change in reciprocity, triangles, clustering, connected components,
-            or hub share cannot be blamed on characters simply gaining or losing links.
-          </p>
-          <div class="figure-block">
-            <div id="shuffle-figure">
-              <noscript>
-                <img
-                  src="../../assets/figures/week2/shuffle_test.png"
-                  alt="Histograms comparing Marvel network properties with degree-preserving shuffles"
-                  loading="lazy"
-                />
-              </noscript>
-            </div>
-            <p class="figure-caption">
-              Figure 3. Null distributions from 100 degree-preserving shuffles. The
-              pink line marks the observed Marvel value.
+          <section id="friendship" class="analysis-card">
+            <h2>The Friendship Paradox — Are Your Friends More Popular Than You?</h2>
+            <p class="analysis-label">Research question</p>
+            <p>
+              The friendship paradox says that, on average, your friends have more
+              friends than you do. Does that hold for this Marvel network?
             </p>
-          </div>
-          <p>
-            The largest hub share survives because the shuffle deliberately preserves
-            the degree sequence. By contrast, motifs that depend on who connects to
-            whom — especially triangles, clustering, and reciprocity — can move away
-            from their observed values. A surviving property suggests it is encoded in
-            the constraints we kept; a disappearing property suggests it depends on
-            higher-order arrangement rather than degree alone.
-          </p>
-
-          <h2 id="grow-your-own">04 — Grow your own Marvel</h2>
-          <p>
-            We generated a preferential-attachment network with <em>n = 303</em> and
-            <em>m = 5</em>. That choice gives the model nearly the same average degree
-            and edge count as the real undirected Marvel network, making the comparison
-            more than a difference in scale.
-          </p>
-          <div class="figure-block">
-            <div id="preferential-figure">
-              <noscript>
-                <img
-                  src="../../assets/figures/week2/preferential_attachment.png"
-                  alt="Ranked degree bars for the real Marvel and preferential-attachment networks"
-                  loading="lazy"
-                />
-              </noscript>
-            </div>
-            <p class="figure-caption">
-              Figure 4. Ranked degree profiles for the real network and a model grown by
-              preferential attachment.
+            <p class="analysis-label">Method</p>
+            <p>
+              For every non-isolated character, we compared degree with the mean
+              degree of their neighbours. “Friend” means an undirected hyperlink
+              neighbour here, not a canonical Marvel friendship.
             </p>
-          </div>
-          <p>
-            The model gets the broad idea of a few hubs and many less-connected nodes
-            right. It gets the details wrong: the real network has editorial structure,
-            reciprocal references, isolates, and topical patterns that a one-rule growth
-            process does not know about. The most obvious difference is that the BA
-            network is a clean synthetic hierarchy, while the Marvel degree profile is
-            bumpier and shaped by the history of Wikipedia pages and the Marvel domain.
-          </p>
+            <p class="analysis-label">Visualization</p>
+            <div class="figure-block week2-figure">
+              <iframe src="../../assets/figures/week2/friendship_paradox.html" title="Interactive friendship paradox scatter plot" loading="lazy"></iframe>
+              <p class="figure-caption">Figure 2. Hover over a character to inspect degree, average neighbour degree, and the difference between them.</p>
+            </div>
+            <p class="analysis-label">What we found</p>
+            <p>
+              250 of 286 connected characters (87.4%) have neighbours with a higher
+              average degree. The character average is 10.0, compared with 24.2 for
+              the average neighbour degree. Spider-Man and Radian (Morituri) are local
+              maxima: none of their immediate neighbours has a higher degree.
+            </p>
+            <p class="analysis-label">What it means</p>
+            <p>
+              Unequal degree makes hubs appear in many more neighbourhoods, so edge
+              sampling over-represents popular characters. The strongest individual
+              effects are Enigma, Ethan Edwards, Helix, Phil Grayfield, and
+              Thunderclap: each has degree 1 but a neighbour with degree 106. This is
+              a structural sampling effect, not a claim about social popularity.
+            </p>
+          </section>
 
+          <section id="shuffle" class="analysis-card">
+            <h2>What Survives a Degree-Preserving Shuffle?</h2>
+            <p class="analysis-label">Research question</p>
+            <p>Which Marvel properties remain unusual after we preserve each character's directed in-degree and out-degree?</p>
+            <p class="analysis-label">Method</p>
+            <p>
+              A null model is a comparison world: we repeatedly swapped edge endpoints
+              while preserving every node's in- and out-degree. We measured the real
+              graph and 100 shuffled graphs, then report the null mean, sample standard
+              deviation, and a two-sided empirical p-value.
+            </p>
+            <p class="analysis-label">Visualization</p>
+            <div class="figure-block week2-figure week2-figure--wide">
+              <iframe src="../../assets/figures/week2/shuffle_test.html" title="Interactive degree-preserving shuffle distributions" loading="lazy"></iframe>
+              <p class="figure-caption">Figure 3. Choose a metric from the menu. The pink marker is Marvel; the histogram is the shuffled null distribution.</p>
+            </div>
+            <p class="analysis-label">What we found</p>
+            <div class="table-wrap table-wrap--compact">
+              <table>
+                <thead><tr><th>Property</th><th>Marvel</th><th>Null mean</th><th>Null SD</th><th>p-value</th><th>Interpretation</th></tr></thead>
+                <tbody>
+                  <tr><td>Reciprocity</td><td>0.392</td><td>0.058</td><td>0.005</td><td>&lt; 0.01</td><td>Reciprocal links are unusually common.</td></tr>
+                  <tr><td>Triangles</td><td>1,839</td><td>1,816</td><td>67</td><td>0.74</td><td>Close to the degree-constrained baseline.</td></tr>
+                  <tr><td>Components</td><td>19</td><td>18</td><td>0</td><td>0.01</td><td>Connectivity is slightly more fragmented.</td></tr>
+                  <tr><td>Largest component</td><td>277</td><td>286</td><td>0</td><td>0.01</td><td>Marvel is more fragmented than the null.</td></tr>
+                  <tr><td>Max degree</td><td>106</td><td>110</td><td>1.3</td><td>0.01</td><td>Undirected overlap changes after shuffling.</td></tr>
+                  <tr><td>Hub share</td><td>0.037</td><td>0.032</td><td>0.0004</td><td>0.01</td><td>The observed hub is unusually dominant.</td></tr>
+                  <tr><td>Clustering</td><td>0.307</td><td>0.161</td><td>0.008</td><td>&lt; 0.01</td><td>Local closure survives beyond degree alone.</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="analysis-label">What it means</p>
+            <p>
+              Reciprocity and clustering survive the shuffle: who connects to whom
+              contains structure beyond degree. Directed in- and out-degree are fixed,
+              but undirected overlap can change when reciprocal pairs are rewired, so
+              the undirected maximum degree and hub share are still informative here.
+              A null model therefore tells us what kind of structure the test controls
+              for; significance is not a universal property of a graph.
+            </p>
+          </section>
+
+          <section id="ba" class="analysis-card">
+            <h2>Grow Your Own Marvel — Preferential Attachment</h2>
+            <p class="analysis-label">Research question</p>
+            <p>What does a simple preferential-attachment growth rule get right, and what is the most glaring thing it gets wrong?</p>
+            <p class="analysis-label">Method</p>
+            <p>
+              We generated a BA network with <em>n = 303</em> and <em>m = 5</em>.
+              This gives a comparable scale and average degree to the 1,434-edge
+              undirected Marvel graph without pretending that the model has Marvel's
+              page histories or semantics.
+            </p>
+            <p class="analysis-label">Visualization</p>
+            <div class="figure-block week2-figure week2-figure--wide">
+              <iframe src="../../assets/figures/week2/preferential_attachment.html" title="Interactive Marvel and BA comparison" loading="lazy"></iframe>
+              <p class="figure-caption">Figure 4. Interactive ranked degree profiles and CCDFs for Marvel and the BA model.</p>
+            </div>
+            <p class="analysis-label">What we found</p>
+            <p>
+              The model gets the broad hub-and-many-small-nodes shape right, including
+              a heavy tail. It gets the details wrong: the BA graph is connected and
+              much more cleanly hierarchical, while Marvel contains isolates,
+              reciprocal references, topical structure, and a bumpier degree profile.
+            </p>
+            <p class="analysis-label">What it means</p>
+            <p>
+              Preferential attachment is a useful baseline for hub formation, not a
+              complete explanation of the network. The most glaring mismatch is that
+              one growth rule cannot reproduce the editorial and community structure
+              visible in the real hyperlink graph.
+            </p>
+          </section>
+
+          <section id="summary" class="callout research-question">
+            <h2>What Did the Models Teach Us?</h2>
+            <p>
+              The degree distribution is hub-heavy and more BA-like than random, and
+              the friendship paradox is strong because high-degree characters are
+              encountered disproportionately often. Degree-preserving shuffles show
+              that reciprocity and clustering are genuinely more organised than degree
+              alone predicts, while maximum degree is explained by the fixed sequence
+              by construction.
+            </p>
+            <p>
+              The final lesson is comparative: the degree sequence and a generic
+              growth model explain the existence of hubs, but not the relationships
+              among those hubs. The properties that survive an appropriate null model
+              — especially reciprocal and clustered structure — are the strongest
+              candidates for genuinely structural features of this Marvel network.
+            </p>
+          </section>
         </article>
       </div>
     </main>
 
-    <footer class="site-footer">
-      <div class="container">Social Graphs Group · Week 2</div>
-    </footer>
-    <script
-      src="../../assets/js/week2-friendship-figure.js"
-      defer
-    ></script>
+    <footer class="site-footer"><div class="container">Social Graphs Group · Week 2</div></footer>
   </body>
 </html>
