@@ -158,50 +158,6 @@
     attachTooltip(chart, ".ccdf-point", (item) => `<strong>${escapeHtml(item.dataset.series)}</strong><br>Degree k: ${item.dataset.degree}<br>P(K ≥ k): ${format(Number(item.dataset.probability))}`);
   }
 
-  function renderShuffle(data) {
-    const metrics = Object.entries(data);
-    const width = 860;
-    const height = 620;
-    const panelWidth = 270;
-    const panelHeight = 245;
-    const maxValue = (values) => Math.max(...values, 0);
-    const panels = metrics.map(([metric, values], index) => {
-      const column = index % 3;
-      const row = Math.floor(index / 3);
-      const left = 20 + column * 285;
-      const top = 45 + row * 285;
-      const valuesMax = maxValue(values.shuffled) * 1.08 || 1;
-      const x = (value) => left + 30 + (value / valuesMax) * 220;
-      const y = (value) => top + 170 - (value / Math.max(...values.shuffled.map(() => 1))) * 100;
-      const bins = 12;
-      const binWidth = valuesMax / bins;
-      const counts = Array.from({ length: bins }, () => 0);
-      values.shuffled.forEach((value) => counts[Math.min(bins - 1, Math.floor(value / binWidth))]++);
-      const countMax = Math.max(...counts, 1);
-      return `<g class="shuffle-panel">
-        <text class="chart-panel-title" x="${left + panelWidth / 2}" y="${top}">${escapeHtml(metric.replaceAll("_", " "))}</text>
-        ${counts.map((count, bin) => {
-          const barWidth = 220 / bins - 2;
-          const barX = left + 30 + bin * (220 / bins);
-          const barY = top + 170 - (count / countMax) * 120;
-          return `<rect class="shuffle-bar" data-metric="${escapeHtml(metric)}" data-count="${count}" data-range="${format(bin * binWidth)}–${format((bin + 1) * binWidth)}" x="${barX}" y="${barY}" width="${barWidth}" height="${top + 170 - barY}" tabindex="0" role="button"></rect>`;
-        }).join("")}
-        <line class="shuffle-real" data-metric="${escapeHtml(metric)}" data-real="${values.real}" x1="${x(values.real)}" y1="${top + 38}" x2="${x(values.real)}" y2="${top + 175}" tabindex="0"></line>
-        <text class="chart-tick" x="${left + 30}" y="${top + 192}">${format(0)}</text>
-        <text class="chart-tick" x="${left + 250}" y="${top + 192}" text-anchor="end">${format(valuesMax)}</text>
-        <text class="chart-tick" x="${left + 140}" y="${top + 218}" text-anchor="middle">Marvel value shown in pink</text>
-      </g>`;
-    }).join("");
-    const svg = `<svg class="module-chart shuffle-chart" viewBox="0 0 ${width} ${height}" role="img" aria-label="Histograms comparing Marvel network properties with degree-preserving shuffles">
-      <text class="chart-title" x="${width / 2}" y="25" text-anchor="middle">What survives a degree-preserving shuffle?</text>${panels}</svg>`;
-    const chart = chartShell("shuffle-figure", svg, "Hover, focus, or tap a histogram bar or Marvel reference line.");
-    attachTooltip(chart, ".shuffle-bar, .shuffle-real", (item) =>
-      item.classList.contains("shuffle-bar")
-        ? `<strong>${escapeHtml(item.dataset.metric)}</strong><br>Shuffles in range: ${item.dataset.range}<br>Count: ${item.dataset.count}`
-        : `<strong>${escapeHtml(item.dataset.metric)}</strong><br>Marvel value: ${format(item.dataset.real)}`,
-    );
-  }
-
   function renderPreferential(data) {
     const width = 860;
     const height = 520;
@@ -328,14 +284,12 @@
     .then((data) => {
       renderCcdf(data.ccdf);
       renderFriendship(data.friendship_paradox);
-      renderShuffle(data.shuffle_test);
       renderPreferential(data.preferential_attachment);
       renderLookCloser(data.friendship_paradox.points);
     })
     .catch(() => {
       fallback("ccdf-figure", "../../assets/figures/week2/degree_ccdf_models.png", "Log-log CCDF comparison");
       fallback("friendship-figure", "../../assets/figures/week2/friendship_paradox.png", "Friendship paradox scatter plot");
-      fallback("shuffle-figure", "../../assets/figures/week2/shuffle_test.png", "Degree-preserving shuffle histograms");
       fallback("preferential-figure", "../../assets/figures/week2/preferential_attachment.png", "Ranked degree profiles");
     });
 })();
