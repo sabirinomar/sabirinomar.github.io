@@ -159,47 +159,117 @@
   }
 
   function renderShuffle(data) {
-    const metrics = Object.entries(data);
-    const width = 860;
-    const height = 620;
-    const panelWidth = 270;
-    const panelHeight = 245;
-    const maxValue = (values) => Math.max(...values, 0);
-    const panels = metrics.map(([metric, values], index) => {
-      const column = index % 3;
-      const row = Math.floor(index / 3);
-      const left = 20 + column * 285;
-      const top = 45 + row * 285;
-      const valuesMax = maxValue(values.shuffled) * 1.08 || 1;
-      const x = (value) => left + 30 + (value / valuesMax) * 220;
-      const y = (value) => top + 170 - (value / Math.max(...values.shuffled.map(() => 1))) * 100;
-      const bins = 12;
-      const binWidth = valuesMax / bins;
-      const counts = Array.from({ length: bins }, () => 0);
-      values.shuffled.forEach((value) => counts[Math.min(bins - 1, Math.floor(value / binWidth))]++);
-      const countMax = Math.max(...counts, 1);
-      return `<g class="shuffle-panel">
-        <text class="chart-panel-title" x="${left + panelWidth / 2}" y="${top}">${escapeHtml(metric.replaceAll("_", " "))}</text>
-        ${counts.map((count, bin) => {
-          const barWidth = 220 / bins - 2;
-          const barX = left + 30 + bin * (220 / bins);
-          const barY = top + 170 - (count / countMax) * 120;
-          return `<rect class="shuffle-bar" data-metric="${escapeHtml(metric)}" data-count="${count}" data-range="${format(bin * binWidth)}–${format((bin + 1) * binWidth)}" x="${barX}" y="${barY}" width="${barWidth}" height="${top + 170 - barY}" tabindex="0" role="button"></rect>`;
-        }).join("")}
-        <line class="shuffle-real" data-metric="${escapeHtml(metric)}" data-real="${values.real}" x1="${x(values.real)}" y1="${top + 38}" x2="${x(values.real)}" y2="${top + 175}" tabindex="0"></line>
-        <text class="chart-tick" x="${left + 30}" y="${top + 192}">${format(0)}</text>
-        <text class="chart-tick" x="${left + 250}" y="${top + 192}" text-anchor="end">${format(valuesMax)}</text>
-        <text class="chart-tick" x="${left + 140}" y="${top + 218}" text-anchor="middle">Marvel value shown in pink</text>
-      </g>`;
-    }).join("");
-    const svg = `<svg class="module-chart shuffle-chart" viewBox="0 0 ${width} ${height}" role="img" aria-label="Histograms comparing Marvel network properties with degree-preserving shuffles">
-      <text class="chart-title" x="${width / 2}" y="25" text-anchor="middle">What survives a degree-preserving shuffle?</text>${panels}</svg>`;
-    const chart = chartShell("shuffle-figure", svg, "Hover, focus, or tap a histogram bar or Marvel reference line.");
-    attachTooltip(chart, ".shuffle-bar, .shuffle-real", (item) =>
-      item.classList.contains("shuffle-bar")
-        ? `<strong>${escapeHtml(item.dataset.metric)}</strong><br>Shuffles in range: ${item.dataset.range}<br>Count: ${item.dataset.count}`
-        : `<strong>${escapeHtml(item.dataset.metric)}</strong><br>Marvel value: ${format(item.dataset.real)}`,
-    );
+    const container = byId("shuffle-figure");
+    if (!container) {
+      return;
+    }
+    const overlay = container.querySelector(".interactive-png-overlay");
+    const tooltip = container.querySelector(".interactive-png-tooltip");
+    const panels = {
+      reciprocity: { label: "Reciprocity", x: 92, y: 175, width: 674, height: 531, scale: [0.05, 130, 0.4, 749], line: 736 },
+      triangles: { label: "Triangles", x: 884, y: 175, width: 675, height: 531, scale: [1650, 962, 1950, 1491], line: 1285 },
+      clustering: { label: "Clustering", x: 1678, y: 175, width: 674, height: 531, scale: [0.15, 1732, 0.3, 2293], line: 2321 },
+      components: { label: "Components", x: 92, y: 827, width: 674, height: 531, scale: [18, 123, 19, 736], line: 736 },
+      hub_share: { label: "Largest Hub Share", x: 884, y: 827, width: 675, height: 531, scale: [0.031, 937, 0.037, 1528], line: 1528 },
+    };
+    const metrics = Object.keys(panels);
+    const formatMetric = (metric, value) => metric === "reciprocity" || metric === "clustering" || metric === "hub_share"
+      ? Number(value).toFixed(3)
+      : Number(value).toFixed(0);
+    const targets = [];
+
+    metrics.forEach((metric) => {
+      const values = data[metric];
+      const panel = panels[metric];
+      if (!values || !Array.isArray(values.shuffled)) {
+        return;
+      }
+      const samplesMin = Math.min(...values.shuffled);
+      const samplesMax = Math.max(...values.shuffled);
+      const sampleRange = samplesMax - samplesMin || 1;
+      const binWidth = sampleRange / 16;
+      const counts = Array.from({ length: 16 }, () => 0);
+      values.shuffled.forEach((value) => {
+        const bin = Math.min(15, Math.floor((value - samplesMin) / binWidth));
+        counts[bin] += 1;
+      });
+      const [scaleValueA, scalePixelA, scaleValueB, scalePixelB] = panel.scale;
+      const xScale = (value) => scalePixelA + ((value - scaleValueA) / (scaleValueB - scaleValueA)) * (scalePixelB - scalePixelA);
+      const yMax = Math.max(...counts, 1) * 1.05;
+      counts.forEach((count, index) => {
+        if (!count) {
+          return;
+        }
+        const lower = samplesMin + index * binWidth;
+        const upper = lower + binWidth;
+        targets.push({
+          kind: "bar",
+          metric,
+          label: panel.label,
+          x: Math.max(panel.x, xScale(lower)),
+          width: Math.min(panel.x + panel.width, xScale(upper)) - Math.max(panel.x, xScale(lower)),
+          y: panel.y + panel.height - (count / yMax) * panel.height,
+          height: (count / yMax) * panel.height,
+          content: `<strong>${escapeHtml(panel.label)}</strong><br>Bin: ${formatMetric(metric, lower)}–${formatMetric(metric, upper)}<br>Shuffled networks: ${count}`,
+        });
+      });
+      targets.push({
+        kind: "line",
+        metric,
+        label: panel.label,
+        x: panel.line - 7,
+        y: panel.y,
+        width: 14,
+        height: panel.height,
+        content: `<strong>${escapeHtml(panel.label)}</strong><br>Observed Marvel value: ${formatMetric(metric, values.real)}<br>Observed Marvel network`,
+      });
+    });
+
+    overlay.setAttribute("viewBox", "0 0 2371 1424");
+    overlay.innerHTML = targets.map((target, index) => `<rect class="interaction-target" data-target="${index}" x="${target.x}" y="${target.y}" width="${target.width}" height="${target.height}" tabindex="0" role="button" aria-label="${escapeHtml(target.label)} ${target.kind === "bar" ? "histogram bin" : "observed Marvel reference line"}"></rect>`).join("");
+    let active;
+
+    const hide = () => {
+      tooltip.hidden = true;
+      active?.classList.remove("is-active");
+      active = null;
+    };
+    const show = (item) => {
+      active?.classList.remove("is-active");
+      active = item;
+      active.classList.add("is-active");
+      tooltip.innerHTML = targets[Number(item.dataset.target)].content;
+      tooltip.hidden = false;
+      const stageRect = container.getBoundingClientRect();
+      const itemRect = item.getBoundingClientRect();
+      const maxLeft = Math.max(8, stageRect.width - tooltip.offsetWidth - 8);
+      const left = Math.min(Math.max(itemRect.left - stageRect.left + itemRect.width / 2, 8), maxLeft);
+      const above = itemRect.top - stageRect.top - tooltip.offsetHeight - 10;
+      tooltip.style.left = `${left}px`;
+      tooltip.style.top = `${Math.max(8, above < 8 ? itemRect.bottom - stageRect.top + 10 : above)}px`;
+    };
+
+    overlay.querySelectorAll(".interaction-target").forEach((item) => {
+      item.addEventListener("mouseenter", () => show(item));
+      item.addEventListener("focus", () => show(item));
+      item.addEventListener("click", () => show(item));
+      item.addEventListener("pointerdown", (event) => {
+        event.stopPropagation();
+        show(item);
+      });
+      item.addEventListener("mouseleave", hide);
+      item.addEventListener("blur", hide);
+    });
+    document.addEventListener("pointerdown", (event) => {
+      if (!container.contains(event.target)) {
+        hide();
+      }
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        hide();
+      }
+    });
   }
 
   function renderPreferential(data) {
@@ -326,11 +396,9 @@
       return response.json();
     })
     .then((data) => {
-      renderCcdf(data.ccdf);
-      renderFriendship(data.friendship_paradox);
-      renderShuffle(data.shuffle_test);
-      renderPreferential(data.preferential_attachment);
-      renderLookCloser(data.friendship_paradox.points);
+      if (byId("shuffle-figure")) {
+        renderShuffle(data.shuffle_test);
+      }
     })
     .catch(() => {
       fallback("ccdf-figure", "../../assets/figures/week2/degree_ccdf_models.png", "Log-log CCDF comparison");

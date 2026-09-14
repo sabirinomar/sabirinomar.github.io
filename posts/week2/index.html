@@ -135,10 +135,14 @@
               deviation, and a two-sided empirical p-value.
             </p>
             <p class="analysis-label">Visualization</p>
-            <div class="figure-block week2-figure week2-figure--wide">
-              <iframe src="../../assets/figures/week2/shuffle_test.html" title="Interactive degree-preserving shuffle distributions" loading="lazy"></iframe>
-              <p class="figure-caption">Figure 3. Choose a metric from the menu. The pink marker is Marvel; the histogram is the shuffled null distribution.</p>
-            </div>
+            <figure class="figure-block week2-figure shuffle-interactive-figure">
+              <div id="shuffle-figure" class="interactive-png-stage">
+                <img class="interactive-png-image" src="../../assets/figures/week2/shuffle_test.png" alt="Shuffle-test distributions for the Marvel network" loading="lazy">
+                <svg class="interactive-png-overlay" aria-label="Interactive shuffle-test data"></svg>
+                <div class="interactive-png-tooltip" role="tooltip" hidden></div>
+              </div>
+              <figcaption class="figure-caption">Figure 3. Choose a metric from the menu. The pink marker is Marvel; the histogram is the shuffled null distribution.</figcaption>
+            </figure>
             <p class="analysis-label">What we found</p>
             <div class="table-wrap table-wrap--compact">
               <table>
@@ -220,5 +224,6 @@
     </main>
 
     <footer class="site-footer"><div class="container">Social Graphs Group · Week 2</div></footer>
+    <script src="../../assets/js/week2-friendship-figure.js"></script>
   </body>
 </html>
