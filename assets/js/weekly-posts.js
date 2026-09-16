@@ -23,9 +23,9 @@
     {
       week: "Week 3",
       title: "Who matters, and why",
-      status: "coming-soon",
-      description: "Explore centrality and the different ways influence can be measured.",
-      href: "",
+      status: "live",
+      description: "Test which characters actually hold the hyperlink network together.",
+      href: "posts/week3/index.html",
     },
     {
       week: "Week 4",
