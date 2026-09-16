@@ -42,10 +42,40 @@
           </div>
         </section>
 
+        <section class="week3-opening-reveal" aria-labelledby="opening-reveal-heading">
+          <div>
+            <span class="eyebrow">The opening reveal</span>
+            <h2 id="opening-reveal-heading">If one character disappears, who does the most damage?</h2>
+            <p>We did not begin with a ranking. We began with a deletion.</p>
+          </div>
+          <div class="week3-opening-answer">
+            <span>01 · largest single-node knockout</span>
+            <strong>Spider-Man</strong>
+            <b>5 characters cut off</b>
+            <small>271 of the remaining nodes stay in the giant component.</small>
+          </div>
+        </section>
+
+        <section class="week3-network-experiment" aria-labelledby="network-experiment-heading">
+          <div class="week3-section-heading">
+            <span class="eyebrow">The visual experiment</span>
+            <h2 id="network-experiment-heading">Remove one node</h2>
+            <p>The positions stay fixed so the change is structural, not a new layout trick. Pink nodes on the right are the five characters separated from the giant component after Spider-Man is removed.</p>
+          </div>
+          <figure class="week3-network-visual">
+            <img src="../../assets/figures/week3/spiderman_before_after.svg" alt="Before and after network visual showing five characters separated after Spider-Man is removed" loading="lazy" />
+            <figcaption>Figure 1. The same 277-node giant component before and after the Spider-Man removal.</figcaption>
+          </figure>
+          <aside class="week3-method-note">
+            <span>Method note</span>
+            PageRank → directed graph · robustness → undirected giant component · null model → 200 degree-preserving rewires
+          </aside>
+        </section>
+
         <section aria-labelledby="baseline-heading">
           <div class="week3-section-heading">
-            <span class="eyebrow">The network at a glance</span>
-            <h2 id="baseline-heading">Before anything disappears</h2>
+            <span class="eyebrow">The baseline</span>
+            <h2 id="baseline-heading">How much network is there to break?</h2>
           </div>
           <div class="week3-kpis">
             <div class="week3-kpi"><strong>277</strong><span>characters in the giant component</span><small>The largest mutually reachable cluster after ignoring arrow direction.</small></div>
@@ -84,7 +114,7 @@
           <div class="week3-figure">
             <iframe src="../../assets/figures/week3/knockout_fragmentation.html" title="Characters whose removal causes the most fragmentation" loading="lazy"></iframe>
             <a class="week3-open-figure" href="../../assets/figures/week3/knockout_fragmentation.html">Open interactive figure in a new tab →</a>
-            <p class="figure-caption">Figure 1. Single-node knockouts ranked by structural damage.</p>
+            <p class="figure-caption">Figure 2. Single-node knockouts ranked by structural damage.</p>
           </div>
           <div class="week3-reveal week3-reveal--pink">
             <span class="week3-reveal__label">Most destructive single knockout</span>
@@ -111,7 +141,7 @@
           <div class="week3-figure">
             <iframe src="../../assets/figures/week3/betweenness_vs_fragmentation.html" title="Betweenness versus fragmentation" loading="lazy"></iframe>
             <a class="week3-open-figure" href="../../assets/figures/week3/betweenness_vs_fragmentation.html">Open interactive figure in a new tab →</a>
-            <p class="figure-caption">Figure 2. Betweenness versus single-node fragmentation, with the largest knockouts labelled.</p>
+            <p class="figure-caption">Figure 3. Betweenness versus single-node fragmentation, with the largest knockouts labelled.</p>
           </div>
           <div class="week3-surprise-grid">
             <div class="week3-surprise"><span>High betweenness, replaceable</span><strong>Wolverine</strong><p>Betweenness rank #3, but removing him leaves <strong>0</strong> nodes outside the giant component.</p></div>
@@ -128,7 +158,7 @@
           <div class="week3-figure">
             <iframe src="../../assets/figures/week3/attack_strategies.html" title="Targeted attack strategies" loading="lazy"></iframe>
             <a class="week3-open-figure" href="../../assets/figures/week3/attack_strategies.html">Open interactive figure in a new tab →</a>
-            <p class="figure-caption">Figure 3. Remaining giant-component fraction as characters are removed.</p>
+            <p class="figure-caption">Figure 4. Remaining giant-component fraction as characters are removed.</p>
           </div>
           <div class="week3-note week3-note--navy">
             By 100 removals, <strong>adaptive betweenness</strong> has the smallest remaining giant fraction (0.029), ahead of static betweenness (0.209), degree (0.278), closeness (0.437), and random removal (0.611). Recomputing matters: after each deletion, the network's bridges can move.
@@ -148,7 +178,7 @@
           <div class="week3-figure">
             <iframe src="../../assets/figures/week3/betweenness_null_model.html" title="Degree versus betweenness z-score" loading="lazy"></iframe>
             <a class="week3-open-figure" href="../../assets/figures/week3/betweenness_null_model.html">Open interactive figure in a new tab →</a>
-            <p class="figure-caption">Figure 4. Degree versus betweenness z-score under the degree-preserving null.</p>
+            <p class="figure-caption">Figure 5. Degree versus betweenness z-score under the degree-preserving null.</p>
           </div>
           <div class="week3-reveal week3-reveal--lavender">
             <span class="week3-reveal__label">Surprise broker</span>
