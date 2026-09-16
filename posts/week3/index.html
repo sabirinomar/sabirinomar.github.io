@@ -7,45 +7,177 @@
     <meta name="description" content="Week 3 robustness and centrality analysis of the Marvel hyperlink network." />
     <link rel="stylesheet" href="../../assets/css/styles.css" />
   </head>
-  <body>
-    <header class="site-header"><div class="container nav"><div class="brand">Social Graphs Group</div>
-      <nav aria-label="Main navigation"><ul class="nav-links">
-        <li><a href="../../index.html">Home</a></li><li><a href="../week1/index.html">Week 1</a></li>
-        <li><a href="../week2/index.html">Week 2</a></li><li><a href="index.html" aria-current="page">Week 3</a></li>
-      </ul></nav></div></header>
-    <main class="container main-content"><article class="article">
-      <span class="eyebrow">Week 3 · Robustness &amp; centrality</span>
-      <h1>Who holds the Marvel universe together?</h1>
-      <p class="lead">A character can be highly connected, close to everyone, or strategically positioned between groups. We asked a more destructive question: what happens to the hyperlink network when one character disappears?</p>
-      <div class="summary-grid">
-        <div class="metric"><span class="label">Giant component</span><span class="value">277</span></div>
-        <div class="metric"><span class="label">Giant fraction</span><span class="value">91.4%</span></div>
-        <div class="metric"><span class="label">Average path</span><span class="value">2.67</span></div>
-        <div class="metric"><span class="label">Diameter</span><span class="value">6</span></div>
+  <body class="week3-page">
+    <header class="site-header">
+      <div class="container nav">
+        <div class="brand">Social Graphs Group</div>
+        <nav aria-label="Main navigation">
+          <ul class="nav-links">
+            <li><a href="../../index.html">Home</a></li>
+            <li><a href="../week1/index.html">Week 1</a></li>
+            <li><a href="../week2/index.html">Week 2</a></li>
+            <li><a href="index.html" aria-current="page">Week 3</a></li>
+          </ul>
+        </nav>
       </div>
-      <div class="callout research-question"><strong>Directed versus undirected</strong><p>PageRank is calculated on the original directed hyperlink graph. Shortest paths, centrality comparisons, node removal, and robustness use the undirected giant component so that connected-component fragmentation is well-defined.</p></div>
-      <h2>The knockout experiment</h2>
-      <p>For each of the 277 characters in the original giant component, we copied the same graph, removed exactly one node, and measured the new giant component, component count, and nodes outside the giant. The fragmentation score is the number outside the new giant divided by the original giant-component size.</p>
-      <div class="figure-block"><iframe src="../../assets/figures/week3/knockout_fragmentation.html" title="Characters whose removal causes the most fragmentation" loading="lazy"></iframe><p class="figure-caption">Figure 1. Single-node knockouts ranked by structural damage.</p></div>
-      <p><strong>Spider-Man</strong> causes the largest single-node fragmentation in this experiment, followed by Black Widow (Natasha Romanova), Doctor Strange, and Deadpool. This is evidence about the graph's counterfactual structure, not about what would happen to fictional storylines.</p>
-      <h2>Does betweenness predict fragility?</h2>
-      <p>The Pearson correlation between betweenness and fragmentation is <strong>0.723</strong>; the Spearman rank correlation is <strong>0.306</strong>. These values describe association, not proof that betweenness causes damage. The scatterplot makes the disagreements visible: some bridges are replaceable, while some nodes cause disproportionate damage relative to their centrality.</p>
-      <div class="figure-block"><iframe src="../../assets/figures/week3/betweenness_vs_fragmentation.html" title="Betweenness versus fragmentation" loading="lazy"></iframe><p class="figure-caption">Figure 2. Betweenness versus single-node fragmentation.</p></div>
-      <h2>Attack the Marvel universe</h2>
-      <p>We started every strategy from the same original giant component. Degree, betweenness, and closeness use static rankings computed once. Adaptive betweenness recomputes after every removal. Random removal is the mean of 100 fixed-seed runs with a one-standard-deviation band.</p>
-      <div class="figure-block"><iframe src="../../assets/figures/week3/attack_strategies.html" title="Targeted attack strategies" loading="lazy"></iframe><p class="figure-caption">Figure 3. Remaining giant-component fraction as characters are removed.</p></div>
-      <h2>Broker — or just popular?</h2>
-      <p>We generated 200 degree-preserving undirected rewires. Every shuffle preserves each node's degree, so the null asks whether a character's betweenness is unusual beyond degree alone. A positive z-score means more broker-like than the rewired baseline; it does not mean “more important” in the real Marvel universe.</p>
-      <div class="figure-block"><iframe src="../../assets/figures/week3/betweenness_null_model.html" title="Degree versus betweenness z-score" loading="lazy"></iframe><p class="figure-caption">Figure 4. Degree versus betweenness z-score under the degree-preserving null.</p></div>
-      <h2>Structural surprises</h2>
-      <div class="table-wrap"><table><thead><tr><th>Category</th><th>Character</th><th>Evidence</th></tr></thead><tbody>
-        <tr><td>Biggest structural bottleneck</td><td>Spider-Man</td><td>Highest fragmentation score: 0.018</td></tr>
-        <tr><td>Strong broker beyond degree</td><td>Rockman (character)</td><td>Highest null-model betweenness z-score: 9.55</td></tr>
-        <tr><td>High betweenness, less destructive</td><td>Wolverine (character)</td><td>High betweenness rank but relatively low knockout damage</td></tr>
-      </tbody></table></div>
-      <h2>Takeaway</h2>
-      <p>The network has several kinds of “fame.” Degree counts links, closeness captures reachability, betweenness captures shortest-path brokerage, and PageRank rewards incoming links from central pages. The knockout experiment adds a robustness perspective: the most central-looking character is not automatically the one whose removal fragments the network most. The degree-preserving null is the comparison that keeps the interpretation honest.</p>
-    </article></main>
+    </header>
+
+    <main class="container main-content">
+      <article class="article week3-article">
+        <section class="week3-hero">
+          <span class="eyebrow">Week 3 · Network robustness</span>
+          <h1>Who holds the Marvel universe together?</h1>
+          <p class="week3-hero__question">
+            Spider-Man may be Marvel's biggest hub. But does removing the most connected
+            character actually break the network?
+          </p>
+          <p class="lead">
+            We deleted every character — one at a time — and compared centrality, damage,
+            targeted attacks, and a degree-preserving null model.
+          </p>
+          <div class="week3-hero__signal">
+            <span class="week3-hero__signal-label">Largest single knockout</span>
+            <strong>Spider-Man</strong>
+            <span>5 characters leave the giant component</span>
+          </div>
+        </section>
+
+        <section aria-labelledby="baseline-heading">
+          <div class="week3-section-heading">
+            <span class="eyebrow">The network at a glance</span>
+            <h2 id="baseline-heading">Before anything disappears</h2>
+          </div>
+          <div class="week3-kpis">
+            <div class="week3-kpi"><strong>277</strong><span>characters in the giant component</span><small>The largest mutually reachable cluster after ignoring arrow direction.</small></div>
+            <div class="week3-kpi"><strong>91.4%</strong><span>of all characters connected</span><small>277 of the 303 characters belong to that giant component.</small></div>
+            <div class="week3-kpi"><strong>2.67</strong><span>average steps apart</span><small>The average shortest-path distance inside the giant component.</small></div>
+            <div class="week3-kpi"><strong>6</strong><span>maximum shortest-path distance</span><small>The diameter: the longest shortest path in the giant component.</small></div>
+          </div>
+          <div class="week3-note">
+            <strong>Two views of one network.</strong>
+            PageRank uses the original directed Wikipedia graph. Shortest paths, centrality,
+            node removal, and robustness use the undirected giant component.
+          </div>
+        </section>
+
+        <section aria-labelledby="fame-heading">
+          <div class="week3-section-heading">
+            <span class="eyebrow">Act 1</span>
+            <h2 id="fame-heading">Fame is not one thing</h2>
+            <p>Different measures ask different questions about the same character.</p>
+          </div>
+          <div class="week3-concept-grid">
+            <div class="week3-concept"><b>Degree</b><span>How many characters know you?</span><small>Counts direct neighbours.</small></div>
+            <div class="week3-concept"><b>Betweenness</b><span>How often are you the bridge?</span><small>Counts shortest paths that pass through you.</small></div>
+            <div class="week3-concept"><b>Closeness</b><span>How near are you to everyone?</span><small>Summarises shortest-path distance to the rest.</small></div>
+            <div class="week3-concept"><b>PageRank</b><span>Are important pages pointing to you?</span><small>Weights incoming links by the centrality of their sources.</small></div>
+          </div>
+          <p class="week3-transition">But instead of asking who <em>looks</em> important, we asked what happens when they disappear.</p>
+        </section>
+
+        <section aria-labelledby="knockout-heading">
+          <div class="week3-section-heading">
+            <span class="eyebrow">Act 2 · The main event</span>
+            <h2 id="knockout-heading">Delete one hero. What breaks?</h2>
+            <p>Each character in the original giant component was removed from a fresh copy of the same graph. We then counted what fell outside the new giant component.</p>
+          </div>
+          <div class="week3-figure">
+            <iframe src="../../assets/figures/week3/knockout_fragmentation.html" title="Characters whose removal causes the most fragmentation" loading="lazy"></iframe>
+            <a class="week3-open-figure" href="../../assets/figures/week3/knockout_fragmentation.html">Open interactive figure in a new tab →</a>
+            <p class="figure-caption">Figure 1. Single-node knockouts ranked by structural damage.</p>
+          </div>
+          <div class="week3-reveal week3-reveal--pink">
+            <span class="week3-reveal__label">Most destructive single knockout</span>
+            <h3>Spider-Man</h3>
+            <div class="week3-reveal__metric">Fragmentation score 0.018</div>
+            <p>Removing Spider-Man leaves <strong>5 characters outside</strong> the new giant component, which retains 271 of the remaining nodes.</p>
+          </div>
+          <div class="week3-runner-up">
+            <span><b>#2</b> Black Widow — 3 characters outside the giant</span>
+            <span><b>#3</b> Doctor Strange — 2 characters outside the giant</span>
+          </div>
+        </section>
+
+        <section aria-labelledby="bridge-heading">
+          <div class="week3-section-heading">
+            <span class="eyebrow">Act 3</span>
+            <h2 id="bridge-heading">Being a bridge isn't the same as being irreplaceable</h2>
+            <p>Betweenness and knockout damage are related, but their rankings do not tell the same story.</p>
+          </div>
+          <div class="week3-correlation">
+            <div><span>Pearson</span><strong>0.723</strong><small>Linear association between betweenness and damage.</small></div>
+            <div><span>Spearman</span><strong>0.306</strong><small>Much weaker agreement between the rankings.</small></div>
+          </div>
+          <div class="week3-figure">
+            <iframe src="../../assets/figures/week3/betweenness_vs_fragmentation.html" title="Betweenness versus fragmentation" loading="lazy"></iframe>
+            <a class="week3-open-figure" href="../../assets/figures/week3/betweenness_vs_fragmentation.html">Open interactive figure in a new tab →</a>
+            <p class="figure-caption">Figure 2. Betweenness versus single-node fragmentation, with the largest knockouts labelled.</p>
+          </div>
+          <div class="week3-surprise-grid">
+            <div class="week3-surprise"><span>High betweenness, replaceable</span><strong>Wolverine</strong><p>Betweenness rank #3, but removing him leaves <strong>0</strong> nodes outside the giant component.</p></div>
+            <div class="week3-surprise"><span>High damage without a top bridge score</span><strong>Black Widow</strong><p>Betweenness rank #8, yet her removal leaves <strong>3</strong> characters outside the giant component.</p></div>
+          </div>
+        </section>
+
+        <section aria-labelledby="attack-heading">
+          <div class="week3-section-heading">
+            <span class="eyebrow">Act 4 · No more being polite</span>
+            <h2 id="attack-heading">What if we keep deleting heroes?</h2>
+            <p>Every strategy starts from the same original giant component. Static rankings are computed once; adaptive betweenness is recomputed after every removal; random removal averages 100 runs.</p>
+          </div>
+          <div class="week3-figure">
+            <iframe src="../../assets/figures/week3/attack_strategies.html" title="Targeted attack strategies" loading="lazy"></iframe>
+            <a class="week3-open-figure" href="../../assets/figures/week3/attack_strategies.html">Open interactive figure in a new tab →</a>
+            <p class="figure-caption">Figure 3. Remaining giant-component fraction as characters are removed.</p>
+          </div>
+          <div class="week3-note week3-note--navy">
+            By 100 removals, <strong>adaptive betweenness</strong> has the smallest remaining giant fraction (0.029), ahead of static betweenness (0.209), degree (0.278), closeness (0.437), and random removal (0.611). Recomputing matters: after each deletion, the network's bridges can move.
+          </div>
+        </section>
+
+        <section aria-labelledby="null-heading">
+          <div class="week3-section-heading">
+            <span class="eyebrow">Act 5 · Compared to what?</span>
+            <h2 id="null-heading">Broker — or just popular?</h2>
+            <p>High betweenness is less impressive if degree already predicts it.</p>
+          </div>
+          <div class="week3-null-flow" aria-label="Degree-preserving null model process">
+            <div><b>REAL MARVEL</b><span>Measure betweenness</span></div><i>→</i><div><b>SAME DEGREES</b><span>Rewire edges 200 times</span></div><i>→</i><div><b>EXPECTED BROKERAGE</b><span>Compare with a z-score</span></div>
+          </div>
+          <div class="week3-z-key"><span><b>positive z</b> more broker-like than degree predicts</span><span><b>z ≈ 0</b> about what degree predicts</span><span><b>negative z</b> less broker-like than degree predicts</span></div>
+          <div class="week3-figure">
+            <iframe src="../../assets/figures/week3/betweenness_null_model.html" title="Degree versus betweenness z-score" loading="lazy"></iframe>
+            <a class="week3-open-figure" href="../../assets/figures/week3/betweenness_null_model.html">Open interactive figure in a new tab →</a>
+            <p class="figure-caption">Figure 4. Degree versus betweenness z-score under the degree-preserving null.</p>
+          </div>
+          <div class="week3-reveal week3-reveal--lavender">
+            <span class="week3-reveal__label">Surprise broker</span>
+            <h3>Rockman</h3>
+            <div class="week3-reveal__metric">Betweenness z-score +9.55</div>
+            <p>Rockman is not remarkable here because he has many links. He is remarkable because of <strong>where those links sit</strong> compared with degree-preserving rewired networks.</p>
+          </div>
+        </section>
+
+        <section aria-labelledby="surprises-heading">
+          <div class="week3-section-heading">
+            <span class="eyebrow">The plot twist</span>
+            <h2 id="surprises-heading">Three structural surprises</h2>
+          </div>
+          <div class="week3-award-grid">
+            <div class="week3-award"><span>Biggest bottleneck</span><strong>Spider-Man</strong><p>Most damaging single removal: 5 nodes outside the giant.</p></div>
+            <div class="week3-award"><span>Surprise broker</span><strong>Rockman</strong><p>Betweenness z-score +9.55 after controlling for degree.</p></div>
+            <div class="week3-award"><span>More replaceable than he looks</span><strong>Wolverine</strong><p>High betweenness, but 0 nodes outside the giant after removal.</p></div>
+          </div>
+        </section>
+
+        <section class="week3-takeaway" aria-labelledby="takeaway-heading">
+          <span class="eyebrow">Final takeaway</span>
+          <h2 id="takeaway-heading">Popularity ≠ brokerage ≠ robustness</h2>
+          <p>The obvious Marvel stars dominate several centrality rankings. But deleting characters reveals something those rankings alone cannot: a bridge can be heavily used without being irreplaceable, while a modest character can occupy a position that is unusually broker-like for its degree.</p>
+          <p>The lesson is comparative. The degree-preserving null model tells us what is unusual beyond simply having many links. In this hyperlink network, “important” depends on the question we ask — and on what we compare it to.</p>
+        </section>
+      </article>
+    </main>
     <footer class="site-footer"><div class="container">Social Graphs Group · Week 3</div></footer>
   </body>
 </html>
