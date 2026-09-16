@@ -1,0 +1,411 @@
+(() => {
+  "use strict";
+
+  const DATA_URL = "../../assets/week3/network_game.json";
+  const SVG_NS = "http://www.w3.org/2000/svg";
+  const $ = (selector) => document.querySelector(selector);
+  const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
+  const shortName = (name) => name.replace(/\s*\([^)]*\)/g, "");
+
+  fetch(DATA_URL)
+    .then((response) => {
+      if (!response.ok) throw new Error(`Could not load ${DATA_URL}`);
+      return response.json();
+    })
+    .then(init)
+    .catch((error) => {
+      document.querySelector(".week3-playground").insertAdjacentHTML(
+        "afterbegin",
+        `<p class="playground-error">The playground data could not be loaded. ${error.message}</p>`,
+      );
+    });
+
+  function init(data) {
+    const nodeById = Object.fromEntries(data.nodes.map((node) => [node.id, node]));
+    const adjacency = Object.fromEntries(data.nodes.map((node) => [node.id, []]));
+    data.edges.forEach(([source, target]) => {
+      adjacency[source].push(target);
+      adjacency[target].push(source);
+    });
+
+    const state = { removed: new Set(), selected: null, clue: "none" };
+
+    function svgElement(name, attributes = {}) {
+      const element = document.createElementNS(SVG_NS, name);
+      Object.entries(attributes).forEach(([key, value]) => element.setAttribute(key, value));
+      return element;
+    }
+
+    function point(node, width, height) {
+      return { x: 24 + node.x * (width - 48), y: 24 + node.y * (height - 48) };
+    }
+
+    function components(removed) {
+      const active = new Set(data.nodes.map((node) => node.id).filter((id) => !removed.has(id)));
+      const found = [];
+      while (active.size) {
+        const start = active.values().next().value;
+        const component = new Set([start]);
+        const queue = [start];
+        active.delete(start);
+        while (queue.length) {
+          const current = queue.shift();
+          adjacency[current].forEach((neighbor) => {
+            if (active.has(neighbor)) {
+              active.delete(neighbor);
+              component.add(neighbor);
+              queue.push(neighbor);
+            }
+          });
+        }
+        found.push(component);
+      }
+      return found.sort((a, b) => b.size - a.size);
+    }
+
+    function networkSvg(container, options = {}) {
+      const width = options.width || 860;
+      const height = options.height || 520;
+      const removed = options.removed || new Set();
+      const selected = options.selected || null;
+      const beforeAfter = options.beforeAfter || false;
+      const svg = svgElement("svg", { viewBox: `0 0 ${width} ${height}`, role: "img" });
+      const groups = components(removed);
+      const giant = groups[0] || new Set();
+      const disconnected = new Set();
+      groups.slice(1).forEach((group) => group.forEach((id) => disconnected.add(id)));
+      const lines = svgElement("g", { class: "network-edges" });
+      data.edges.forEach(([source, target]) => {
+        if (removed.has(source) || removed.has(target)) return;
+        const a = point(nodeById[source], width, height);
+        const b = point(nodeById[target], width, height);
+        lines.appendChild(svgElement("line", {
+          x1: a.x, y1: a.y, x2: b.x, y2: b.y,
+          class: disconnected.has(source) || disconnected.has(target) ? "network-edge network-edge--cut" : "network-edge",
+        }));
+      });
+      svg.appendChild(lines);
+      const nodes = svgElement("g", { class: "network-nodes" });
+      data.nodes.forEach((node) => {
+        if (removed.has(node.id)) return;
+        const p = point(node, width, height);
+        const circle = svgElement("circle", {
+          cx: p.x, cy: p.y, r: radiusFor(node, options.clue || "none", beforeAfter),
+          class: `network-node ${giant.has(node.id) ? "network-node--giant" : "network-node--cut"}${selected === node.id ? " network-node--selected" : ""}`,
+          tabindex: options.interactive ? "0" : "-1",
+          "data-node-id": node.id,
+        });
+        circle.addEventListener("mouseenter", () => showNodeLabel(svg, node, p));
+        circle.addEventListener("mouseleave", () => svg.querySelector(".network-label")?.remove());
+        if (options.interactive) {
+          circle.addEventListener("click", () => selectGameNode(node.id));
+          circle.addEventListener("keydown", (event) => {
+            if (event.key === "Enter" || event.key === " ") selectGameNode(node.id);
+          });
+        }
+        nodes.appendChild(circle);
+      });
+      svg.appendChild(nodes);
+      return svg;
+    }
+
+    function radiusFor(node, clue, compact = false) {
+      if (compact) return node.id === state.selected ? 6 : 2.7;
+      if (clue === "degree") return 2.5 + Math.sqrt(node.degree) * 0.62;
+      if (clue === "betweenness") return 2.5 + Math.sqrt(node.betweenness * 100) * 1.6;
+      return node.id === state.selected ? 6 : 3.4;
+    }
+
+    function showNodeLabel(svg, node, p) {
+      svg.querySelector(".network-label")?.remove();
+      const label = svgElement("text", { x: p.x + 8, y: p.y - 8, class: "network-label" });
+      label.textContent = shortName(node.name);
+      svg.appendChild(label);
+    }
+
+    function currentReadout() {
+      const groups = components(state.removed);
+      const giant = groups[0]?.size || 0;
+      return {
+        giant,
+        separated: data.original_nodes - state.removed.size - giant,
+        damage: (1 - giant / data.original_nodes) * 100,
+      };
+    }
+
+    function renderGame() {
+      const container = $("#game-network");
+      container.replaceChildren(networkSvg(container, {
+        removed: state.removed,
+        selected: state.selected,
+        clue: state.clue,
+        interactive: true,
+      }));
+      const readout = currentReadout();
+      $("#removals-left").textContent = 10 - state.removed.size;
+      $("#giant-now").textContent = readout.giant;
+      $("#components-now").textContent = components(state.removed).length;
+      $("#damage-now").textContent = `${readout.damage.toFixed(1)}%`;
+      $("#remove-node").disabled = !state.selected || state.removed.size >= 10;
+      if (!state.selected) {
+        $("#game-message").textContent = state.removed.size ? "Choose the next character to remove." : "Choose a character to make your first move.";
+      }
+    }
+
+    function selectGameNode(id) {
+      if (state.removed.has(id)) return;
+      state.selected = id;
+      $("#character-search").value = nodeById[id].name;
+      renderGame();
+      $("#game-message").textContent = `${nodeById[id].name} selected. Remove this node?`;
+    }
+
+    function renderSearchResults(query) {
+      const box = $("#search-results");
+      box.replaceChildren();
+      if (!query.trim()) return;
+      data.nodes
+        .filter((node) => node.name.toLowerCase().includes(query.toLowerCase()) && !state.removed.has(node.id))
+        .slice(0, 8)
+        .forEach((node) => {
+          const button = document.createElement("button");
+          button.type = "button";
+          button.textContent = node.name;
+          button.addEventListener("click", () => {
+            selectGameNode(node.id);
+            box.replaceChildren();
+          });
+          box.appendChild(button);
+        });
+    }
+
+    function finishGame() {
+      const readout = currentReadout();
+      const lines = [
+        ["Random removal", attackValue("Random removal", 10)],
+        ["Degree", attackValue("Degree (static)", 10)],
+        ["Betweenness", attackValue("Betweenness (static)", 10)],
+        ["Adaptive betweenness", attackValue("Adaptive betweenness", 10)],
+      ];
+      const beaten = lines.filter(([, value]) => readout.giant / data.original_nodes < value).map(([label]) => label);
+      $("#game-result").hidden = false;
+      $("#game-result").innerHTML = `<strong>Your damage score: ${readout.damage.toFixed(1)}%</strong><p>After 10 removals you left ${readout.giant} of 277 nodes in the giant component.</p><p>${beaten.length ? `You beat ${beaten.join(", ")}.` : "The precomputed strategies still broke the network faster."} Adaptive betweenness finishes at ${(100 - attackValue("Adaptive betweenness", 10) * 100).toFixed(1)}% remaining.</p>`;
+    }
+
+    function attackValue(strategy, step) {
+      return data.attacks[strategy].find((row) => row.removed === step).remaining;
+    }
+
+    $("#character-search").addEventListener("input", (event) => renderSearchResults(event.target.value));
+    $("#clue-mode").addEventListener("change", (event) => {
+      state.clue = event.target.value;
+      renderGame();
+    });
+    $("#remove-node").addEventListener("click", () => {
+      if (!state.selected || state.removed.size >= 10) return;
+      const name = nodeById[state.selected].name;
+      state.removed.add(state.selected);
+      state.selected = null;
+      const readout = currentReadout();
+      $("#game-message").textContent = `${name} removed — ${readout.separated} characters are outside the giant component.`;
+      renderGame();
+      if (state.removed.size === 10) finishGame();
+    });
+    $("#reset-game").addEventListener("click", () => {
+      state.removed.clear();
+      state.selected = null;
+      $("#character-search").value = "";
+      $("#game-result").hidden = true;
+      renderGame();
+    });
+    renderGame();
+
+    initTransformations();
+    initQuiz();
+    initLandscape();
+    initRace();
+    initNullModel();
+
+    function initTransformations() {
+      const selected = data.selected[0];
+      let currentTransform = selected;
+      const controls = $("#suspect-controls");
+      data.selected.forEach((id) => {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.textContent = shortName(nodeById[id].name);
+        button.className = "suspect-button";
+        button.addEventListener("click", () => {
+          currentTransform = id;
+          renderTransformation(id);
+        });
+        controls.appendChild(button);
+      });
+      renderTransformation(selected);
+      $("#transform-play").addEventListener("click", () => {
+        renderTransformation(currentTransform, true);
+      });
+      const multiples = $("#small-multiples");
+      data.selected.forEach((id) => {
+        const card = document.createElement("article");
+        card.className = "mini-network";
+        card.innerHTML = `<h3>${shortName(nodeById[id].name)}</h3><div></div><strong>${data.removals[id].nodes_outside_giant} disconnected</strong>`;
+        card.querySelector("div").appendChild(networkSvg(card, { removed: new Set([id]), selected: id, width: 250, height: 150, beforeAfter: true }));
+        multiples.appendChild(card);
+      });
+    }
+
+    function renderTransformation(id, animate = false) {
+      document.querySelectorAll(".suspect-button").forEach((button) => button.classList.toggle("is-active", button.textContent === shortName(nodeById[id].name)));
+      const stage = $("#before-after");
+      stage.replaceChildren();
+      const before = document.createElement("div");
+      before.className = "transform-panel";
+      before.innerHTML = "<span>Before</span>";
+      before.appendChild(networkSvg(before, { width: 520, height: 300, beforeAfter: true }));
+      const after = document.createElement("div");
+      after.className = "transform-panel";
+      after.innerHTML = "<span>After removal</span>";
+      after.appendChild(networkSvg(after, { removed: new Set([id]), width: 520, height: 300, beforeAfter: true }));
+      if (animate) after.querySelector("svg").classList.add("transform-after");
+      stage.append(before, after);
+      const row = nodeById[id];
+      const result = data.removals[id];
+      $("#transformation-note").innerHTML = `<strong>${shortName(row.name)}</strong><b>${result.nodes_outside_giant} nodes outside the giant component</b><span>Betweenness rank #${row.betweenness_rank} · ${row.degree} direct neighbours</span>`;
+    }
+
+    function initQuiz() {
+      let round = 0;
+      let score = 0;
+      function renderRound() {
+        const pair = data.quiz[round];
+        $("#quiz-prompt").innerHTML = `<span>Round ${round + 1} / ${data.quiz.length}</span><strong>Who does more damage if removed?</strong><small>Pick one. The network will reveal the answer.</small>`;
+        const options = $("#quiz-options");
+        options.replaceChildren();
+        pair.forEach((id) => {
+          const button = document.createElement("button");
+          button.type = "button";
+          button.innerHTML = `<b>${shortName(nodeById[id].name)}</b><small>${nodeById[id].betweenness_rank ? `betweenness rank #${nodeById[id].betweenness_rank}` : ""}</small>`;
+          button.addEventListener("click", () => answer(id, pair));
+          options.appendChild(button);
+        });
+        $("#quiz-feedback").textContent = `Score: ${score} / ${data.quiz.length}`;
+      }
+      function answer(id, pair) {
+        const actual = pair.slice().sort((a, b) => data.removals[b].nodes_outside_giant - data.removals[a].nodes_outside_giant)[0];
+        if (id === actual) score += 1;
+        $("#quiz-feedback").innerHTML = `<strong>${id === actual ? "Correct." : "Not this time."}</strong> ${shortName(nodeById[actual].name)} separates ${data.removals[actual].nodes_outside_giant} nodes; ${shortName(nodeById[id].name)} separates ${data.removals[id].nodes_outside_giant}. <button type="button" id="next-quiz">${round === data.quiz.length - 1 ? "Play again" : "Next comparison"}</button>`;
+        $("#next-quiz").addEventListener("click", () => {
+          if (round === data.quiz.length - 1) { round = 0; score = 0; } else round += 1;
+          renderRound();
+        });
+        document.querySelectorAll("#quiz-options button").forEach((button) => { button.disabled = true; });
+      }
+      renderRound();
+    }
+
+    function initLandscape() {
+      const render = () => {
+        const width = 920;
+        const height = 500;
+        const svg = svgElement("svg", { viewBox: `0 0 ${width} ${height}`, role: "img", "aria-label": "Betweenness versus knockout damage scatterplot" });
+        const colorMode = $("#landscape-color").value;
+        const sizeMode = $("#landscape-size").value;
+        const query = $("#landscape-search").value.toLowerCase();
+        const x = (value) => 58 + (value / 0.25) * (width - 100);
+        const y = (value) => height - 48 - (value / 0.02) * (height - 90);
+        svg.appendChild(svgElement("line", { x1: 58, y1: height - 48, x2: width - 30, y2: height - 48, class: "chart-axis" }));
+        svg.appendChild(svgElement("line", { x1: 58, y1: 25, x2: 58, y2: height - 48, class: "chart-axis" }));
+        const xLabel = svgElement("text", { x: width / 2, y: height - 10, class: "chart-axis-label" }); xLabel.textContent = "Betweenness"; svg.appendChild(xLabel);
+        const yLabel = svgElement("text", { x: 14, y: height / 2, class: "chart-axis-label", transform: `rotate(-90 14 ${height / 2})` }); yLabel.textContent = "Knockout damage"; svg.appendChild(yLabel);
+        data.nodes.forEach((node) => {
+          const colourValue = colorMode === "degree" ? node.degree : colorMode === "pagerank" ? node.pagerank : node.betweenness_z;
+          const sizeValue = sizeMode === "degree" ? Math.sqrt(node.degree) : Math.sqrt(node.pagerank * 10000);
+          const color = colorMode === "z" ? zColor(colourValue) : `hsl(${clamp(235 - colourValue * (colorMode === "degree" ? 3 : 9000), 0, 235)}, 75%, 62%)`;
+          const match = query && node.name.toLowerCase().includes(query);
+          const circle = svgElement("circle", { cx: x(node.betweenness), cy: y(node.knockout_damage), r: clamp(2 + sizeValue, 3, 13), fill: color, class: `landscape-dot${match ? " landscape-dot--match" : ""}`, tabindex: "0" });
+          circle.addEventListener("mouseenter", () => { $("#landscape-hover").innerHTML = `<strong>${node.name}</strong> · degree ${node.degree} · betweenness ${node.betweenness.toFixed(3)} · PageRank ${node.pagerank.toFixed(3)} · knockout ${node.nodes_outside_giant} outside · z ${node.betweenness_z.toFixed(2)}`; });
+          svg.appendChild(circle);
+        });
+        ["Spider-Man", "Wolverine_(character)", "Rockman_(character)"].forEach((id) => {
+          const node = nodeById[id]; if (!node) return;
+          const label = svgElement("text", { x: x(node.betweenness) + 7, y: y(node.knockout_damage) - 7, class: "landscape-label" }); label.textContent = shortName(node.name); svg.appendChild(label);
+        });
+        $("#landscape").replaceChildren(svg);
+      };
+      ["landscape-search", "landscape-color", "landscape-size"].forEach((id) => $(`#${id}`).addEventListener("input", render));
+      render();
+    }
+
+    function initRace() {
+      let step = 0;
+      let timer = null;
+      const strategies = ["Adaptive betweenness", "Betweenness (static)", "Degree (static)", "Closeness (static)", "Random removal"];
+      const colors = ["#3f2d52", "#8d63ff", "#e85a98", "#e0a62d", "#8aa0df"];
+      function render() {
+        const width = 920, height = 470;
+        const svg = svgElement("svg", { viewBox: `0 0 ${width} ${height}`, role: "img", "aria-label": "Animated attack strategy race" });
+        const px = (value) => 58 + (value / 100) * (width - 94);
+        const py = (value) => height - 45 - value * (height - 80);
+        svg.appendChild(svgElement("line", { x1: 58, y1: 25, x2: 58, y2: height - 45, class: "chart-axis" }));
+        svg.appendChild(svgElement("line", { x1: 58, y1: height - 45, x2: width - 36, y2: height - 45, class: "chart-axis" }));
+        strategies.forEach((strategy, index) => {
+          const rows = data.attacks[strategy].filter((row) => row.removed <= step);
+          const path = rows.map((row, rowIndex) => `${rowIndex ? "L" : "M"}${px(row.removed)},${py(row.remaining)}`).join(" ");
+          svg.appendChild(svgElement("path", { d: path, class: "race-line", stroke: colors[index] }));
+          const last = rows[rows.length - 1];
+          const label = svgElement("text", { x: px(last.removed) + 7, y: py(last.remaining) + 4, class: "race-label", fill: colors[index] }); label.textContent = strategy.replace(" (static)", ""); svg.appendChild(label);
+        });
+        $("#race-chart").replaceChildren(svg);
+        $("#race-step").textContent = `${step} / 100`;
+        const board = $("#race-leaderboard"); board.replaceChildren();
+        strategies.forEach((strategy, index) => {
+          const remaining = data.attacks[strategy].find((row) => row.removed === step).remaining;
+          board.insertAdjacentHTML("beforeend", `<div><span style="--bar:${remaining * 100}%;--race-color:${colors[index]}">${strategy.replace(" (static)", "")}</span><b>${(remaining * 100).toFixed(1)}%</b></div>`);
+        });
+      }
+      function play() {
+        if (timer) { clearInterval(timer); timer = null; $("#race-play").textContent = "Resume race"; return; }
+        $("#race-play").textContent = "Pause";
+        timer = setInterval(() => { if (step >= 100) { clearInterval(timer); timer = null; $("#race-play").textContent = "Replay"; return; } step += 1; render(); }, Number($("#race-speed").value));
+      }
+      $("#race-play").addEventListener("click", play);
+      $("#race-reset").addEventListener("click", () => { clearInterval(timer); timer = null; step = 0; $("#race-play").textContent = "Start race"; render(); });
+      $("#race-speed").addEventListener("input", () => { if (timer) { clearInterval(timer); timer = null; play(); } });
+      render();
+    }
+
+    function initNullModel() {
+      const controls = $("#null-controls");
+      const ids = Object.keys(data.null_samples);
+      ids.forEach((id, index) => {
+        const button = document.createElement("button"); button.type = "button"; button.textContent = shortName(nodeById[id].name); button.className = "suspect-button"; button.addEventListener("click", () => renderNull(id)); controls.appendChild(button);
+        if (index === 0) button.classList.add("is-active");
+      });
+      renderNull(ids[0]);
+      function renderNull(id) {
+        document.querySelectorAll("#null-controls .suspect-button").forEach((button) => button.classList.toggle("is-active", button.textContent === shortName(nodeById[id].name)));
+        const samples = data.null_samples[id];
+        const real = nodeById[id].betweenness;
+        const min = Math.min(...samples, real);
+        const max = Math.max(...samples, real);
+        const bins = Array.from({ length: 18 }, () => 0);
+        samples.forEach((value) => bins[Math.min(17, Math.floor((value - min) / (max - min || 1) * 18))] += 1);
+        const width = 760, height = 360;
+        const svg = svgElement("svg", { viewBox: `0 0 ${width} ${height}`, role: "img", "aria-label": `Null model distribution for ${nodeById[id].name}` });
+        const maxBin = Math.max(...bins);
+        bins.forEach((count, index) => svg.appendChild(svgElement("rect", { x: 45 + index * 35, y: height - 45 - count / maxBin * 230, width: 28, height: count / maxBin * 230, class: "null-bar" })));
+        const realX = 45 + (real - min) / (max - min || 1) * 630;
+        svg.appendChild(svgElement("line", { x1: realX, y1: 25, x2: realX, y2: height - 45, class: "null-real-line" }));
+        const label = svgElement("text", { x: clamp(realX + 8, 50, width - 180), y: 30, class: "null-real-label" }); label.textContent = `REAL ${shortName(nodeById[id].name).toUpperCase()}`; svg.appendChild(label);
+        $("#null-chart").replaceChildren(svg);
+        $("#null-note").innerHTML = `<strong>${shortName(nodeById[id].name)}</strong><b>${nodeById[id].betweenness_z >= 0 ? "+" : ""}${nodeById[id].betweenness_z.toFixed(2)} standard deviations</b><span>The real betweenness is ${nodeById[id].betweenness_z >= 3 ? "far beyond" : "within"} the degree-preserving rewired distribution.</span>`;
+      }
+    }
+
+    function zColor(value) {
+      const t = clamp((value + 3) / 13, 0, 1);
+      return `hsl(${240 - t * 210}, 78%, 58%)`;
+    }
+  }
+})();

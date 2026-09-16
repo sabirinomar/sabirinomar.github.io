@@ -4,10 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Week 3 · Who holds the Marvel universe together?</title>
-    <meta name="description" content="Week 3 robustness and centrality analysis of the Marvel hyperlink network." />
+    <meta name="description" content="An interactive network-science playground for the Marvel hyperlink network." />
     <link rel="stylesheet" href="../../assets/css/styles.css" />
   </head>
-  <body class="week3-page">
+  <body class="week3-playground-page">
     <header class="site-header">
       <div class="container nav">
         <div class="brand">Social Graphs Group</div>
@@ -23,191 +23,130 @@
     </header>
 
     <main class="container main-content">
-      <article class="article week3-article">
-        <section class="week3-hero">
-          <span class="eyebrow">Week 3 · Network robustness</span>
+      <article class="week3-playground">
+        <header class="playground-intro">
+          <span class="eyebrow">Week 3 · Network science playground</span>
           <h1>Who holds the Marvel universe together?</h1>
-          <p class="week3-hero__question">
-            Spider-Man may be Marvel's biggest hub. But does removing the most connected
-            character actually break the network?
-          </p>
-          <p class="lead">
-            We deleted every character — one at a time — and compared centrality, damage,
-            targeted attacks, and a degree-preserving null model.
-          </p>
-          <div class="week3-hero__signal">
-            <span class="week3-hero__signal-label">Largest single knockout</span>
-            <strong>Spider-Man</strong>
-            <span>5 characters leave the giant component</span>
+          <p>Do not read the answer first. Break the network, make a prediction, and watch the structure respond.</p>
+          <div class="intro-network" aria-hidden="true"><span></span><span></span><span></span><span></span><i></i><i></i><i></i></div>
+        </header>
+
+        <section class="playground-section playground-game" aria-labelledby="game-heading">
+          <div class="playground-heading">
+            <span class="eyebrow">Experiment 01</span>
+            <h2 id="game-heading">Can you break the Marvel universe?</h2>
+            <p>You have 10 removals. Choose wisely. Search for a character or click a node, then remove it without changing the network layout.</p>
           </div>
+          <div class="game-layout">
+            <div class="network-stage">
+              <div class="network-toolbar">
+                <label for="character-search">Find a character
+                  <input id="character-search" type="search" placeholder="Try Spider-Man" autocomplete="off" />
+                </label>
+                <label for="clue-mode">Network clues
+                  <select id="clue-mode">
+                    <option value="none">No clue</option>
+                    <option value="degree">Size by degree</option>
+                    <option value="betweenness">Size by betweenness</option>
+                  </select>
+                </label>
+                <button id="remove-node" class="playground-button playground-button--pink" type="button" disabled>Remove</button>
+                <button id="reset-game" class="playground-button playground-button--quiet" type="button">Try again</button>
+              </div>
+              <div id="game-network" class="network-canvas" role="img" aria-label="Interactive Marvel giant component"></div>
+              <div id="search-results" class="search-results" aria-live="polite"></div>
+            </div>
+            <aside class="game-readout">
+              <div class="readout-stat"><span>Removals left</span><strong id="removals-left">10</strong></div>
+              <div class="readout-stat"><span>Giant component</span><strong><span id="giant-now">277</span> / 277</strong></div>
+              <div class="readout-stat"><span>Components</span><strong id="components-now">1</strong></div>
+              <div class="readout-stat"><span>Damage</span><strong id="damage-now">0%</strong></div>
+              <p id="game-message" class="game-message">Choose a character to make your first move.</p>
+              <div class="legend"><span class="legend-dot legend-dot--live"></span> giant component <span class="legend-dot legend-dot--cut"></span> separated <span class="legend-dot legend-dot--removed"></span> removed</div>
+            </aside>
+          </div>
+          <div id="game-result" class="game-result" hidden></div>
         </section>
 
-        <section class="week3-opening-reveal" aria-labelledby="opening-reveal-heading">
-          <div>
-            <span class="eyebrow">The opening reveal</span>
-            <h2 id="opening-reveal-heading">If one character disappears, who does the most damage?</h2>
-            <p>We did not begin with a ranking. We began with a deletion.</p>
+        <section class="playground-section" aria-labelledby="transformation-heading">
+          <div class="playground-heading">
+            <span class="eyebrow">Experiment 02</span>
+            <h2 id="transformation-heading">What actually breaks?</h2>
+            <p>Choose a suspect. The same fixed network is shown before and after removal, so fragmentation becomes visible instead of abstract.</p>
           </div>
-          <div class="week3-opening-answer">
-            <span>01 · largest single-node knockout</span>
-            <strong>Spider-Man</strong>
-            <b>5 characters cut off</b>
-            <small>271 of the remaining nodes stay in the giant component.</small>
+          <div class="suspect-controls" id="suspect-controls"></div>
+          <button id="transform-play" class="playground-button playground-button--pink" type="button">Play transformation</button>
+          <div class="transformation-layout">
+            <div id="before-after" class="network-stage network-stage--wide"></div>
+            <div id="transformation-note" class="transformation-note"></div>
           </div>
+          <div id="small-multiples" class="small-multiples"></div>
         </section>
 
-        <section class="week3-network-experiment" aria-labelledby="network-experiment-heading">
-          <div class="week3-section-heading">
-            <span class="eyebrow">The visual experiment</span>
-            <h2 id="network-experiment-heading">Remove one node</h2>
-            <p>The positions stay fixed so the change is structural, not a new layout trick. Pink nodes on the right are the five characters separated from the giant component after Spider-Man is removed.</p>
+        <section class="playground-section playground-quiz" aria-labelledby="quiz-heading">
+          <div class="playground-heading">
+            <span class="eyebrow">Experiment 03</span>
+            <h2 id="quiz-heading">Who would you remove?</h2>
+            <p>Centrality creates intuitions. The knockout experiment gets the final vote.</p>
           </div>
-          <figure class="week3-network-visual">
-            <img src="../../assets/figures/week3/spiderman_before_after.svg" alt="Before and after network visual showing five characters separated after Spider-Man is removed" loading="lazy" />
-            <figcaption>Figure 1. The same 277-node giant component before and after the Spider-Man removal.</figcaption>
-          </figure>
-          <aside class="week3-method-note">
-            <span>Method note</span>
-            PageRank → directed graph · robustness → undirected giant component · null model → 200 degree-preserving rewires
-          </aside>
+          <div class="quiz-layout">
+            <div id="quiz-prompt" class="quiz-prompt"></div>
+            <div id="quiz-options" class="quiz-options"></div>
+          </div>
+          <div id="quiz-feedback" class="quiz-feedback" aria-live="polite"></div>
         </section>
 
-        <section aria-labelledby="baseline-heading">
-          <div class="week3-section-heading">
-            <span class="eyebrow">The baseline</span>
-            <h2 id="baseline-heading">How much network is there to break?</h2>
+        <section class="playground-section" aria-labelledby="landscape-heading">
+          <div class="playground-heading playground-heading--split">
+            <div>
+              <span class="eyebrow">Experiment 04</span>
+              <h2 id="landscape-heading">Explore the centrality landscape</h2>
+              <p>Every dot is a character. Search for someone, change the visual encoding, and look for bridges that are not as irreplaceable as they seem.</p>
+            </div>
+            <div class="correlation-rail"><span><b>0.723</b> Pearson</span><span><b>0.306</b> Spearman</span></div>
           </div>
-          <div class="week3-kpis">
-            <div class="week3-kpi"><strong>277</strong><span>characters in the giant component</span><small>The largest mutually reachable cluster after ignoring arrow direction.</small></div>
-            <div class="week3-kpi"><strong>91.4%</strong><span>of all characters connected</span><small>277 of the 303 characters belong to that giant component.</small></div>
-            <div class="week3-kpi"><strong>2.67</strong><span>average steps apart</span><small>The average shortest-path distance inside the giant component.</small></div>
-            <div class="week3-kpi"><strong>6</strong><span>maximum shortest-path distance</span><small>The diameter: the longest shortest path in the giant component.</small></div>
+          <div class="landscape-controls">
+            <label for="landscape-search">Find character <input id="landscape-search" type="search" placeholder="Try Wolverine" /></label>
+            <label for="landscape-color">Color by
+              <select id="landscape-color"><option value="degree">Degree</option><option value="pagerank">PageRank</option><option value="z">Null-model z-score</option></select>
+            </label>
+            <label for="landscape-size">Size by
+              <select id="landscape-size"><option value="degree">Degree</option><option value="pagerank">PageRank</option></select>
+            </label>
           </div>
-          <div class="week3-note">
-            <strong>Two views of one network.</strong>
-            PageRank uses the original directed Wikipedia graph. Shortest paths, centrality,
-            node removal, and robustness use the undirected giant component.
-          </div>
+          <div id="landscape" class="chart-stage"></div>
+          <p id="landscape-hover" class="chart-hover">Hover over a character.</p>
         </section>
 
-        <section aria-labelledby="fame-heading">
-          <div class="week3-section-heading">
-            <span class="eyebrow">Act 1</span>
-            <h2 id="fame-heading">Fame is not one thing</h2>
-            <p>Different measures ask different questions about the same character.</p>
+        <section class="playground-section playground-race" aria-labelledby="race-heading">
+          <div class="playground-heading">
+            <span class="eyebrow">Experiment 05</span>
+            <h2 id="race-heading">Race to destroy the network</h2>
+            <p>Five strategies remove characters in different orders. Press play and watch the giant component shrink.</p>
           </div>
-          <div class="week3-concept-grid">
-            <div class="week3-concept"><b>Degree</b><span>How many characters know you?</span><small>Counts direct neighbours.</small></div>
-            <div class="week3-concept"><b>Betweenness</b><span>How often are you the bridge?</span><small>Counts shortest paths that pass through you.</small></div>
-            <div class="week3-concept"><b>Closeness</b><span>How near are you to everyone?</span><small>Summarises shortest-path distance to the rest.</small></div>
-            <div class="week3-concept"><b>PageRank</b><span>Are important pages pointing to you?</span><small>Weights incoming links by the centrality of their sources.</small></div>
-          </div>
-          <p class="week3-transition">But instead of asking who <em>looks</em> important, we asked what happens when they disappear.</p>
+          <div class="race-controls"><button id="race-play" class="playground-button playground-button--pink" type="button">Start race</button><button id="race-reset" class="playground-button playground-button--quiet" type="button">Reset</button><label for="race-speed">Speed <input id="race-speed" type="range" min="30" max="500" value="120" /></label><strong id="race-step">0 / 100</strong></div>
+          <div id="race-chart" class="chart-stage chart-stage--race"></div>
+          <div id="race-leaderboard" class="race-leaderboard"></div>
         </section>
 
-        <section aria-labelledby="knockout-heading">
-          <div class="week3-section-heading">
-            <span class="eyebrow">Act 2 · The main event</span>
-            <h2 id="knockout-heading">Delete one hero. What breaks?</h2>
-            <p>Each character in the original giant component was removed from a fresh copy of the same graph. We then counted what fell outside the new giant component.</p>
+        <section class="playground-section playground-null" aria-labelledby="null-heading">
+          <div class="playground-heading">
+            <span class="eyebrow">Experiment 06</span>
+            <h2 id="null-heading">200 alternative Marvel universes</h2>
+            <p>Same characters. Same number of links per character. Different connections. Where does a real character land among the rewired possibilities?</p>
           </div>
-          <div class="week3-figure">
-            <iframe src="../../assets/figures/week3/knockout_fragmentation.html" title="Characters whose removal causes the most fragmentation" loading="lazy"></iframe>
-            <a class="week3-open-figure" href="../../assets/figures/week3/knockout_fragmentation.html">Open interactive figure in a new tab →</a>
-            <p class="figure-caption">Figure 2. Single-node knockouts ranked by structural damage.</p>
-          </div>
-          <div class="week3-reveal week3-reveal--pink">
-            <span class="week3-reveal__label">Most destructive single knockout</span>
-            <h3>Spider-Man</h3>
-            <div class="week3-reveal__metric">Fragmentation score 0.018</div>
-            <p>Removing Spider-Man leaves <strong>5 characters outside</strong> the new giant component, which retains 271 of the remaining nodes.</p>
-          </div>
-          <div class="week3-runner-up">
-            <span><b>#2</b> Black Widow — 3 characters outside the giant</span>
-            <span><b>#3</b> Doctor Strange — 2 characters outside the giant</span>
-          </div>
+          <div class="null-controls" id="null-controls"></div>
+          <div class="null-layout"><div id="null-chart" class="chart-stage"></div><div id="null-note" class="null-note"></div></div>
         </section>
 
-        <section aria-labelledby="bridge-heading">
-          <div class="week3-section-heading">
-            <span class="eyebrow">Act 3</span>
-            <h2 id="bridge-heading">Being a bridge isn't the same as being irreplaceable</h2>
-            <p>Betweenness and knockout damage are related, but their rankings do not tell the same story.</p>
-          </div>
-          <div class="week3-correlation">
-            <div><span>Pearson</span><strong>0.723</strong><small>Linear association between betweenness and damage.</small></div>
-            <div><span>Spearman</span><strong>0.306</strong><small>Much weaker agreement between the rankings.</small></div>
-          </div>
-          <div class="week3-figure">
-            <iframe src="../../assets/figures/week3/betweenness_vs_fragmentation.html" title="Betweenness versus fragmentation" loading="lazy"></iframe>
-            <a class="week3-open-figure" href="../../assets/figures/week3/betweenness_vs_fragmentation.html">Open interactive figure in a new tab →</a>
-            <p class="figure-caption">Figure 3. Betweenness versus single-node fragmentation, with the largest knockouts labelled.</p>
-          </div>
-          <div class="week3-surprise-grid">
-            <div class="week3-surprise"><span>High betweenness, replaceable</span><strong>Wolverine</strong><p>Betweenness rank #3, but removing him leaves <strong>0</strong> nodes outside the giant component.</p></div>
-            <div class="week3-surprise"><span>High damage without a top bridge score</span><strong>Black Widow</strong><p>Betweenness rank #8, yet her removal leaves <strong>3</strong> characters outside the giant component.</p></div>
-          </div>
-        </section>
-
-        <section aria-labelledby="attack-heading">
-          <div class="week3-section-heading">
-            <span class="eyebrow">Act 4 · No more being polite</span>
-            <h2 id="attack-heading">What if we keep deleting heroes?</h2>
-            <p>Every strategy starts from the same original giant component. Static rankings are computed once; adaptive betweenness is recomputed after every removal; random removal averages 100 runs.</p>
-          </div>
-          <div class="week3-figure">
-            <iframe src="../../assets/figures/week3/attack_strategies.html" title="Targeted attack strategies" loading="lazy"></iframe>
-            <a class="week3-open-figure" href="../../assets/figures/week3/attack_strategies.html">Open interactive figure in a new tab →</a>
-            <p class="figure-caption">Figure 4. Remaining giant-component fraction as characters are removed.</p>
-          </div>
-          <div class="week3-note week3-note--navy">
-            By 100 removals, <strong>adaptive betweenness</strong> has the smallest remaining giant fraction (0.029), ahead of static betweenness (0.209), degree (0.278), closeness (0.437), and random removal (0.611). Recomputing matters: after each deletion, the network's bridges can move.
-          </div>
-        </section>
-
-        <section aria-labelledby="null-heading">
-          <div class="week3-section-heading">
-            <span class="eyebrow">Act 5 · Compared to what?</span>
-            <h2 id="null-heading">Broker — or just popular?</h2>
-            <p>High betweenness is less impressive if degree already predicts it.</p>
-          </div>
-          <div class="week3-null-flow" aria-label="Degree-preserving null model process">
-            <div><b>REAL MARVEL</b><span>Measure betweenness</span></div><i>→</i><div><b>SAME DEGREES</b><span>Rewire edges 200 times</span></div><i>→</i><div><b>EXPECTED BROKERAGE</b><span>Compare with a z-score</span></div>
-          </div>
-          <div class="week3-z-key"><span><b>positive z</b> more broker-like than degree predicts</span><span><b>z ≈ 0</b> about what degree predicts</span><span><b>negative z</b> less broker-like than degree predicts</span></div>
-          <div class="week3-figure">
-            <iframe src="../../assets/figures/week3/betweenness_null_model.html" title="Degree versus betweenness z-score" loading="lazy"></iframe>
-            <a class="week3-open-figure" href="../../assets/figures/week3/betweenness_null_model.html">Open interactive figure in a new tab →</a>
-            <p class="figure-caption">Figure 5. Degree versus betweenness z-score under the degree-preserving null.</p>
-          </div>
-          <div class="week3-reveal week3-reveal--lavender">
-            <span class="week3-reveal__label">Surprise broker</span>
-            <h3>Rockman</h3>
-            <div class="week3-reveal__metric">Betweenness z-score +9.55</div>
-            <p>Rockman is not remarkable here because he has many links. He is remarkable because of <strong>where those links sit</strong> compared with degree-preserving rewired networks.</p>
-          </div>
-        </section>
-
-        <section aria-labelledby="surprises-heading">
-          <div class="week3-section-heading">
-            <span class="eyebrow">The plot twist</span>
-            <h2 id="surprises-heading">Three structural surprises</h2>
-          </div>
-          <div class="week3-award-grid">
-            <div class="week3-award"><span>Biggest bottleneck</span><strong>Spider-Man</strong><p>Most damaging single removal: 5 nodes outside the giant.</p></div>
-            <div class="week3-award"><span>Surprise broker</span><strong>Rockman</strong><p>Betweenness z-score +9.55 after controlling for degree.</p></div>
-            <div class="week3-award"><span>More replaceable than he looks</span><strong>Wolverine</strong><p>High betweenness, but 0 nodes outside the giant after removal.</p></div>
-          </div>
-        </section>
-
-        <section class="week3-takeaway" aria-labelledby="takeaway-heading">
-          <span class="eyebrow">Final takeaway</span>
-          <h2 id="takeaway-heading">Popularity ≠ brokerage ≠ robustness</h2>
-          <p>The obvious Marvel stars dominate several centrality rankings. But deleting characters reveals something those rankings alone cannot: a bridge can be heavily used without being irreplaceable, while a modest character can occupy a position that is unusually broker-like for its degree.</p>
-          <p>The lesson is comparative. The degree-preserving null model tells us what is unusual beyond simply having many links. In this hyperlink network, “important” depends on the question we ask — and on what we compare it to.</p>
-        </section>
+        <footer class="playground-ending">
+          <span class="eyebrow">Central compared to what?</span>
+          <h2>Popularity is not brokerage. Brokerage is not robustness.</h2>
+          <p>Degree tells us who has links. Betweenness tells us who sits on bridges. The game and the knockout experiment ask the harder question: who is difficult to replace?</p>
+        </footer>
       </article>
     </main>
     <footer class="site-footer"><div class="container">Social Graphs Group · Week 3</div></footer>
+    <script src="../../assets/js/week3-playground.js"></script>
   </body>
 </html>
