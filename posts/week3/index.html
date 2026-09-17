@@ -116,11 +116,16 @@
           <div class="playground-heading playground-heading--split">
             <div>
               <span class="experiment-label">04 / Find the outliers</span>
-              <h2 id="landscape-heading">Explore the centrality landscape</h2>
-              <p>Betweenness seems like the obvious predictor of damage: a node used by many shortest paths should be dangerous to remove. The data mostly agrees — but only mostly.</p>
+              <h2 id="landscape-heading">Does being a bridge make you irreplaceable?</h2>
+              <p>Betweenness tells us how often a character lies on shortest paths. Our knockout experiment asks a different question: what actually happens when that character disappears?</p>
+              <p>Here we put the two measures against each other. Each dot is one character.</p>
+              <p class="landscape-guide">→ Further right = higher betweenness: more shortest paths use that character.<br />→ Further up = greater knockout damage: more characters leave the giant component when they are removed.</p>
+              <p>If betweenness perfectly predicted structural damage, the two rankings would closely agree. They do not. The interesting characters are the ones that break the pattern.</p>
             </div>
             <div class="correlation-rail"><span><b>r = 0.723</b><small>Strong overall relationship</small></span><span><b>rank r = 0.306</b><small>Much weaker agreement on who ranks where</small></span></div>
           </div>
+          <p class="landscape-correlation-explanation">The first number says betweenness and damage generally increase together. The second says they often disagree about WHICH characters matter most.</p>
+          <p class="landscape-outlier-note">Look for the outliers: Wolverine has very high betweenness but causes little fragmentation, while Black Widow causes more damage than her betweenness rank alone would suggest.</p>
           <div class="landscape-controls">
             <label for="landscape-search">Find character <input id="landscape-search" type="search" placeholder="Try Wolverine" /></label>
             <label for="landscape-color">Color by
