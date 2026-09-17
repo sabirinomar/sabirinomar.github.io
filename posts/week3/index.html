@@ -44,29 +44,32 @@
           <div class="game-layout">
             <div class="network-stage">
               <div class="network-toolbar">
-                <label for="character-search">Find a character
-                  <input id="character-search" type="search" placeholder="Try Spider-Man" autocomplete="off" />
+                <label class="search-field" for="character-search">Choose a character
+                  <input id="character-search" type="search" placeholder="Search the universe…" autocomplete="off" />
                 </label>
-                <label for="clue-mode">Network clues
-                  <select id="clue-mode">
-                    <option value="none">No clue</option>
-                    <option value="degree">Size by degree</option>
-                    <option value="betweenness">Size by betweenness</option>
-                  </select>
-                </label>
-                <button id="remove-node" class="playground-button playground-button--pink" type="button" disabled>Remove</button>
-                <button id="reset-game" class="playground-button playground-button--quiet" type="button">Try again</button>
+                <div class="clue-control" aria-label="Network clues">
+                  <span>Network clues</span>
+                  <div role="group" aria-label="Choose a network clue">
+                    <button type="button" data-clue="none" class="clue-button is-active">None</button>
+                    <button type="button" data-clue="degree" class="clue-button">Degree</button>
+                    <button type="button" data-clue="betweenness" class="clue-button">Betweenness</button>
+                  </div>
+                </div>
               </div>
               <div id="game-network" class="network-canvas" role="img" aria-label="Interactive Marvel giant component"></div>
               <div id="search-results" class="search-results" aria-live="polite"></div>
             </div>
             <aside class="game-readout">
+              <div id="character-spotlight" class="character-spotlight" aria-live="polite"></div>
+              <button id="remove-node" class="playground-button playground-button--pink" type="button" disabled>Remove selected character</button>
+              <button id="reset-game" class="playground-button playground-button--quiet" type="button">Try again</button>
               <div class="readout-stat"><span>Removals left</span><strong id="removals-left">10</strong></div>
               <div class="readout-stat"><span>Giant component</span><strong><span id="giant-now">277</span> / 277</strong></div>
               <div class="readout-stat"><span>Components</span><strong id="components-now">1</strong></div>
               <div class="readout-stat"><span>Damage</span><strong id="damage-now">0%</strong></div>
               <p id="game-message" class="game-message">Choose a character to make your first move.</p>
               <div class="legend"><span class="legend-dot legend-dot--live"></span> giant component <span class="legend-dot legend-dot--cut"></span> separated <span class="legend-dot legend-dot--removed"></span> removed</div>
+              <div id="removed-history" class="removed-history" aria-label="Removed characters"></div>
             </aside>
           </div>
           <div id="game-result" class="game-result" hidden></div>

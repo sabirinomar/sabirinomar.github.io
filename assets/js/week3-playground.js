@@ -29,6 +29,16 @@
     });
 
     const state = { removed: new Set(), selected: null, clue: "none" };
+    const characterClass = (node) => {
+      if (!node) return "unknown";
+      if (node.id === "Spider-Man") return "spider";
+      if (node.id === "Black_Widow_(Natasha_Romanova)") return "widow";
+      if (node.id === "Doctor_Strange") return "strange";
+      if (node.id === "Deadpool") return "deadpool";
+      if (node.id === "Wolverine_(character)") return "wolverine";
+      if (node.id === "Rockman_(character)") return "rockman";
+      return "unknown";
+    };
 
     function svgElement(name, attributes = {}) {
       const element = document.createElementNS(SVG_NS, name);
@@ -74,6 +84,7 @@
       const groups = components(removed);
       const giant = groups[0] || new Set();
       const disconnected = new Set();
+      const neighbours = selected ? new Set(adjacency[selected]) : new Set();
       groups.slice(1).forEach((group) => group.forEach((id) => disconnected.add(id)));
       const lines = svgElement("g", { class: "network-edges" });
       data.edges.forEach(([source, target]) => {
@@ -82,7 +93,7 @@
         const b = point(nodeById[target], width, height);
         lines.appendChild(svgElement("line", {
           x1: a.x, y1: a.y, x2: b.x, y2: b.y,
-          class: disconnected.has(source) || disconnected.has(target) ? "network-edge network-edge--cut" : "network-edge",
+          class: `network-edge ${disconnected.has(source) || disconnected.has(target) ? "network-edge--cut" : ""}${selected && (source === selected || target === selected) ? " network-edge--selected" : ""}${selected && (neighbours.has(source) || neighbours.has(target)) ? " network-edge--neighbour" : ""}`,
         }));
       });
       svg.appendChild(lines);
@@ -97,6 +108,7 @@
           "data-node-id": node.id,
         });
         if (highlights[node.id]) circle.classList.add(`network-node--${highlights[node.id]}`);
+        if (neighbours.has(node.id)) circle.classList.add("network-node--neighbour");
         circle.addEventListener("mouseenter", () => showNodeLabel(svg, node, p));
         circle.addEventListener("mouseleave", () => svg.querySelector(".network-label")?.remove());
         if (options.interactive) {
@@ -144,6 +156,9 @@
 
     function renderGame() {
       const container = $("#game-network");
+      container.classList.remove("network-refresh");
+      void container.offsetWidth;
+      container.classList.add("network-refresh");
       container.replaceChildren(networkSvg(container, {
         removed: state.removed,
         selected: state.selected,
@@ -156,8 +171,31 @@
       $("#components-now").textContent = components(state.removed).length;
       $("#damage-now").textContent = `${readout.damage.toFixed(1)}%`;
       $("#remove-node").disabled = !state.selected || state.removed.size >= 10;
+      $("#remove-node").textContent = state.selected ? `Remove ${shortName(nodeById[state.selected].name)}` : "Remove selected character";
+      renderSpotlight();
+      renderHistory();
       if (!state.selected) {
         $("#game-message").textContent = state.removed.size ? "Choose the next character to remove." : "Choose a character to make your first move.";
+      }
+
+      function visualMarkup(node, compact = false) {
+        const kind = characterClass(node);
+        return `<div class="character-art character-art--${kind}${compact ? " character-art--compact" : ""}" aria-hidden="true"><span class="character-art__halo"></span><span class="character-art__shape"></span><span class="character-art__mark"></span></div>`;
+      }
+
+      function renderSpotlight() {
+        const spotlight = $("#character-spotlight");
+        const node = state.selected ? nodeById[state.selected] : null;
+        if (!node) {
+          spotlight.innerHTML = `<div class="character-empty">${visualMarkup(null)}<span>Choose your target</span><small>The character enters the spotlight when you select a node.</small></div>`;
+          return;
+        }
+        spotlight.innerHTML = `<div class="character-selected">${visualMarkup(node)}<div><span class="spotlight-kicker">Character spotlight</span><h3>${shortName(node.name)}</h3><div class="spotlight-metrics"><b>${node.degree}<small>direct neighbours</small></b><b>#${node.betweenness_rank}<small>betweenness rank</small></b><b>${node.nodes_outside_giant}<small>knockout disconnects</small></b></div></div></div>`;
+      }
+
+      function renderHistory() {
+        const history = $("#removed-history");
+        history.innerHTML = state.removed.size ? `<span>Removed</span>${Array.from(state.removed).map((id) => `<i title="${nodeById[id].name}">${shortName(nodeById[id].name).slice(0, 2).toUpperCase()}</i>`).join("")}` : "";
       }
     }
 
@@ -206,10 +244,11 @@
     }
 
     $("#character-search").addEventListener("input", (event) => renderSearchResults(event.target.value));
-    $("#clue-mode").addEventListener("change", (event) => {
-      state.clue = event.target.value;
+    document.querySelectorAll(".clue-button").forEach((button) => button.addEventListener("click", () => {
+      state.clue = button.dataset.clue;
+      document.querySelectorAll(".clue-button").forEach((item) => item.classList.toggle("is-active", item === button));
       renderGame();
-    });
+    }));
     $("#remove-node").addEventListener("click", () => {
       if (!state.selected || state.removed.size >= 10) return;
       const name = nodeById[state.selected].name;
@@ -304,7 +343,7 @@
         pair.forEach((id) => {
           const button = document.createElement("button");
           button.type = "button";
-          button.innerHTML = `<b>${shortName(nodeById[id].name)}</b><small>${nodeById[id].betweenness_rank ? `betweenness rank #${nodeById[id].betweenness_rank}` : ""}</small>`;
+          button.innerHTML = `${visualMarkup(nodeById[id], true)}<b>${shortName(nodeById[id].name)}</b><small>${nodeById[id].betweenness_rank ? `betweenness rank #${nodeById[id].betweenness_rank}` : ""}</small>`;
           button.addEventListener("click", () => answer(id, pair));
           options.appendChild(button);
         });

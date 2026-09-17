@@ -4189,6 +4189,386 @@ li + li {
   }
 }
 
+/* Week 3 game finish: character spotlight and readable network surface. */
+.week3-playground-page .playground-game {
+  color: #f5f7ff;
+  background:
+    radial-gradient(circle at 82% 14%, rgba(255, 122, 69, 0.28), transparent 20rem),
+    radial-gradient(circle at 18% 80%, rgba(85, 221, 224, 0.15), transparent 24rem),
+    linear-gradient(135deg, #07162e, #0d3158 62%, #123b66);
+}
+
+.week3-playground-page .playground-game .playground-heading h2,
+.week3-playground-page .playground-game .playground-heading p {
+  color: #f5f7ff;
+}
+
+.week3-playground-page .playground-game .playground-heading p {
+  max-width: 670px;
+  color: rgba(245, 247, 255, 0.76);
+}
+
+.week3-playground-page .network-toolbar {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: end;
+  gap: 1rem;
+  background: rgba(7, 22, 46, 0.56);
+}
+
+.week3-playground-page .search-field {
+  flex: 1 1 260px;
+}
+
+.week3-playground-page .network-toolbar label,
+.week3-playground-page .clue-control > span {
+  color: rgba(245, 247, 255, 0.62);
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.week3-playground-page .network-toolbar input {
+  width: 100%;
+  min-height: 3.3rem;
+  margin-top: 0.35rem;
+  border: 1px solid rgba(85, 221, 224, 0.5);
+  border-radius: 1rem;
+  box-shadow: 0 0 0 4px rgba(85, 221, 224, 0.06);
+  font-size: 1rem;
+}
+
+.clue-control {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.clue-control > div {
+  display: flex;
+  padding: 0.22rem;
+  border: 1px solid rgba(85, 221, 224, 0.35);
+  border-radius: 999px;
+  background: rgba(245, 247, 255, 0.08);
+}
+
+.clue-button {
+  padding: 0.65rem 0.8rem;
+  color: rgba(245, 247, 255, 0.72);
+  background: transparent;
+  border: 0;
+  border-radius: 999px;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.clue-button.is-active,
+.clue-button:hover {
+  color: #07162e;
+  background: #55dde0;
+}
+
+.week3-playground-page #game-network {
+  min-height: 520px;
+  background:
+    radial-gradient(circle at 42% 48%, rgba(85, 221, 224, 0.11), transparent 18rem),
+    #07162e;
+}
+
+.week3-playground-page #game-network svg {
+  filter: drop-shadow(0 0 18px rgba(85, 221, 224, 0.08));
+}
+
+.week3-playground-page #game-network.network-refresh svg {
+  animation: network-refresh 420ms ease both;
+}
+
+@keyframes network-refresh {
+  from { opacity: 0.35; transform: scale(0.985); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.week3-playground-page .network-edge {
+  stroke: rgba(214, 247, 255, 0.34);
+  stroke-width: 1.05;
+}
+
+.week3-playground-page .network-edge--neighbour {
+  stroke: rgba(85, 221, 224, 0.62);
+  stroke-width: 1.55;
+}
+
+.week3-playground-page .network-edge--selected {
+  stroke: #ffe34f;
+  stroke-width: 2.4;
+  filter: drop-shadow(0 0 4px rgba(255, 227, 79, 0.65));
+}
+
+.week3-playground-page .network-node--giant {
+  fill: #55dde0;
+  stroke: rgba(245, 247, 255, 0.68);
+  stroke-width: 0.8;
+  filter: drop-shadow(0 0 4px rgba(85, 221, 224, 0.55));
+}
+
+.week3-playground-page .network-node--neighbour {
+  fill: #9cf3f0;
+}
+
+.week3-playground-page .network-node--cut {
+  fill: #ff8fa3;
+  filter: drop-shadow(0 0 8px rgba(255, 143, 163, 0.85));
+}
+
+.week3-playground-page .network-node--selected {
+  fill: #ffe34f;
+  stroke: #fff;
+  stroke-width: 2.2;
+  filter: drop-shadow(0 0 12px rgba(255, 227, 79, 0.95));
+}
+
+.week3-playground-page .network-label {
+  fill: #f5f7ff;
+  font-size: 13px;
+  font-weight: 800;
+  paint-order: stroke;
+  stroke: #07162e;
+  stroke-width: 4px;
+}
+
+.week3-playground-page .game-readout {
+  position: relative;
+  padding: 0 0 0 1.6rem;
+}
+
+.character-spotlight {
+  min-height: 235px;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(85, 221, 224, 0.26);
+}
+
+.character-empty,
+.character-selected {
+  display: grid;
+  grid-template-columns: 115px 1fr;
+  gap: 1rem;
+  align-items: center;
+}
+
+.character-empty {
+  color: rgba(245, 247, 255, 0.65);
+}
+
+.character-empty > span,
+.character-empty > small {
+  grid-column: 2;
+}
+
+.character-empty > span {
+  grid-row: 1;
+  color: #ffe34f;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.character-empty > small {
+  grid-row: 2;
+}
+
+.character-selected h3 {
+  margin: 0.25rem 0 0.65rem;
+  color: #f5f7ff;
+  font-family: "Manrope", "Segoe UI", sans-serif;
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  line-height: 0.95;
+}
+
+.spotlight-kicker,
+.removed-history > span {
+  color: #55dde0;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.spotlight-metrics {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.spotlight-metrics b {
+  color: #ffe34f;
+  font-size: 1.25rem;
+}
+
+.spotlight-metrics small {
+  display: block;
+  color: rgba(245, 247, 255, 0.56);
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.character-art {
+  position: relative;
+  width: 112px;
+  height: 152px;
+  overflow: hidden;
+  border-radius: 50% 50% 43% 43%;
+  background:
+    radial-gradient(circle at 50% 20%, rgba(255,255,255,0.4), transparent 18%),
+    linear-gradient(145deg, rgba(85, 221, 224, 0.28), rgba(255, 122, 69, 0.22));
+  box-shadow: inset 0 0 0 1px rgba(245, 247, 255, 0.22), 0 0 28px rgba(85, 221, 224, 0.2);
+}
+
+.character-art__halo,
+.character-art__shape,
+.character-art__mark {
+  position: absolute;
+  display: block;
+}
+
+.character-art__halo {
+  inset: 14px;
+  border: 1px solid rgba(255, 227, 79, 0.7);
+  border-radius: 50%;
+  transform: rotate(18deg);
+}
+
+.character-art__shape {
+  top: 32px;
+  left: 25px;
+  width: 62px;
+  height: 84px;
+  border-radius: 48% 48% 35% 35%;
+  background: #55dde0;
+  box-shadow: 0 18px 0 -9px rgba(245, 247, 255, 0.72);
+}
+
+.character-art__mark {
+  top: 61px;
+  left: 42px;
+  width: 28px;
+  height: 2px;
+  background: #07162e;
+  box-shadow: 0 11px 0 #07162e;
+}
+
+.character-art--spider .character-art__shape,
+.character-art--deadpool .character-art__shape { background: linear-gradient(135deg, #ff8fa3 0 48%, #07162e 49%); }
+.character-art--spider .character-art__mark { background: #fff; transform: rotate(35deg); box-shadow: 0 11px 0 #fff; }
+.character-art--spider .character-art__halo { border-style: dashed; }
+.character-art--widow .character-art__shape { background: #ff7a45; transform: scaleX(0.72); }
+.character-art--widow .character-art__mark { width: 9px; height: 38px; left: 51px; top: 54px; background: #ffe34f; box-shadow: none; }
+.character-art--strange .character-art__shape { background: #ff7a45; border-radius: 50%; box-shadow: 0 0 0 9px rgba(255,227,79,0.45), 0 0 0 18px rgba(85,221,224,0.3); }
+.character-art--strange .character-art__mark { top: 72px; left: 38px; width: 36px; background: #ffe34f; box-shadow: none; }
+.character-art--deadpool .character-art__mark { width: 44px; left: 34px; background: #ffe34f; box-shadow: none; transform: rotate(90deg); }
+.character-art--wolverine .character-art__shape { background: #ffe34f; }
+.character-art--wolverine .character-art__mark { width: 62px; left: 25px; top: 58px; background: #ff7a45; transform: rotate(-25deg); box-shadow: 0 14px 0 #ff7a45, 0 28px 0 #ff7a45; }
+.character-art--rockman .character-art__shape { background: linear-gradient(160deg, #55dde0, #123b66); }
+.character-art--rockman .character-art__mark { width: 44px; left: 34px; background: #ffe34f; box-shadow: 0 11px 0 #ffe34f; }
+.character-art--unknown .character-art__shape { background: linear-gradient(160deg, #55dde0, #b6a7ff); }
+.character-art--compact { width: 90px; height: 112px; transform: scale(0.76); transform-origin: left top; margin-bottom: -20px; }
+
+.game-readout > .playground-button {
+  width: 100%;
+  margin-bottom: 0.6rem;
+}
+
+.game-readout .playground-button--pink {
+  color: #07162e;
+  background: #ffe34f;
+}
+
+.game-readout .playground-button--quiet {
+  color: rgba(245, 247, 255, 0.8);
+  border-color: rgba(85, 221, 224, 0.35);
+}
+
+.removed-history {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  align-items: center;
+  margin-top: 1.2rem;
+}
+
+.removed-history i {
+  display: inline-grid;
+  width: 1.75rem;
+  height: 1.75rem;
+  place-items: center;
+  color: #07162e;
+  background: #ff8fa3;
+  border-radius: 50%;
+  font-size: 0.63rem;
+  font-style: normal;
+  font-weight: 900;
+}
+
+.search-results {
+  top: 5.5rem;
+  left: 1.1rem;
+  overflow: hidden;
+  border-radius: 0.8rem;
+  background: #f5f7ff;
+}
+
+.search-results button {
+  color: #0b1830;
+  background: #f5f7ff;
+}
+
+.game-result {
+  border: 1px solid rgba(255, 227, 79, 0.5);
+  border-radius: 1rem;
+  background: linear-gradient(135deg, #123b66, #07162e);
+}
+
+.week3-playground-page .playground-game .legend {
+  color: rgba(245, 247, 255, 0.66);
+}
+
+@media (max-width: 850px) {
+  .week3-playground-page .game-readout {
+    padding: 1.25rem 0 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .week3-playground-page .network-toolbar {
+    display: grid;
+    align-items: stretch;
+  }
+
+  .week3-playground-page .clue-control > div {
+    justify-content: stretch;
+  }
+
+  .week3-playground-page .clue-button {
+    flex: 1;
+  }
+
+  .character-empty,
+  .character-selected {
+    grid-template-columns: 92px 1fr;
+  }
+
+  .character-art {
+    width: 88px;
+    height: 126px;
+  }
+}
+
 /* Final cascade guard for the Week 3 playground. */
 .week3-playground-page .playground-intro { background: linear-gradient(120deg, #07162e, #0c2a51 58%, #164b72); }
 .week3-playground-page .playground-intro h1 { color: #f5f7ff; font-family: "Manrope", "Segoe UI", sans-serif; }
