@@ -6352,76 +6352,21 @@ li + li {
   height: 100%;
 }
 
-.week3-playground-page .week3-layout {
-  display: grid;
-  grid-template-columns: minmax(160px, 190px) minmax(0, 1fr);
-  align-items: start;
-  gap: 1.4rem;
+.week3-playground-page .week1-sidebar {
+  background: linear-gradient(180deg, rgba(234, 247, 255, 0.9), rgba(245, 247, 255, 0.92));
+  border-color: rgba(85, 221, 224, 0.3);
 }
 
-.week3-playground-page .week3-sidebar {
-  position: sticky;
-  top: 106px;
-  padding: 1rem;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.68), rgba(246, 238, 255, 0.82));
-  border: 1px solid var(--border);
-  border-radius: 22px;
-  box-shadow: var(--shadow-soft);
+.week3-playground-page .week1-sidebar-title {
+  color: #0b1830;
 }
 
-.week3-playground-page .week3-sidebar-title {
-  display: block;
-  margin-bottom: 0.65rem;
-  color: var(--ink);
-  font-family: "Playfair Display", Georgia, serif;
-  font-size: 1.05rem;
-  font-weight: 700;
-}
-
-.week3-playground-page .week3-sidebar nav {
-  display: grid;
-  gap: 0.2rem;
-}
-
-.week3-playground-page .week3-sidebar a {
-  display: block;
-  padding: 0.42rem 0.55rem;
-  border-radius: 12px;
+.week3-playground-page .week1-sidebar a {
   color: #41536f;
-  font-size: 0.76rem;
-  font-weight: 700;
-  line-height: 1.35;
-  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
 }
 
-.week3-playground-page .week3-sidebar a:hover,
-.week3-playground-page .week3-sidebar a:focus-visible {
+.week3-playground-page .week1-sidebar a:hover,
+.week3-playground-page .week1-sidebar a:focus-visible {
   background: linear-gradient(90deg, rgba(255, 122, 69, 0.16), rgba(85, 221, 224, 0.2));
-  color: var(--ink);
-  transform: translateX(2px);
-}
-
-@media (max-width: 850px) {
-  .week3-playground-page .week3-layout {
-    display: block;
-  }
-
-  .week3-playground-page .week3-sidebar {
-    position: static;
-    margin-bottom: 1rem;
-  }
-
-  .week3-playground-page .week3-sidebar nav {
-    display: flex;
-    gap: 0.4rem;
-    overflow-x: auto;
-    padding-bottom: 0.15rem;
-    scrollbar-width: thin;
-  }
-
-  .week3-playground-page .week3-sidebar a {
-    flex: 0 0 auto;
-    background: rgba(255, 255, 255, 0.5);
-    white-space: nowrap;
-  }
+  color: #0b1830;
 }
