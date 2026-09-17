@@ -356,6 +356,7 @@
     initNullModel();
 
     function initTransformations() {
+      if (!$("#suspect-controls")) return;
       const selected = data.selected[0];
       let currentTransform = selected;
       const controls = $("#suspect-controls");
