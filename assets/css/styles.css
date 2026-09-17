@@ -6286,3 +6286,48 @@ li + li {
 .week3-playground-page .playground-game > .how-to-play > small {
   color: #41536f;
 }
+
+/* The game section is light; keep its status copy dark instead of inheriting
+   the dark-network section's light text color. */
+.week3-playground-page .playground-game > .game-layout > .game-readout {
+  color: #0b1830;
+}
+
+.week3-playground-page .game-readout .character-empty,
+.week3-playground-page .game-readout .character-empty > small,
+.week3-playground-page .game-readout .character-selected h3,
+.week3-playground-page .game-readout .spotlight-metrics small,
+.week3-playground-page .game-readout .game-status .readout-stat > span,
+.week3-playground-page .game-readout .game-status .readout-stat small,
+.week3-playground-page .game-readout .game-message,
+.week3-playground-page .game-readout .legend,
+.week3-playground-page .game-readout .game-mission span,
+.week3-playground-page .game-readout .game-mission small {
+  color: #4b5f7a;
+}
+
+.week3-playground-page .game-readout .character-empty > span,
+.week3-playground-page .game-readout .spotlight-kicker,
+.week3-playground-page .game-readout .game-mission b {
+  color: #ff7a45;
+}
+
+.week3-playground-page .game-readout .character-selected h3,
+.week3-playground-page .game-readout .spotlight-metrics b,
+.week3-playground-page .game-readout .game-status .readout-stat strong {
+  color: #0b1830;
+}
+
+.week3-playground-page .game-readout .lower-is-better {
+  color: #164b72;
+}
+
+.week3-playground-page .game-readout > #reset-game {
+  color: #0b1830;
+  border-color: rgba(11, 24, 48, 0.35);
+}
+
+.week3-playground-page .playground-race .playground-button--quiet {
+  color: #0b1830;
+  border-color: rgba(11, 24, 48, 0.35);
+}
