@@ -31,12 +31,13 @@
     const state = { removed: new Set(), selected: null, clue: "none" };
     const characterClass = (node) => {
       if (!node) return "unknown";
-      if (node.id === "Spider-Man") return "spider";
-      if (node.id === "Black_Widow_(Natasha_Romanova)") return "widow";
-      if (node.id === "Doctor_Strange") return "strange";
-      if (node.id === "Deadpool") return "deadpool";
-      if (node.id === "Wolverine_(character)") return "wolverine";
-      if (node.id === "Rockman_(character)") return "rockman";
+      const name = node.name.toLowerCase();
+      if (node.id === "Spider-Man" || name === "spider-man") return "spider";
+      if (node.id === "Black_Widow_(Natasha_Romanova)" || name.includes("black widow")) return "widow";
+      if (node.id === "Doctor_Strange" || name === "doctor strange") return "strange";
+      if (node.id === "Deadpool" || name === "deadpool") return "deadpool";
+      if (node.id === "Wolverine_(character)" || name === "wolverine (character)") return "wolverine";
+      if (node.id === "Rockman_(character)" || name === "rockman (character)") return "rockman";
       return "unknown";
     };
 
@@ -174,8 +175,14 @@
       $("#remove-node").textContent = state.selected ? `Remove ${shortName(nodeById[state.selected].name)}` : "Remove selected character";
       renderSpotlight();
       renderHistory();
+      renderProgress();
       if (!state.selected) {
         $("#game-message").textContent = state.removed.size ? "Choose the next character to remove." : "Choose a character to make your first move.";
+      }
+
+      function renderProgress() {
+        const progress = $("#move-progress");
+        progress.innerHTML = `<span>Moves</span>${Array.from({ length: 10 }, (_, index) => `<i class="${index < state.removed.size ? "is-used" : ""}" aria-label="${index < state.removed.size ? "Used" : "Available"} move ${index + 1}"></i>`).join("")}`;
       }
 
       function visualMarkup(node, compact = false) {
@@ -190,7 +197,7 @@
           spotlight.innerHTML = `<div class="character-empty">${visualMarkup(null)}<span>Choose your target</span><small>The character enters the spotlight when you select a node.</small></div>`;
           return;
         }
-        spotlight.innerHTML = `<div class="character-selected">${visualMarkup(node)}<div><span class="spotlight-kicker">Character spotlight</span><h3>${shortName(node.name)}</h3><div class="spotlight-metrics"><b>${node.degree}<small>direct neighbours</small></b><b>#${node.betweenness_rank}<small>betweenness rank</small></b><b>${node.nodes_outside_giant}<small>knockout disconnects</small></b></div></div></div>`;
+        spotlight.innerHTML = `<div class="character-selected character-selected--${characterClass(node)}">${visualMarkup(node)}<div><span class="spotlight-kicker">Target acquired</span><h3>${shortName(node.name)}</h3><div class="spotlight-metrics"><b>${node.degree}<small>direct neighbours</small></b><b>#${node.betweenness_rank}<small>betweenness rank</small></b><b>${node.nodes_outside_giant}<small>knockout disconnects</small></b></div></div></div>`;
       }
 
       function renderHistory() {
@@ -213,6 +220,14 @@
       if (!query.trim()) return;
       data.nodes
         .filter((node) => node.name.toLowerCase().includes(query.toLowerCase()) && !state.removed.has(node.id))
+        .sort((a, b) => {
+          const normalizedQuery = query.trim().toLowerCase();
+          const aExact = shortName(a.name).toLowerCase() === normalizedQuery ? 0 : 1;
+          const bExact = shortName(b.name).toLowerCase() === normalizedQuery ? 0 : 1;
+          if (aExact !== bExact) return aExact - bExact;
+          const canonical = (node) => ["Spider-Man", "Wolverine_(character)", "Black_Widow_(Natasha_Romanova)", "Doctor_Strange", "Deadpool", "Rockman_(character)"].includes(node.id) ? 0 : 1;
+          return canonical(a) - canonical(b);
+        })
         .slice(0, 8)
         .forEach((node) => {
           const button = document.createElement("button");
@@ -251,13 +266,21 @@
     }));
     $("#remove-node").addEventListener("click", () => {
       if (!state.selected || state.removed.size >= 10) return;
-      const name = nodeById[state.selected].name;
-      state.removed.add(state.selected);
-      state.selected = null;
-      const readout = currentReadout();
-      renderGame();
-      $("#game-message").innerHTML = `<strong>${name.toUpperCase()} REMOVED</strong><br>${readout.separated} characters lost contact with the giant component.<br><em>${gameFeedback(readout)}</em>`;
-      if (state.removed.size === 10) finishGame();
+      const selectedId = state.selected;
+      const name = nodeById[selectedId].name;
+      const spotlight = $("#character-spotlight");
+      const button = $("#remove-node");
+      button.disabled = true;
+      spotlight.classList.add("spotlight-exit");
+      window.setTimeout(() => {
+        state.removed.add(selectedId);
+        state.selected = null;
+        const readout = currentReadout();
+        spotlight.classList.remove("spotlight-exit");
+        renderGame();
+        $("#game-message").innerHTML = `<strong>${name.toUpperCase()} REMOVED</strong><br>${readout.separated} characters lost contact with the giant component.<br><em>${gameFeedback(readout)}</em>`;
+        if (state.removed.size === 10) finishGame();
+      }, 240);
     });
     $("#reset-game").addEventListener("click", () => {
       state.removed.clear();

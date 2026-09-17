@@ -39,7 +39,16 @@
           <div class="playground-heading">
             <span class="experiment-label">01 / Break it</span>
             <h2 id="game-heading">Can you break the Marvel universe?</h2>
-            <p>High degree makes Spider-Man look obvious. But degree is only one kind of importance. A network can sometimes route around even its biggest hubs. Your job is to find the characters it cannot easily route around.</p>
+            <p><strong>277 characters are connected in one giant network. Your job is to tear it apart.</strong> You get <strong>10 removals</strong>. Each time you remove a character, we recalculate the network and measure how much of the giant component survives.</p>
+            <p class="game-objective-copy"><strong>Your goal is simple: make the giant component as small as possible.</strong> The obvious strategy is to target the biggest hubs — Spider-Man certainly looks dangerous. But highly connected does not necessarily mean irreplaceable. Sometimes the network can simply route around them.</p>
+            <p class="game-prompt">Pick your first target <span aria-hidden="true">↓</span></p>
+          </div>
+          <div class="how-to-play" aria-label="How to play">
+            <div><b>01</b><strong>Choose</strong><span>Pick any character.</span></div>
+            <i aria-hidden="true">→</i>
+            <div><b>02</b><strong>Remove</strong><span>You have 10 moves.</span></div>
+            <i aria-hidden="true">→</i>
+            <div><b>03</b><strong>Break</strong><span>Make the giant component as small as possible.</span></div>
           </div>
           <div class="game-layout">
             <div class="network-stage">
@@ -67,7 +76,10 @@
               <div class="readout-stat"><span>Giant component</span><strong><span id="giant-now">277</span> / 277</strong></div>
               <div class="readout-stat"><span>Components</span><strong id="components-now">1</strong></div>
               <div class="readout-stat"><span>Damage</span><strong id="damage-now">0%</strong></div>
+              <div class="game-mission"><b>Mission</b><span>Shrink the giant component.</span><small>Goal: get 277 as low as you can · lower is better · 10 removals</small></div>
+              <div id="move-progress" class="move-progress" aria-label="Removal progress"></div>
               <p id="game-message" class="game-message">Choose a character to make your first move.</p>
+              <p class="giant-definition"><strong>Giant component</strong><br />The largest group of characters that can still reach each other.</p>
               <div class="legend"><span class="legend-dot legend-dot--live"></span> giant component <span class="legend-dot legend-dot--cut"></span> separated <span class="legend-dot legend-dot--removed"></span> removed</div>
               <div id="removed-history" class="removed-history" aria-label="Removed characters"></div>
             </aside>
