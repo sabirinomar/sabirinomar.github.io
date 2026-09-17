@@ -6331,3 +6331,11 @@ li + li {
   color: #0b1830;
   border-color: rgba(11, 24, 48, 0.35);
 }
+
+.week3-playground-page .game-science-note p {
+  color: #4b5f7a;
+}
+
+.week3-playground-page .game-science-note p strong {
+  color: #0b1830;
+}
