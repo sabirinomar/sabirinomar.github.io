@@ -4889,12 +4889,12 @@ li + li {
 
 .week3-playground-page .playground-game .playground-heading h2,
 .week3-playground-page .playground-game .playground-heading p {
-  color: #f5f7ff;
+  color: #0b1830;
 }
 
 .week3-playground-page .playground-game .playground-heading p {
   max-width: 670px;
-  color: rgba(245, 247, 255, 0.76);
+  color: #4b5f7a;
 }
 
 .week3-playground-page .network-toolbar {
@@ -5261,7 +5261,7 @@ li + li {
 /* Week 3 game onboarding and spotlight finish. */
 .week3-playground-page .playground-game .game-objective-copy {
   max-width: 720px;
-  color: rgba(245, 247, 255, 0.84);
+  color: #4b5f7a;
 }
 
 .week3-playground-page .playground-game .game-prompt {
@@ -5310,14 +5310,14 @@ li + li {
 }
 
 .how-to-play strong {
-  color: #f5f7ff;
+  color: #0b1830;
   font-size: 0.8rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
 }
 
 .how-to-play span {
-  color: rgba(245, 247, 255, 0.62);
+  color: #4b5f7a;
   font-size: 0.75rem;
 }
 
