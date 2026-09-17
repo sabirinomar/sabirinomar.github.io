@@ -6210,3 +6210,79 @@ li + li {
   .week3-playground-page .character-art__mark { top: 68px; left: 52px; width: 28px; }
   .week3-playground-page .spotlight-metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
+
+/* Keep the game introduction visible without relying on script or reveal state. */
+.week3-playground-page .playground-game > .playground-heading,
+.week3-playground-page .playground-game > .how-to-play {
+  display: block;
+  position: relative;
+  visibility: visible;
+  opacity: 1;
+  transform: none;
+  overflow: visible;
+  z-index: 3;
+}
+
+.week3-playground-page .playground-game > .playground-heading {
+  height: auto;
+  min-height: 0;
+  max-height: none;
+  margin: 0 0 1.25rem;
+}
+
+.week3-playground-page .playground-game > .playground-heading .experiment-label,
+.week3-playground-page .playground-game > .playground-heading h2,
+.week3-playground-page .playground-game > .playground-heading p,
+.week3-playground-page .playground-game > .playground-heading .game-objective-heading {
+  visibility: visible;
+  opacity: 1;
+  transform: none;
+}
+
+.week3-playground-page .playground-game > .playground-heading h2 {
+  color: #0b1830;
+  margin-top: 0.7rem;
+}
+
+.week3-playground-page .playground-game > .playground-heading p {
+  color: #41536f;
+  margin-top: 0.65rem;
+  margin-bottom: 0.65rem;
+}
+
+.week3-playground-page .playground-game > .playground-heading .game-objective-heading {
+  color: #0b1830;
+  margin-top: 1rem;
+  margin-bottom: 0.65rem;
+}
+
+.week3-playground-page .playground-game > .how-to-play {
+  display: flex;
+  height: auto;
+  min-height: 0;
+  max-height: none;
+  margin: 0 0 1.25rem;
+  visibility: visible;
+  opacity: 1;
+  transform: none;
+}
+
+.week3-playground-page .playground-game > .how-to-play > strong,
+.week3-playground-page .playground-game > .how-to-play > i,
+.week3-playground-page .playground-game > .how-to-play > small {
+  visibility: visible;
+  opacity: 1;
+  transform: none;
+}
+
+.week3-playground-page .playground-game > .how-to-play > strong {
+  color: #0b1830;
+}
+
+.week3-playground-page .playground-game > .how-to-play > i {
+  color: #164b72;
+}
+
+.week3-playground-page .playground-game > .how-to-play > small {
+  color: #41536f;
+}
