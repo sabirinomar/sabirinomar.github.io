@@ -39,19 +39,22 @@
           <div class="playground-heading">
             <span class="experiment-label">01 / Break it</span>
             <h2 id="game-heading">Can you break the Marvel universe?</h2>
-            <p><strong>277 characters are connected in one giant network. Your job is to tear it apart.</strong> You get <strong>10 removals</strong>. Each time you remove a character, we recalculate the network and measure how much of the giant component survives.</p>
-            <p class="game-objective-copy"><strong>Your goal is simple: make the giant component as small as possible.</strong> The obvious strategy is to target the biggest hubs — Spider-Man certainly looks dangerous. But highly connected does not necessarily mean irreplaceable. Sometimes the network can simply route around them.</p>
-            <p class="game-prompt">Pick your first target <span aria-hidden="true">↓</span></p>
+            <p><strong>277 characters are connected in one giant network. Your job is to tear it apart.</strong></p>
+            <p>You get <strong>10 removals</strong>. Pick any character and remove them from the network. After every move, we recalculate the largest group of characters that can still reach one another.</p>
+            <h3 class="game-objective-heading">Your goal: make the giant component as small as possible.</h3>
+            <p>The obvious strategy is to attack the biggest hubs. Spider-Man certainly looks dangerous. But a highly connected character is not necessarily irreplaceable — sometimes the network can simply route around them.</p>
+            <p class="game-prompt"><strong>Pick your first target below.</strong></p>
           </div>
           <div class="how-to-play" aria-label="How to play">
-            <div><b>01</b><strong>Choose</strong><span>Pick any character.</span></div>
+            <strong>CHOOSE A CHARACTER</strong>
             <i aria-hidden="true">→</i>
-            <div><b>02</b><strong>Remove</strong><span>You have 10 moves.</span></div>
+            <strong>REMOVE THEM</strong>
             <i aria-hidden="true">→</i>
-            <div><b>03</b><strong>Break</strong><span>Make the giant component as small as possible.</span></div>
+            <strong>BREAK THE NETWORK</strong>
+            <small>10 removals · Lower giant component = better score</small>
           </div>
           <div class="game-layout">
-            <div class="network-stage">
+            <div class="network-stage network-stage--game">
               <div class="network-toolbar">
                 <label class="search-field" for="character-search">Choose a character
                   <input id="character-search" type="search" placeholder="Search the universe…" autocomplete="off" />
@@ -68,23 +71,32 @@
               <div id="game-network" class="network-canvas" role="img" aria-label="Interactive Marvel giant component"></div>
               <div id="search-results" class="search-results" aria-live="polite"></div>
             </div>
-            <aside class="game-readout">
-              <div id="character-spotlight" class="character-spotlight" aria-live="polite"></div>
-              <button id="remove-node" class="playground-button playground-button--pink" type="button" disabled>Remove selected character</button>
-              <button id="reset-game" class="playground-button playground-button--quiet" type="button">Try again</button>
-              <div class="readout-stat"><span>Removals left</span><strong id="removals-left">10</strong></div>
-              <div class="readout-stat"><span>Giant component</span><strong><span id="giant-now">277</span> / 277</strong></div>
-              <div class="readout-stat"><span>Components</span><strong id="components-now">1</strong></div>
-              <div class="readout-stat"><span>Damage</span><strong id="damage-now">0%</strong></div>
-              <div class="game-mission"><b>Mission</b><span>Shrink the giant component.</span><small>Goal: get 277 as low as you can · lower is better · 10 removals</small></div>
+            <aside class="game-readout" aria-label="Game status and selected character">
+              <div class="character-action">
+                <div id="character-spotlight" class="character-spotlight" aria-live="polite"></div>
+                <button id="remove-node" class="playground-button playground-button--pink" type="button" disabled>Remove selected character</button>
+              </div>
+              <div class="game-status">
+                <div class="readout-stat"><strong id="removals-left">10</strong><span>Removals left</span></div>
+                <div class="readout-stat"><strong><span id="giant-now">277</span> / 277</strong><span>Giant component</span><small>The largest group that can still reach each other.</small></div>
+                <div class="readout-stat"><strong id="components-now">1</strong><span>Components</span></div>
+                <div class="readout-stat"><strong id="damage-now">0%</strong><span>Damage</span><small>Share of the original giant component lost or separated.</small></div>
+              </div>
+              <p class="lower-is-better">LOWER GIANT COMPONENT = BETTER</p>
+              <div class="game-mission"><b>Mission</b><span>Shrink the giant component.</span><small>Goal: get 277 as low as you can.</small></div>
               <div id="move-progress" class="move-progress" aria-label="Removal progress"></div>
               <p id="game-message" class="game-message">Choose a character to make your first move.</p>
-              <p class="giant-definition"><strong>Giant component</strong><br />The largest group of characters that can still reach each other.</p>
+              <button id="reset-game" class="playground-button playground-button--quiet" type="button">Try again</button>
               <div class="legend"><span class="legend-dot legend-dot--live"></span> giant component <span class="legend-dot legend-dot--cut"></span> separated <span class="legend-dot legend-dot--removed"></span> removed</div>
               <div id="removed-history" class="removed-history" aria-label="Removed characters"></div>
             </aside>
           </div>
           <div id="game-result" class="game-result" hidden></div>
+          <div class="game-science-note">
+            <h3>What are we testing?</h3>
+            <p>Centrality gives us several ways to call a node “important”. The game tests something slightly different: <strong>structural dependence</strong>. If removing a character separates other nodes from the giant component, the network depended on that character in a way that a centrality score alone may not reveal.</p>
+            <p>Once you've tried it yourself, we repeat the experiment systematically for every character.</p>
+          </div>
         </section>
 
         <section class="playground-section" aria-labelledby="transformation-heading">

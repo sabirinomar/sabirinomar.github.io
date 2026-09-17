@@ -28,7 +28,7 @@
       adjacency[target].push(source);
     });
 
-    const state = { removed: new Set(), selected: null, clue: "none" };
+    const state = { removed: new Set(), removalHistory: [], selected: null, clue: "none" };
     const characterClass = (node) => {
       if (!node) return "unknown";
       const name = node.name.toLowerCase();
@@ -121,6 +121,9 @@
         nodes.appendChild(circle);
       });
       svg.appendChild(nodes);
+      if (selected && nodeById[selected] && !removed.has(selected)) {
+        showNodeLabel(svg, nodeById[selected], point(nodeById[selected], width, height));
+      }
       return svg;
     }
 
@@ -197,12 +200,12 @@
           spotlight.innerHTML = `<div class="character-empty">${visualMarkup(null)}<span>Choose your target</span><small>The character enters the spotlight when you select a node.</small></div>`;
           return;
         }
-        spotlight.innerHTML = `<div class="character-selected character-selected--${characterClass(node)}">${visualMarkup(node)}<div><span class="spotlight-kicker">Target acquired</span><h3>${shortName(node.name)}</h3><div class="spotlight-metrics"><b>${node.degree}<small>direct neighbours</small></b><b>#${node.betweenness_rank}<small>betweenness rank</small></b><b>${node.nodes_outside_giant}<small>knockout disconnects</small></b></div></div></div>`;
+        spotlight.innerHTML = `<div class="character-selected character-selected--${characterClass(node)}">${visualMarkup(node)}<div><span class="spotlight-kicker">Target acquired</span><h3>${shortName(node.name)}</h3><div class="spotlight-metrics"><b>${node.degree}<small>degree · direct neighbours</small></b><b>#${node.betweenness_rank}<small>betweenness rank</small></b><b>${node.nodes_outside_giant}<small>knockout damage · disconnected</small></b></div></div></div>`;
       }
 
       function renderHistory() {
         const history = $("#removed-history");
-        history.innerHTML = state.removed.size ? `<span>Removed</span>${Array.from(state.removed).map((id) => `<i title="${nodeById[id].name}">${shortName(nodeById[id].name).slice(0, 2).toUpperCase()}</i>`).join("")}` : "";
+        history.innerHTML = state.removalHistory.length ? `<span>Removed so far</span><div class="removed-history-list">${state.removalHistory.map((item) => `<i title="${item.name}: ${item.damage} disconnected when removed"><b>${shortName(item.name).slice(0, 2).toUpperCase()}</b><span>${shortName(item.name)}</span></i>`).join("")}</div>` : "";
       }
     }
 
@@ -274,6 +277,7 @@
       spotlight.classList.add("spotlight-exit");
       window.setTimeout(() => {
         state.removed.add(selectedId);
+        state.removalHistory.push({ name, damage: nodeById[selectedId].nodes_outside_giant });
         state.selected = null;
         const readout = currentReadout();
         spotlight.classList.remove("spotlight-exit");
@@ -284,6 +288,7 @@
     });
     $("#reset-game").addEventListener("click", () => {
       state.removed.clear();
+      state.removalHistory = [];
       state.selected = null;
       $("#character-search").value = "";
       $("#game-result").hidden = true;

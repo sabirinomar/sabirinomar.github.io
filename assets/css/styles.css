@@ -2646,6 +2646,346 @@ li + li {
     }
   }
 
+  /* Week 3 game composition must win the historical cascade above. */
+  .week3-playground-page .playground-game .playground-heading p {
+    max-width: 760px;
+  }
+
+  .week3-playground-page .game-objective-heading {
+    max-width: 760px;
+    margin: 1.25rem 0 0.6rem;
+    color: #ffe34f;
+    font-size: clamp(1.25rem, 2vw, 1.75rem);
+    line-height: 1.08;
+  }
+
+  .week3-playground-page .how-to-play {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.7rem 1rem;
+    margin: 1.5rem 0 1.25rem;
+    padding: 0.95rem 0;
+    border-top: 1px solid rgba(85, 221, 224, 0.24);
+    border-bottom: 1px solid rgba(85, 221, 224, 0.24);
+  }
+
+  .week3-playground-page .how-to-play > strong {
+    color: #f5f7ff;
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .week3-playground-page .how-to-play > i {
+    color: #55dde0;
+    font-size: 1.2rem;
+  }
+
+  .week3-playground-page .how-to-play > small {
+    flex-basis: 100%;
+    color: rgba(245, 247, 255, 0.6);
+    font-size: 0.72rem;
+  }
+
+  .week3-playground-page .game-layout {
+    display: block;
+  }
+
+  .week3-playground-page .network-stage--game {
+    width: 100%;
+  }
+
+  .week3-playground-page .game-readout {
+    display: grid;
+    grid-template-columns: minmax(0, 2.1fr) minmax(240px, 1fr);
+    gap: 1.35rem 2rem;
+    align-items: start;
+    margin-top: 1.25rem;
+    padding: 1.4rem 0 0;
+    border-top: 1px solid rgba(85, 221, 224, 0.32);
+  }
+
+  .week3-playground-page .character-action {
+    min-width: 0;
+  }
+
+  .week3-playground-page .character-spotlight {
+    min-height: 250px;
+    margin: 0 0 1rem;
+    padding: 0 0 1rem;
+  }
+
+  .week3-playground-page .character-empty,
+  .week3-playground-page .character-selected {
+    grid-template-columns: 190px minmax(0, 1fr);
+    min-height: 235px;
+    gap: 1.5rem;
+  }
+
+  .week3-playground-page .character-selected .character-art,
+  .week3-playground-page .character-empty .character-art {
+    width: 190px;
+    height: 230px;
+    transform: none;
+  }
+
+  .week3-playground-page .character-art__halo {
+    inset: 18px;
+  }
+
+  .week3-playground-page .character-art__shape {
+    top: 48px;
+    left: 50px;
+    width: 90px;
+    height: 125px;
+  }
+
+  .week3-playground-page .character-art__mark {
+    top: 93px;
+    left: 76px;
+    width: 38px;
+  }
+
+  .week3-playground-page .character-art--widow .character-art__mark {
+    left: 91px;
+    top: 80px;
+  }
+
+  .week3-playground-page .character-art--strange .character-art__mark {
+    top: 108px;
+    left: 78px;
+    width: 54px;
+  }
+
+  .week3-playground-page .character-art--wolverine .character-art__mark {
+    left: 64px;
+    top: 88px;
+    width: 92px;
+  }
+
+  .week3-playground-page .character-art--deadpool .character-art__mark,
+  .week3-playground-page .character-art--rockman .character-art__mark {
+    left: 73px;
+    width: 64px;
+  }
+
+  .week3-playground-page .character-selected h3 {
+    margin: 0.4rem 0 1rem;
+    font-size: clamp(2rem, 4vw, 4rem);
+  }
+
+  .week3-playground-page .spotlight-metrics {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.8rem;
+  }
+
+  .week3-playground-page .spotlight-metrics b {
+    font-size: 1.55rem;
+  }
+
+  .week3-playground-page .spotlight-metrics small {
+    margin-top: 0.2rem;
+    font-size: 0.62rem;
+    line-height: 1.35;
+  }
+
+  .week3-playground-page .character-action > #remove-node {
+    width: auto;
+    min-width: min(100%, 260px);
+    margin: 0;
+  }
+
+  .week3-playground-page .game-status {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem 1.5rem;
+    align-content: start;
+  }
+
+  .week3-playground-page .game-status .readout-stat {
+    display: grid;
+    gap: 0.2rem;
+    padding: 0;
+    border: 0;
+  }
+
+  .week3-playground-page .game-status .readout-stat strong {
+    color: #ffe34f;
+    font-size: clamp(1.8rem, 3vw, 2.8rem);
+    line-height: 0.95;
+  }
+
+  .week3-playground-page .game-status .readout-stat > span {
+    color: #f5f7ff;
+    font-size: 0.64rem;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .week3-playground-page .game-status .readout-stat small {
+    color: rgba(245, 247, 255, 0.58);
+    font-size: 0.68rem;
+    line-height: 1.35;
+  }
+
+  .week3-playground-page .lower-is-better,
+  .week3-playground-page .game-mission,
+  .week3-playground-page .move-progress,
+  .week3-playground-page .game-message,
+  .week3-playground-page .game-readout > #reset-game,
+  .week3-playground-page .game-readout > .legend {
+    grid-column: 2;
+  }
+
+  .week3-playground-page .lower-is-better {
+    margin: -0.55rem 0 0;
+    color: #55dde0;
+    font-size: 0.65rem;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+  }
+
+  .week3-playground-page .game-mission {
+    margin: 0;
+  }
+
+  .week3-playground-page .game-message {
+    min-height: 0;
+    margin: 0;
+  }
+
+  .week3-playground-page .game-readout > #reset-game {
+    width: fit-content;
+  }
+
+  .week3-playground-page .removed-history {
+    display: block;
+    grid-column: 1 / -1;
+    margin: 0;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(85, 221, 224, 0.22);
+  }
+
+  .week3-playground-page .removed-history > span {
+    display: block;
+    margin-bottom: 0.65rem;
+  }
+
+  .week3-playground-page .removed-history-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+  }
+
+  .week3-playground-page .removed-history-list i {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    width: auto;
+    height: auto;
+    padding: 0.35rem 0.6rem 0.35rem 0.35rem;
+    border-radius: 999px;
+    color: #f5f7ff;
+    background: rgba(255, 143, 163, 0.16);
+    font-size: 0.72rem;
+  }
+
+  .week3-playground-page .removed-history-list i b {
+    display: inline-grid;
+    width: 1.6rem;
+    height: 1.6rem;
+    place-items: center;
+    border-radius: 50%;
+    color: #07162e;
+    background: #ff8fa3;
+    font-size: 0.58rem;
+  }
+
+  .week3-playground-page .removed-history-list i span {
+    color: #f5f7ff;
+  }
+
+  .week3-playground-page .game-science-note {
+    max-width: 780px;
+    margin-top: 2rem;
+    padding-top: 1.4rem;
+    border-top: 1px solid rgba(85, 221, 224, 0.25);
+  }
+
+  .week3-playground-page .game-science-note h3 {
+    margin: 0 0 0.65rem;
+    color: #ffe34f;
+    font-size: 1.1rem;
+  }
+
+  .week3-playground-page .game-science-note p {
+    margin: 0.55rem 0;
+    color: rgba(245, 247, 255, 0.72);
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 850px) {
+    .week3-playground-page .game-readout {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .week3-playground-page .lower-is-better,
+    .week3-playground-page .game-mission,
+    .week3-playground-page .move-progress,
+    .week3-playground-page .game-message,
+    .week3-playground-page .game-readout > #reset-game,
+    .week3-playground-page .game-readout > .legend {
+      grid-column: 1;
+    }
+
+    .week3-playground-page .character-action > #remove-node {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .week3-playground-page .character-empty,
+    .week3-playground-page .character-selected {
+      grid-template-columns: 130px minmax(0, 1fr);
+      gap: 1rem;
+    }
+
+    .week3-playground-page .character-selected .character-art,
+    .week3-playground-page .character-empty .character-art {
+      width: 130px;
+      height: 170px;
+    }
+
+    .week3-playground-page .character-art__halo {
+      inset: 12px;
+    }
+
+    .week3-playground-page .character-art__shape {
+      top: 35px;
+      left: 34px;
+      width: 62px;
+      height: 92px;
+    }
+
+    .week3-playground-page .character-art__mark {
+      top: 68px;
+      left: 52px;
+      width: 28px;
+    }
+
+    .week3-playground-page .character-selected h3 {
+      font-size: 2rem;
+    }
+
+    .week3-playground-page .spotlight-metrics {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
   /* Week 3 playground: the network is the interface. */
   .week3-playground-page {
     background:
@@ -3433,6 +3773,355 @@ li + li {
 
     .chart-stage svg {
       min-width: 700px;
+    }
+  }
+
+  /* Final Week 3 composition: keep the graph intact and compose the game beneath it. */
+  .week3-playground-page .playground-game .playground-heading p {
+    max-width: 760px;
+  }
+
+  .week3-playground-page .game-objective-heading {
+    max-width: 760px;
+    margin: 1.25rem 0 0.6rem;
+    color: #ffe34f;
+    font-size: clamp(1.25rem, 2vw, 1.75rem);
+    line-height: 1.08;
+  }
+
+  .week3-playground-page .game-prompt {
+    margin-bottom: 0;
+  }
+
+  .week3-playground-page .how-to-play {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.7rem 1rem;
+    margin: 1.5rem 0 1.25rem;
+    padding: 0.95rem 0;
+  }
+
+  .week3-playground-page .how-to-play > strong {
+    color: #f5f7ff;
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .week3-playground-page .how-to-play > i {
+    color: #55dde0;
+    font-size: 1.2rem;
+  }
+
+  .week3-playground-page .how-to-play > small {
+    flex-basis: 100%;
+    color: rgba(245, 247, 255, 0.6);
+    font-size: 0.72rem;
+  }
+
+  .week3-playground-page .game-layout {
+    display: block;
+  }
+
+  .week3-playground-page .network-stage--game {
+    width: 100%;
+  }
+
+  .week3-playground-page .game-readout {
+    display: grid;
+    grid-template-columns: minmax(0, 2.1fr) minmax(240px, 1fr);
+    gap: 1.35rem 2rem;
+    align-items: start;
+    margin-top: 1.25rem;
+    padding: 1.4rem 0 0;
+    border-top: 1px solid rgba(85, 221, 224, 0.32);
+  }
+
+  .week3-playground-page .character-action {
+    min-width: 0;
+  }
+
+  .week3-playground-page .character-spotlight {
+    min-height: 250px;
+    margin: 0 0 1rem;
+    padding: 0 0 1rem;
+    border-bottom: 1px solid rgba(85, 221, 224, 0.25);
+  }
+
+  .week3-playground-page .character-empty,
+  .week3-playground-page .character-selected {
+    grid-template-columns: 190px minmax(0, 1fr);
+    min-height: 235px;
+    gap: 1.5rem;
+  }
+
+  .week3-playground-page .character-selected .character-art,
+  .week3-playground-page .character-empty .character-art {
+    width: 190px;
+    height: 230px;
+    transform: none;
+  }
+
+  .week3-playground-page .character-art__halo {
+    inset: 18px;
+  }
+
+  .week3-playground-page .character-art__shape {
+    top: 48px;
+    left: 50px;
+    width: 90px;
+    height: 125px;
+  }
+
+  .week3-playground-page .character-art__mark {
+    top: 93px;
+    left: 76px;
+    width: 38px;
+  }
+
+  .week3-playground-page .character-art--widow .character-art__mark {
+    left: 91px;
+    top: 80px;
+  }
+
+  .week3-playground-page .character-art--strange .character-art__mark {
+    top: 108px;
+    left: 78px;
+    width: 54px;
+  }
+
+  .week3-playground-page .character-art--wolverine .character-art__mark {
+    left: 64px;
+    top: 88px;
+    width: 92px;
+  }
+
+  .week3-playground-page .character-art--deadpool .character-art__mark,
+  .week3-playground-page .character-art--rockman .character-art__mark {
+    left: 73px;
+    width: 64px;
+  }
+
+  .week3-playground-page .character-selected h3 {
+    margin: 0.4rem 0 1rem;
+    font-size: clamp(2rem, 4vw, 4rem);
+  }
+
+  .week3-playground-page .spotlight-metrics {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.8rem;
+  }
+
+  .week3-playground-page .spotlight-metrics b {
+    font-size: 1.55rem;
+  }
+
+  .week3-playground-page .spotlight-metrics small {
+    margin-top: 0.2rem;
+    font-size: 0.62rem;
+    line-height: 1.35;
+  }
+
+  .week3-playground-page .character-action > #remove-node {
+    width: auto;
+    min-width: min(100%, 260px);
+    margin: 0;
+  }
+
+  .week3-playground-page .game-status {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem 1.5rem;
+    align-content: start;
+  }
+
+  .week3-playground-page .game-status .readout-stat {
+    display: grid;
+    gap: 0.2rem;
+    min-width: 0;
+    padding: 0;
+    border: 0;
+  }
+
+  .week3-playground-page .game-status .readout-stat strong {
+    color: #ffe34f;
+    font-size: clamp(1.8rem, 3vw, 2.8rem);
+    line-height: 0.95;
+  }
+
+  .week3-playground-page .game-status .readout-stat > span {
+    color: #f5f7ff;
+    font-size: 0.64rem;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .week3-playground-page .game-status .readout-stat small {
+    color: rgba(245, 247, 255, 0.58);
+    font-size: 0.68rem;
+    line-height: 1.35;
+  }
+
+  .week3-playground-page .lower-is-better {
+    grid-column: 2;
+    margin: -0.55rem 0 0;
+    color: #55dde0;
+    font-size: 0.65rem;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+  }
+
+  .week3-playground-page .game-mission,
+  .week3-playground-page .move-progress,
+  .week3-playground-page .game-message,
+  .week3-playground-page .game-readout > #reset-game,
+  .week3-playground-page .game-readout > .legend {
+    grid-column: 2;
+  }
+
+  .week3-playground-page .game-mission {
+    margin: 0;
+  }
+
+  .week3-playground-page .game-message {
+    min-height: 0;
+    margin: 0;
+  }
+
+  .week3-playground-page .game-readout > #reset-game {
+    width: fit-content;
+  }
+
+  .week3-playground-page .removed-history {
+    grid-column: 1 / -1;
+    display: block;
+    margin: 0;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(85, 221, 224, 0.22);
+  }
+
+  .week3-playground-page .removed-history > span {
+    display: block;
+    margin-bottom: 0.65rem;
+  }
+
+  .week3-playground-page .removed-history-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+  }
+
+  .week3-playground-page .removed-history-list i {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    width: auto;
+    height: auto;
+    padding: 0.35rem 0.6rem 0.35rem 0.35rem;
+    border-radius: 999px;
+    color: #f5f7ff;
+    background: rgba(255, 143, 163, 0.16);
+    font-size: 0.72rem;
+  }
+
+  .week3-playground-page .removed-history-list i b {
+    display: inline-grid;
+    width: 1.6rem;
+    height: 1.6rem;
+    place-items: center;
+    border-radius: 50%;
+    color: #07162e;
+    background: #ff8fa3;
+    font-size: 0.58rem;
+  }
+
+  .week3-playground-page .removed-history-list i span {
+    color: #f5f7ff;
+  }
+
+  .week3-playground-page .game-science-note {
+    max-width: 780px;
+    margin-top: 2rem;
+    padding-top: 1.4rem;
+    border-top: 1px solid rgba(85, 221, 224, 0.25);
+  }
+
+  .week3-playground-page .game-science-note h3 {
+    margin: 0 0 0.65rem;
+    color: #ffe34f;
+    font-size: 1.1rem;
+  }
+
+  .week3-playground-page .game-science-note p {
+    margin: 0.55rem 0;
+    color: rgba(245, 247, 255, 0.72);
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 850px) {
+    .week3-playground-page .game-readout {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .week3-playground-page .game-status,
+    .week3-playground-page .lower-is-better,
+    .week3-playground-page .game-mission,
+    .week3-playground-page .move-progress,
+    .week3-playground-page .game-message,
+    .week3-playground-page .game-readout > #reset-game,
+    .week3-playground-page .game-readout > .legend {
+      grid-column: 1;
+    }
+
+    .week3-playground-page .character-action > #remove-node {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .week3-playground-page .character-empty,
+    .week3-playground-page .character-selected {
+      grid-template-columns: 130px minmax(0, 1fr);
+      gap: 1rem;
+    }
+
+    .week3-playground-page .character-selected .character-art,
+    .week3-playground-page .character-empty .character-art {
+      width: 130px;
+      height: 170px;
+    }
+
+    .week3-playground-page .character-art__halo {
+      inset: 12px;
+    }
+
+    .week3-playground-page .character-art__shape {
+      top: 35px;
+      left: 34px;
+      width: 62px;
+      height: 92px;
+    }
+
+    .week3-playground-page .character-art__mark {
+      top: 68px;
+      left: 52px;
+      width: 28px;
+    }
+
+    .week3-playground-page .character-selected h3 {
+      font-size: 2rem;
+    }
+
+    .week3-playground-page .spotlight-metrics {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .week3-playground-page .game-status {
+      gap: 1.1rem 0.8rem;
     }
   }
 
@@ -5436,4 +6125,88 @@ li + li {
   .network-toolbar select {
     width: 100%;
   }
+}
+
+/* Final Week 3 game composition overrides. */
+.week3-playground-page .game-layout { display: block; }
+.week3-playground-page .game-readout {
+  display: grid;
+  grid-template-columns: minmax(0, 2.1fr) minmax(240px, 1fr);
+  gap: 1.35rem 2rem;
+  align-items: start;
+  margin-top: 1.25rem;
+  padding: 1.4rem 0 0;
+  border-top: 1px solid rgba(85, 221, 224, 0.32);
+}
+.week3-playground-page .character-action { min-width: 0; }
+.week3-playground-page .character-spotlight { min-height: 250px; margin: 0 0 1rem; padding: 0 0 1rem; }
+.week3-playground-page .character-empty,
+.week3-playground-page .character-selected {
+  grid-template-columns: 190px minmax(0, 1fr);
+  min-height: 235px;
+  gap: 1.5rem;
+}
+.week3-playground-page .character-selected .character-art,
+.week3-playground-page .character-empty .character-art {
+  width: 190px;
+  height: 230px;
+  transform: none;
+}
+.week3-playground-page .character-art__halo { inset: 18px; }
+.week3-playground-page .character-art__shape { top: 48px; left: 50px; width: 90px; height: 125px; }
+.week3-playground-page .character-art__mark { top: 93px; left: 76px; width: 38px; }
+.week3-playground-page .character-art--widow .character-art__mark { left: 91px; top: 80px; }
+.week3-playground-page .character-art--strange .character-art__mark { top: 108px; left: 78px; width: 54px; }
+.week3-playground-page .character-art--wolverine .character-art__mark { left: 64px; top: 88px; width: 92px; }
+.week3-playground-page .character-art--deadpool .character-art__mark,
+.week3-playground-page .character-art--rockman .character-art__mark { left: 73px; width: 64px; }
+.week3-playground-page .character-selected h3 { margin: 0.4rem 0 1rem; font-size: clamp(2rem, 4vw, 4rem); }
+.week3-playground-page .spotlight-metrics { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.8rem; }
+.week3-playground-page .spotlight-metrics b { font-size: 1.55rem; }
+.week3-playground-page .spotlight-metrics small { margin-top: 0.2rem; font-size: 0.62rem; line-height: 1.35; }
+.week3-playground-page .character-action > #remove-node { width: auto; min-width: min(100%, 260px); margin: 0; }
+.week3-playground-page .game-status { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem 1.5rem; align-content: start; }
+.week3-playground-page .game-status .readout-stat { display: grid; gap: 0.2rem; padding: 0; border: 0; }
+.week3-playground-page .game-status .readout-stat strong { color: #ffe34f; font-size: clamp(1.8rem, 3vw, 2.8rem); line-height: 0.95; }
+.week3-playground-page .game-status .readout-stat > span { color: #f5f7ff; font-size: 0.64rem; font-weight: 900; letter-spacing: 0.12em; text-transform: uppercase; }
+.week3-playground-page .game-status .readout-stat small { color: rgba(245, 247, 255, 0.58); font-size: 0.68rem; line-height: 1.35; }
+.week3-playground-page .lower-is-better,
+.week3-playground-page .game-mission,
+.week3-playground-page .move-progress,
+.week3-playground-page .game-message,
+.week3-playground-page .game-readout > #reset-game,
+.week3-playground-page .game-readout > .legend { grid-column: 2; }
+.week3-playground-page .lower-is-better { margin: -0.55rem 0 0; color: #55dde0; font-size: 0.65rem; font-weight: 900; letter-spacing: 0.1em; }
+.week3-playground-page .game-mission { margin: 0; }
+.week3-playground-page .game-message { min-height: 0; margin: 0; }
+.week3-playground-page .game-readout > #reset-game { width: fit-content; }
+.week3-playground-page .removed-history { display: block; grid-column: 1 / -1; margin: 0; padding-top: 1rem; border-top: 1px solid rgba(85, 221, 224, 0.22); }
+.week3-playground-page .removed-history > span { display: block; margin-bottom: 0.65rem; }
+.week3-playground-page .removed-history-list { display: flex; flex-wrap: wrap; gap: 0.55rem; }
+.week3-playground-page .removed-history-list i { display: inline-flex; align-items: center; gap: 0.45rem; width: auto; height: auto; padding: 0.35rem 0.6rem 0.35rem 0.35rem; border-radius: 999px; color: #f5f7ff; background: rgba(255, 143, 163, 0.16); font-size: 0.72rem; }
+.week3-playground-page .removed-history-list i b { display: inline-grid; width: 1.6rem; height: 1.6rem; place-items: center; border-radius: 50%; color: #07162e; background: #ff8fa3; font-size: 0.58rem; }
+.week3-playground-page .game-science-note { max-width: 780px; margin-top: 2rem; padding-top: 1.4rem; border-top: 1px solid rgba(85, 221, 224, 0.25); }
+.week3-playground-page .game-science-note h3 { margin: 0 0 0.65rem; color: #ffe34f; font-size: 1.1rem; }
+.week3-playground-page .game-science-note p { margin: 0.55rem 0; color: rgba(245, 247, 255, 0.72); font-size: 0.9rem; line-height: 1.6; }
+
+@media (max-width: 850px) {
+  .week3-playground-page .game-readout { grid-template-columns: minmax(0, 1fr); }
+  .week3-playground-page .lower-is-better,
+  .week3-playground-page .game-mission,
+  .week3-playground-page .move-progress,
+  .week3-playground-page .game-message,
+  .week3-playground-page .game-readout > #reset-game,
+  .week3-playground-page .game-readout > .legend { grid-column: 1; }
+  .week3-playground-page .character-action > #remove-node { width: 100%; }
+}
+
+@media (max-width: 600px) {
+  .week3-playground-page .character-empty,
+  .week3-playground-page .character-selected { grid-template-columns: 130px minmax(0, 1fr); gap: 1rem; }
+  .week3-playground-page .character-selected .character-art,
+  .week3-playground-page .character-empty .character-art { width: 130px; height: 170px; }
+  .week3-playground-page .character-art__halo { inset: 12px; }
+  .week3-playground-page .character-art__shape { top: 35px; left: 34px; width: 62px; height: 92px; }
+  .week3-playground-page .character-art__mark { top: 68px; left: 52px; width: 28px; }
+  .week3-playground-page .spotlight-metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
