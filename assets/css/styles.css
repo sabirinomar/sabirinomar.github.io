@@ -6339,3 +6339,15 @@ li + li {
 .week3-playground-page .game-science-note p strong {
   color: #0b1830;
 }
+
+.week3-playground-page .character-art--generated {
+  display: grid;
+  place-items: center;
+  background: linear-gradient(145deg, rgba(7, 22, 46, 0.96), rgba(18, 59, 102, 0.9));
+}
+
+.week3-playground-page .generated-avatar {
+  display: block;
+  width: 100%;
+  height: 100%;
+}

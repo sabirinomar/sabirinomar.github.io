@@ -55,7 +55,38 @@
 
     function visualMarkup(node, compact = false) {
       const kind = characterClass(node);
-      return `<div class="character-art character-art--${kind}${compact ? " character-art--compact" : ""}" aria-hidden="true"><span class="character-art__halo"></span><span class="character-art__shape"></span><span class="character-art__mark"></span></div>`;
+      const seedText = node ? `${node.id}:${node.name}` : "mystery-target";
+      let seed = 0;
+      for (let index = 0; index < seedText.length; index += 1) {
+        seed = (seed * 31 + seedText.charCodeAt(index)) >>> 0;
+      }
+      const hue = seed % 360;
+      const accent = `hsl(${hue} 78% 62%)`;
+      const secondary = `hsl(${(hue + 48) % 360} 78% 72%)`;
+      const initials = node
+        ? shortName(node.name).split(/\s+/).filter(Boolean).slice(0, 2).map((part) => part[0]).join("").toUpperCase()
+        : "?";
+      const rotation = seed % 32 - 16;
+      const sizeClass = compact ? " character-art--compact" : "";
+      return `<div class="character-art character-art--${kind}${sizeClass} character-art--generated" aria-hidden="true">
+        <svg class="generated-avatar" viewBox="0 0 190 230" role="img" aria-label="Generated avatar">
+          <defs>
+            <linearGradient id="avatar-${seed}" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="${accent}" />
+              <stop offset="1" stop-color="${secondary}" />
+            </linearGradient>
+          </defs>
+          <circle cx="95" cy="115" r="83" fill="none" stroke="${secondary}" stroke-width="2" stroke-dasharray="5 9" transform="rotate(${rotation} 95 115)" />
+          <path d="M35 202c8-45 31-67 60-67s52 22 60 67" fill="url(#avatar-${seed})" opacity=".92" />
+          <circle cx="95" cy="91" r="39" fill="#07162e" stroke="${accent}" stroke-width="5" />
+          <path d="M57 91h76M95 53v76" stroke="${secondary}" stroke-width="2" opacity=".6" />
+          <circle cx="82" cy="86" r="4" fill="${secondary}" />
+          <circle cx="108" cy="86" r="4" fill="${secondary}" />
+          <path d="M78 106c10 8 24 8 34 0" fill="none" stroke="${accent}" stroke-width="3" stroke-linecap="round" />
+          <rect x="65" y="151" width="60" height="25" rx="12.5" fill="#07162e" stroke="${secondary}" stroke-width="2" />
+          <text x="95" y="168" text-anchor="middle" fill="${secondary}" font-size="14" font-family="Manrope, Segoe UI, sans-serif" font-weight="800" letter-spacing="2">${initials}</text>
+        </svg>
+      </div>`;
     }
 
     function svgElement(name, attributes = {}) {
