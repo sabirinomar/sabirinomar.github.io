@@ -12,13 +12,25 @@
       if (!response.ok) throw new Error(`Could not load ${DATA_URL}`);
       return response.json();
     })
-    .then(init)
+    .then((data) => {
+      try {
+        init(data);
+      } catch (error) {
+        console.error("Week 3 playground initialization failed.", error);
+        showError(`The playground could not be initialized. ${error.message}`);
+      }
+    })
     .catch((error) => {
-      document.querySelector(".week3-playground").insertAdjacentHTML(
-        "afterbegin",
-        `<p class="playground-error">The playground data could not be loaded. ${error.message}</p>`,
-      );
+      console.error("Week 3 playground data load failed.", error);
+      showError(`The playground data could not be loaded. ${error.message}`);
     });
+
+  function showError(message) {
+    document.querySelector(".week3-playground")?.insertAdjacentHTML(
+      "afterbegin",
+      `<p class="playground-error">${message}</p>`,
+    );
+  }
 
   function init(data) {
     const nodeById = Object.fromEntries(data.nodes.map((node) => [node.id, node]));
@@ -40,6 +52,11 @@
       if (node.id === "Rockman_(character)" || name === "rockman (character)") return "rockman";
       return "unknown";
     };
+
+    function visualMarkup(node, compact = false) {
+      const kind = characterClass(node);
+      return `<div class="character-art character-art--${kind}${compact ? " character-art--compact" : ""}" aria-hidden="true"><span class="character-art__halo"></span><span class="character-art__shape"></span><span class="character-art__mark"></span></div>`;
+    }
 
     function svgElement(name, attributes = {}) {
       const element = document.createElementNS(SVG_NS, name);
@@ -186,11 +203,6 @@
       function renderProgress() {
         const progress = $("#move-progress");
         progress.innerHTML = `<span>Moves</span>${Array.from({ length: 10 }, (_, index) => `<i class="${index < state.removed.size ? "is-used" : ""}" aria-label="${index < state.removed.size ? "Used" : "Available"} move ${index + 1}"></i>`).join("")}`;
-      }
-
-      function visualMarkup(node, compact = false) {
-        const kind = characterClass(node);
-        return `<div class="character-art character-art--${kind}${compact ? " character-art--compact" : ""}" aria-hidden="true"><span class="character-art__halo"></span><span class="character-art__shape"></span><span class="character-art__mark"></span></div>`;
       }
 
       function renderSpotlight() {
