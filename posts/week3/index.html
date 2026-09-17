@@ -25,17 +25,21 @@
     <main class="container main-content">
       <article class="week3-playground">
         <header class="playground-intro">
-          <span class="eyebrow">Week 3 · Network science playground</span>
-          <h1>Who holds the Marvel universe together?</h1>
-          <p>Do not read the answer first. Break the network, make a prediction, and watch the structure respond.</p>
-          <div class="intro-network" aria-hidden="true"><span></span><span></span><span></span><span></span><i></i><i></i><i></i></div>
+          <span class="eyebrow">Social graphs · Week 3</span>
+          <h1>Who holds the<br /><em>Marvel universe</em><br />together?</h1>
+          <div class="intro-copy">
+            <p>Centrality gives us several ways to call a character important. But this week we wanted to ask something more physical: if a character disappears, does the network actually notice?</p>
+            <p>So we removed all 277 characters, one at a time — and then let you try it yourself.</p>
+          </div>
+          <div class="intro-meta">277 characters <span>·</span> 1,421 undirected links <span>·</span> average distance 2.67 <span>·</span> diameter 6</div>
+          <div id="hero-network" class="intro-network" aria-label="Atmospheric visualization of the Marvel giant component"></div>
         </header>
 
         <section class="playground-section playground-game" aria-labelledby="game-heading">
           <div class="playground-heading">
-            <span class="eyebrow">Experiment 01</span>
+            <span class="experiment-label">01 / Break it</span>
             <h2 id="game-heading">Can you break the Marvel universe?</h2>
-            <p>You have 10 removals. Choose wisely. Search for a character or click a node, then remove it without changing the network layout.</p>
+            <p>High degree makes Spider-Man look obvious. But degree is only one kind of importance. A network can sometimes route around even its biggest hubs. Your job is to find the characters it cannot easily route around.</p>
           </div>
           <div class="game-layout">
             <div class="network-stage">
@@ -70,9 +74,9 @@
 
         <section class="playground-section" aria-labelledby="transformation-heading">
           <div class="playground-heading">
-            <span class="eyebrow">Experiment 02</span>
+            <span class="experiment-label">02 / See the damage</span>
             <h2 id="transformation-heading">What actually breaks?</h2>
-            <p>Choose a suspect. The same fixed network is shown before and after removal, so fragmentation becomes visible instead of abstract.</p>
+            <p>A fragmentation score is useful, but abstract. Five nodes outside the giant component does not sound dramatic until you see exactly where the break happens.</p>
           </div>
           <div class="suspect-controls" id="suspect-controls"></div>
           <button id="transform-play" class="playground-button playground-button--pink" type="button">Play transformation</button>
@@ -85,9 +89,9 @@
 
         <section class="playground-section playground-quiz" aria-labelledby="quiz-heading">
           <div class="playground-heading">
-            <span class="eyebrow">Experiment 03</span>
+            <span class="experiment-label">03 / Trust your instincts</span>
             <h2 id="quiz-heading">Who would you remove?</h2>
-            <p>Centrality creates intuitions. The knockout experiment gets the final vote.</p>
+            <p>Make the call before the data does it for you. Centrality creates intuitions; the knockout experiment gets the final vote.</p>
           </div>
           <div class="quiz-layout">
             <div id="quiz-prompt" class="quiz-prompt"></div>
@@ -99,11 +103,11 @@
         <section class="playground-section" aria-labelledby="landscape-heading">
           <div class="playground-heading playground-heading--split">
             <div>
-              <span class="eyebrow">Experiment 04</span>
+              <span class="experiment-label">04 / Find the outliers</span>
               <h2 id="landscape-heading">Explore the centrality landscape</h2>
-              <p>Every dot is a character. Search for someone, change the visual encoding, and look for bridges that are not as irreplaceable as they seem.</p>
+              <p>Betweenness seems like the obvious predictor of damage: a node used by many shortest paths should be dangerous to remove. The data mostly agrees — but only mostly.</p>
             </div>
-            <div class="correlation-rail"><span><b>0.723</b> Pearson</span><span><b>0.306</b> Spearman</span></div>
+            <div class="correlation-rail"><span><b>r = 0.723</b><small>Strong overall relationship</small></span><span><b>rank r = 0.306</b><small>Much weaker agreement on who ranks where</small></span></div>
           </div>
           <div class="landscape-controls">
             <label for="landscape-search">Find character <input id="landscape-search" type="search" placeholder="Try Wolverine" /></label>
@@ -120,20 +124,21 @@
 
         <section class="playground-section playground-race" aria-labelledby="race-heading">
           <div class="playground-heading">
-            <span class="eyebrow">Experiment 05</span>
+            <span class="experiment-label">05 / Attack</span>
             <h2 id="race-heading">Race to destroy the network</h2>
-            <p>Five strategies remove characters in different orders. Press play and watch the giant component shrink.</p>
+            <p>Five strategies remove characters in different orders. Press play and watch the giant component shrink. Which strategy finds the moving bridges fastest?</p>
           </div>
           <div class="race-controls"><button id="race-play" class="playground-button playground-button--pink" type="button">Start race</button><button id="race-reset" class="playground-button playground-button--quiet" type="button">Reset</button><label for="race-speed">Speed <input id="race-speed" type="range" min="30" max="500" value="120" /></label><strong id="race-step">0 / 100</strong></div>
           <div id="race-chart" class="chart-stage chart-stage--race"></div>
           <div id="race-leaderboard" class="race-leaderboard"></div>
+          <p id="race-reveal" class="race-reveal">After 100 removals, adaptive betweenness leaves only 2.9% of the original giant component. Random removal leaves 61.1%.</p>
         </section>
 
         <section class="playground-section playground-null" aria-labelledby="null-heading">
           <div class="playground-heading">
-            <span class="eyebrow">Experiment 06</span>
+            <span class="experiment-label">06 / Compared to what?</span>
             <h2 id="null-heading">200 alternative Marvel universes</h2>
-            <p>Same characters. Same number of links per character. Different connections. Where does a real character land among the rewired possibilities?</p>
+            <p>Even that is not enough. A character with many links is almost guaranteed to sit on many paths. So we ask one final question: is their brokerage unusual for a character with that degree?</p>
           </div>
           <div class="null-controls" id="null-controls"></div>
           <div class="null-layout"><div id="null-chart" class="chart-stage"></div><div id="null-note" class="null-note"></div></div>
@@ -142,7 +147,9 @@
         <footer class="playground-ending">
           <span class="eyebrow">Central compared to what?</span>
           <h2>Popularity is not brokerage. Brokerage is not robustness.</h2>
-          <p>Degree tells us who has links. Betweenness tells us who sits on bridges. The game and the knockout experiment ask the harder question: who is difficult to replace?</p>
+          <p>Spider-Man does the most immediate damage. Wolverine shows that being on many paths does not make you irreplaceable. Rockman shows the opposite kind of surprise: a modest-looking node can occupy a position that almost never appears in networks with the same degrees.</p>
+          <p>That is why the most interesting number in network science is rarely the number on its own. It is the number compared with the world we would have expected instead.</p>
+          <small>277 characters. 200 alternative universes. One very breakable web.</small>
         </footer>
       </article>
     </main>

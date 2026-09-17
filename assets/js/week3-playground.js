@@ -68,6 +68,7 @@
       const height = options.height || 520;
       const removed = options.removed || new Set();
       const selected = options.selected || null;
+      const highlights = options.highlights || {};
       const beforeAfter = options.beforeAfter || false;
       const svg = svgElement("svg", { viewBox: `0 0 ${width} ${height}`, role: "img" });
       const groups = components(removed);
@@ -95,6 +96,7 @@
           tabindex: options.interactive ? "0" : "-1",
           "data-node-id": node.id,
         });
+        if (highlights[node.id]) circle.classList.add(`network-node--${highlights[node.id]}`);
         circle.addEventListener("mouseenter", () => showNodeLabel(svg, node, p));
         circle.addEventListener("mouseleave", () => svg.querySelector(".network-label")?.remove());
         if (options.interactive) {
@@ -131,6 +133,13 @@
         separated: data.original_nodes - state.removed.size - giant,
         damage: (1 - giant / data.original_nodes) * 100,
       };
+    }
+
+    function gameFeedback(readout) {
+      if (readout.damage > 45) return "The giant component is starting to unravel.";
+      if (readout.separated >= 3) return "Now we're doing damage.";
+      if (readout.separated >= 1) return "A small crack.";
+      return "The network barely noticed.";
     }
 
     function renderGame() {
@@ -207,8 +216,8 @@
       state.removed.add(state.selected);
       state.selected = null;
       const readout = currentReadout();
-      $("#game-message").textContent = `${name} removed — ${readout.separated} characters are outside the giant component.`;
       renderGame();
+      $("#game-message").innerHTML = `<strong>${name.toUpperCase()} REMOVED</strong><br>${readout.separated} characters lost contact with the giant component.<br><em>${gameFeedback(readout)}</em>`;
       if (state.removed.size === 10) finishGame();
     });
     $("#reset-game").addEventListener("click", () => {
@@ -219,6 +228,16 @@
       renderGame();
     });
     renderGame();
+    $("#hero-network").appendChild(networkSvg($("#hero-network"), {
+      width: 900,
+      height: 500,
+      highlights: {
+        "Spider-Man": "spider",
+        "Rockman_(character)": "rockman",
+        "Wolverine_(character)": "wolverine",
+        "Black_Widow_(Natasha_Romanova)": "widow",
+      },
+    }));
 
     initTransformations();
     initQuiz();
@@ -341,7 +360,7 @@
       let step = 0;
       let timer = null;
       const strategies = ["Adaptive betweenness", "Betweenness (static)", "Degree (static)", "Closeness (static)", "Random removal"];
-      const colors = ["#3f2d52", "#8d63ff", "#e85a98", "#e0a62d", "#8aa0df"];
+      const colors = ["#ffe34f", "#55dde0", "#ff7a45", "#b6a7ff", "#71809b"];
       function render() {
         const width = 920, height = 470;
         const svg = svgElement("svg", { viewBox: `0 0 ${width} ${height}`, role: "img", "aria-label": "Animated attack strategy race" });
@@ -358,10 +377,11 @@
         });
         $("#race-chart").replaceChildren(svg);
         $("#race-step").textContent = `${step} / 100`;
+        $("#race-reveal").classList.toggle("is-visible", step >= 100);
         const board = $("#race-leaderboard"); board.replaceChildren();
         strategies.forEach((strategy, index) => {
           const remaining = data.attacks[strategy].find((row) => row.removed === step).remaining;
-          board.insertAdjacentHTML("beforeend", `<div><span style="--bar:${remaining * 100}%;--race-color:${colors[index]}">${strategy.replace(" (static)", "")}</span><b>${(remaining * 100).toFixed(1)}%</b></div>`);
+          board.insertAdjacentHTML("beforeend", `<div class="${step >= 100 && strategy === "Adaptive betweenness" ? "is-winner" : ""}"><span style="--bar:${remaining * 100}%;--race-color:${colors[index]}">${strategy.replace(" (static)", "")}</span><b>${(remaining * 100).toFixed(1)}%</b></div>`);
         });
       }
       function play() {
