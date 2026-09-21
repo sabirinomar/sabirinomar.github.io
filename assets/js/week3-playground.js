@@ -353,7 +353,8 @@
     initQuiz();
     initLandscape();
     initRace();
-    initNullModel();
+    // Null-model section removed from the page; keep the initializer safe for future reintroduction.
+    if (document.querySelector("#null-controls")) initNullModel();
 
     function initTransformations() {
       if (!$("#suspect-controls")) return;
@@ -508,7 +509,9 @@
 
     function initNullModel() {
       const controls = $("#null-controls");
-      const ids = Object.keys(data.null_samples);
+      if (!controls) return;
+      const ids = Object.keys(data.null_samples || {});
+      if (!ids.length) return;
       ids.forEach((id, index) => {
         const button = document.createElement("button"); button.type = "button"; button.textContent = shortName(nodeById[id].name); button.className = "suspect-button"; button.addEventListener("click", () => renderNull(id)); controls.appendChild(button);
         if (index === 0) button.classList.add("is-active");
