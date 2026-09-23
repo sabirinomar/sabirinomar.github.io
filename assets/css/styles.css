@@ -6423,6 +6423,39 @@ li + li {
     font-size: 0.82rem;
   }
 
+  .week4-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+    margin: 0.2rem 0 0.9rem;
+  }
+
+  .week4-legend span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.35rem 0.6rem;
+    color: var(--muted);
+    background: rgba(255,255,255,0.62);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    font-size: 0.74rem;
+    font-weight: 800;
+  }
+
+  .week4-legend-swatch {
+    display: inline-block;
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 50%;
+    background: var(--lilac);
+  }
+
+  .week4-legend-swatch--different {
+    background: white;
+    border: 2px solid var(--rose);
+  }
+
   .week4-network {
     margin: 0.8rem 0 1rem;
     padding: 0.5rem;
@@ -6512,9 +6545,198 @@ li + li {
     align-items: stretch;
   }
 
+  .week4-comparison-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.8fr) minmax(240px, 0.7fr);
+    gap: 1rem;
+    align-items: stretch;
+  }
+
+  .week4-static-figure {
+    margin: 0;
+    padding: 0.55rem;
+  }
+
+  .week4-static-figure img {
+    width: 100%;
+    height: auto;
+    image-rendering: auto;
+  }
+
+  .week4-static-figure figcaption {
+    margin: 0.5rem 0.35rem 0.2rem;
+    color: var(--muted);
+    font-size: 0.78rem;
+  }
+
+  .week4-stat-panel--compact {
+    justify-content: flex-start;
+    min-height: 0;
+  }
+
+  .week4-history-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.7rem;
+    margin: 1.2rem 0;
+  }
+
+  .week4-history-card {
+    padding: 1rem 1.1rem;
+    background: linear-gradient(145deg, rgba(255,255,255,0.74), rgba(255,244,249,0.84));
+    border: 1px solid var(--border);
+    border-radius: 16px;
+  }
+
+  .week4-history-card--wide {
+    grid-column: 1 / -1;
+    background: linear-gradient(145deg, rgba(246,238,255,0.8), rgba(255,255,255,0.76));
+  }
+
+  .week4-history-card strong {
+    color: var(--navy);
+    font-family: "Playfair Display", Georgia, serif;
+  }
+
+  .week4-history-card p {
+    margin: 0.35rem 0 0;
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+
   .figure-grid .figure-block,
   .aristotle-layout .figure-block {
     margin: 0;
+  }
+
+  .aristotle-visual {
+    min-width: 0;
+    padding: 0.45rem;
+  }
+
+  .aristotle-network {
+    position: relative;
+    min-height: 520px;
+    overflow: hidden;
+    background: linear-gradient(145deg, rgba(255,255,255,0.84), rgba(246,238,255,0.75));
+    border-radius: 16px;
+    cursor: grab;
+  }
+
+  .aristotle-network:active {
+    cursor: grabbing;
+  }
+
+  .aristotle-network > svg {
+    display: block;
+    width: 100%;
+    height: 520px;
+  }
+
+  .aristotle-scene {
+    transform-origin: center;
+  }
+
+  .aristotle-edge {
+    opacity: 0.23;
+    transition: opacity 0.16s ease, stroke-width 0.16s ease;
+  }
+
+  .aristotle-edge.is-active {
+    opacity: 0.95;
+    stroke-width: 4px;
+  }
+
+  .aristotle-node {
+    stroke: rgba(255,255,255,0.88);
+    stroke-width: 1.2;
+    cursor: pointer;
+    transition: opacity 0.16s ease, stroke 0.16s ease, stroke-width 0.16s ease;
+  }
+
+  .aristotle-node:hover,
+  .aristotle-node:focus,
+  .aristotle-node.is-neighbour {
+    stroke: var(--gold);
+    stroke-width: 3px;
+    outline: none;
+  }
+
+  .aristotle-node.is-aristotle {
+    stroke: var(--sun);
+    stroke-width: 4px;
+    filter: drop-shadow(0 0 8px rgba(224,166,45,0.72));
+  }
+
+  .aristotle-node.is-bridge {
+    stroke-width: 2px;
+  }
+
+  .aristotle-node.is-dimmed {
+    opacity: 0.12;
+  }
+
+  .aristotle-controls {
+    position: absolute;
+    z-index: 3;
+    top: 0.7rem;
+    left: 0.7rem;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    max-width: calc(100% - 1.4rem);
+    flex-wrap: wrap;
+  }
+
+  .aristotle-controls button {
+    min-width: 2rem;
+    padding: 0.35rem 0.55rem;
+    color: var(--navy);
+    background: rgba(255,255,255,0.88);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font: inherit;
+    font-size: 0.78rem;
+    font-weight: 800;
+    cursor: pointer;
+  }
+
+  .aristotle-controls button:hover,
+  .aristotle-controls button:focus-visible {
+    color: white;
+    background: var(--navy);
+  }
+
+  .aristotle-controls span {
+    padding: 0.35rem 0.55rem;
+    color: var(--muted);
+    background: rgba(255,255,255,0.72);
+    border-radius: 8px;
+    font-size: 0.72rem;
+  }
+
+  .aristotle-tooltip {
+    position: absolute;
+    z-index: 4;
+    max-width: min(260px, calc(100% - 1rem));
+    padding: 0.65rem 0.75rem;
+    color: white;
+    background: rgba(63,45,82,0.96);
+    border-radius: 10px;
+    box-shadow: var(--shadow-soft);
+    font-size: 0.78rem;
+    line-height: 1.35;
+    pointer-events: none;
+  }
+
+  .aristotle-tooltip strong,
+  .aristotle-tooltip span {
+    display: block;
+  }
+
+  .aristotle-tooltip span {
+    margin-top: 0.2rem;
+    color: var(--sun);
   }
 
   .figure-grid img,
@@ -6544,6 +6766,52 @@ li + li {
   .week4-stat-panel span {
     display: block;
     margin-top: 0.5rem;
+  }
+
+  .week4-details {
+    margin: 1rem 0;
+    color: var(--muted);
+  }
+
+  .week4-details summary {
+    color: var(--navy);
+    cursor: pointer;
+    font-weight: 800;
+  }
+
+  .week4-list {
+    columns: 2;
+    column-gap: 2rem;
+    max-height: 18rem;
+    overflow: auto;
+    margin: 0.75rem 0 0;
+    padding: 0;
+    font-size: 0.86rem;
+  }
+
+  .week4-list li {
+    display: grid;
+    gap: 0.15rem;
+    break-inside: avoid;
+    margin: 0 0 0.4rem;
+    padding: 0.5rem 0.65rem;
+    list-style: none;
+    color: var(--muted);
+    background: rgba(255,255,255,0.54);
+    border: 1px solid rgba(112, 90, 145, 0.12);
+    border-radius: 8px;
+  }
+
+  .week4-list li strong {
+    color: var(--navy);
+    font-size: 0.82rem;
+  }
+
+  .week4-list li span {
+    display: block;
+    margin: 0;
+    color: var(--pink-strong);
+    font-size: 0.78rem;
   }
 
   .week4-alpha-readout {
@@ -6592,8 +6860,17 @@ li + li {
     }
 
     .figure-grid,
-    .aristotle-layout {
+    .aristotle-layout,
+    .week4-comparison-grid {
       grid-template-columns: 1fr;
+    }
+
+    .week4-history-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .week4-history-card--wide {
+      grid-column: auto;
     }
 
     .week4-alpha-readout {
@@ -6603,5 +6880,15 @@ li + li {
     .week4-network-wrap,
     .week4-network svg {
       min-height: 250px;
+    }
+
+    .aristotle-network,
+    .aristotle-network > svg {
+      min-height: 390px;
+      height: 390px;
+    }
+
+    .week4-list {
+      columns: 1;
     }
   }
