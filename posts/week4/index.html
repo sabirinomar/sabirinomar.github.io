@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Week 4 · Communities &amp; backbones</title>
+    <meta name="description" content="Community detection and backbone analysis of the Marvel hyperlink network." />
+    <link rel="stylesheet" href="../../assets/css/styles.css" />
+  </head>
+  <body class="week4-page">
+    <header class="site-header">
+      <div class="container nav">
+        <div class="brand">Social Graphs Group</div>
+        <nav aria-label="Main navigation">
+          <ul class="nav-links">
+            <li><a href="../../index.html">Home</a></li>
+            <li><a href="../week1/index.html">Week 1</a></li>
+            <li><a href="../week2/index.html">Week 2</a></li>
+            <li><a href="../week3/index.html">Week 3</a></li>
+            <li><a href="index.html" aria-current="page">Week 4</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container main-content" id="week4-app">
+      <div class="week1-layout">
+        <aside class="week1-sidebar" aria-label="Week 4 sections">
+          <span class="week1-sidebar-title">On this page</span>
+          <nav>
+            <a href="#overview">Overview</a>
+            <a href="#communities">Louvain vs Infomap</a>
+            <a href="#aristotle">Aristotle</a>
+            <a href="#backbone">Backbone break</a>
+            <a href="#weights">Weight changes</a>
+            <a href="#takeaway">Takeaway</a>
+          </nav>
+        </aside>
+
+        <article class="article week4-article">
+          <span class="eyebrow">Week 4 · Communities &amp; backbones</span>
+          <h1 id="overview">Communities &amp; backbones</h1>
+          <p class="lead">We move from individual links to the structures that hold the network together.</p>
+
+          <div class="callout research-question">
+            <strong>One network, several ways to see its structure</strong>
+            <p>The shared data is a 303-node Marvel Wikipedia hyperlink network. This week we compare two community ideas, test a named philosopher against the actual node list, and filter the network down to links that carry unusually concentrated weight.</p>
+          </div>
+
+          <div class="summary-grid" aria-label="Week 4 results">
+            <div class="metric"><span class="label">Louvain / Infomap</span><span class="value" id="community-counts">—</span><small>communities</small></div>
+            <div class="metric"><span class="label">Community NMI</span><span class="value" id="community-nmi">—</span><small>agreement score</small></div>
+            <div class="metric"><span class="label">Backbone break</span><span class="value" id="break-alpha">—</span><small>alpha threshold</small></div>
+            <div class="metric"><span class="label">Weight movers</span><span class="value" id="moved-count">—</span><small>of 303 nodes</small></div>
+          </div>
+
+          <section id="communities" class="analysis-card week4-section">
+            <span class="experiment-label">01 / Find clusters</span>
+            <h2>Louvain vs Infomap</h2>
+            <p>Louvain searches for partitions with high <strong>modularity</strong>: more within-community edges than a degree-based null expectation. Infomap asks a different question. It compresses the paths of a random walker, looking for groups where information tends to circulate before crossing a boundary.</p>
+            <p>Those objectives can disagree when a node is a bridge, when communities have different sizes, or when a resolution choice changes which dense region counts as a separate group. The NMI below compares the two assignments without pretending that either method is a historical truth.</p>
+            <div class="week4-control-row" role="group" aria-label="Community method">
+              <button type="button" class="week4-toggle is-active" data-community-method="louvain">Louvain</button>
+              <button type="button" class="week4-toggle" data-community-method="infomap">Infomap</button>
+              <span class="week4-readout" id="community-readout">Select a node to read its assignment.</span>
+            </div>
+            <div id="community-network" class="week4-network"></div>
+            <div class="figure-grid week4-figure-grid">
+              <div class="figure-block"><img src="../../assets/figures/week4/louvain_vs_infomap.png" alt="Side-by-side Louvain and Infomap community assignments with disagreements outlined" loading="lazy" /></div>
+              <div class="week4-stat-panel"><strong id="community-nmi-panel">NMI is loading…</strong><p>The calculated NMI is shown above. Nodes with different assignments are outlined in the static comparison and marked in the interactive view.</p><p>In this network, the methods agree enough to reveal a shared mesoscopic structure, but the disagreement is substantial enough to warn against treating a single partition as “the” history of the links.</p></div>
+            </div>
+            <p><strong>Interpretation:</strong> modularity gives us a density-based map, while information flow gives us a movement-based map. For historical interpretation, the more convincing account is therefore conditional: dense topical clusters are strongest when both methods recover them; bridge nodes and boundary communities should be described as ambiguous rather than forced into one tradition.</p>
+          </section>
+
+          <section id="aristotle" class="analysis-card week4-section">
+            <span class="experiment-label">02 / Test the named case</span>
+            <h2>Which tradition is Aristotle really in?</h2>
+            <p>The supplied node file is a Marvel Comics character network, not a philosopher network. We searched both node IDs and display names for Aristotle before making any neighborhood or community claim.</p>
+            <div class="aristotle-layout">
+              <div class="figure-block"><img src="../../assets/figures/week4/aristotle_community.png" alt="Analysis note showing that Aristotle is absent from the supplied dataset" loading="lazy" /></div>
+              <div class="week4-stat-panel" id="aristotle-readout"><strong>Loading…</strong></div>
+            </div>
+            <p>Because Aristotle is not a node, the network supports no evidence about his direct links, community membership, or bridging position. The figure records that data limitation explicitly; adding Aristotle by hand would turn a network question into an invented result.</p>
+          </section>
+
+          <section id="backbone" class="analysis-card week4-section">
+            <span class="experiment-label">03 / Keep the links that matter</span>
+            <h2>When does the backbone break?</h2>
+            <p>A backbone keeps edges whose weight is unusually concentrated relative to the degree and total strength of their endpoints. Here the weight is derived from reciprocal hyperlinks: one-way ties weigh 1, reciprocal pairs weigh 2. We report alpha as filtering strictness, so larger alpha values keep fewer links. The disparity filter was evaluated over every observed threshold, then three thresholds around the largest giant-component drop were selected.</p>
+            <div class="week4-control-row">
+              <label for="alpha-select">Show analyzed alpha <select id="alpha-select"></select></label>
+              <span class="week4-readout" id="alpha-note">Loading the three thresholds…</span>
+            </div>
+            <div id="alpha-readout" class="week4-alpha-readout"></div>
+            <div id="backbone-network" class="week4-network"></div>
+            <div class="figure-block"><img src="../../assets/figures/week4/backbone_alpha.png" alt="Three backbone networks at alpha thresholds around the structural break" loading="lazy" /></div>
+            <p>The largest measured break occurs at <strong id="break-alpha-text">the calculated alpha threshold</strong>, and the node most associated with the newly removed edges is <strong id="break-node">loading…</strong>. This is a graph statement about connectivity after filtering, not a claim about narrative importance.</p>
+          </section>
+
+          <section id="weights" class="analysis-card week4-section">
+            <span class="experiment-label">04 / Ask whether weight matters</span>
+            <h2>Does weight change the story?</h2>
+            <p>The unweighted graph treats every undirected pair as one tie. The reciprocal-weighted graph gives a pair weight 2 when both directed hyperlinks exist. We reran Louvain on both and compared the assignments with NMI.</p>
+            <div class="week4-control-row" role="group" aria-label="Weighted community method">
+              <button type="button" class="week4-toggle is-active" data-weight-method="unweighted">Unweighted</button>
+              <button type="button" class="week4-toggle" data-weight-method="weighted">Reciprocal-weighted</button>
+              <span class="week4-readout" id="weighted-readout">Select a node to read its assignment.</span>
+            </div>
+            <div id="weighted-network" class="week4-network"></div>
+            <div class="figure-block"><img src="../../assets/figures/week4/weighted_vs_unweighted.png" alt="Side-by-side weighted and unweighted Louvain community assignments" loading="lazy" /></div>
+            <p>The weighted and unweighted partitions have NMI <strong id="weighted-nmi-inline">—</strong>, with <strong id="moved-count-text">—</strong> nodes moving between assignments. Since these are Marvel characters, the page should be read as a test of hyperlink structure, not as evidence that real-world traditions changed.</p>
+          </section>
+
+          <section id="takeaway" class="callout research-question">
+            <h2>Takeaway</h2>
+            <p>Community detection is a lens, not a verdict. Louvain and Infomap expose overlapping but non-identical structure; the backbone analysis identifies a sharp connectivity change around the calculated alpha break; and reciprocal-link weight changes many assignments. The honest conclusion is that this network has real clusters and meaningful boundary sensitivity, so interpretation should preserve both the stable cores and the ambiguous bridges.</p>
+          </section>
+        </article>
+      </div>
+    </main>
+
+    <footer class="site-footer"><div class="container">Social Graphs Group · Week 4</div></footer>
+    <script src="../../assets/js/week4.js"></script>
+  </body>
+</html>

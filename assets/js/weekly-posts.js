@@ -30,9 +30,9 @@
     {
       week: "Week 4",
       title: "Communities & backbones",
-      status: "coming-soon",
+      status: "live",
       description: "Find clusters and the links that hold a network together.",
-      href: "",
+      href: "posts/week4/index.html",
     },
     {
       week: "Week 5",

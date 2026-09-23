@@ -1,0 +1,2 @@
+# Additional dependency for scripts/week4_analysis.py
+infomap==2.15.1
