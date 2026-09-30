@@ -1,0 +1,476 @@
+{
+  "question": "Do directly linked Marvel character pages use more similar language than comparable non-linked pages?",
+  "provenance": {
+    "nodes": "data/week1_nodes.tsv",
+    "edges": "data/week1_edges.tsv",
+    "page_text": "English Wikipedia extracts pinned by assets/week5_source_revisions.json; full extracts cached locally under .cache/ and not committed.",
+    "nodes_total": 303,
+    "active_nodes": 274,
+    "directed_links": 1784,
+    "distinct_undirected_linked_pairs": 1411,
+    "retrieved_page_count": 303,
+    "analyzed_unique_page_count": 291,
+    "excluded_redirect_or_duplicate_pages": [
+      {
+        "node_id": "Backhand_(character)",
+        "name": "Backhand (character)",
+        "requested_title": "Backhand (character)",
+        "resolved_title": "Strikeforce: Morituri",
+        "page_id": 850512
+      },
+      {
+        "node_id": "Blackthorn_(character)",
+        "name": "Blackthorn (character)",
+        "requested_title": "Blackthorn (character)",
+        "resolved_title": "Strikeforce: Morituri",
+        "page_id": 850512
+      },
+      {
+        "node_id": "Dargo_Ktor",
+        "name": "Dargo Ktor",
+        "requested_title": "Dargo Ktor",
+        "resolved_title": "Alternative versions of Thor (Marvel Comics)",
+        "page_id": 14406368
+      },
+      {
+        "node_id": "Radian_(Morituri)",
+        "name": "Radian (Morituri)",
+        "requested_title": "Radian (Morituri)",
+        "resolved_title": "Strikeforce: Morituri",
+        "page_id": 850512
+      },
+      {
+        "node_id": "Scaredycat",
+        "name": "Scaredycat",
+        "requested_title": "Scaredycat",
+        "resolved_title": "Strikeforce: Morituri",
+        "page_id": 850512
+      },
+      {
+        "node_id": "Scatterbrain_(Morituri)",
+        "name": "Scatterbrain (Morituri)",
+        "requested_title": "Scatterbrain (Morituri)",
+        "resolved_title": "Strikeforce: Morituri",
+        "page_id": 850512
+      },
+      {
+        "node_id": "Shear_(character)",
+        "name": "Shear (character)",
+        "requested_title": "Shear (character)",
+        "resolved_title": "Strikeforce: Morituri",
+        "page_id": 850512
+      },
+      {
+        "node_id": "Silencer_(comics)",
+        "name": "Silencer (comics)",
+        "requested_title": "Silencer (comics)",
+        "resolved_title": "Strikeforce: Morituri",
+        "page_id": 850512
+      },
+      {
+        "node_id": "Snapdragon_(Morituri)",
+        "name": "Snapdragon (Morituri)",
+        "requested_title": "Snapdragon (Morituri)",
+        "resolved_title": "Strikeforce: Morituri",
+        "page_id": 850512
+      },
+      {
+        "node_id": "Toxyn",
+        "name": "Toxyn",
+        "requested_title": "Toxyn",
+        "resolved_title": "Strikeforce: Morituri",
+        "page_id": 850512
+      },
+      {
+        "node_id": "Vindicator_(comics)",
+        "name": "Vindicator (comics)",
+        "requested_title": "Vindicator (comics)",
+        "resolved_title": "Heather Hudson",
+        "page_id": 1998892
+      },
+      {
+        "node_id": "Vyking",
+        "name": "Vyking",
+        "requested_title": "Vyking",
+        "resolved_title": "Strikeforce: Morituri",
+        "page_id": 850512
+      }
+    ],
+    "preprocessing": {
+      "extract": "Plain-text English Wikipedia article extracts",
+      "tokenization": "Unicode letter/number tokens; internal hyphens and apostrophes remain part of a token; lowercase with casefold; numeric-only tokens excluded.",
+      "stopwords": "Embedded English stopword list removed.",
+      "character_names": "Tokens appearing in any Marvel node display name or node ID (excluding parenthetical disambiguators) removed in the primary analysis; a retained-name sensitivity check is also computed.",
+      "boilerplate": "Terms occurring in at least half of the 303 pages and terms appearing in only one page are excluded from each TF-IDF vocabulary.",
+      "lemmatization": "None; surface forms are retained.",
+      "weighting": "Sublinear term frequency and smoothed inverse document frequency; L2-normalized document vectors; cosine similarity.",
+      "redirects": "Pages that currently redirect to a different title or share a page ID with another Marvel node are excluded, so duplicate/re-targeted pages cannot create artificial perfect similarities.",
+      "controls": "One distinct non-link pair per linked pair, sampled greedily without replacement to minimize absolute difference in the pair's combined raw word count; comparison set restricted to analyzed nodes incident to at least one link."
+    },
+    "clean_vocabulary_size": 15042,
+    "name_retained_vocabulary_size": 15485
+  },
+  "primary_result": {
+    "linked": {
+      "median": 0.13751134865601083,
+      "q1": 0.10122727295339654,
+      "q3": 0.18584888150530182,
+      "mean": 0.14774268581077166
+    },
+    "length_matched_nonlinks": {
+      "median": 0.08954412217464688,
+      "q1": 0.06148428775519396,
+      "q3": 0.131948424007687,
+      "mean": 0.10205677425386912
+    },
+    "median_paired_difference": 0.03727568639408743,
+    "fraction_linked_pairs_more_similar_than_match": 0.7980155917788803,
+    "median_relative_word_count_mismatch": 0.0,
+    "matched_pair_count": 1411
+  },
+  "name_retained_sensitivity": {
+    "linked": {
+      "median": 0.14668910255106288,
+      "q1": 0.11066436898558103,
+      "q3": 0.19601563380765116,
+      "mean": 0.1580014169804837
+    },
+    "length_matched_nonlinks": {
+      "median": 0.08793974235428302,
+      "q1": 0.05985646176203068,
+      "q3": 0.13149050714275817,
+      "mean": 0.10084210548393711
+    },
+    "median_paired_difference": 0.04627452402343922
+  },
+  "most_similar_linked_pairs": [
+    {
+      "first": "Eddie_Brock",
+      "first_name": "Eddie Brock",
+      "first_url": "https://en.wikipedia.org/wiki/Eddie_Brock",
+      "second": "Venom_(character)",
+      "second_name": "Venom (character)",
+      "second_url": "https://en.wikipedia.org/wiki/Venom_(character)",
+      "cosine_similarity": 0.531164557462375,
+      "shared_terms": [
+        "symbiote",
+        "carnage",
+        "tel-kar",
+        "michelinie",
+        "symbiotes"
+      ],
+      "first_excerpt": "The character was created by David Michelinie and Todd McFarlane, making a cameo appearance in Web of Spider-Man #18 (September 1986), before making his first full appearance in The Amazing Spider-Man #300 (May 1988) as the most well-known ",
+      "second_excerpt": "Venom, known formally as \"the Symbiote\", is a character appearing in American comic books published by Marvel Comics."
+    },
+    {
+      "first": "Ch'od",
+      "first_name": "Ch'od",
+      "first_url": "https://en.wikipedia.org/wiki/Ch%27od",
+      "second": "Raza_Longknife",
+      "second_name": "Raza Longknife",
+      "second_url": "https://en.wikipedia.org/wiki/Raza_Longknife",
+      "cosine_similarity": 0.523286393464841,
+      "shared_terms": [
+        "starjammers",
+        "shi'ar",
+        "corsair",
+        "cockrum",
+        "imperial"
+      ],
+      "first_excerpt": "== Publication history ==\nDave Cockrum created the Starjammers with the intent of having them star in their own series.",
+      "second_excerpt": "He is the last known surviving member of his unnamed alien race (which chose to die en masse in one final battle against the Shi'ar empire as the culmination of their warrior culture), and a member of the Starjammers."
+    },
+    {
+      "first": "Spitfire_(character)",
+      "first_name": "Spitfire (character)",
+      "first_url": "https://en.wikipedia.org/wiki/Spitfire_(character)",
+      "second": "Union_Jack_(Marvel_Comics)",
+      "second_name": "Union Jack (Marvel Comics)",
+      "second_url": "https://en.wikipedia.org/wiki/Union_Jack_(Marvel_Comics)",
+      "cosine_similarity": 0.4947794862555404,
+      "shared_terms": [
+        "invaders",
+        "falsworth",
+        "tpb",
+        "chapman",
+        "robbins"
+      ],
+      "first_excerpt": "Spitfire (Lady Jacqueline Falsworth Crichton) is a superhero appearing in American comic books published by Marvel Comics.",
+      "second_excerpt": "Created by Roy Thomas and Frank Robbins, the first Union Jack (James Montgomery Falsworth) first appeared in Invaders #7 (July 1976)."
+    },
+    {
+      "first": "Ghost_Rider",
+      "first_name": "Ghost Rider",
+      "first_url": "https://en.wikipedia.org/wiki/Ghost_Rider",
+      "second": "Ghost_Rider_(Johnny_Blaze)",
+      "second_name": "Ghost Rider (Johnny Blaze)",
+      "second_url": "https://en.wikipedia.org/wiki/Ghost_Rider_(Johnny_Blaze)",
+      "cosine_similarity": 0.46650661520260533,
+      "shared_terms": [
+        "blaze",
+        "johnny",
+        "ketch",
+        "riders",
+        "mephisto"
+      ]
+    },
+    {
+      "first": "Spitfire_(character)",
+      "first_name": "Spitfire (character)",
+      "first_url": "https://en.wikipedia.org/wiki/Spitfire_(character)",
+      "second": "Union_Jack_(Joseph_Chapman)",
+      "second_name": "Union Jack (Joseph Chapman)",
+      "second_url": "https://en.wikipedia.org/wiki/Union_Jack_(Joseph_Chapman)",
+      "cosine_similarity": 0.4582503153182356,
+      "shared_terms": [
+        "chapman",
+        "falsworth",
+        "invaders",
+        "tpb",
+        "joey"
+      ]
+    },
+    {
+      "first": "Union_Jack_(Joseph_Chapman)",
+      "first_name": "Union Jack (Joseph Chapman)",
+      "first_url": "https://en.wikipedia.org/wiki/Union_Jack_(Joseph_Chapman)",
+      "second": "Union_Jack_(Marvel_Comics)",
+      "second_name": "Union Jack (Marvel Comics)",
+      "second_url": "https://en.wikipedia.org/wiki/Union_Jack_(Marvel_Comics)",
+      "cosine_similarity": 0.4301738706210081,
+      "shared_terms": [
+        "falsworth",
+        "chapman",
+        "invaders",
+        "tpb",
+        "jacqueline"
+      ]
+    },
+    {
+      "first": "Cyclops_(Marvel_Comics)",
+      "first_name": "Cyclops (Marvel Comics)",
+      "first_url": "https://en.wikipedia.org/wiki/Cyclops_(Marvel_Comics)",
+      "second": "Jean_Grey",
+      "second_name": "Jean Grey",
+      "second_url": "https://en.wikipedia.org/wiki/Jean_Grey",
+      "cosine_similarity": 0.37523263508314625,
+      "shared_terms": [
+        "x-men",
+        "madelyne",
+        "x-factor",
+        "pryor",
+        "nathan"
+      ]
+    },
+    {
+      "first": "Ghost_Rider",
+      "first_name": "Ghost Rider",
+      "first_url": "https://en.wikipedia.org/wiki/Ghost_Rider",
+      "second": "Ghost_Rider_(Danny_Ketch)",
+      "second_name": "Ghost Rider (Danny Ketch)",
+      "second_url": "https://en.wikipedia.org/wiki/Ghost_Rider_(Danny_Ketch)",
+      "cosine_similarity": 0.3676330340802917,
+      "shared_terms": [
+        "ketch",
+        "danny",
+        "vengeance",
+        "blaze",
+        "spirits"
+      ]
+    },
+    {
+      "first": "Quicksilver_(Marvel_Comics)",
+      "first_name": "Quicksilver (Marvel Comics)",
+      "first_url": "https://en.wikipedia.org/wiki/Quicksilver_(Marvel_Comics)",
+      "second": "Scarlet_Witch",
+      "second_name": "Scarlet Witch",
+      "second_url": "https://en.wikipedia.org/wiki/Scarlet_Witch",
+      "cosine_similarity": 0.36105926196958715,
+      "shared_terms": [
+        "pietro",
+        "wanda",
+        "maximoff",
+        "magneto",
+        "mutants"
+      ]
+    },
+    {
+      "first": "Emma_Frost",
+      "first_name": "Emma Frost",
+      "first_url": "https://en.wikipedia.org/wiki/Emma_Frost",
+      "second": "Jean_Grey",
+      "second_name": "Jean Grey",
+      "second_url": "https://en.wikipedia.org/wiki/Jean_Grey",
+      "cosine_similarity": 0.35419893830816407,
+      "shared_terms": [
+        "x-men",
+        "telepathy",
+        "xavier",
+        "telepathic",
+        "mutants"
+      ]
+    },
+    {
+      "first": "Betsy_Braddock",
+      "first_name": "Betsy Braddock",
+      "first_url": "https://en.wikipedia.org/wiki/Betsy_Braddock",
+      "second": "Jean_Grey",
+      "second_name": "Jean Grey",
+      "second_url": "https://en.wikipedia.org/wiki/Jean_Grey",
+      "cosine_similarity": 0.34570717127877904,
+      "shared_terms": [
+        "x-men",
+        "telekinetic",
+        "telepathy",
+        "claremont",
+        "apocalypse"
+      ]
+    },
+    {
+      "first": "Betsy_Braddock",
+      "first_name": "Betsy Braddock",
+      "first_url": "https://en.wikipedia.org/wiki/Betsy_Braddock",
+      "second": "Brian_Braddock",
+      "second_name": "Brian Braddock",
+      "second_url": "https://en.wikipedia.org/wiki/Brian_Braddock",
+      "cosine_similarity": 0.3422498767558054,
+      "shared_terms": [
+        "britain",
+        "otherworld",
+        "jamie",
+        "excalibur",
+        "slaymaster"
+      ]
+    },
+    {
+      "first": "Betsy_Braddock",
+      "first_name": "Betsy Braddock",
+      "first_url": "https://en.wikipedia.org/wiki/Betsy_Braddock",
+      "second": "Emma_Frost",
+      "second_name": "Emma Frost",
+      "second_url": "https://en.wikipedia.org/wiki/Emma_Frost",
+      "cosine_similarity": 0.3316254607232892,
+      "shared_terms": [
+        "x-men",
+        "telepathic",
+        "mutants",
+        "psychic",
+        "telepathy"
+      ]
+    },
+    {
+      "first": "Black_Panther_(character)",
+      "first_name": "Black Panther (character)",
+      "first_url": "https://en.wikipedia.org/wiki/Black_Panther_(character)",
+      "second": "Shuri_(character)",
+      "second_name": "Shuri (character)",
+      "second_url": "https://en.wikipedia.org/wiki/Shuri_(character)",
+      "cosine_similarity": 0.32903689418592247,
+      "shared_terms": [
+        "t'challa",
+        "wakanda",
+        "wakandan",
+        "vibranium",
+        "milaje"
+      ]
+    },
+    {
+      "first": "Jean_Grey",
+      "first_name": "Jean Grey",
+      "first_url": "https://en.wikipedia.org/wiki/Jean_Grey",
+      "second": "Storm_(Marvel_Comics)",
+      "second_name": "Storm (Marvel Comics)",
+      "second_url": "https://en.wikipedia.org/wiki/Storm_(Marvel_Comics)",
+      "cosine_similarity": 0.3220776706426847,
+      "shared_terms": [
+        "x-men",
+        "claremont",
+        "mutants",
+        "relationship",
+        "mutant"
+      ]
+    },
+    {
+      "first": "Ghost_Rider_(Danny_Ketch)",
+      "first_name": "Ghost Rider (Danny Ketch)",
+      "first_url": "https://en.wikipedia.org/wiki/Ghost_Rider_(Danny_Ketch)",
+      "second": "Ghost_Rider_(Johnny_Blaze)",
+      "second_name": "Ghost Rider (Johnny Blaze)",
+      "second_url": "https://en.wikipedia.org/wiki/Ghost_Rider_(Johnny_Blaze)",
+      "cosine_similarity": 0.3133207811479685,
+      "shared_terms": [
+        "ketch",
+        "vengeance",
+        "danny",
+        "blaze",
+        "motorcycle"
+      ]
+    },
+    {
+      "first": "Jack_Monroe_(character)",
+      "first_name": "Jack Monroe (character)",
+      "first_url": "https://en.wikipedia.org/wiki/Jack_Monroe_(character)",
+      "second": "William_Burnside_(character)",
+      "second_name": "William Burnside (character)",
+      "second_url": "https://en.wikipedia.org/wiki/William_Burnside_(character)",
+      "cosine_similarity": 0.3116322303176002,
+      "shared_terms": [
+        "america",
+        "rogers",
+        "suspended",
+        "animation",
+        "faustus"
+      ]
+    },
+    {
+      "first": "Gorgon_(Inhuman)",
+      "first_name": "Gorgon (Inhuman)",
+      "first_url": "https://en.wikipedia.org/wiki/Gorgon_(Inhuman)",
+      "second": "Karnak_(character)",
+      "second_name": "Karnak (character)",
+      "second_url": "https://en.wikipedia.org/wiki/Karnak_(character)",
+      "cosine_similarity": 0.3104905597950774,
+      "shared_terms": [
+        "inhumans",
+        "inhuman",
+        "medusa",
+        "terrigen",
+        "royal"
+      ]
+    },
+    {
+      "first": "Hulk",
+      "first_name": "Hulk",
+      "first_url": "https://en.wikipedia.org/wiki/Hulk",
+      "second": "She-Hulk",
+      "second_name": "She-Hulk",
+      "second_url": "https://en.wikipedia.org/wiki/She-Hulk",
+      "cosine_similarity": 0.30758708592446254,
+      "shared_terms": [
+        "bruce",
+        "banner",
+        "banner's",
+        "green",
+        "doc"
+      ]
+    },
+    {
+      "first": "Jessica_Jones",
+      "first_name": "Jessica Jones",
+      "first_url": "https://en.wikipedia.org/wiki/Jessica_Jones",
+      "second": "Spider-Woman_(Jessica_Drew)",
+      "second_name": "Spider-Woman (Jessica Drew)",
+      "second_url": "https://en.wikipedia.org/wiki/Spider-Woman_(Jessica_Drew)",
+      "cosine_similarity": 0.303146606708601,
+      "shared_terms": [
+        "bendis",
+        "list",
+        "female",
+        "best",
+        "drew"
+      ]
+    }
+  ],
+  "figure": "assets/figures/week5/linked-language-similarity.svg",
+  "source_manifest": "assets/week5_source_revisions.json"
+}

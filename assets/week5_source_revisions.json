@@ -1,0 +1,2734 @@
+{
+  "source": "English Wikipedia MediaWiki API",
+  "retrieved_utc": "2026-09-30T08:25:30.091296+00:00",
+  "text_license": "Wikipedia text is available under CC BY-SA; source page URLs and revision IDs are listed per page.",
+  "pages": [
+    {
+      "node_id": "Abomination_(character)",
+      "name": "Abomination (character)",
+      "url": "https://en.wikipedia.org/wiki/Abomination_(character)",
+      "page_title": "Abomination (character)",
+      "page_id": 850460,
+      "revision_id": 1377066341,
+      "revision_timestamp": "2026-09-27T19:05:16Z"
+    },
+    {
+      "node_id": "Adam_Warlock",
+      "name": "Adam Warlock",
+      "url": "https://en.wikipedia.org/wiki/Adam_Warlock",
+      "page_title": "Adam Warlock",
+      "page_id": 462387,
+      "revision_id": 1377067698,
+      "revision_timestamp": "2026-09-27T19:10:51Z"
+    },
+    {
+      "node_id": "Agent_X_(Marvel_Comics)",
+      "name": "Agent X (Marvel Comics)",
+      "url": "https://en.wikipedia.org/wiki/Agent_X_(Marvel_Comics)",
+      "page_title": "Agent X (Marvel Comics)",
+      "page_id": 407707,
+      "revision_id": 1375511612,
+      "revision_timestamp": "2026-09-18T06:37:22Z"
+    },
+    {
+      "node_id": "Ajak",
+      "name": "Ajak",
+      "url": "https://en.wikipedia.org/wiki/Ajak",
+      "page_title": "Ajak",
+      "page_id": 5558975,
+      "revision_id": 1375518113,
+      "revision_timestamp": "2026-09-18T07:31:22Z"
+    },
+    {
+      "node_id": "Alex_Wilder",
+      "name": "Alex Wilder",
+      "url": "https://en.wikipedia.org/wiki/Alex_Wilder",
+      "page_title": "Alex Wilder",
+      "page_id": 3188327,
+      "revision_id": 1371240962,
+      "revision_timestamp": "2026-08-25T11:13:39Z"
+    },
+    {
+      "node_id": "Anne_Weying",
+      "name": "She-Venom (Patricia Robertson)",
+      "url": "https://en.wikipedia.org/wiki/Anne_Weying",
+      "page_title": "Anne Weying",
+      "page_id": 2696728,
+      "revision_id": 1375514382,
+      "revision_timestamp": "2026-09-18T07:04:00Z"
+    },
+    {
+      "node_id": "Anole_(character)",
+      "name": "Anole (character)",
+      "url": "https://en.wikipedia.org/wiki/Anole_(character)",
+      "page_title": "Anole (character)",
+      "page_id": 3097859,
+      "revision_id": 1377057350,
+      "revision_timestamp": "2026-09-27T18:17:22Z"
+    },
+    {
+      "node_id": "Anya_Corazon",
+      "name": "Anya Corazon",
+      "url": "https://en.wikipedia.org/wiki/Anya_Corazon",
+      "page_title": "Anya Corazon",
+      "page_id": 1167591,
+      "revision_id": 1375518428,
+      "revision_timestamp": "2026-09-18T07:34:00Z"
+    },
+    {
+      "node_id": "Arabian_Knight_(character)",
+      "name": "Arabian Knight (character)",
+      "url": "https://en.wikipedia.org/wiki/Arabian_Knight_(character)",
+      "page_title": "Arabian Knight (character)",
+      "page_id": 2498484,
+      "revision_id": 1376401466,
+      "revision_timestamp": "2026-09-23T23:58:49Z"
+    },
+    {
+      "node_id": "Ares_(Marvel_Comics)",
+      "name": "Ares (Marvel Comics)",
+      "url": "https://en.wikipedia.org/wiki/Ares_(Marvel_Comics)",
+      "page_title": "Ares (Marvel Comics)",
+      "page_id": 4564287,
+      "revision_id": 1375518162,
+      "revision_timestamp": "2026-09-18T07:31:36Z"
+    },
+    {
+      "node_id": "Backhand_(character)",
+      "name": "Backhand (character)",
+      "url": "https://en.wikipedia.org/wiki/Backhand_(character)",
+      "page_title": "Strikeforce: Morituri",
+      "page_id": 850512,
+      "revision_id": 1375702355,
+      "revision_timestamp": "2026-09-19T13:33:45Z"
+    },
+    {
+      "node_id": "Balder_the_Brave",
+      "name": "Balder the Brave",
+      "url": "https://en.wikipedia.org/wiki/Balder_the_Brave",
+      "page_title": "Balder the Brave",
+      "page_id": 850544,
+      "revision_id": 1375518186,
+      "revision_timestamp": "2026-09-18T07:31:48Z"
+    },
+    {
+      "node_id": "Battlestar_(character)",
+      "name": "Battlestar (character)",
+      "url": "https://en.wikipedia.org/wiki/Battlestar_(character)",
+      "page_title": "Battlestar (character)",
+      "page_id": 3820437,
+      "revision_id": 1377103338,
+      "revision_timestamp": "2026-09-27T22:25:50Z"
+    },
+    {
+      "node_id": "Baymax",
+      "name": "Baymax",
+      "url": "https://en.wikipedia.org/wiki/Baymax",
+      "page_title": "Baymax",
+      "page_id": 14949242,
+      "revision_id": 1377066415,
+      "revision_timestamp": "2026-09-27T19:05:35Z"
+    },
+    {
+      "node_id": "Beta_Ray_Bill",
+      "name": "Beta Ray Bill",
+      "url": "https://en.wikipedia.org/wiki/Beta_Ray_Bill",
+      "page_title": "Beta Ray Bill",
+      "page_id": 1145037,
+      "revision_id": 1375518221,
+      "revision_timestamp": "2026-09-18T07:32:05Z"
+    },
+    {
+      "node_id": "Betsy_Braddock",
+      "name": "Betsy Braddock",
+      "url": "https://en.wikipedia.org/wiki/Betsy_Braddock",
+      "page_title": "Betsy Braddock",
+      "page_id": 644398,
+      "revision_id": 1374387874,
+      "revision_timestamp": "2026-09-11T19:18:41Z"
+    },
+    {
+      "node_id": "Bill_Foster_(character)",
+      "name": "Bill Foster (character)",
+      "url": "https://en.wikipedia.org/wiki/Bill_Foster_(character)",
+      "page_title": "Bill Foster (character)",
+      "page_id": 2653154,
+      "revision_id": 1375518615,
+      "revision_timestamp": "2026-09-18T07:35:58Z"
+    },
+    {
+      "node_id": "Bird-Brain_(Marvel_Comics)",
+      "name": "Bird-Brain (Marvel Comics)",
+      "url": "https://en.wikipedia.org/wiki/Bird-Brain_(Marvel_Comics)",
+      "page_title": "Bird-Brain (Marvel Comics)",
+      "page_id": 7800254,
+      "revision_id": 1373236940,
+      "revision_timestamp": "2026-09-04T19:38:44Z"
+    },
+    {
+      "node_id": "Black_Bolt",
+      "name": "Black Bolt",
+      "url": "https://en.wikipedia.org/wiki/Black_Bolt",
+      "page_title": "Black Bolt",
+      "page_id": 1563682,
+      "revision_id": 1377066441,
+      "revision_timestamp": "2026-09-27T19:05:41Z"
+    },
+    {
+      "node_id": "Black_Cat_(Marvel_Comics)",
+      "name": "Black Cat (Marvel Comics)",
+      "url": "https://en.wikipedia.org/wiki/Black_Cat_(Marvel_Comics)",
+      "page_title": "Black Cat (Marvel Comics)",
+      "page_id": 663275,
+      "revision_id": 1377066453,
+      "revision_timestamp": "2026-09-27T19:05:43Z"
+    },
+    {
+      "node_id": "Black_Fox_(Robert_Paine)",
+      "name": "Black Fox (Robert Paine)",
+      "url": "https://en.wikipedia.org/wiki/Black_Fox_(Robert_Paine)",
+      "page_title": "Black Fox (Robert Paine)",
+      "page_id": 56949532,
+      "revision_id": 1375723125,
+      "revision_timestamp": "2026-09-19T16:56:10Z"
+    },
+    {
+      "node_id": "Black_Jack_Tarr",
+      "name": "Black Jack Tarr",
+      "url": "https://en.wikipedia.org/wiki/Black_Jack_Tarr",
+      "page_title": "Black Jack Tarr",
+      "page_id": 8292220,
+      "revision_id": 1375448839,
+      "revision_timestamp": "2026-09-17T21:05:10Z"
+    },
+    {
+      "node_id": "Black_Knight_(Marvel_Comics)",
+      "name": "Black Knight (Marvel Comics)",
+      "url": "https://en.wikipedia.org/wiki/Black_Knight_(Marvel_Comics)",
+      "page_title": "Black Knight (Marvel Comics)",
+      "page_id": 673256,
+      "revision_id": 1371717039,
+      "revision_timestamp": "2026-08-28T01:50:52Z"
+    },
+    {
+      "node_id": "Black_Marvel",
+      "name": "Black Marvel",
+      "url": "https://en.wikipedia.org/wiki/Black_Marvel",
+      "page_title": "Black Marvel",
+      "page_id": 6708880,
+      "revision_id": 1323238095,
+      "revision_timestamp": "2025-11-20T15:12:39Z"
+    },
+    {
+      "node_id": "Black_Panther_(character)",
+      "name": "Black Panther (character)",
+      "url": "https://en.wikipedia.org/wiki/Black_Panther_(character)",
+      "page_title": "Black Panther (character)",
+      "page_id": 1083841,
+      "revision_id": 1377066479,
+      "revision_timestamp": "2026-09-27T19:05:49Z"
+    },
+    {
+      "node_id": "Black_Rider_(character)",
+      "name": "Black Rider (character)",
+      "url": "https://en.wikipedia.org/wiki/Black_Rider_(character)",
+      "page_title": "Black Rider (character)",
+      "page_id": 5682892,
+      "revision_id": 1372392819,
+      "revision_timestamp": "2026-08-31T14:53:15Z"
+    },
+    {
+      "node_id": "Black_Widow_(Natasha_Romanova)",
+      "name": "Black Widow (Natasha Romanova)",
+      "url": "https://en.wikipedia.org/wiki/Black_Widow_(Natasha_Romanova)",
+      "page_title": "Black Widow (Natasha Romanova)",
+      "page_id": 709344,
+      "revision_id": 1375937475,
+      "revision_timestamp": "2026-09-21T00:37:40Z"
+    },
+    {
+      "node_id": "Blackthorn_(character)",
+      "name": "Blackthorn (character)",
+      "url": "https://en.wikipedia.org/wiki/Blackthorn_(character)",
+      "page_title": "Strikeforce: Morituri",
+      "page_id": 850512,
+      "revision_id": 1375702355,
+      "revision_timestamp": "2026-09-19T13:33:45Z"
+    },
+    {
+      "node_id": "Blackwulf",
+      "name": "Blackwulf",
+      "url": "https://en.wikipedia.org/wiki/Blackwulf",
+      "page_title": "Blackwulf",
+      "page_id": 30831396,
+      "revision_id": 1375518253,
+      "revision_timestamp": "2026-09-18T07:32:21Z"
+    },
+    {
+      "node_id": "Blade_(character)",
+      "name": "Blade (character)",
+      "url": "https://en.wikipedia.org/wiki/Blade_(character)",
+      "page_title": "Blade (character)",
+      "page_id": 505035,
+      "revision_id": 1377066488,
+      "revision_timestamp": "2026-09-27T19:05:52Z"
+    },
+    {
+      "node_id": "Blazing_Skull",
+      "name": "Blazing Skull",
+      "url": "https://en.wikipedia.org/wiki/Blazing_Skull",
+      "page_title": "Blazing Skull",
+      "page_id": 3120639,
+      "revision_id": 1375511765,
+      "revision_timestamp": "2026-09-18T06:39:15Z"
+    },
+    {
+      "node_id": "Blue_Bullet",
+      "name": "Blue Bullet",
+      "url": "https://en.wikipedia.org/wiki/Blue_Bullet",
+      "page_title": "Blue Bullet",
+      "page_id": 12351130,
+      "revision_id": 1376030930,
+      "revision_timestamp": "2026-09-21T16:17:34Z"
+    },
+    {
+      "node_id": "Blue_Diamond_(character)",
+      "name": "Blue Diamond (character)",
+      "url": "https://en.wikipedia.org/wiki/Blue_Diamond_(character)",
+      "page_title": "Blue Diamond (character)",
+      "page_id": 6710759,
+      "revision_id": 1375518289,
+      "revision_timestamp": "2026-09-18T07:32:45Z"
+    },
+    {
+      "node_id": "Blue_Eagle_(character)",
+      "name": "Blue Eagle (character)",
+      "url": "https://en.wikipedia.org/wiki/Blue_Eagle_(character)",
+      "page_title": "Blue Eagle (character)",
+      "page_id": 1926616,
+      "revision_id": 1366421618,
+      "revision_timestamp": "2026-07-27T23:00:39Z"
+    },
+    {
+      "node_id": "Blue_Marvel",
+      "name": "Blue Marvel",
+      "url": "https://en.wikipedia.org/wiki/Blue_Marvel",
+      "page_title": "Blue Marvel",
+      "page_id": 26262356,
+      "revision_id": 1375518293,
+      "revision_timestamp": "2026-09-18T07:32:47Z"
+    },
+    {
+      "node_id": "Bob,_Agent_of_Hydra",
+      "name": "Bob, Agent of Hydra",
+      "url": "https://en.wikipedia.org/wiki/Bob,_Agent_of_Hydra",
+      "page_title": "Bob, Agent of Hydra",
+      "page_id": 12447364,
+      "revision_id": 1357841816,
+      "revision_timestamp": "2026-06-05T00:28:37Z"
+    },
+    {
+      "node_id": "Box_(comics)",
+      "name": "Box (comics)",
+      "url": "https://en.wikipedia.org/wiki/Box_(comics)",
+      "page_title": "Box (comics)",
+      "page_id": 5257714,
+      "revision_id": 1377378643,
+      "revision_timestamp": "2026-09-29T03:37:48Z"
+    },
+    {
+      "node_id": "Brain_Drain_(character)",
+      "name": "Brain Drain (character)",
+      "url": "https://en.wikipedia.org/wiki/Brain_Drain_(character)",
+      "page_title": "Brain Drain (character)",
+      "page_id": 12375151,
+      "revision_id": 1363385155,
+      "revision_timestamp": "2026-07-09T21:55:04Z"
+    },
+    {
+      "node_id": "Breeze_Barton",
+      "name": "Breeze Barton",
+      "url": "https://en.wikipedia.org/wiki/Breeze_Barton",
+      "page_title": "Breeze Barton",
+      "page_id": 40452158,
+      "revision_id": 1359372225,
+      "revision_timestamp": "2026-06-14T22:04:31Z"
+    },
+    {
+      "node_id": "Brian_Braddock",
+      "name": "Brian Braddock",
+      "url": "https://en.wikipedia.org/wiki/Brian_Braddock",
+      "page_title": "Brian Braddock",
+      "page_id": 71336023,
+      "revision_id": 1377066522,
+      "revision_timestamp": "2026-09-27T19:06:01Z"
+    },
+    {
+      "node_id": "Bucky_(Marvel_Comics)",
+      "name": "Bucky (Marvel Comics)",
+      "url": "https://en.wikipedia.org/wiki/Bucky_(Marvel_Comics)",
+      "page_title": "Bucky (Marvel Comics)",
+      "page_id": 1533308,
+      "revision_id": 1375302128,
+      "revision_timestamp": "2026-09-17T00:44:43Z"
+    },
+    {
+      "node_id": "Bug_(Marvel_Comics)",
+      "name": "Bug (Marvel Comics)",
+      "url": "https://en.wikipedia.org/wiki/Bug_(Marvel_Comics)",
+      "page_title": "Bug (Marvel Comics)",
+      "page_id": 18308649,
+      "revision_id": 1354559981,
+      "revision_timestamp": "2026-05-17T03:52:07Z"
+    },
+    {
+      "node_id": "Cable_(character)",
+      "name": "Cable (character)",
+      "url": "https://en.wikipedia.org/wiki/Cable_(character)",
+      "page_title": "Cable (character)",
+      "page_id": 596825,
+      "revision_id": 1376080778,
+      "revision_timestamp": "2026-09-21T23:30:46Z"
+    },
+    {
+      "node_id": "Cammi_(character)",
+      "name": "Cammi (character)",
+      "url": "https://en.wikipedia.org/wiki/Cammi_(character)",
+      "page_title": "Cammi (character)",
+      "page_id": 38804402,
+      "revision_id": 1362915683,
+      "revision_timestamp": "2026-07-07T00:04:49Z"
+    },
+    {
+      "node_id": "Captain_Marvel_(Khn'nr)",
+      "name": "Captain Marvel (Khn'nr)",
+      "url": "https://en.wikipedia.org/wiki/Captain_Marvel_(Khn%27nr)",
+      "page_title": "Captain Marvel (Khn'nr)",
+      "page_id": 17006932,
+      "revision_id": 1375518352,
+      "revision_timestamp": "2026-09-18T07:33:13Z"
+    },
+    {
+      "node_id": "Captain_Marvel_(Marvel_Comics)",
+      "name": "Captain Marvel (Marvel Comics)",
+      "url": "https://en.wikipedia.org/wiki/Captain_Marvel_(Marvel_Comics)",
+      "page_title": "Captain Marvel (Marvel Comics)",
+      "page_id": 97590,
+      "revision_id": 1377066548,
+      "revision_timestamp": "2026-09-27T19:06:08Z"
+    },
+    {
+      "node_id": "Captain_Midlands",
+      "name": "Captain Midlands",
+      "url": "https://en.wikipedia.org/wiki/Captain_Midlands",
+      "page_title": "Captain Midlands",
+      "page_id": 17447799,
+      "revision_id": 1354560132,
+      "revision_timestamp": "2026-05-17T03:53:35Z"
+    },
+    {
+      "node_id": "Captain_Ultra",
+      "name": "Captain Ultra",
+      "url": "https://en.wikipedia.org/wiki/Captain_Ultra",
+      "page_title": "Captain Ultra",
+      "page_id": 733243,
+      "revision_id": 1375518359,
+      "revision_timestamp": "2026-09-18T07:33:19Z"
+    },
+    {
+      "node_id": "Captain_Universe",
+      "name": "Captain Universe",
+      "url": "https://en.wikipedia.org/wiki/Captain_Universe",
+      "page_title": "Captain Universe",
+      "page_id": 610564,
+      "revision_id": 1377066554,
+      "revision_timestamp": "2026-09-27T19:06:10Z"
+    },
+    {
+      "node_id": "Caretaker_(comics)",
+      "name": "Caretaker (comics)",
+      "url": "https://en.wikipedia.org/wiki/Caretaker_(comics)",
+      "page_title": "Caretaker (comics)",
+      "page_id": 9561576,
+      "revision_id": 1375511907,
+      "revision_timestamp": "2026-09-18T06:40:36Z"
+    },
+    {
+      "node_id": "Ch'od",
+      "name": "Ch'od",
+      "url": "https://en.wikipedia.org/wiki/Ch%27od",
+      "page_title": "Ch'od",
+      "page_id": 10431724,
+      "revision_id": 1375758636,
+      "revision_timestamp": "2026-09-19T22:03:49Z"
+    },
+    {
+      "node_id": "Charcoal_(comics)",
+      "name": "Charcoal (comics)",
+      "url": "https://en.wikipedia.org/wiki/Charcoal_(comics)",
+      "page_title": "Charcoal (comics)",
+      "page_id": 4164180,
+      "revision_id": 1375511961,
+      "revision_timestamp": "2026-09-18T06:41:04Z"
+    },
+    {
+      "node_id": "Chase_Stein",
+      "name": "Chase Stein",
+      "url": "https://en.wikipedia.org/wiki/Chase_Stein",
+      "page_title": "Chase Stein",
+      "page_id": 2111292,
+      "revision_id": 1374552803,
+      "revision_timestamp": "2026-09-12T19:20:18Z"
+    },
+    {
+      "node_id": "Citizen_V",
+      "name": "Citizen V",
+      "url": "https://en.wikipedia.org/wiki/Citizen_V",
+      "page_title": "Citizen V",
+      "page_id": 1850041,
+      "revision_id": 1374055878,
+      "revision_timestamp": "2026-09-09T15:07:14Z"
+    },
+    {
+      "node_id": "Cloak_and_Dagger_(characters)",
+      "name": "Cloak and Dagger (characters)",
+      "url": "https://en.wikipedia.org/wiki/Cloak_and_Dagger_(characters)",
+      "page_title": "Cloak and Dagger (characters)",
+      "page_id": 1369486,
+      "revision_id": 1375074210,
+      "revision_timestamp": "2026-09-15T18:19:42Z"
+    },
+    {
+      "node_id": "Coldblood",
+      "name": "Coldblood",
+      "url": "https://en.wikipedia.org/wiki/Coldblood",
+      "page_title": "Coldblood",
+      "page_id": 6398841,
+      "revision_id": 1377066576,
+      "revision_timestamp": "2026-09-27T19:06:16Z"
+    },
+    {
+      "node_id": "Crane_Mother",
+      "name": "Crane Mother",
+      "url": "https://en.wikipedia.org/wiki/Crane_Mother",
+      "page_title": "Crane Mother",
+      "page_id": 53554946,
+      "revision_id": 1339665311,
+      "revision_timestamp": "2026-02-21T18:48:41Z"
+    },
+    {
+      "node_id": "Crippler_(character)",
+      "name": "Crippler (character)",
+      "url": "https://en.wikipedia.org/wiki/Crippler_(character)",
+      "page_title": "Crippler (character)",
+      "page_id": 14064312,
+      "revision_id": 1326707929,
+      "revision_timestamp": "2025-12-10T11:36:53Z"
+    },
+    {
+      "node_id": "Cyclops_(Marvel_Comics)",
+      "name": "Cyclops (Marvel Comics)",
+      "url": "https://en.wikipedia.org/wiki/Cyclops_(Marvel_Comics)",
+      "page_title": "Cyclops (Marvel Comics)",
+      "page_id": 79109,
+      "revision_id": 1376099074,
+      "revision_timestamp": "2026-09-22T02:07:52Z"
+    },
+    {
+      "node_id": "Dargo_Ktor",
+      "name": "Dargo Ktor",
+      "url": "https://en.wikipedia.org/wiki/Dargo_Ktor",
+      "page_title": "Alternative versions of Thor (Marvel Comics)",
+      "page_id": 14406368,
+      "revision_id": 1375116861,
+      "revision_timestamp": "2026-09-15T23:27:14Z"
+    },
+    {
+      "node_id": "Darkdevil",
+      "name": "Darkdevil",
+      "url": "https://en.wikipedia.org/wiki/Darkdevil",
+      "page_title": "Darkdevil",
+      "page_id": 1874148,
+      "revision_id": 1375512095,
+      "revision_timestamp": "2026-09-18T06:42:21Z"
+    },
+    {
+      "node_id": "Darkhawk",
+      "name": "Darkhawk",
+      "url": "https://en.wikipedia.org/wiki/Darkhawk",
+      "page_title": "Darkhawk",
+      "page_id": 1154366,
+      "revision_id": 1377066645,
+      "revision_timestamp": "2026-09-27T19:06:33Z"
+    },
+    {
+      "node_id": "Deadpool",
+      "name": "Deadpool",
+      "url": "https://en.wikipedia.org/wiki/Deadpool",
+      "page_title": "Deadpool",
+      "page_id": 184420,
+      "revision_id": 1373920940,
+      "revision_timestamp": "2026-09-08T19:16:43Z"
+    },
+    {
+      "node_id": "Deathlok",
+      "name": "Deathlok",
+      "url": "https://en.wikipedia.org/wiki/Deathlok",
+      "page_title": "Deathlok",
+      "page_id": 530251,
+      "revision_id": 1377135358,
+      "revision_timestamp": "2026-09-28T01:30:44Z"
+    },
+    {
+      "node_id": "Debrii",
+      "name": "Debrii",
+      "url": "https://en.wikipedia.org/wiki/Debrii",
+      "page_title": "Debrii",
+      "page_id": 2900457,
+      "revision_id": 1375863235,
+      "revision_timestamp": "2026-09-20T15:14:13Z"
+    },
+    {
+      "node_id": "Delroy_Garrett",
+      "name": "Delroy Garrett",
+      "url": "https://en.wikipedia.org/wiki/Delroy_Garrett",
+      "page_title": "Delroy Garrett",
+      "page_id": 1162780,
+      "revision_id": 1377066741,
+      "revision_timestamp": "2026-09-27T19:07:01Z"
+    },
+    {
+      "node_id": "Detroit_Steel",
+      "name": "Detroit Steel",
+      "url": "https://en.wikipedia.org/wiki/Detroit_Steel",
+      "page_title": "Detroit Steel",
+      "page_id": 32490461,
+      "revision_id": 1344948270,
+      "revision_timestamp": "2026-03-23T13:16:57Z"
+    },
+    {
+      "node_id": "Devil_Dinosaur",
+      "name": "Devil Dinosaur",
+      "url": "https://en.wikipedia.org/wiki/Devil_Dinosaur",
+      "page_title": "Devil Dinosaur",
+      "page_id": 1552084,
+      "revision_id": 1375518526,
+      "revision_timestamp": "2026-09-18T07:34:55Z"
+    },
+    {
+      "node_id": "Devil_Hulk",
+      "name": "Devil Hulk",
+      "url": "https://en.wikipedia.org/wiki/Devil_Hulk",
+      "page_title": "Devil Hulk",
+      "page_id": 4441860,
+      "revision_id": 1375518530,
+      "revision_timestamp": "2026-09-18T07:34:57Z"
+    },
+    {
+      "node_id": "Digitek_(character)",
+      "name": "Digitek (character)",
+      "url": "https://en.wikipedia.org/wiki/Digitek_(character)",
+      "page_title": "Digitek (character)",
+      "page_id": 7122813,
+      "revision_id": 1371382512,
+      "revision_timestamp": "2026-08-26T04:04:44Z"
+    },
+    {
+      "node_id": "Doctor_Druid",
+      "name": "Doctor Druid",
+      "url": "https://en.wikipedia.org/wiki/Doctor_Druid",
+      "page_title": "Doctor Druid",
+      "page_id": 1203487,
+      "revision_id": 1375301890,
+      "revision_timestamp": "2026-09-17T00:42:54Z"
+    },
+    {
+      "node_id": "Doctor_Nemesis",
+      "name": "Doctor Nemesis",
+      "url": "https://en.wikipedia.org/wiki/Doctor_Nemesis",
+      "page_title": "Doctor Nemesis",
+      "page_id": 20495320,
+      "revision_id": 1377066681,
+      "revision_timestamp": "2026-09-27T19:06:43Z"
+    },
+    {
+      "node_id": "Doctor_Spectrum",
+      "name": "Alice Nugent",
+      "url": "https://en.wikipedia.org/wiki/Doctor_Spectrum",
+      "page_title": "Doctor Spectrum",
+      "page_id": 1056926,
+      "revision_id": 1363645405,
+      "revision_timestamp": "2026-07-11T12:46:57Z"
+    },
+    {
+      "node_id": "Doctor_Strange",
+      "name": "Doctor Strange",
+      "url": "https://en.wikipedia.org/wiki/Doctor_Strange",
+      "page_title": "Doctor Strange",
+      "page_id": 150076,
+      "revision_id": 1376864405,
+      "revision_timestamp": "2026-09-26T17:47:28Z"
+    },
+    {
+      "node_id": "Dogpool",
+      "name": "Dogpool",
+      "url": "https://en.wikipedia.org/wiki/Dogpool",
+      "page_title": "Dogpool",
+      "page_id": 77446451,
+      "revision_id": 1376991232,
+      "revision_timestamp": "2026-09-27T08:29:21Z"
+    },
+    {
+      "node_id": "Doom_2099",
+      "name": "Doom 2099",
+      "url": "https://en.wikipedia.org/wiki/Doom_2099",
+      "page_title": "Doom 2099",
+      "page_id": 3880617,
+      "revision_id": 1375518550,
+      "revision_timestamp": "2026-09-18T07:35:07Z"
+    },
+    {
+      "node_id": "Dragon_Lord_(character)",
+      "name": "Dragon Lord (character)",
+      "url": "https://en.wikipedia.org/wiki/Dragon_Lord_(character)",
+      "page_title": "Dragon Lord (character)",
+      "page_id": 12671282,
+      "revision_id": 1368225482,
+      "revision_timestamp": "2026-08-07T20:15:51Z"
+    },
+    {
+      "node_id": "Dusk_(comics)",
+      "name": "Dusk (comics)",
+      "url": "https://en.wikipedia.org/wiki/Dusk_(comics)",
+      "page_title": "Dusk (comics)",
+      "page_id": 1862067,
+      "revision_id": 1329975358,
+      "revision_timestamp": "2025-12-28T21:51:59Z"
+    },
+    {
+      "node_id": "Eddie_Brock",
+      "name": "Eddie Brock",
+      "url": "https://en.wikipedia.org/wiki/Eddie_Brock",
+      "page_title": "Eddie Brock",
+      "page_id": 359318,
+      "revision_id": 1375518320,
+      "revision_timestamp": "2026-09-18T07:32:54Z"
+    },
+    {
+      "node_id": "Elsa_Bloodstone",
+      "name": "Elsa Bloodstone",
+      "url": "https://en.wikipedia.org/wiki/Elsa_Bloodstone",
+      "page_title": "Elsa Bloodstone",
+      "page_id": 5256982,
+      "revision_id": 1375518282,
+      "revision_timestamp": "2026-09-18T07:32:41Z"
+    },
+    {
+      "node_id": "Emma_Frost",
+      "name": "Emma Frost",
+      "url": "https://en.wikipedia.org/wiki/Emma_Frost",
+      "page_title": "Emma Frost",
+      "page_id": 697926,
+      "revision_id": 1375518647,
+      "revision_timestamp": "2026-09-18T07:36:14Z"
+    },
+    {
+      "node_id": "Empath_(character)",
+      "name": "Empath (character)",
+      "url": "https://en.wikipedia.org/wiki/Empath_(character)",
+      "page_title": "Empath (character)",
+      "page_id": 2456032,
+      "revision_id": 1372622694,
+      "revision_timestamp": "2026-09-01T14:15:59Z"
+    },
+    {
+      "node_id": "Emrys_Killebrew",
+      "name": "Emrys Killebrew",
+      "url": "https://en.wikipedia.org/wiki/Emrys_Killebrew",
+      "page_title": "Emrys Killebrew",
+      "page_id": 50958035,
+      "revision_id": 1347824317,
+      "revision_timestamp": "2026-04-09T01:26:23Z"
+    },
+    {
+      "node_id": "Enigma_(Marvel_Comics)",
+      "name": "Enigma (Marvel Comics)",
+      "url": "https://en.wikipedia.org/wiki/Enigma_(Marvel_Comics)",
+      "page_title": "Enigma (Marvel Comics)",
+      "page_id": 27500537,
+      "revision_id": 1279354190,
+      "revision_timestamp": "2025-03-08T01:28:19Z"
+    },
+    {
+      "node_id": "Ethan_Edwards",
+      "name": "Ethan Edwards",
+      "url": "https://en.wikipedia.org/wiki/Ethan_Edwards",
+      "page_title": "Ethan Edwards",
+      "page_id": 2706950,
+      "revision_id": 1377180769,
+      "revision_timestamp": "2026-09-28T05:22:48Z"
+    },
+    {
+      "node_id": "Fabio_Medina",
+      "name": "Fabio Medina",
+      "url": "https://en.wikipedia.org/wiki/Fabio_Medina",
+      "page_title": "Fabio Medina",
+      "page_id": 46759003,
+      "revision_id": 1371354198,
+      "revision_timestamp": "2026-08-26T01:56:38Z"
+    },
+    {
+      "node_id": "Fandral",
+      "name": "Fandral",
+      "url": "https://en.wikipedia.org/wiki/Fandral",
+      "page_title": "Fandral",
+      "page_id": 3510420,
+      "revision_id": 1375518608,
+      "revision_timestamp": "2026-09-18T07:35:50Z"
+    },
+    {
+      "node_id": "Father_Time_(Marvel_Comics)",
+      "name": "Father Time (Marvel Comics)",
+      "url": "https://en.wikipedia.org/wiki/Father_Time_(Marvel_Comics)",
+      "page_title": "Father Time (Marvel Comics)",
+      "page_id": 6540283,
+      "revision_id": 1374588844,
+      "revision_timestamp": "2026-09-12T23:49:12Z"
+    },
+    {
+      "node_id": "Fin_Fang_Foom",
+      "name": "Fin Fang Foom",
+      "url": "https://en.wikipedia.org/wiki/Fin_Fang_Foom",
+      "page_title": "Fin Fang Foom",
+      "page_id": 729840,
+      "revision_id": 1375518609,
+      "revision_timestamp": "2026-09-18T07:35:52Z"
+    },
+    {
+      "node_id": "Firebird_(Marvel_Comics)",
+      "name": "Firebird (Marvel Comics)",
+      "url": "https://en.wikipedia.org/wiki/Firebird_(Marvel_Comics)",
+      "page_title": "Firebird (Marvel Comics)",
+      "page_id": 3584301,
+      "revision_id": 1337127896,
+      "revision_timestamp": "2026-02-07T17:29:32Z"
+    },
+    {
+      "node_id": "Firelord_(character)",
+      "name": "Firelord (character)",
+      "url": "https://en.wikipedia.org/wiki/Firelord_(character)",
+      "page_title": "Firelord (character)",
+      "page_id": 436734,
+      "revision_id": 1375518610,
+      "revision_timestamp": "2026-09-18T07:35:54Z"
+    },
+    {
+      "node_id": "Flatman_(character)",
+      "name": "Flatman (character)",
+      "url": "https://en.wikipedia.org/wiki/Flatman_(character)",
+      "page_title": "Flatman (character)",
+      "page_id": 2759070,
+      "revision_id": 1375303190,
+      "revision_timestamp": "2026-09-17T00:52:08Z"
+    },
+    {
+      "node_id": "Force_(comics)",
+      "name": "Force (comics)",
+      "url": "https://en.wikipedia.org/wiki/Force_(comics)",
+      "page_title": "Force (comics)",
+      "page_id": 7910509,
+      "revision_id": 1363383999,
+      "revision_timestamp": "2026-07-09T21:46:59Z"
+    },
+    {
+      "node_id": "Frankenstein's_Monster_(Marvel_Comics)",
+      "name": "Frankenstein's Monster (Marvel Comics)",
+      "url": "https://en.wikipedia.org/wiki/Frankenstein%27s_Monster_(Marvel_Comics)",
+      "page_title": "Frankenstein's Monster (Marvel Comics)",
+      "page_id": 8728611,
+      "revision_id": 1375518624,
+      "revision_timestamp": "2026-09-18T07:36:04Z"
+    },
+    {
+      "node_id": "Franklin_Richards_(character)",
+      "name": "Franklin Richards (character)",
+      "url": "https://en.wikipedia.org/wiki/Franklin_Richards_(character)",
+      "page_title": "Franklin Richards (character)",
+      "page_id": 585562,
+      "revision_id": 1376008861,
+      "revision_timestamp": "2026-09-21T12:53:47Z"
+    },
+    {
+      "node_id": "Frog-Man",
+      "name": "Frog-Man",
+      "url": "https://en.wikipedia.org/wiki/Frog-Man",
+      "page_title": "Frog-Man",
+      "page_id": 2887225,
+      "revision_id": 1377303892,
+      "revision_timestamp": "2026-09-28T20:17:36Z"
+    },
+    {
+      "node_id": "G._W._Bridge",
+      "name": "G. W. Bridge",
+      "url": "https://en.wikipedia.org/wiki/G._W._Bridge",
+      "page_title": "G. W. Bridge",
+      "page_id": 5116325,
+      "revision_id": 1373068076,
+      "revision_timestamp": "2026-09-03T21:43:15Z"
+    },
+    {
+      "node_id": "Gargoyle_(comics)",
+      "name": "Gargoyle (comics)",
+      "url": "https://en.wikipedia.org/wiki/Gargoyle_(comics)",
+      "page_title": "Gargoyle (comics)",
+      "page_id": 5258264,
+      "revision_id": 1375518679,
+      "revision_timestamp": "2026-09-18T07:36:29Z"
+    },
+    {
+      "node_id": "Garrison_Kane",
+      "name": "Garrison Kane",
+      "url": "https://en.wikipedia.org/wiki/Garrison_Kane",
+      "page_title": "Garrison Kane",
+      "page_id": 2572808,
+      "revision_id": 1375714818,
+      "revision_timestamp": "2026-09-19T15:33:28Z"
+    },
+    {
+      "node_id": "Gauntlet_(Joseph_Green)",
+      "name": "Gauntlet (Joseph Green)",
+      "url": "https://en.wikipedia.org/wiki/Gauntlet_(Joseph_Green)",
+      "page_title": "Gauntlet (Joseph Green)",
+      "page_id": 10490002,
+      "revision_id": 1373093691,
+      "revision_timestamp": "2026-09-04T01:04:40Z"
+    },
+    {
+      "node_id": "Genis-Vell",
+      "name": "Genis-Vell",
+      "url": "https://en.wikipedia.org/wiki/Genis-Vell",
+      "page_title": "Genis-Vell",
+      "page_id": 2416532,
+      "revision_id": 1375518688,
+      "revision_timestamp": "2026-09-18T07:36:33Z"
+    },
+    {
+      "node_id": "Ghost_Rider",
+      "name": "Ghost Rider",
+      "url": "https://en.wikipedia.org/wiki/Ghost_Rider",
+      "page_title": "Ghost Rider",
+      "page_id": 699700,
+      "revision_id": 1375518696,
+      "revision_timestamp": "2026-09-18T07:36:37Z"
+    },
+    {
+      "node_id": "Ghost_Rider_(Danny_Ketch)",
+      "name": "Ghost Rider (Danny Ketch)",
+      "url": "https://en.wikipedia.org/wiki/Ghost_Rider_(Danny_Ketch)",
+      "page_title": "Ghost Rider (Danny Ketch)",
+      "page_id": 8743588,
+      "revision_id": 1375518699,
+      "revision_timestamp": "2026-09-18T07:36:39Z"
+    },
+    {
+      "node_id": "Ghost_Rider_(Johnny_Blaze)",
+      "name": "Ghost Rider (Johnny Blaze)",
+      "url": "https://en.wikipedia.org/wiki/Ghost_Rider_(Johnny_Blaze)",
+      "page_title": "Ghost Rider (Johnny Blaze)",
+      "page_id": 8743507,
+      "revision_id": 1375518705,
+      "revision_timestamp": "2026-09-18T07:36:41Z"
+    },
+    {
+      "node_id": "Gladiator_(Kallark)",
+      "name": "Gladiator (Kallark)",
+      "url": "https://en.wikipedia.org/wiki/Gladiator_(Kallark)",
+      "page_title": "Gladiator (Kallark)",
+      "page_id": 2541152,
+      "revision_id": 1375518717,
+      "revision_timestamp": "2026-09-18T07:36:49Z"
+    },
+    {
+      "node_id": "Golem_(Marvel_Comics)",
+      "name": "Golem (Marvel Comics)",
+      "url": "https://en.wikipedia.org/wiki/Golem_(Marvel_Comics)",
+      "page_title": "Golem (Marvel Comics)",
+      "page_id": 7368609,
+      "revision_id": 1375512453,
+      "revision_timestamp": "2026-09-18T06:46:03Z"
+    },
+    {
+      "node_id": "Gorgon_(Inhuman)",
+      "name": "Gorgon (Inhuman)",
+      "url": "https://en.wikipedia.org/wiki/Gorgon_(Inhuman)",
+      "page_title": "Gorgon (Inhuman)",
+      "page_id": 1894852,
+      "revision_id": 1375518725,
+      "revision_timestamp": "2026-09-18T07:36:53Z"
+    },
+    {
+      "node_id": "Gremlin_(comics)",
+      "name": "Gremlin (comics)",
+      "url": "https://en.wikipedia.org/wiki/Gremlin_(comics)",
+      "page_title": "Gremlin (comics)",
+      "page_id": 5618304,
+      "revision_id": 1375518742,
+      "revision_timestamp": "2026-09-18T07:37:06Z"
+    },
+    {
+      "node_id": "Guardian_(Marvel_Comics)",
+      "name": "Guardian (Marvel Comics)",
+      "url": "https://en.wikipedia.org/wiki/Guardian_(Marvel_Comics)",
+      "page_title": "Guardian (Marvel Comics)",
+      "page_id": 1658444,
+      "revision_id": 1377377453,
+      "revision_timestamp": "2026-09-29T03:31:57Z"
+    },
+    {
+      "node_id": "Guardsman_(character)",
+      "name": "Guardsman (character)",
+      "url": "https://en.wikipedia.org/wiki/Guardsman_(character)",
+      "page_title": "Guardsman (character)",
+      "page_id": 5544988,
+      "revision_id": 1360947418,
+      "revision_timestamp": "2026-06-24T17:23:58Z"
+    },
+    {
+      "node_id": "Gwenpool",
+      "name": "Gwenpool",
+      "url": "https://en.wikipedia.org/wiki/Gwenpool",
+      "page_title": "Gwenpool",
+      "page_id": 50994304,
+      "revision_id": 1375594187,
+      "revision_timestamp": "2026-09-18T19:15:48Z"
+    },
+    {
+      "node_id": "Hank_Pym",
+      "name": "Hank Pym",
+      "url": "https://en.wikipedia.org/wiki/Hank_Pym",
+      "page_title": "Hank Pym",
+      "page_id": 428663,
+      "revision_id": 1370331317,
+      "revision_timestamp": "2026-08-20T14:22:47Z"
+    },
+    {
+      "node_id": "Happy_Sam_Sawyer",
+      "name": "Happy Sam Sawyer",
+      "url": "https://en.wikipedia.org/wiki/Happy_Sam_Sawyer",
+      "page_title": "Happy Sam Sawyer",
+      "page_id": 6926877,
+      "revision_id": 1369759931,
+      "revision_timestamp": "2026-08-17T00:18:44Z"
+    },
+    {
+      "node_id": "Hawkeye_(comics)",
+      "name": "Hawkeye (comics)",
+      "url": "https://en.wikipedia.org/wiki/Hawkeye_(comics)",
+      "page_title": "Hawkeye (comics)",
+      "page_id": 62074520,
+      "revision_id": 1357282478,
+      "revision_timestamp": "2026-06-01T20:03:07Z"
+    },
+    {
+      "node_id": "Helix_(Marvel_Comics)",
+      "name": "Helix (Marvel Comics)",
+      "url": "https://en.wikipedia.org/wiki/Helix_(Marvel_Comics)",
+      "page_title": "Helix (Marvel Comics)",
+      "page_id": 5548315,
+      "revision_id": 1375512536,
+      "revision_timestamp": "2026-09-18T06:47:00Z"
+    },
+    {
+      "node_id": "Hellfire_(J._T._Slade)",
+      "name": "Hellfire (J. T. Slade)",
+      "url": "https://en.wikipedia.org/wiki/Hellfire_(J._T._Slade)",
+      "page_title": "Hellfire (J. T. Slade)",
+      "page_id": 37862511,
+      "revision_id": 1375601571,
+      "revision_timestamp": "2026-09-18T20:20:48Z"
+    },
+    {
+      "node_id": "Hellion_(character)",
+      "name": "Hellion (character)",
+      "url": "https://en.wikipedia.org/wiki/Hellion_(character)",
+      "page_title": "Hellion (character)",
+      "page_id": 1807872,
+      "revision_id": 1338426713,
+      "revision_timestamp": "2026-02-15T02:39:43Z"
+    },
+    {
+      "node_id": "Hercules_(Marvel_Comics)",
+      "name": "Hercules (Marvel Comics)",
+      "url": "https://en.wikipedia.org/wiki/Hercules_(Marvel_Comics)",
+      "page_title": "Hercules (Marvel Comics)",
+      "page_id": 4963956,
+      "revision_id": 1375791807,
+      "revision_timestamp": "2026-09-20T02:36:31Z"
+    },
+    {
+      "node_id": "Hit-Monkey",
+      "name": "Hit-Monkey",
+      "url": "https://en.wikipedia.org/wiki/Hit-Monkey",
+      "page_title": "Hit-Monkey",
+      "page_id": 26724804,
+      "revision_id": 1373280820,
+      "revision_timestamp": "2026-09-05T01:39:49Z"
+    },
+    {
+      "node_id": "Hornet_(comics)",
+      "name": "Hornet (comics)",
+      "url": "https://en.wikipedia.org/wiki/Hornet_(comics)",
+      "page_title": "Hornet (comics)",
+      "page_id": 5137176,
+      "revision_id": 1375512593,
+      "revision_timestamp": "2026-09-18T06:47:29Z"
+    },
+    {
+      "node_id": "Hrimhari",
+      "name": "Hrimhari",
+      "url": "https://en.wikipedia.org/wiki/Hrimhari",
+      "page_title": "Hrimhari",
+      "page_id": 5778004,
+      "revision_id": 1377066826,
+      "revision_timestamp": "2026-09-27T19:07:21Z"
+    },
+    {
+      "node_id": "Hulk",
+      "name": "Hulk",
+      "url": "https://en.wikipedia.org/wiki/Hulk",
+      "page_title": "Hulk",
+      "page_id": 31509,
+      "revision_id": 1377064911,
+      "revision_timestamp": "2026-09-27T18:59:17Z"
+    },
+    {
+      "node_id": "Hulk_2099",
+      "name": "Hulk 2099",
+      "url": "https://en.wikipedia.org/wiki/Hulk_2099",
+      "page_title": "Hulk 2099",
+      "page_id": 5395903,
+      "revision_id": 1375518831,
+      "revision_timestamp": "2026-09-18T07:37:51Z"
+    },
+    {
+      "node_id": "Hulkling",
+      "name": "Hulkling",
+      "url": "https://en.wikipedia.org/wiki/Hulkling",
+      "page_title": "Hulkling",
+      "page_id": 2086103,
+      "revision_id": 1375518833,
+      "revision_timestamp": "2026-09-18T07:37:53Z"
+    },
+    {
+      "node_id": "Human_Fly_(character)",
+      "name": "Human Fly (character)",
+      "url": "https://en.wikipedia.org/wiki/Human_Fly_(character)",
+      "page_title": "Human Fly (character)",
+      "page_id": 2660132,
+      "revision_id": 1376853485,
+      "revision_timestamp": "2026-09-26T16:41:51Z"
+    },
+    {
+      "node_id": "Human_Torch",
+      "name": "Human Torch",
+      "url": "https://en.wikipedia.org/wiki/Human_Torch",
+      "page_title": "Human Torch",
+      "page_id": 235423,
+      "revision_id": 1373277950,
+      "revision_timestamp": "2026-09-05T01:13:11Z"
+    },
+    {
+      "node_id": "Human_Torch_(android)",
+      "name": "Human Torch (android)",
+      "url": "https://en.wikipedia.org/wiki/Human_Torch_(android)",
+      "page_title": "Human Torch (android)",
+      "page_id": 274651,
+      "revision_id": 1375299999,
+      "revision_timestamp": "2026-09-17T00:29:22Z"
+    },
+    {
+      "node_id": "Hybrid_(Scott_Washington)",
+      "name": "Hybrid (Scott Washington)",
+      "url": "https://en.wikipedia.org/wiki/Hybrid_(Scott_Washington)",
+      "page_title": "Hybrid (Scott Washington)",
+      "page_id": 3800826,
+      "revision_id": 1375512629,
+      "revision_timestamp": "2026-09-18T06:47:51Z"
+    },
+    {
+      "node_id": "Hyperion_(character)",
+      "name": "Hyperion (character)",
+      "url": "https://en.wikipedia.org/wiki/Hyperion_(character)",
+      "page_title": "Hyperion (character)",
+      "page_id": 404260,
+      "revision_id": 1377066849,
+      "revision_timestamp": "2026-09-27T19:07:27Z"
+    },
+    {
+      "node_id": "Ikaris",
+      "name": "Ikaris",
+      "url": "https://en.wikipedia.org/wiki/Ikaris",
+      "page_title": "Ikaris",
+      "page_id": 5558903,
+      "revision_id": 1375518851,
+      "revision_timestamp": "2026-09-18T07:38:04Z"
+    },
+    {
+      "node_id": "Illuminator_(Marvel_Comics)",
+      "name": "Illuminator (Marvel Comics)",
+      "url": "https://en.wikipedia.org/wiki/Illuminator_(Marvel_Comics)",
+      "page_title": "Illuminator (Marvel Comics)",
+      "page_id": 70732707,
+      "revision_id": 1375512639,
+      "revision_timestamp": "2026-09-18T06:47:59Z"
+    },
+    {
+      "node_id": "Inferno_(Dante_Pertuz)",
+      "name": "Inferno (Dante Pertuz)",
+      "url": "https://en.wikipedia.org/wiki/Inferno_(Dante_Pertuz)",
+      "page_title": "Inferno (Dante Pertuz)",
+      "page_id": 47313014,
+      "revision_id": 1375518858,
+      "revision_timestamp": "2026-09-18T07:38:08Z"
+    },
+    {
+      "node_id": "Iron_Fist_(character)",
+      "name": "Iron Fist (character)",
+      "url": "https://en.wikipedia.org/wiki/Iron_Fist_(character)",
+      "page_title": "Iron Fist (character)",
+      "page_id": 574120,
+      "revision_id": 1376500036,
+      "revision_timestamp": "2026-09-24T14:41:55Z"
+    },
+    {
+      "node_id": "Iron_Lad",
+      "name": "Iron Lad",
+      "url": "https://en.wikipedia.org/wiki/Iron_Lad",
+      "page_title": "Iron Lad",
+      "page_id": 1929170,
+      "revision_id": 1375512658,
+      "revision_timestamp": "2026-09-18T06:48:10Z"
+    },
+    {
+      "node_id": "Iron_Man_(Ultimate_Marvel_character)",
+      "name": "Iron Man (Ultimate Marvel character)",
+      "url": "https://en.wikipedia.org/wiki/Iron_Man_(Ultimate_Marvel_character)",
+      "page_title": "Iron Man (Ultimate Marvel character)",
+      "page_id": 27662061,
+      "revision_id": 1363748535,
+      "revision_timestamp": "2026-07-12T04:34:20Z"
+    },
+    {
+      "node_id": "Iron_Man_2020",
+      "name": "Iron Man 2020",
+      "url": "https://en.wikipedia.org/wiki/Iron_Man_2020",
+      "page_title": "Iron Man 2020",
+      "page_id": 2530867,
+      "revision_id": 1367687041,
+      "revision_timestamp": "2026-08-04T15:34:42Z"
+    },
+    {
+      "node_id": "Isaiah_Bradley",
+      "name": "Isaiah Bradley",
+      "url": "https://en.wikipedia.org/wiki/Isaiah_Bradley",
+      "page_title": "Isaiah Bradley",
+      "page_id": 2654557,
+      "revision_id": 1353662727,
+      "revision_timestamp": "2026-05-11T16:44:14Z"
+    },
+    {
+      "node_id": "Jack_Frost_(Marvel_Comics)",
+      "name": "Jack Frost (Marvel Comics)",
+      "url": "https://en.wikipedia.org/wiki/Jack_Frost_(Marvel_Comics)",
+      "page_title": "Jack Frost (Marvel Comics)",
+      "page_id": 6710840,
+      "revision_id": 1326768387,
+      "revision_timestamp": "2025-12-10T19:44:44Z"
+    },
+    {
+      "node_id": "Jack_Monroe_(character)",
+      "name": "Jack Monroe (character)",
+      "url": "https://en.wikipedia.org/wiki/Jack_Monroe_(character)",
+      "page_title": "Jack Monroe (character)",
+      "page_id": 52846006,
+      "revision_id": 1363369286,
+      "revision_timestamp": "2026-07-09T19:38:39Z"
+    },
+    {
+      "node_id": "Janice_Lincoln",
+      "name": "Janice Lincoln",
+      "url": "https://en.wikipedia.org/wiki/Janice_Lincoln",
+      "page_title": "Janice Lincoln",
+      "page_id": 41528012,
+      "revision_id": 1368420394,
+      "revision_timestamp": "2026-08-08T23:30:51Z"
+    },
+    {
+      "node_id": "Jean_Grey",
+      "name": "Jean Grey",
+      "url": "https://en.wikipedia.org/wiki/Jean_Grey",
+      "page_title": "Jean Grey",
+      "page_id": 16559,
+      "revision_id": 1376760455,
+      "revision_timestamp": "2026-09-26T02:32:41Z"
+    },
+    {
+      "node_id": "Jean_Grey_(X-Men_film_series)",
+      "name": "Jean Grey (X-Men film series)",
+      "url": "https://en.wikipedia.org/wiki/Jean_Grey_(X-Men_film_series)",
+      "page_title": "Jean Grey (X-Men film series)",
+      "page_id": 65244666,
+      "revision_id": 1376882610,
+      "revision_timestamp": "2026-09-26T19:32:45Z"
+    },
+    {
+      "node_id": "Jeffrey_Mace",
+      "name": "Jeffrey Mace",
+      "url": "https://en.wikipedia.org/wiki/Jeffrey_Mace",
+      "page_title": "Jeffrey Mace",
+      "page_id": 2858271,
+      "revision_id": 1348701068,
+      "revision_timestamp": "2026-04-13T22:50:51Z"
+    },
+    {
+      "node_id": "Jericho_Drumm",
+      "name": "Jericho Drumm",
+      "url": "https://en.wikipedia.org/wiki/Jericho_Drumm",
+      "page_title": "Jericho Drumm",
+      "page_id": 3821474,
+      "revision_id": 1377066694,
+      "revision_timestamp": "2026-09-27T19:06:47Z"
+    },
+    {
+      "node_id": "Jessica_Jones",
+      "name": "Jessica Jones",
+      "url": "https://en.wikipedia.org/wiki/Jessica_Jones",
+      "page_title": "Jessica Jones",
+      "page_id": 1828447,
+      "revision_id": 1376613105,
+      "revision_timestamp": "2026-09-25T04:58:24Z"
+    },
+    {
+      "node_id": "John_Jameson_(character)",
+      "name": "John Jameson (character)",
+      "url": "https://en.wikipedia.org/wiki/John_Jameson_(character)",
+      "page_title": "John Jameson (character)",
+      "page_id": 1521999,
+      "revision_id": 1377066877,
+      "revision_timestamp": "2026-09-27T19:07:33Z"
+    },
+    {
+      "node_id": "Jubilee_(character)",
+      "name": "Jubilee (character)",
+      "url": "https://en.wikipedia.org/wiki/Jubilee_(character)",
+      "page_title": "Jubilee (character)",
+      "page_id": 15355925,
+      "revision_id": 1373820778,
+      "revision_timestamp": "2026-09-08T03:24:41Z"
+    },
+    {
+      "node_id": "Junior_Juniper",
+      "name": "Junior Juniper",
+      "url": "https://en.wikipedia.org/wiki/Junior_Juniper",
+      "page_title": "Junior Juniper",
+      "page_id": 6926754,
+      "revision_id": 1369761729,
+      "revision_timestamp": "2026-08-17T00:35:38Z"
+    },
+    {
+      "node_id": "Justice_(New_Universe)",
+      "name": "Justice (New Universe)",
+      "url": "https://en.wikipedia.org/wiki/Justice_(New_Universe)",
+      "page_title": "Justice (New Universe)",
+      "page_id": 2444394,
+      "revision_id": 1360217881,
+      "revision_timestamp": "2026-06-20T00:26:26Z"
+    },
+    {
+      "node_id": "Karnak_(character)",
+      "name": "Karnak (character)",
+      "url": "https://en.wikipedia.org/wiki/Karnak_(character)",
+      "page_title": "Karnak (character)",
+      "page_id": 1551066,
+      "revision_id": 1377066894,
+      "revision_timestamp": "2026-09-27T19:07:37Z"
+    },
+    {
+      "node_id": "Kid_Colt",
+      "name": "Kid Colt",
+      "url": "https://en.wikipedia.org/wiki/Kid_Colt",
+      "page_title": "Kid Colt",
+      "page_id": 2201432,
+      "revision_id": 1373525718,
+      "revision_timestamp": "2026-09-06T13:26:16Z"
+    },
+    {
+      "node_id": "Killpower",
+      "name": "Killpower",
+      "url": "https://en.wikipedia.org/wiki/Killpower",
+      "page_title": "Killpower",
+      "page_id": 8934744,
+      "revision_id": 1377066903,
+      "revision_timestamp": "2026-09-27T19:07:39Z"
+    },
+    {
+      "node_id": "Killraven",
+      "name": "Killraven",
+      "url": "https://en.wikipedia.org/wiki/Killraven",
+      "page_title": "Killraven",
+      "page_id": 733324,
+      "revision_id": 1364808299,
+      "revision_timestamp": "2026-07-18T17:03:47Z"
+    },
+    {
+      "node_id": "Kismet_(Marvel_Comics)",
+      "name": "Kismet (Marvel Comics)",
+      "url": "https://en.wikipedia.org/wiki/Kismet_(Marvel_Comics)",
+      "page_title": "Kismet (Marvel Comics)",
+      "page_id": 1494841,
+      "revision_id": 1375512775,
+      "revision_timestamp": "2026-09-18T06:49:19Z"
+    },
+    {
+      "node_id": "Korvus",
+      "name": "Korvus",
+      "url": "https://en.wikipedia.org/wiki/Korvus",
+      "page_title": "Korvus",
+      "page_id": 13849807,
+      "revision_id": 1375758620,
+      "revision_timestamp": "2026-09-19T22:03:41Z"
+    },
+    {
+      "node_id": "Kristoff_Vernard",
+      "name": "Kristoff Vernard",
+      "url": "https://en.wikipedia.org/wiki/Kristoff_Vernard",
+      "page_title": "Kristoff Vernard",
+      "page_id": 5602145,
+      "revision_id": 1375304345,
+      "revision_timestamp": "2026-09-17T01:00:16Z"
+    },
+    {
+      "node_id": "Leech_(character)",
+      "name": "Leech (character)",
+      "url": "https://en.wikipedia.org/wiki/Leech_(character)",
+      "page_title": "Leech (character)",
+      "page_id": 862016,
+      "revision_id": 1375292297,
+      "revision_timestamp": "2026-09-16T23:44:35Z"
+    },
+    {
+      "node_id": "Lei_Kung_(character)",
+      "name": "Lei Kung (character)",
+      "url": "https://en.wikipedia.org/wiki/Lei_Kung_(character)",
+      "page_title": "Lei Kung (character)",
+      "page_id": 36100839,
+      "revision_id": 1339684647,
+      "revision_timestamp": "2026-02-21T21:03:32Z"
+    },
+    {
+      "node_id": "Living_Lightning",
+      "name": "Living Lightning",
+      "url": "https://en.wikipedia.org/wiki/Living_Lightning",
+      "page_title": "Living Lightning",
+      "page_id": 2439194,
+      "revision_id": 1367911563,
+      "revision_timestamp": "2026-08-05T23:03:11Z"
+    },
+    {
+      "node_id": "Luke_Cage",
+      "name": "Luke Cage",
+      "url": "https://en.wikipedia.org/wiki/Luke_Cage",
+      "page_title": "Luke Cage",
+      "page_id": 448120,
+      "revision_id": 1375518335,
+      "revision_timestamp": "2026-09-18T07:33:05Z"
+    },
+    {
+      "node_id": "Machine_Man",
+      "name": "Machine Man",
+      "url": "https://en.wikipedia.org/wiki/Machine_Man",
+      "page_title": "Machine Man",
+      "page_id": 2143583,
+      "revision_id": 1375519002,
+      "revision_timestamp": "2026-09-18T07:39:39Z"
+    },
+    {
+      "node_id": "Magician_(Marvel_Comics)",
+      "name": "Magician (Marvel Comics)",
+      "url": "https://en.wikipedia.org/wiki/Magician_(Marvel_Comics)",
+      "page_title": "Magician (Marvel Comics)",
+      "page_id": 4856303,
+      "revision_id": 1366374457,
+      "revision_timestamp": "2026-07-27T17:20:11Z"
+    },
+    {
+      "node_id": "Mahr_Vehl",
+      "name": "Mahr Vehl",
+      "url": "https://en.wikipedia.org/wiki/Mahr_Vehl",
+      "page_title": "Mahr Vehl",
+      "page_id": 4916397,
+      "revision_id": 1375512989,
+      "revision_timestamp": "2026-09-18T06:51:21Z"
+    },
+    {
+      "node_id": "Makkari_(character)",
+      "name": "Makkari (character)",
+      "url": "https://en.wikipedia.org/wiki/Makkari_(character)",
+      "page_title": "Makkari (character)",
+      "page_id": 5559211,
+      "revision_id": 1375519029,
+      "revision_timestamp": "2026-09-18T07:39:57Z"
+    },
+    {
+      "node_id": "Man-Thing",
+      "name": "Man-Thing",
+      "url": "https://en.wikipedia.org/wiki/Man-Thing",
+      "page_title": "Man-Thing",
+      "page_id": 926922,
+      "revision_id": 1377067001,
+      "revision_timestamp": "2026-09-27T19:08:05Z"
+    },
+    {
+      "node_id": "Mania_(character)",
+      "name": "Mania (character)",
+      "url": "https://en.wikipedia.org/wiki/Mania_(character)",
+      "page_title": "Mania (character)",
+      "page_id": 58117427,
+      "revision_id": 1372950266,
+      "revision_timestamp": "2026-09-03T03:41:46Z"
+    },
+    {
+      "node_id": "Mark_Hazzard:_Merc",
+      "name": "Mark Hazzard: Merc",
+      "url": "https://en.wikipedia.org/wiki/Mark_Hazzard:_Merc",
+      "page_title": "Mark Hazzard: Merc",
+      "page_id": 4466839,
+      "revision_id": 1367915687,
+      "revision_timestamp": "2026-08-05T23:35:55Z"
+    },
+    {
+      "node_id": "Marvel_Boy_(Robert_Grayson)",
+      "name": "Marvel Boy (Robert Grayson)",
+      "url": "https://en.wikipedia.org/wiki/Marvel_Boy_(Robert_Grayson)",
+      "page_title": "Marvel Boy (Robert Grayson)",
+      "page_id": 11951081,
+      "revision_id": 1376452320,
+      "revision_timestamp": "2026-09-24T05:53:23Z"
+    },
+    {
+      "node_id": "Mayday_Parker",
+      "name": "Mayday Parker",
+      "url": "https://en.wikipedia.org/wiki/Mayday_Parker",
+      "page_title": "Mayday Parker",
+      "page_id": 503156,
+      "revision_id": 1377067006,
+      "revision_timestamp": "2026-09-27T19:08:07Z"
+    },
+    {
+      "node_id": "Miracleman_(character)",
+      "name": "Miracleman (character)",
+      "url": "https://en.wikipedia.org/wiki/Miracleman_(character)",
+      "page_title": "Miracleman (character)",
+      "page_id": 98047,
+      "revision_id": 1377640013,
+      "revision_timestamp": "2026-09-30T08:23:04Z"
+    },
+    {
+      "node_id": "Misty_Knight",
+      "name": "Misty Knight",
+      "url": "https://en.wikipedia.org/wiki/Misty_Knight",
+      "page_title": "Misty Knight",
+      "page_id": 5136102,
+      "revision_id": 1375512782,
+      "revision_timestamp": "2026-09-18T06:49:23Z"
+    },
+    {
+      "node_id": "Mockingbird_(Marvel_Comics)",
+      "name": "Mockingbird (Marvel Comics)",
+      "url": "https://en.wikipedia.org/wiki/Mockingbird_(Marvel_Comics)",
+      "page_title": "Mockingbird (Marvel Comics)",
+      "page_id": 2312289,
+      "revision_id": 1375302815,
+      "revision_timestamp": "2026-09-17T00:49:14Z"
+    },
+    {
+      "node_id": "Moon_Knight",
+      "name": "Moon Knight",
+      "url": "https://en.wikipedia.org/wiki/Moon_Knight",
+      "page_title": "Moon Knight",
+      "page_id": 880508,
+      "revision_id": 1377545191,
+      "revision_timestamp": "2026-09-29T23:30:34Z"
+    },
+    {
+      "node_id": "Moondragon",
+      "name": "Moondragon",
+      "url": "https://en.wikipedia.org/wiki/Moondragon",
+      "page_title": "Moondragon",
+      "page_id": 701900,
+      "revision_id": 1375519124,
+      "revision_timestamp": "2026-09-18T07:40:54Z"
+    },
+    {
+      "node_id": "Moonglow_(comics)",
+      "name": "Moonglow (comics)",
+      "url": "https://en.wikipedia.org/wiki/Moonglow_(comics)",
+      "page_title": "Moonglow (comics)",
+      "page_id": 2664863,
+      "revision_id": 1344613806,
+      "revision_timestamp": "2026-03-21T14:59:50Z"
+    },
+    {
+      "node_id": "Morbius",
+      "name": "Morbius",
+      "url": "https://en.wikipedia.org/wiki/Morbius",
+      "page_title": "Morbius",
+      "page_id": 1809522,
+      "revision_id": 1377067059,
+      "revision_timestamp": "2026-09-27T19:08:23Z"
+    },
+    {
+      "node_id": "Motormouth_(comics)",
+      "name": "Motormouth (comics)",
+      "url": "https://en.wikipedia.org/wiki/Motormouth_(comics)",
+      "page_title": "Motormouth (comics)",
+      "page_id": 8420623,
+      "revision_id": 1371384909,
+      "revision_timestamp": "2026-08-26T04:19:34Z"
+    },
+    {
+      "node_id": "Ms._Marvel",
+      "name": "Ms. Marvel",
+      "url": "https://en.wikipedia.org/wiki/Ms._Marvel",
+      "page_title": "Ms. Marvel",
+      "page_id": 41081188,
+      "revision_id": 1376036295,
+      "revision_timestamp": "2026-09-21T17:04:39Z"
+    },
+    {
+      "node_id": "NFL_SuperPro",
+      "name": "Phil Grayfield",
+      "url": "https://en.wikipedia.org/wiki/NFL_SuperPro",
+      "page_title": "NFL SuperPro",
+      "page_id": 2335787,
+      "revision_id": 1368776587,
+      "revision_timestamp": "2026-08-11T01:42:02Z"
+    },
+    {
+      "node_id": "Nightmask",
+      "name": "Nightmask",
+      "url": "https://en.wikipedia.org/wiki/Nightmask",
+      "page_title": "Nightmask",
+      "page_id": 3514625,
+      "revision_id": 1372937911,
+      "revision_timestamp": "2026-09-03T02:07:10Z"
+    },
+    {
+      "node_id": "Nightwatch_(character)",
+      "name": "Nightwatch (character)",
+      "url": "https://en.wikipedia.org/wiki/Nightwatch_(character)",
+      "page_title": "Nightwatch (character)",
+      "page_id": 4338080,
+      "revision_id": 1365049497,
+      "revision_timestamp": "2026-07-19T23:58:20Z"
+    },
+    {
+      "node_id": "Noh-Varr",
+      "name": "Noh-Varr",
+      "url": "https://en.wikipedia.org/wiki/Noh-Varr",
+      "page_title": "Noh-Varr",
+      "page_id": 4596172,
+      "revision_id": 1375519186,
+      "revision_timestamp": "2026-09-18T07:41:35Z"
+    },
+    {
+      "node_id": "Nomad_(Marvel_Comics)",
+      "name": "Nomad (Marvel Comics)",
+      "url": "https://en.wikipedia.org/wiki/Nomad_(Marvel_Comics)",
+      "page_title": "Nomad (Marvel Comics)",
+      "page_id": 2451704,
+      "revision_id": 1364529805,
+      "revision_timestamp": "2026-07-17T02:28:33Z"
+    },
+    {
+      "node_id": "Northstar_(character)",
+      "name": "Northstar (character)",
+      "url": "https://en.wikipedia.org/wiki/Northstar_(character)",
+      "page_title": "Northstar (character)",
+      "page_id": 60963,
+      "revision_id": 1377375328,
+      "revision_timestamp": "2026-09-29T03:22:27Z"
+    },
+    {
+      "node_id": "Nova_(Richard_Rider)",
+      "name": "Nova (Richard Rider)",
+      "url": "https://en.wikipedia.org/wiki/Nova_(Richard_Rider)",
+      "page_title": "Nova (Richard Rider)",
+      "page_id": 881924,
+      "revision_id": 1376391087,
+      "revision_timestamp": "2026-09-23T22:27:24Z"
+    },
+    {
+      "node_id": "Ogre_(Marvel_Comics)",
+      "name": "Ogre (Marvel Comics)",
+      "url": "https://en.wikipedia.org/wiki/Ogre_(Marvel_Comics)",
+      "page_title": "Ogre (Marvel Comics)",
+      "page_id": 6501386,
+      "revision_id": 1326921397,
+      "revision_timestamp": "2025-12-11T17:46:32Z"
+    },
+    {
+      "node_id": "Outlaw_(Marvel_Comics)",
+      "name": "Outlaw (Marvel Comics)",
+      "url": "https://en.wikipedia.org/wiki/Outlaw_(Marvel_Comics)",
+      "page_title": "Outlaw (Marvel Comics)",
+      "page_id": 4111598,
+      "revision_id": 1375767879,
+      "revision_timestamp": "2026-09-19T23:30:46Z"
+    },
+    {
+      "node_id": "Oya_(comics)",
+      "name": "Oya (comics)",
+      "url": "https://en.wikipedia.org/wiki/Oya_(comics)",
+      "page_title": "Oya (comics)",
+      "page_id": 32631292,
+      "revision_id": 1370923303,
+      "revision_timestamp": "2026-08-23T19:09:47Z"
+    },
+    {
+      "node_id": "Paladin_(comics)",
+      "name": "Paladin (comics)",
+      "url": "https://en.wikipedia.org/wiki/Paladin_(comics)",
+      "page_title": "Paladin (comics)",
+      "page_id": 3570700,
+      "revision_id": 1376486602,
+      "revision_timestamp": "2026-09-24T12:40:46Z"
+    },
+    {
+      "node_id": "Patsy_Walker",
+      "name": "Patsy Walker",
+      "url": "https://en.wikipedia.org/wiki/Patsy_Walker",
+      "page_title": "Patsy Walker",
+      "page_id": 801573,
+      "revision_id": 1375514346,
+      "revision_timestamp": "2026-09-18T07:03:38Z"
+    },
+    {
+      "node_id": "Peggy_Carter",
+      "name": "Peggy Carter",
+      "url": "https://en.wikipedia.org/wiki/Peggy_Carter",
+      "page_title": "Peggy Carter",
+      "page_id": 26670220,
+      "revision_id": 1364808160,
+      "revision_timestamp": "2026-07-18T17:02:56Z"
+    },
+    {
+      "node_id": "Phil_Urich",
+      "name": "Phil Urich",
+      "url": "https://en.wikipedia.org/wiki/Phil_Urich",
+      "page_title": "Phil Urich",
+      "page_id": 6073034,
+      "revision_id": 1377067623,
+      "revision_timestamp": "2026-09-27T19:10:35Z"
+    },
+    {
+      "node_id": "Phoenix_Force",
+      "name": "Phoenix (Guardians of the Galaxy)",
+      "url": "https://en.wikipedia.org/wiki/Phoenix_Force",
+      "page_title": "Phoenix Force",
+      "page_id": 49125,
+      "revision_id": 1377067200,
+      "revision_timestamp": "2026-09-27T19:08:58Z"
+    },
+    {
+      "node_id": "Phyla-Vell",
+      "name": "Phyla-Vell",
+      "url": "https://en.wikipedia.org/wiki/Phyla-Vell",
+      "page_title": "Phyla-Vell",
+      "page_id": 6144480,
+      "revision_id": 1375519251,
+      "revision_timestamp": "2026-09-18T07:42:19Z"
+    },
+    {
+      "node_id": "Power_Man_(Victor_Alvarez)",
+      "name": "Power Man (Victor Alvarez)",
+      "url": "https://en.wikipedia.org/wiki/Power_Man_(Victor_Alvarez)",
+      "page_title": "Power Man (Victor Alvarez)",
+      "page_id": 32464959,
+      "revision_id": 1375519258,
+      "revision_timestamp": "2026-09-18T07:42:25Z"
+    },
+    {
+      "node_id": "Powerhouse_(Marvel_Comics)",
+      "name": "Powerhouse (Marvel Comics)",
+      "url": "https://en.wikipedia.org/wiki/Powerhouse_(Marvel_Comics)",
+      "page_title": "Powerhouse (Marvel Comics)",
+      "page_id": 5085039,
+      "revision_id": 1375513440,
+      "revision_timestamp": "2026-09-18T06:55:36Z"
+    },
+    {
+      "node_id": "Puck_(Marvel_Comics)",
+      "name": "Puck (Marvel Comics)",
+      "url": "https://en.wikipedia.org/wiki/Puck_(Marvel_Comics)",
+      "page_title": "Puck (Marvel Comics)",
+      "page_id": 1081722,
+      "revision_id": 1377352957,
+      "revision_timestamp": "2026-09-29T01:46:27Z"
+    },
+    {
+      "node_id": "Quasar_(character)",
+      "name": "Quasar (character)",
+      "url": "https://en.wikipedia.org/wiki/Quasar_(character)",
+      "page_title": "Quasar (character)",
+      "page_id": 16154847,
+      "revision_id": 1362390028,
+      "revision_timestamp": "2026-07-03T17:14:46Z"
+    },
+    {
+      "node_id": "Quicksilver_(Marvel_Comics)",
+      "name": "Quicksilver (Marvel Comics)",
+      "url": "https://en.wikipedia.org/wiki/Quicksilver_(Marvel_Comics)",
+      "page_title": "Quicksilver (Marvel Comics)",
+      "page_id": 362238,
+      "revision_id": 1377114732,
+      "revision_timestamp": "2026-09-27T23:39:11Z"
+    },
+    {
+      "node_id": "Rachel_Summers",
+      "name": "Rachel Summers",
+      "url": "https://en.wikipedia.org/wiki/Rachel_Summers",
+      "page_title": "Rachel Summers",
+      "page_id": 26534,
+      "revision_id": 1375735633,
+      "revision_timestamp": "2026-09-19T18:39:22Z"
+    },
+    {
+      "node_id": "Radian_(Morituri)",
+      "name": "Radian (Morituri)",
+      "url": "https://en.wikipedia.org/wiki/Radian_(Morituri)",
+      "page_title": "Strikeforce: Morituri",
+      "page_id": 850512,
+      "revision_id": 1375702355,
+      "revision_timestamp": "2026-09-19T13:33:45Z"
+    },
+    {
+      "node_id": "Radioactive_Man_(comics)",
+      "name": "Radioactive Man (comics)",
+      "url": "https://en.wikipedia.org/wiki/Radioactive_Man_(comics)",
+      "page_title": "Radioactive Man (comics)",
+      "page_id": 3664011,
+      "revision_id": 1377065099,
+      "revision_timestamp": "2026-09-27T19:00:08Z"
+    },
+    {
+      "node_id": "Ravage_2099",
+      "name": "Ravage 2099",
+      "url": "https://en.wikipedia.org/wiki/Ravage_2099",
+      "page_title": "Ravage 2099",
+      "page_id": 3513585,
+      "revision_id": 1377067228,
+      "revision_timestamp": "2026-09-27T19:09:04Z"
+    },
+    {
+      "node_id": "Raza_Longknife",
+      "name": "Raza Longknife",
+      "url": "https://en.wikipedia.org/wiki/Raza_Longknife",
+      "page_title": "Raza Longknife",
+      "page_id": 7998481,
+      "revision_id": 1375758628,
+      "revision_timestamp": "2026-09-19T22:03:44Z"
+    },
+    {
+      "node_id": "Red_Guardian",
+      "name": "Red Guardian",
+      "url": "https://en.wikipedia.org/wiki/Red_Guardian",
+      "page_title": "Red Guardian",
+      "page_id": 824196,
+      "revision_id": 1372011378,
+      "revision_timestamp": "2026-08-29T20:57:50Z"
+    },
+    {
+      "node_id": "Red_Raven_(Marvel_Comics)",
+      "name": "Red Raven (Dania)",
+      "url": "https://en.wikipedia.org/wiki/Red_Raven_(Marvel_Comics)",
+      "page_title": "Red Raven (Marvel Comics)",
+      "page_id": 4921452,
+      "revision_id": 1372378444,
+      "revision_timestamp": "2026-08-31T13:24:00Z"
+    },
+    {
+      "node_id": "Red_Wolf_(comics)",
+      "name": "Red Wolf (comics)",
+      "url": "https://en.wikipedia.org/wiki/Red_Wolf_(comics)",
+      "page_title": "Red Wolf (comics)",
+      "page_id": 8106543,
+      "revision_id": 1377067232,
+      "revision_timestamp": "2026-09-27T19:09:06Z"
+    },
+    {
+      "node_id": "Redneck_(comics)",
+      "name": "Redneck (comics)",
+      "url": "https://en.wikipedia.org/wiki/Redneck_(comics)",
+      "page_title": "Redneck (comics)",
+      "page_id": 17324073,
+      "revision_id": 1369758798,
+      "revision_timestamp": "2026-08-17T00:07:50Z"
+    },
+    {
+      "node_id": "Ricochet_(comics)",
+      "name": "Ricochet (comics)",
+      "url": "https://en.wikipedia.org/wiki/Ricochet_(comics)",
+      "page_title": "Ricochet (comics)",
+      "page_id": 1565065,
+      "revision_id": 1375513588,
+      "revision_timestamp": "2026-09-18T06:56:50Z"
+    },
+    {
+      "node_id": "Rikki_Barnes",
+      "name": "Rikki Barnes",
+      "url": "https://en.wikipedia.org/wiki/Rikki_Barnes",
+      "page_title": "Rikki Barnes",
+      "page_id": 26226619,
+      "revision_id": 1372661847,
+      "revision_timestamp": "2026-09-01T17:58:29Z"
+    },
+    {
+      "node_id": "Robbie_Baldwin",
+      "name": "Robbie Baldwin",
+      "url": "https://en.wikipedia.org/wiki/Robbie_Baldwin",
+      "page_title": "Robbie Baldwin",
+      "page_id": 734333,
+      "revision_id": 1368276479,
+      "revision_timestamp": "2026-08-08T03:02:40Z"
+    },
+    {
+      "node_id": "Rocket_Raccoon",
+      "name": "Rocket Raccoon",
+      "url": "https://en.wikipedia.org/wiki/Rocket_Raccoon",
+      "page_title": "Rocket Raccoon",
+      "page_id": 2753418,
+      "revision_id": 1377067258,
+      "revision_timestamp": "2026-09-27T19:09:12Z"
+    },
+    {
+      "node_id": "Rockman_(character)",
+      "name": "Rockman (character)",
+      "url": "https://en.wikipedia.org/wiki/Rockman_(character)",
+      "page_title": "Rockman (character)",
+      "page_id": 12798780,
+      "revision_id": 1375519327,
+      "revision_timestamp": "2026-09-18T07:43:13Z"
+    },
+    {
+      "node_id": "Rockslide_(character)",
+      "name": "Rockslide (character)",
+      "url": "https://en.wikipedia.org/wiki/Rockslide_(character)",
+      "page_title": "Rockslide (character)",
+      "page_id": 1775259,
+      "revision_id": 1375519330,
+      "revision_timestamp": "2026-09-18T07:43:15Z"
+    },
+    {
+      "node_id": "Rom_the_Space_Knight",
+      "name": "Rom the Space Knight",
+      "url": "https://en.wikipedia.org/wiki/Rom_the_Space_Knight",
+      "page_title": "Rom the Space Knight",
+      "page_id": 47777239,
+      "revision_id": 1375513615,
+      "revision_timestamp": "2026-09-18T06:57:05Z"
+    },
+    {
+      "node_id": "Ronin_(Marvel_Comics)",
+      "name": "Ronin (Marvel Comics)",
+      "url": "https://en.wikipedia.org/wiki/Ronin_(Marvel_Comics)",
+      "page_title": "Ronin (Marvel Comics)",
+      "page_id": 2411857,
+      "revision_id": 1366092357,
+      "revision_timestamp": "2026-07-26T06:00:46Z"
+    },
+    {
+      "node_id": "Ruby_Summers",
+      "name": "Ruby Summers",
+      "url": "https://en.wikipedia.org/wiki/Ruby_Summers",
+      "page_title": "Ruby Summers",
+      "page_id": 19019502,
+      "revision_id": 1375519523,
+      "revision_timestamp": "2026-09-18T07:45:22Z"
+    },
+    {
+      "node_id": "Rusty_Collins",
+      "name": "Rusty Collins",
+      "url": "https://en.wikipedia.org/wiki/Rusty_Collins",
+      "page_title": "Rusty Collins",
+      "page_id": 734279,
+      "revision_id": 1355467601,
+      "revision_timestamp": "2026-05-22T01:16:25Z"
+    },
+    {
+      "node_id": "Sabra_(character)",
+      "name": "Sabra (character)",
+      "url": "https://en.wikipedia.org/wiki/Sabra_(character)",
+      "page_title": "Sabra (character)",
+      "page_id": 1755550,
+      "revision_id": 1377449991,
+      "revision_timestamp": "2026-09-29T12:52:56Z"
+    },
+    {
+      "node_id": "Satana_(Marvel_Comics)",
+      "name": "Satana (Marvel Comics)",
+      "url": "https://en.wikipedia.org/wiki/Satana_(Marvel_Comics)",
+      "page_title": "Satana (Marvel Comics)",
+      "page_id": 5390379,
+      "revision_id": 1375513668,
+      "revision_timestamp": "2026-09-18T06:57:31Z"
+    },
+    {
+      "node_id": "Scaredycat",
+      "name": "Scaredycat",
+      "url": "https://en.wikipedia.org/wiki/Scaredycat",
+      "page_title": "Strikeforce: Morituri",
+      "page_id": 850512,
+      "revision_id": 1375702355,
+      "revision_timestamp": "2026-09-19T13:33:45Z"
+    },
+    {
+      "node_id": "Scarlet_Scarab",
+      "name": "Scarlet Scarab",
+      "url": "https://en.wikipedia.org/wiki/Scarlet_Scarab",
+      "page_title": "Scarlet Scarab",
+      "page_id": 13537188,
+      "revision_id": 1375519376,
+      "revision_timestamp": "2026-09-18T07:43:42Z"
+    },
+    {
+      "node_id": "Scarlet_Spider",
+      "name": "Scarlet Spider",
+      "url": "https://en.wikipedia.org/wiki/Scarlet_Spider",
+      "page_title": "Scarlet Spider",
+      "page_id": 2378350,
+      "revision_id": 1375087144,
+      "revision_timestamp": "2026-09-15T20:08:45Z"
+    },
+    {
+      "node_id": "Scarlet_Witch",
+      "name": "Scarlet Witch",
+      "url": "https://en.wikipedia.org/wiki/Scarlet_Witch",
+      "page_title": "Scarlet Witch",
+      "page_id": 27739530,
+      "revision_id": 1377356469,
+      "revision_timestamp": "2026-09-29T02:02:30Z"
+    },
+    {
+      "node_id": "Scatterbrain_(Morituri)",
+      "name": "Scatterbrain (Morituri)",
+      "url": "https://en.wikipedia.org/wiki/Scatterbrain_(Morituri)",
+      "page_title": "Strikeforce: Morituri",
+      "page_id": 850512,
+      "revision_id": 1375702355,
+      "revision_timestamp": "2026-09-19T13:33:45Z"
+    },
+    {
+      "node_id": "Scorpio_(Marvel_Comics)",
+      "name": "Scorpio (Marvel Comics)",
+      "url": "https://en.wikipedia.org/wiki/Scorpio_(Marvel_Comics)",
+      "page_title": "Scorpio (Marvel Comics)",
+      "page_id": 3055880,
+      "revision_id": 1354566012,
+      "revision_timestamp": "2026-05-17T04:54:22Z"
+    },
+    {
+      "node_id": "Sean_and_Chris",
+      "name": "Sean and Chris",
+      "url": "https://en.wikipedia.org/wiki/Sean_and_Chris",
+      "page_title": "Sean and Chris",
+      "page_id": 32639248,
+      "revision_id": 1326054673,
+      "revision_timestamp": "2025-12-06T20:47:06Z"
+    },
+    {
+      "node_id": "Sentry_(Robert_Reynolds)",
+      "name": "Sentry (Robert Reynolds)",
+      "url": "https://en.wikipedia.org/wiki/Sentry_(Robert_Reynolds)",
+      "page_title": "Sentry (Robert Reynolds)",
+      "page_id": 5142490,
+      "revision_id": 1377324640,
+      "revision_timestamp": "2026-09-28T22:50:27Z"
+    },
+    {
+      "node_id": "Shamrock_(comics)",
+      "name": "Shamrock (comics)",
+      "url": "https://en.wikipedia.org/wiki/Shamrock_(comics)",
+      "page_title": "Shamrock (comics)",
+      "page_id": 13538784,
+      "revision_id": 1340244045,
+      "revision_timestamp": "2026-02-24T17:44:38Z"
+    },
+    {
+      "node_id": "Shang-Chi",
+      "name": "Shang-Chi",
+      "url": "https://en.wikipedia.org/wiki/Shang-Chi",
+      "page_title": "Shang-Chi",
+      "page_id": 20129,
+      "revision_id": 1375309460,
+      "revision_timestamp": "2026-09-17T01:34:02Z"
+    },
+    {
+      "node_id": "Shatterstar",
+      "name": "Shatterstar",
+      "url": "https://en.wikipedia.org/wiki/Shatterstar",
+      "page_title": "Shatterstar",
+      "page_id": 728913,
+      "revision_id": 1377067289,
+      "revision_timestamp": "2026-09-27T19:09:21Z"
+    },
+    {
+      "node_id": "She-Hulk",
+      "name": "She-Hulk",
+      "url": "https://en.wikipedia.org/wiki/She-Hulk",
+      "page_title": "She-Hulk",
+      "page_id": 956480,
+      "revision_id": 1377318050,
+      "revision_timestamp": "2026-09-28T21:55:28Z"
+    },
+    {
+      "node_id": "She-Hulk_(Lyra)",
+      "name": "She-Hulk (Lyra)",
+      "url": "https://en.wikipedia.org/wiki/She-Hulk_(Lyra)",
+      "page_title": "She-Hulk (Lyra)",
+      "page_id": 22349255,
+      "revision_id": 1375519393,
+      "revision_timestamp": "2026-09-18T07:43:57Z"
+    },
+    {
+      "node_id": "Shear_(character)",
+      "name": "Shear (character)",
+      "url": "https://en.wikipedia.org/wiki/Shear_(character)",
+      "page_title": "Strikeforce: Morituri",
+      "page_id": 850512,
+      "revision_id": 1375702355,
+      "revision_timestamp": "2026-09-19T13:33:45Z"
+    },
+    {
+      "node_id": "Shuri_(character)",
+      "name": "Shuri (character)",
+      "url": "https://en.wikipedia.org/wiki/Shuri_(character)",
+      "page_title": "Shuri (character)",
+      "page_id": 36501454,
+      "revision_id": 1377067316,
+      "revision_timestamp": "2026-09-27T19:09:25Z"
+    },
+    {
+      "node_id": "Silencer_(comics)",
+      "name": "Silencer (comics)",
+      "url": "https://en.wikipedia.org/wiki/Silencer_(comics)",
+      "page_title": "Strikeforce: Morituri",
+      "page_id": 850512,
+      "revision_id": 1375702355,
+      "revision_timestamp": "2026-09-19T13:33:45Z"
+    },
+    {
+      "node_id": "Silhouette_(comics)",
+      "name": "Silhouette (comics)",
+      "url": "https://en.wikipedia.org/wiki/Silhouette_(comics)",
+      "page_title": "Silhouette (comics)",
+      "page_id": 5362940,
+      "revision_id": 1375513791,
+      "revision_timestamp": "2026-09-18T06:58:32Z"
+    },
+    {
+      "node_id": "Silk_(character)",
+      "name": "Silk (character)",
+      "url": "https://en.wikipedia.org/wiki/Silk_(character)",
+      "page_title": "Silk (character)",
+      "page_id": 44952377,
+      "revision_id": 1377067332,
+      "revision_timestamp": "2026-09-27T19:09:29Z"
+    },
+    {
+      "node_id": "Skull_the_Slayer",
+      "name": "Skull the Slayer",
+      "url": "https://en.wikipedia.org/wiki/Skull_the_Slayer",
+      "page_title": "Skull the Slayer",
+      "page_id": 4466326,
+      "revision_id": 1330538770,
+      "revision_timestamp": "2026-01-01T01:00:41Z"
+    },
+    {
+      "node_id": "Snapdragon_(Morituri)",
+      "name": "Snapdragon (Morituri)",
+      "url": "https://en.wikipedia.org/wiki/Snapdragon_(Morituri)",
+      "page_title": "Strikeforce: Morituri",
+      "page_id": 850512,
+      "revision_id": 1375702355,
+      "revision_timestamp": "2026-09-19T13:33:45Z"
+    },
+    {
+      "node_id": "Solarman",
+      "name": "Solarman",
+      "url": "https://en.wikipedia.org/wiki/Solarman",
+      "page_title": "Solarman",
+      "page_id": 5614885,
+      "revision_id": 1376993942,
+      "revision_timestamp": "2026-09-27T09:06:56Z"
+    },
+    {
+      "node_id": "Solo_(Marvel_Comics)",
+      "name": "Solo (Marvel Comics)",
+      "url": "https://en.wikipedia.org/wiki/Solo_(Marvel_Comics)",
+      "page_title": "Solo (Marvel Comics)",
+      "page_id": 5385184,
+      "revision_id": 1354566351,
+      "revision_timestamp": "2026-05-17T04:58:25Z"
+    },
+    {
+      "node_id": "Solomon_Kane_(comics)",
+      "name": "Solomon Kane (comics)",
+      "url": "https://en.wikipedia.org/wiki/Solomon_Kane_(comics)",
+      "page_title": "Solomon Kane (comics)",
+      "page_id": 16615911,
+      "revision_id": 1349308614,
+      "revision_timestamp": "2026-04-16T18:47:02Z"
+    },
+    {
+      "node_id": "Speed_(character)",
+      "name": "Speed (character)",
+      "url": "https://en.wikipedia.org/wiki/Speed_(character)",
+      "page_title": "Speed (character)",
+      "page_id": 4605077,
+      "revision_id": 1375921987,
+      "revision_timestamp": "2026-09-20T22:06:10Z"
+    },
+    {
+      "node_id": "Spider-Bitch_(Ashley_Barton)",
+      "name": "Spider-Bitch (Ashley Barton)",
+      "url": "https://en.wikipedia.org/wiki/Spider-Bitch_(Ashley_Barton)",
+      "page_title": "Spider-Bitch (Ashley Barton)",
+      "page_id": 69533002,
+      "revision_id": 1375513870,
+      "revision_timestamp": "2026-09-18T06:59:14Z"
+    },
+    {
+      "node_id": "Spider-Girl",
+      "name": "Spider-Girl",
+      "url": "https://en.wikipedia.org/wiki/Spider-Girl",
+      "page_title": "Spider-Girl",
+      "page_id": 58734846,
+      "revision_id": 1375334297,
+      "revision_timestamp": "2026-09-17T04:41:10Z"
+    },
+    {
+      "node_id": "Spider-Man",
+      "name": "Spider-Man",
+      "url": "https://en.wikipedia.org/wiki/Spider-Man",
+      "page_title": "Spider-Man",
+      "page_id": 27936,
+      "revision_id": 1377067427,
+      "revision_timestamp": "2026-09-27T19:09:47Z"
+    },
+    {
+      "node_id": "Spider-Man_(Marvel_Mangaverse)",
+      "name": "Spider-Man (Marvel Mangaverse)",
+      "url": "https://en.wikipedia.org/wiki/Spider-Man_(Marvel_Mangaverse)",
+      "page_title": "Spider-Man (Marvel Mangaverse)",
+      "page_id": 47346528,
+      "revision_id": 1375519463,
+      "revision_timestamp": "2026-09-18T07:44:40Z"
+    },
+    {
+      "node_id": "Spider-Man_Noir",
+      "name": "Spider-Man Noir",
+      "url": "https://en.wikipedia.org/wiki/Spider-Man_Noir",
+      "page_title": "Spider-Man Noir",
+      "page_id": 21747310,
+      "revision_id": 1377067456,
+      "revision_timestamp": "2026-09-27T19:09:56Z"
+    },
+    {
+      "node_id": "Spider-UK",
+      "name": "Spider-UK",
+      "url": "https://en.wikipedia.org/wiki/Spider-UK",
+      "page_title": "Spider-UK",
+      "page_id": 46446348,
+      "revision_id": 1377067477,
+      "revision_timestamp": "2026-09-27T19:10:00Z"
+    },
+    {
+      "node_id": "Spider-Woman",
+      "name": "Spider-Woman",
+      "url": "https://en.wikipedia.org/wiki/Spider-Woman",
+      "page_title": "Spider-Woman",
+      "page_id": 840148,
+      "revision_id": 1376452392,
+      "revision_timestamp": "2026-09-24T05:53:54Z"
+    },
+    {
+      "node_id": "Spider-Woman_(Gwen_Stacy)",
+      "name": "Spider-Woman (Gwen Stacy)",
+      "url": "https://en.wikipedia.org/wiki/Spider-Woman_(Gwen_Stacy)",
+      "page_title": "Spider-Woman (Gwen Stacy)",
+      "page_id": 47451762,
+      "revision_id": 1377067484,
+      "revision_timestamp": "2026-09-27T19:10:02Z"
+    },
+    {
+      "node_id": "Spider-Woman_(Jessica_Drew)",
+      "name": "Spider-Woman (Jessica Drew)",
+      "url": "https://en.wikipedia.org/wiki/Spider-Woman_(Jessica_Drew)",
+      "page_title": "Spider-Woman (Jessica Drew)",
+      "page_id": 2749598,
+      "revision_id": 1377067497,
+      "revision_timestamp": "2026-09-27T19:10:04Z"
+    },
+    {
+      "node_id": "Spitfire_(character)",
+      "name": "Spitfire (character)",
+      "url": "https://en.wikipedia.org/wiki/Spitfire_(character)",
+      "page_title": "Spitfire (character)",
+      "page_id": 2065621,
+      "revision_id": 1375302586,
+      "revision_timestamp": "2026-09-17T00:47:37Z"
+    },
+    {
+      "node_id": "Star-Lord",
+      "name": "Star-Lord",
+      "url": "https://en.wikipedia.org/wiki/Star-Lord",
+      "page_title": "Star-Lord",
+      "page_id": 3369286,
+      "revision_id": 1377490761,
+      "revision_timestamp": "2026-09-29T17:36:41Z"
+    },
+    {
+      "node_id": "Star_Brand",
+      "name": "Star Brand",
+      "url": "https://en.wikipedia.org/wiki/Star_Brand",
+      "page_title": "Star Brand",
+      "page_id": 3044005,
+      "revision_id": 1375303354,
+      "revision_timestamp": "2026-09-17T00:53:19Z"
+    },
+    {
+      "node_id": "Starhawk_(character)",
+      "name": "Starhawk (character)",
+      "url": "https://en.wikipedia.org/wiki/Starhawk_(character)",
+      "page_title": "Starhawk (character)",
+      "page_id": 1627451,
+      "revision_id": 1377067543,
+      "revision_timestamp": "2026-09-27T19:10:15Z"
+    },
+    {
+      "node_id": "Starr_the_Slayer",
+      "name": "Starr the Slayer",
+      "url": "https://en.wikipedia.org/wiki/Starr_the_Slayer",
+      "page_title": "Starr the Slayer",
+      "page_id": 6831427,
+      "revision_id": 1349308915,
+      "revision_timestamp": "2026-04-16T18:48:45Z"
+    },
+    {
+      "node_id": "Steel_Spider",
+      "name": "Steel Spider",
+      "url": "https://en.wikipedia.org/wiki/Steel_Spider",
+      "page_title": "Steel Spider",
+      "page_id": 10087037,
+      "revision_id": 1357562033,
+      "revision_timestamp": "2026-06-03T10:31:07Z"
+    },
+    {
+      "node_id": "Stingray_(Marvel_Comics)",
+      "name": "Stingray (Marvel Comics)",
+      "url": "https://en.wikipedia.org/wiki/Stingray_(Marvel_Comics)",
+      "page_title": "Stingray (Marvel Comics)",
+      "page_id": 3548060,
+      "revision_id": 1375514008,
+      "revision_timestamp": "2026-09-18T07:00:25Z"
+    },
+    {
+      "node_id": "Storm_(Marvel_Comics)",
+      "name": "Storm (Marvel Comics)",
+      "url": "https://en.wikipedia.org/wiki/Storm_(Marvel_Comics)",
+      "page_title": "Storm (Marvel Comics)",
+      "page_id": 232561,
+      "revision_id": 1376658117,
+      "revision_timestamp": "2026-09-25T14:11:27Z"
+    },
+    {
+      "node_id": "Straw_Man_(comics)",
+      "name": "Straw Man (comics)",
+      "url": "https://en.wikipedia.org/wiki/Straw_Man_(comics)",
+      "page_title": "Straw Man (comics)",
+      "page_id": 5642545,
+      "revision_id": 1375514015,
+      "revision_timestamp": "2026-09-18T07:00:29Z"
+    },
+    {
+      "node_id": "Super_Rabbit",
+      "name": "Super Rabbit",
+      "url": "https://en.wikipedia.org/wiki/Super_Rabbit",
+      "page_title": "Super Rabbit",
+      "page_id": 13169204,
+      "revision_id": 1376919144,
+      "revision_timestamp": "2026-09-27T00:23:36Z"
+    },
+    {
+      "node_id": "Surge_(Marvel_Comics)",
+      "name": "Surge (Marvel Comics)",
+      "url": "https://en.wikipedia.org/wiki/Surge_(Marvel_Comics)",
+      "page_title": "Surge (Marvel Comics)",
+      "page_id": 1252972,
+      "revision_id": 1373244238,
+      "revision_timestamp": "2026-09-04T20:34:26Z"
+    },
+    {
+      "node_id": "Synapse_(character)",
+      "name": "Synapse (character)",
+      "url": "https://en.wikipedia.org/wiki/Synapse_(character)",
+      "page_title": "Synapse (character)",
+      "page_id": 37874941,
+      "revision_id": 1375514070,
+      "revision_timestamp": "2026-09-18T07:01:00Z"
+    },
+    {
+      "node_id": "Tarantula_(Marvel_Comics)",
+      "name": "Tarantula (Marvel Comics)",
+      "url": "https://en.wikipedia.org/wiki/Tarantula_(Marvel_Comics)",
+      "page_title": "Tarantula (Marvel Comics)",
+      "page_id": 3701104,
+      "revision_id": 1375514091,
+      "revision_timestamp": "2026-09-18T07:01:12Z"
+    },
+    {
+      "node_id": "The_Union_(Marvel)",
+      "name": "The Union (Marvel)",
+      "url": "https://en.wikipedia.org/wiki/The_Union_(Marvel)",
+      "page_title": "The Union (Marvel)",
+      "page_id": 63517873,
+      "revision_id": 1363145033,
+      "revision_timestamp": "2026-07-08T09:42:00Z"
+    },
+    {
+      "node_id": "The_Witness_(character)",
+      "name": "The Witness (character)",
+      "url": "https://en.wikipedia.org/wiki/The_Witness_(character)",
+      "page_title": "The Witness (character)",
+      "page_id": 7052802,
+      "revision_id": 1375713663,
+      "revision_timestamp": "2026-09-19T15:22:54Z"
+    },
+    {
+      "node_id": "Thena",
+      "name": "Thena",
+      "url": "https://en.wikipedia.org/wiki/Thena",
+      "page_title": "Thena",
+      "page_id": 5559070,
+      "revision_id": 1376864353,
+      "revision_timestamp": "2026-09-26T17:47:18Z"
+    },
+    {
+      "node_id": "Thin_Man_(character)",
+      "name": "Thin Man (character)",
+      "url": "https://en.wikipedia.org/wiki/Thin_Man_(character)",
+      "page_title": "Thin Man (character)",
+      "page_id": 4921366,
+      "revision_id": 1326719100,
+      "revision_timestamp": "2025-12-10T13:39:50Z"
+    },
+    {
+      "node_id": "Thor_Girl",
+      "name": "Thor Girl",
+      "url": "https://en.wikipedia.org/wiki/Thor_Girl",
+      "page_title": "Thor Girl",
+      "page_id": 6408988,
+      "revision_id": 1375519582,
+      "revision_timestamp": "2026-09-18T07:46:01Z"
+    },
+    {
+      "node_id": "Thunderbolt_(Marvel_Comics)",
+      "name": "Thunderbolt (Marvel Comics)",
+      "url": "https://en.wikipedia.org/wiki/Thunderbolt_(Marvel_Comics)",
+      "page_title": "Thunderbolt (Marvel Comics)",
+      "page_id": 12042518,
+      "revision_id": 1368209965,
+      "revision_timestamp": "2026-08-07T18:15:16Z"
+    },
+    {
+      "node_id": "Thunderclap_(comics)",
+      "name": "Thunderclap (comics)",
+      "url": "https://en.wikipedia.org/wiki/Thunderclap_(comics)",
+      "page_title": "Thunderclap (comics)",
+      "page_id": 5955977,
+      "revision_id": 1376684332,
+      "revision_timestamp": "2026-09-25T17:20:28Z"
+    },
+    {
+      "node_id": "Timeslip_(comics)",
+      "name": "Timeslip (comics)",
+      "url": "https://en.wikipedia.org/wiki/Timeslip_(comics)",
+      "page_title": "Timeslip (comics)",
+      "page_id": 4003126,
+      "revision_id": 1375514190,
+      "revision_timestamp": "2026-09-18T07:02:01Z"
+    },
+    {
+      "node_id": "Toro_(character)",
+      "name": "Toro (character)",
+      "url": "https://en.wikipedia.org/wiki/Toro_(character)",
+      "page_title": "Toro (character)",
+      "page_id": 1546590,
+      "revision_id": 1376906300,
+      "revision_timestamp": "2026-09-26T22:34:36Z"
+    },
+    {
+      "node_id": "Toxyn",
+      "name": "Toxyn",
+      "url": "https://en.wikipedia.org/wiki/Toxyn",
+      "page_title": "Strikeforce: Morituri",
+      "page_id": 850512,
+      "revision_id": 1375702355,
+      "revision_timestamp": "2026-09-19T13:33:45Z"
+    },
+    {
+      "node_id": "Turbo_(comics)",
+      "name": "Turbo (comics)",
+      "url": "https://en.wikipedia.org/wiki/Turbo_(comics)",
+      "page_title": "Turbo (comics)",
+      "page_id": 2320726,
+      "revision_id": 1375514233,
+      "revision_timestamp": "2026-09-18T07:02:25Z"
+    },
+    {
+      "node_id": "Two-Gun_Kid",
+      "name": "Two-Gun Kid",
+      "url": "https://en.wikipedia.org/wiki/Two-Gun_Kid",
+      "page_title": "Two-Gun Kid",
+      "page_id": 1406663,
+      "revision_id": 1375935234,
+      "revision_timestamp": "2026-09-21T00:17:19Z"
+    },
+    {
+      "node_id": "Typeface_(character)",
+      "name": "Typeface (character)",
+      "url": "https://en.wikipedia.org/wiki/Typeface_(character)",
+      "page_title": "Typeface (character)",
+      "page_id": 5955676,
+      "revision_id": 1368209091,
+      "revision_timestamp": "2026-08-07T18:08:52Z"
+    },
+    {
+      "node_id": "U.S._Agent",
+      "name": "U.S. Agent",
+      "url": "https://en.wikipedia.org/wiki/U.S._Agent",
+      "page_title": "U.S. Agent",
+      "page_id": 1870260,
+      "revision_id": 1375519621,
+      "revision_timestamp": "2026-09-18T07:46:27Z"
+    },
+    {
+      "node_id": "Ulysses_Bloodstone",
+      "name": "Ulysses Bloodstone",
+      "url": "https://en.wikipedia.org/wiki/Ulysses_Bloodstone",
+      "page_title": "Ulysses Bloodstone",
+      "page_id": 4068358,
+      "revision_id": 1377066508,
+      "revision_timestamp": "2026-09-27T19:05:59Z"
+    },
+    {
+      "node_id": "Union_Jack_(Joseph_Chapman)",
+      "name": "Union Jack (Joseph Chapman)",
+      "url": "https://en.wikipedia.org/wiki/Union_Jack_(Joseph_Chapman)",
+      "page_title": "Union Jack (Joseph Chapman)",
+      "page_id": 8808353,
+      "revision_id": 1375519636,
+      "revision_timestamp": "2026-09-18T07:46:39Z"
+    },
+    {
+      "node_id": "Union_Jack_(Marvel_Comics)",
+      "name": "Union Jack (Marvel Comics)",
+      "url": "https://en.wikipedia.org/wiki/Union_Jack_(Marvel_Comics)",
+      "page_title": "Union Jack (Marvel Comics)",
+      "page_id": 1635101,
+      "revision_id": 1377160739,
+      "revision_timestamp": "2026-09-28T03:33:58Z"
+    },
+    {
+      "node_id": "Ursa_Major_(character)",
+      "name": "Ursa Major (character)",
+      "url": "https://en.wikipedia.org/wiki/Ursa_Major_(character)",
+      "page_title": "Ursa Major (character)",
+      "page_id": 1984163,
+      "revision_id": 1377067631,
+      "revision_timestamp": "2026-09-27T19:10:37Z"
+    },
+    {
+      "node_id": "Vance_Astrovik",
+      "name": "Vance Astrovik",
+      "url": "https://en.wikipedia.org/wiki/Vance_Astrovik",
+      "page_title": "Vance Astrovik",
+      "page_id": 1162995,
+      "revision_id": 1339370542,
+      "revision_timestamp": "2026-02-20T04:31:17Z"
+    },
+    {
+      "node_id": "Venom_(character)",
+      "name": "Venom (character)",
+      "url": "https://en.wikipedia.org/wiki/Venom_(character)",
+      "page_title": "Venom (character)",
+      "page_id": 7820841,
+      "revision_id": 1375519647,
+      "revision_timestamp": "2026-09-18T07:46:47Z"
+    },
+    {
+      "node_id": "Vindicator_(comics)",
+      "name": "Vindicator (comics)",
+      "url": "https://en.wikipedia.org/wiki/Vindicator_(comics)",
+      "page_title": "Heather Hudson",
+      "page_id": 1998892,
+      "revision_id": 1377470463,
+      "revision_timestamp": "2026-09-29T15:19:41Z"
+    },
+    {
+      "node_id": "Vulcan_(Marvel_Comics)",
+      "name": "Vulcan (Marvel Comics)",
+      "url": "https://en.wikipedia.org/wiki/Vulcan_(Marvel_Comics)",
+      "page_title": "Vulcan (Marvel Comics)",
+      "page_id": 4200190,
+      "revision_id": 1377015330,
+      "revision_timestamp": "2026-09-27T12:59:51Z"
+    },
+    {
+      "node_id": "Vyking",
+      "name": "Vyking",
+      "url": "https://en.wikipedia.org/wiki/Vyking",
+      "page_title": "Strikeforce: Morituri",
+      "page_id": 850512,
+      "revision_id": 1375702355,
+      "revision_timestamp": "2026-09-19T13:33:45Z"
+    },
+    {
+      "node_id": "War_Machine",
+      "name": "War Machine",
+      "url": "https://en.wikipedia.org/wiki/War_Machine",
+      "page_title": "War Machine",
+      "page_id": 840166,
+      "revision_id": 1376732982,
+      "revision_timestamp": "2026-09-25T23:14:36Z"
+    },
+    {
+      "node_id": "Werewolf_by_Night",
+      "name": "Werewolf by Night",
+      "url": "https://en.wikipedia.org/wiki/Werewolf_by_Night",
+      "page_title": "Werewolf by Night",
+      "page_id": 1712037,
+      "revision_id": 1377067750,
+      "revision_timestamp": "2026-09-27T19:11:04Z"
+    },
+    {
+      "node_id": "White_Tiger_(Heroes_for_Hire)",
+      "name": "White Tiger (Heroes for Hire)",
+      "url": "https://en.wikipedia.org/wiki/White_Tiger_(Heroes_for_Hire)",
+      "page_title": "White Tiger (Heroes for Hire)",
+      "page_id": 6884901,
+      "revision_id": 1377067793,
+      "revision_timestamp": "2026-09-27T19:11:14Z"
+    },
+    {
+      "node_id": "White_Tiger_(comics)",
+      "name": "White Tiger (comics)",
+      "url": "https://en.wikipedia.org/wiki/White_Tiger_(comics)",
+      "page_title": "White Tiger (comics)",
+      "page_id": 4327222,
+      "revision_id": 1377067776,
+      "revision_timestamp": "2026-09-27T19:11:10Z"
+    },
+    {
+      "node_id": "Whizzer_(Robert_Frank)",
+      "name": "Whizzer (Robert Frank)",
+      "url": "https://en.wikipedia.org/wiki/Whizzer_(Robert_Frank)",
+      "page_title": "Whizzer (Robert Frank)",
+      "page_id": 14434525,
+      "revision_id": 1371526730,
+      "revision_timestamp": "2026-08-27T00:13:15Z"
+    },
+    {
+      "node_id": "Wild_Child_(character)",
+      "name": "Wild Child (character)",
+      "url": "https://en.wikipedia.org/wiki/Wild_Child_(character)",
+      "page_title": "Wild Child (character)",
+      "page_id": 2215946,
+      "revision_id": 1377067798,
+      "revision_timestamp": "2026-09-27T19:11:16Z"
+    },
+    {
+      "node_id": "Will_o'_the_Wisp_(comics)",
+      "name": "Will o' the Wisp (comics)",
+      "url": "https://en.wikipedia.org/wiki/Will_o%27_the_Wisp_(comics)",
+      "page_title": "Will o' the Wisp (comics)",
+      "page_id": 5545113,
+      "revision_id": 1375514410,
+      "revision_timestamp": "2026-09-18T07:04:15Z"
+    },
+    {
+      "node_id": "William_Burnside_(character)",
+      "name": "William Burnside (character)",
+      "url": "https://en.wikipedia.org/wiki/William_Burnside_(character)",
+      "page_title": "William Burnside (character)",
+      "page_id": 6170776,
+      "revision_id": 1375511859,
+      "revision_timestamp": "2026-09-18T06:40:01Z"
+    },
+    {
+      "node_id": "Wolverine_(Ultimate_Marvel_character)",
+      "name": "Wolverine (Ultimate Marvel character)",
+      "url": "https://en.wikipedia.org/wiki/Wolverine_(Ultimate_Marvel_character)",
+      "page_title": "Wolverine (Ultimate Marvel character)",
+      "page_id": 4280762,
+      "revision_id": 1377067838,
+      "revision_timestamp": "2026-09-27T19:11:23Z"
+    },
+    {
+      "node_id": "Wolverine_(character)",
+      "name": "Wolverine (character)",
+      "url": "https://en.wikipedia.org/wiki/Wolverine_(character)",
+      "page_title": "Wolverine (character)",
+      "page_id": 302602,
+      "revision_id": 1377375521,
+      "revision_timestamp": "2026-09-29T03:23:18Z"
+    },
+    {
+      "node_id": "Xorn",
+      "name": "Xorn",
+      "url": "https://en.wikipedia.org/wiki/Xorn",
+      "page_title": "Xorn",
+      "page_id": 322085,
+      "revision_id": 1375335905,
+      "revision_timestamp": "2026-09-17T05:01:21Z"
+    },
+    {
+      "node_id": "Yelena_Belova",
+      "name": "Yelena Belova",
+      "url": "https://en.wikipedia.org/wiki/Yelena_Belova",
+      "page_title": "Yelena Belova",
+      "page_id": 20583169,
+      "revision_id": 1375473611,
+      "revision_timestamp": "2026-09-18T00:24:22Z"
+    },
+    {
+      "node_id": "Yo-Yo_Rodriguez",
+      "name": "Yo-Yo Rodriguez",
+      "url": "https://en.wikipedia.org/wiki/Yo-Yo_Rodriguez",
+      "page_title": "Yo-Yo Rodriguez",
+      "page_id": 26734871,
+      "revision_id": 1372165410,
+      "revision_timestamp": "2026-08-30T17:57:33Z"
+    },
+    {
+      "node_id": "Zombie_(comics)",
+      "name": "Zombie (comics)",
+      "url": "https://en.wikipedia.org/wiki/Zombie_(comics)",
+      "page_title": "Zombie (comics)",
+      "page_id": 7374547,
+      "revision_id": 1375514492,
+      "revision_timestamp": "2026-09-18T07:04:59Z"
+    }
+  ]
+}

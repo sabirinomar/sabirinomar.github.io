@@ -37,9 +37,9 @@
     {
       week: "Week 5",
       title: "The language half · NLP I",
-      status: "coming-soon",
-      description: "Turn text into signals that can be studied alongside network structure.",
-      href: "",
+      status: "live",
+      description: "Compare the language of linked Marvel pages with text from non-linked pairs.",
+      href: "posts/week5/index.html",
     },
     {
       week: "Week 6",

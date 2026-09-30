@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Week 5 · When Marvel pages link, do they sound alike?</title>
+    <meta
+      name="description"
+      content="A text-and-network comparison of linked Marvel Wikipedia pages using TF-IDF cosine similarity."
+    />
+    <link rel="stylesheet" href="../../assets/css/styles.css" />
+    <link rel="stylesheet" href="../../assets/css/week5.css" />
+  </head>
+  <body class="week5-page">
+    <header class="site-header">
+      <div class="container nav">
+        <div class="brand">Social Graphs Group</div>
+        <nav aria-label="Main navigation">
+          <ul class="nav-links">
+            <li><a href="../../index.html">Home</a></li>
+            <li><a href="../week1/index.html">Week 1</a></li>
+            <li><a href="../week2/index.html">Week 2</a></li>
+            <li><a href="../week3/index.html">Week 3</a></li>
+            <li><a href="../week4/index.html">Week 4</a></li>
+            <li><a href="index.html" aria-current="page">Week 5</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container week5-main">
+      <header class="week5-hero">
+        <span class="week5-kicker">Week 5 · Words meet the web</span>
+        <h1>When Marvel pages link, do they sound alike?</h1>
+        <p>We compared the language on linked Wikipedia pages with length-matched pairs that do not link—and then checked the pages behind the strongest similarities.</p>
+      </header>
+
+      <div class="week5-layout">
+        <aside class="week5-toc" aria-label="Week 5 sections">
+          <strong>On this page</strong>
+          <a href="#question">Question</a>
+          <a href="#what-we-did">What we did</a>
+          <a href="#what-we-found">What we found</a>
+          <a href="#surprise">What surprised us</a>
+          <a href="#text">Looking at the text</a>
+          <a href="#limitation">Limitation</a>
+          <a href="#takeaway">Takeaway</a>
+        </aside>
+
+        <article class="week5-article">
+          <section id="question">
+            <span class="week5-section-label">The question</span>
+            <h2>Question</h2>
+            <div class="week5-question">
+              <p>Do directly linked Marvel character pages use more similar language than comparable non-linked pages?</p>
+            </div>
+          </section>
+
+          <section id="what-we-did">
+            <span class="week5-section-label">01 / Turn pages into vectors</span>
+            <h2>What we did</h2>
+            <p>We started with the course’s 303 Marvel character pages and 1,784 directed Wikipedia links. The node file contains each character’s page URL, but not the article text, so our script fetched the actual English Wikipedia extracts and recorded the exact revisions used. Twelve node entries currently redirect to another article or share the same page; we excluded those rather than let duplicate text create fake matches. That left 291 distinct article pages, including 274 that appear in the analyzed links.</p>
+            <div class="week5-method">
+              <p><strong>Preprocessing, in brief:</strong> We lowercased and tokenized Unicode words, keeping internal hyphens and apostrophes; removed numeric-only tokens, English stopwords, all terms from Marvel character names, and terms present in at least half (or only one) of the pages. We did not lemmatize, so words such as “mutant” and “mutants” remain different. This keeps names and broad Wikipedia/Marvel boilerplate from dominating the comparison.</p>
+              <p>We built a TF–IDF bag-of-words vector for each page and compared vectors with cosine similarity. Each of the 1,411 distinct linked pairs was matched to one non-linked pair with the closest combined article word count, without reusing a control pair. We compare medians and paired differences descriptively, not as a causal test. Run <code>python3 scripts/week5_analysis.py</code> to regenerate the figure and summary from the pinned revisions in the source manifest; the downloaded text cache is not committed.</p>
+            </div>
+          </section>
+
+          <section id="what-we-found">
+            <span class="week5-section-label">02 / Compare the pairs</span>
+            <h2>What we found</h2>
+            <div class="week5-result-strip" aria-label="Main results">
+              <div class="week5-result"><strong>0.138</strong><span>Median cosine for linked pairs</span></div>
+              <div class="week5-result"><strong>0.090</strong><span>Median cosine for matched non-links</span></div>
+              <div class="week5-result"><strong>80%</strong><span>Linked pairs more similar than their matched pair</span></div>
+            </div>
+            <figure class="week5-figure">
+              <img
+                src="../../assets/figures/week5/linked-language-similarity.svg"
+                alt="Distribution of TF-IDF cosine similarity for 1,411 linked Marvel page pairs and 1,411 length-matched non-linked pairs. Linked pairs have the higher median."
+                loading="lazy"
+              />
+              <figcaption>Each dot is one pair. The boxes show the middle half of each distribution; the bold line is the median. The median paired difference is 0.037 cosine points.</figcaption>
+            </figure>
+            <p>We expected linked pages to share more vocabulary because they often cover connected characters and stories. That is what we found: their median similarity was higher, and the difference survived removing character-name words and common terms. But the distributions overlap—a link does not guarantee that two pages use especially similar language.</p>
+          </section>
+
+          <section id="surprise">
+            <span class="week5-section-label">03 / Check the easy explanations</span>
+            <h2>What surprised us</h2>
+            <p>The pattern did not disappear when we removed character names. Keeping those terms actually raises the median paired difference from 0.037 to 0.046, so names add some signal but are not the whole result. Stopwords and terms occurring in half or more of the pages were also removed; the matched pairs have exactly the same combined word count at the median.</p>
+            <p>The bigger surprise came from reading the pages behind the first run: ten different character entries had all redirected to the same <em>Strikeforce: Morituri</em> article, producing several perfect-looking similarities. We excluded those entries, along with two other retargeted pages, before calculating the results shown here. Even after that cleanup, linked pairs remain more similar—but less dramatically than the first result suggested.</p>
+            <p>That is a useful warning: a shared team, identity, or crossover can explain both a hyperlink and shared vocabulary. Names, stopwords, and very common boilerplate were filtered, and pair lengths were matched, but copied passages among the remaining pages, less frequent boilerplate, and formatting differences may still contribute. The comparison shows association, not that links cause similar writing.</p>
+          </section>
+
+          <section id="text">
+            <span class="week5-section-label">04 / Read the pages, not just the score</span>
+            <h2>Looking at the text</h2>
+            <p>We opened the actual article revisions for two of the most similar non-redirect pairs. Their shared terms point to relationships that are visible in the passages—not just a high number produced by the model.</p>
+            <div class="week5-table-wrap">
+              <table class="week5-evidence">
+                <thead>
+                  <tr>
+                    <th>Character / page</th>
+                    <th>Pair score</th>
+                    <th>Relevant language</th>
+                    <th>Passage we checked</th>
+                    <th>What it supports</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a href="https://en.wikipedia.org/w/index.php?oldid=1375518320">Eddie Brock</a></td>
+                    <td>0.531 with Venom</td>
+                    <td>symbiote; host</td>
+                    <td><q>the most well-known host of the Venom symbiote</q></td>
+                    <td>The high overlap reflects Brock’s specific connection to Venom.</td>
+                  </tr>
+                  <tr>
+                    <td><a href="https://en.wikipedia.org/w/index.php?oldid=1375519647">Venom</a></td>
+                    <td>0.531 with Eddie Brock</td>
+                    <td>symbiote; host</td>
+                    <td><q>Eddie Brock, its second host, with whom it first became Venom</q></td>
+                    <td>The reciprocal page text confirms the same character relationship.</td>
+                  </tr>
+                  <tr>
+                    <td><a href="https://en.wikipedia.org/w/index.php?oldid=1375758636">Ch’od</a></td>
+                    <td>0.523 with Raza Longknife</td>
+                    <td>Starjammers; Shi’ar</td>
+                    <td><q>a founding member of the Starjammers</q></td>
+                    <td>The shared team is a concrete source of the vocabulary overlap.</td>
+                  </tr>
+                  <tr>
+                    <td><a href="https://en.wikipedia.org/w/index.php?oldid=1375758628">Raza Longknife</a></td>
+                    <td>0.523 with Ch’od</td>
+                    <td>Starjammers; Shi’ar</td>
+                    <td><q>with Corsair, Hepzibah, and Ch'od</q></td>
+                    <td>Raza’s page independently describes his membership in that same group.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="week5-sources">Short excerpts from English Wikipedia contributors, under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. Each page name links to the exact revision analyzed; all 303 source revisions are listed in <a href="../../assets/week5_source_revisions.json">the source manifest</a>.</p>
+          </section>
+
+          <section id="limitation">
+            <span class="week5-section-label">One thing to keep in mind</span>
+            <h2>Limitation</h2>
+            <p>The hyperlink graph is the course’s August 2026 snapshot, while the page revisions were retrieved on 30 September 2026 (their individual timestamps range from March 2025 to that date). The revision IDs make this analysis repeatable, but the article text may not match what editors saw when the links were collected; our comparison is therefore not perfectly synchronized with the network snapshot.</p>
+          </section>
+
+          <section id="takeaway" class="week5-takeaway">
+            <div class="week5-takeaway__heading">
+              <span class="week5-section-label">The short version</span>
+              <h2>Takeaway</h2>
+            </div>
+            <p><strong>Yes—with a caveat.</strong> Among the pages we could match cleanly, linked pairs tend to use more similar language than equally long non-linked pairs. The inspected examples show why: shared identities and teams create shared vocabulary too, so this is a pattern to interpret, not a causal claim.</p>
+          </section>
+        </article>
+      </div>
+    </main>
+
+    <footer class="site-footer"><div class="container">Social Graphs Group · Week 5</div></footer>
+  </body>
+</html>
