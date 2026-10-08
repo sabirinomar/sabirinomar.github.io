@@ -1,0 +1,131 @@
+{
+  "question": "Who is textually close but structurally far away?",
+  "method": "TF-IDF + cosine similarity on cleaned Marvel pages; shortest-path distance in the existing Marvel hyperlink network.",
+  "data_files": {
+    "text_corpus": "/Users/salmahirsi/Documents/GitHub/sabirinomar.github.io/data/marvel_pages",
+    "network_nodes": "/Users/salmahirsi/Documents/GitHub/sabirinomar.github.io/data/week1_nodes.tsv",
+    "network_edges": "/Users/salmahirsi/Documents/GitHub/sabirinomar.github.io/data/week1_edges.tsv"
+  },
+  "n_text_pages": 303,
+  "n_network_nodes": 303,
+  "n_network_edges": 1784,
+  "distance_threshold": 5,
+  "selected_pair": {
+    "node_a": "Backhand_(character)",
+    "node_b": "Scatterbrain_(Morituri)",
+    "name_a": "Backhand (character)",
+    "name_b": "Scatterbrain (Morituri)",
+    "similarity": 0.3732,
+    "cosine_similarity": 0.3732,
+    "distance": 5,
+    "network_distance": 5,
+    "shared_terms": [
+      {
+        "term": "morituri",
+        "left_weight": 0.66,
+        "right_weight": 0.4411
+      },
+      {
+        "term": "strikeforce",
+        "left_weight": 0.1702,
+        "right_weight": 0.1441
+      },
+      {
+        "term": "hordians",
+        "left_weight": 0.1151,
+        "right_weight": 0.0812
+      },
+      {
+        "term": "brent",
+        "left_weight": 0.0668,
+        "right_weight": 0.0707
+      },
+      {
+        "term": "effect",
+        "left_weight": 0.0658,
+        "right_weight": 0.0697
+      },
+      {
+        "term": "process",
+        "left_weight": 0.0818,
+        "right_weight": 0.052
+      },
+      {
+        "term": "gillis",
+        "left_weight": 0.0634,
+        "right_weight": 0.0671
+      },
+      {
+        "term": "anderson",
+        "left_weight": 0.0634,
+        "right_weight": 0.0671
+      },
+      {
+        "term": "horde",
+        "left_weight": 0.0308,
+        "right_weight": 0.0651
+      },
+      {
+        "term": "generation",
+        "left_weight": 0.0483,
+        "right_weight": 0.0256
+      }
+    ],
+    "evidence": {
+      "node_a": "The character is usually depicted as a member of the Strikeforce: Morituri.",
+      "node_b": "The character is depicted as a member of the Strikeforce: Morituri.",
+      "explanation": "The pages are textually similar because both describe the Strikeforce: Morituri team and its fatal superhuman process, even though the network path between them is five steps long."
+    }
+  },
+  "top_pairs": [
+    {
+      "node_a": "Spider-UK",
+      "node_b": "Steel_Spider",
+      "name_a": "Spider-UK",
+      "name_b": "Steel Spider",
+      "cosine_similarity": 0.4485,
+      "network_distance": 5
+    },
+    {
+      "node_a": "Spider-Man_Noir",
+      "node_b": "Steel_Spider",
+      "name_a": "Spider-Man Noir",
+      "name_b": "Steel Spider",
+      "cosine_similarity": 0.4338,
+      "network_distance": 5
+    },
+    {
+      "node_a": "Mayday_Parker",
+      "node_b": "Steel_Spider",
+      "name_a": "Mayday Parker",
+      "name_b": "Steel Spider",
+      "cosine_similarity": 0.3939,
+      "network_distance": 5
+    },
+    {
+      "node_a": "Spider-Man_(Marvel_Mangaverse)",
+      "node_b": "Steel_Spider",
+      "name_a": "Spider-Man (Marvel Mangaverse)",
+      "name_b": "Steel Spider",
+      "cosine_similarity": 0.3931,
+      "network_distance": 5
+    },
+    {
+      "node_a": "Backhand_(character)",
+      "node_b": "Scatterbrain_(Morituri)",
+      "name_a": "Backhand (character)",
+      "name_b": "Scatterbrain (Morituri)",
+      "cosine_similarity": 0.3732,
+      "network_distance": 5
+    },
+    {
+      "node_a": "Cable_(character)",
+      "node_b": "G._W._Bridge",
+      "name_a": "Cable (character)",
+      "name_b": "G. W. Bridge",
+      "cosine_similarity": 0.3295,
+      "network_distance": 5
+    }
+  ],
+  "name_overlap_note": "Pairs with overlapping character-name tokens were excluded from the candidate selection to avoid trivially high matches caused by names such as Spider or Blue."
+}

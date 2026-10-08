@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Week 6 · Textually close but structurally far away</title>
+    <meta
+      name="description"
+      content="A network-and-text case study showing how two Marvel pages can be textually similar while sitting far apart in the hyperlink graph."
+    />
+    <link rel="stylesheet" href="../../assets/css/styles.css" />
+    <style>
+      .week6-main {
+        padding: 2rem 0 4rem;
+      }
+
+      .week6-hero {
+        margin-bottom: 2rem;
+        padding: clamp(1.5rem, 3vw, 3rem);
+        border: 1px solid rgba(112, 90, 145, 0.18);
+        border-radius: 30px;
+        background: linear-gradient(135deg, rgba(255,255,255,0.78), rgba(248, 238, 255, 0.85));
+        box-shadow: 0 18px 48px rgba(91, 60, 118, 0.14);
+      }
+
+      .week6-kicker {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.45rem 0.9rem;
+        border-radius: 999px;
+        background: linear-gradient(90deg, rgba(255, 180, 200, 0.28), rgba(187, 169, 255, 0.28));
+        border: 1px solid rgba(124, 94, 170, 0.12);
+        color: var(--navy);
+        font-size: 0.74rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        font-weight: 800;
+      }
+
+      .week6-hero h1 {
+        margin: 1rem 0 0.8rem;
+        font-size: clamp(2.4rem, 4vw, 4rem);
+        line-height: 1.02;
+        font-family: "Playfair Display", Georgia, serif;
+        letter-spacing: -0.05em;
+        color: var(--navy);
+      }
+
+      .week6-hero p {
+        margin: 0;
+        max-width: 760px;
+        color: var(--muted);
+        font-size: 1.08rem;
+      }
+
+      .week6-layout {
+        display: grid;
+        grid-template-columns: minmax(180px, 220px) minmax(0, 1fr);
+        gap: 1.5rem;
+      }
+
+      .week6-toc {
+        position: sticky;
+        top: 104px;
+        align-self: start;
+        padding: 1rem 0.9rem;
+        border: 1px solid var(--border);
+        border-radius: 22px;
+        background: rgba(255,255,255,0.7);
+        box-shadow: var(--shadow-soft);
+      }
+
+      .week6-toc strong {
+        display: block;
+        margin-bottom: 0.7rem;
+        color: var(--navy);
+        font-family: "Playfair Display", Georgia, serif;
+        font-size: 1.05rem;
+      }
+
+      .week6-toc a {
+        display: block;
+        padding: 0.42rem 0.55rem;
+        border-radius: 12px;
+        color: var(--muted);
+        font-size: 0.76rem;
+        font-weight: 700;
+        line-height: 1.35;
+      }
+
+      .week6-toc a:hover {
+        background: linear-gradient(90deg, rgba(255, 123, 180, 0.16), rgba(185, 171, 255, 0.2));
+        color: var(--navy);
+      }
+
+      .week6-article {
+        display: grid;
+        gap: 2rem;
+      }
+
+      .week6-article section {
+        background: rgba(255,255,255,0.52);
+        border: 1px solid var(--border);
+        border-radius: 24px;
+        padding: 1.5rem 1.4rem;
+      }
+
+      .week6-section-label {
+        display: inline-block;
+        margin-bottom: 0.7rem;
+        color: var(--pink-strong);
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        font-weight: 800;
+      }
+
+      .week6-article h2 {
+        margin: 0 0 0.85rem;
+        color: var(--navy);
+        font-family: "Playfair Display", Georgia, serif;
+        letter-spacing: -0.04em;
+        font-size: clamp(1.8rem, 3vw, 2.6rem);
+      }
+
+      .week6-question {
+        padding: 1rem 1.1rem;
+        border-left: 4px solid var(--pink-strong);
+        background: linear-gradient(90deg, rgba(255, 122, 176, 0.14), rgba(197, 185, 255, 0.1));
+        border-radius: 14px;
+      }
+
+      .week6-result-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+
+      .week6-result {
+        padding: 1rem;
+        border: 1px solid rgba(112, 90, 145, 0.15);
+        border-radius: 18px;
+        background: rgba(255,255,255,0.6);
+      }
+
+      .week6-result strong {
+        display: block;
+        font-size: clamp(1.6rem, 3vw, 2.3rem);
+        color: var(--navy);
+        line-height: 1.1;
+      }
+
+      .week6-result span {
+        display: block;
+        margin-top: 0.35rem;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      .week6-figure {
+        margin: 1.2rem 0 0.4rem;
+      }
+
+      .week6-figure img {
+        width: 100%;
+        border-radius: 18px;
+        border: 1px solid rgba(112, 90, 145, 0.15);
+        background: white;
+      }
+
+      .week6-figure figcaption {
+        margin-top: 0.7rem;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      .week6-method {
+        display: grid;
+        gap: 1rem;
+      }
+
+      .week6-evidence-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+
+      .week6-card {
+        padding: 1rem;
+        border: 1px solid rgba(112, 90, 145, 0.16);
+        border-radius: 18px;
+        background: rgba(255,255,255,0.7);
+      }
+
+      .week6-card h3 {
+        margin: 0 0 0.7rem;
+        color: var(--navy);
+        font-size: 1.3rem;
+        font-family: "Playfair Display", Georgia, serif;
+      }
+
+      .week6-card p {
+        margin: 0.7rem 0;
+        color: var(--text);
+      }
+
+      .week6-card .week6-term {
+        display: inline-block;
+        margin: 0.2rem 0.2rem 0 0;
+        padding: 0.2rem 0.55rem;
+        border-radius: 999px;
+        background: rgba(197, 185, 255, 0.26);
+        color: var(--navy);
+        font-size: 0.78rem;
+        font-weight: 700;
+      }
+
+      .week6-card button {
+        margin-top: 0.75rem;
+        border: none;
+        background: linear-gradient(135deg, rgba(255, 122, 176, 0.18), rgba(197, 185, 255, 0.2));
+        color: var(--navy);
+        border-radius: 999px;
+        padding: 0.55rem 0.85rem;
+        font-weight: 800;
+        cursor: pointer;
+      }
+
+      .week6-card [hidden] {
+        display: none !important;
+      }
+
+      .week6-takeaway {
+        border: 1px solid rgba(232, 90, 152, 0.2);
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(255, 242, 249, 0.7));
+      }
+
+      @media (max-width: 840px) {
+        .week6-layout {
+          grid-template-columns: 1fr;
+        }
+
+        .week6-toc {
+          position: static;
+        }
+
+        .week6-result-grid,
+        .week6-evidence-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body class="week6-page">
+    <header class="site-header">
+      <div class="container nav">
+        <div class="brand">Social Graphs Group</div>
+        <nav aria-label="Main navigation">
+          <ul class="nav-links">
+            <li><a href="../../index.html">Home</a></li>
+            <li><a href="../week1/index.html">Week 1</a></li>
+            <li><a href="../week2/index.html">Week 2</a></li>
+            <li><a href="../week3/index.html">Week 3</a></li>
+            <li><a href="../week4/index.html">Week 4</a></li>
+            <li><a href="../week5/index.html">Week 5</a></li>
+            <li><a href="index.html" aria-current="page">Week 6</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container week6-main">
+      <header class="week6-hero">
+        <span class="week6-kicker">Week 6 · Text + graph</span>
+        <h1>Textually close but structurally far away</h1>
+        <p>
+          We asked a simple question: when two Marvel character pages are textually similar, how far apart are they in the hyperlink graph? The answer is not always “next to each other.”
+        </p>
+      </header>
+
+      <div class="week6-layout">
+        <aside class="week6-toc" aria-label="Week 6 sections">
+          <strong>On this page</strong>
+          <a href="#question">Question</a>
+          <a href="#method">What we did</a>
+          <a href="#result">What we found</a>
+          <a href="#evidence">Evidence in the text</a>
+          <a href="#limitations">Limitations</a>
+          <a href="#takeaway">Takeaway</a>
+        </aside>
+
+        <article class="week6-article">
+          <section id="question">
+            <span class="week6-section-label">The question</span>
+            <h2>Question</h2>
+            <div class="week6-question">
+              <p>Who is textually close to another character but still sits several steps away in the Marvel network?</p>
+            </div>
+          </section>
+
+          <section id="method">
+            <span class="week6-section-label">01 / Compare the two views</span>
+            <h2>What we did</h2>
+            <div class="week6-method">
+              <p>
+                We used the course’s 303-character Marvel graph and the plain-text corpus in the local data folder. For every pair of pages, we computed a TF-IDF cosine similarity from cleaned page text and a shortest-path distance from the directed character network. We then filtered out pairs with overlapping character-name tokens so the result would not be dominated by obvious name matches like “Spider” or “Blue.”
+              </p>
+              <p>
+                This leaves a cleaner question: do two pages sound alike even when their graph positions are not close? The analysis is deliberately simple and case-driven: a single narrative question, one main figure, and one real pair that we read in context.
+              </p>
+            </div>
+          </section>
+
+          <section id="result">
+            <span class="week6-section-label">02 / The strongest example</span>
+            <h2>What we found</h2>
+            <div class="week6-result-grid" aria-label="Selected pair metrics">
+              <div class="week6-result">
+                <strong>0.3732</strong>
+                <span>TF-IDF cosine similarity</span>
+              </div>
+              <div class="week6-result">
+                <strong>5</strong>
+                <span>Network distance</span>
+              </div>
+              <div class="week6-result">
+                <strong>Backhand</strong>
+                <span>and Scatterbrain (Morituri)</span>
+              </div>
+            </div>
+
+            <figure class="week6-figure">
+              <img
+                src="../../assets/figures/week6/textual_vs_network_distance.svg"
+                alt="Scatter plot comparing TF-IDF cosine similarity and shortest-path network distance for Marvel character pairs. The highlighted pair is Backhand and Scatterbrain (Morituri), with similarity 0.3732 and distance 5."
+                loading="lazy"
+              />
+              <figcaption>
+                Each dot is a unique character pair. The highlighted point is the Morituri case: high textual similarity, but a network distance of five.
+              </figcaption>
+            </figure>
+          </section>
+
+          <section id="evidence">
+            <span class="week6-section-label">03 / Read the text directly</span>
+            <h2>Evidence in the text</h2>
+            <div class="week6-evidence-grid">
+              <article class="week6-card">
+                <h3>Backhand (character)</h3>
+                <p>“The character is usually depicted as a member of the Strikeforce: Morituri.”</p>
+                <div>
+                  <span class="week6-term">morituri</span>
+                  <span class="week6-term">strikeforce</span>
+                  <span class="week6-term">process</span>
+                </div>
+                <button type="button" data-toggle="backhand-more">Show more context</button>
+                <p id="backhand-more" hidden>
+                  In the page text, Backhand is tied to the team’s purpose, the deadly Morituri process, and the short lifespan that comes with it. The language is not just a generic hero description; it is the story of a team that gains power only by accepting a fatal cost.
+                </p>
+              </article>
+
+              <article class="week6-card">
+                <h3>Scatterbrain (Morituri)</h3>
+                <p>“The character is depicted as a member of the Strikeforce: Morituri.”</p>
+                <div>
+                  <span class="week6-term">morituri</span>
+                  <span class="week6-term">horde</span>
+                  <span class="week6-term">effect</span>
+                </div>
+                <button type="button" data-toggle="scatterbrain-more">Show more context</button>
+                <p id="scatterbrain-more" hidden>
+                  Scatterbrain is described as a volunteer in the Morituri program, a person transformed by a scientific process that grants power while also leading to an inevitable death. The page shares the same central vocabulary: team, process, threat, and fatal consequence.
+                </p>
+              </article>
+            </div>
+          </section>
+
+          <section id="limitations">
+            <span class="week6-section-label">One caveat</span>
+            <h2>Limitations</h2>
+            <p>
+              The graph and the text are not perfectly synchronized in time: the network reflects the course snapshot, while the page texts are the local corpus extracted for the analysis. That is fine for a case study, but it means the result is descriptive rather than causal. A shared team, plot arc, or editorial framing can explain both the similarity and the hyperlink structure.
+            </p>
+          </section>
+
+          <section id="takeaway" class="week6-takeaway">
+            <span class="week6-section-label">The short version</span>
+            <h2>Takeaway</h2>
+            <p>
+              <strong>Text and structure do not move in lockstep.</strong> Backhand and Scatterbrain are not adjacent in the graph, yet they are strongly aligned in the language they use because they belong to the same story world and the same fatal superhuman program. The real lesson is not that one model is “better” than the other, but that the two views capture different kinds of closeness.
+            </p>
+          </section>
+        </article>
+      </div>
+    </main>
+
+    <footer class="site-footer"><div class="container">Social Graphs Group · Week 6</div></footer>
+    <script src="../../assets/js/week6.js"></script>
+  </body>
+</html>

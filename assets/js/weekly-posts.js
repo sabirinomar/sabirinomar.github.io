@@ -43,10 +43,10 @@
     },
     {
       week: "Week 6",
-      title: "NLP II",
-      status: "coming-soon",
-      description: "Move from words to patterns, meaning, and comparison.",
-      href: "",
+      title: "Textual similarity, network distance",
+      status: "live",
+      description: "Ask whether two Marvel pages can sound alike even when they are structurally far apart.",
+      href: "posts/week6/index.html",
     },
     {
       week: "Week 7",
